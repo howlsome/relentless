@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(nvm use *)",
+      "Bash(fnm use *)",
+      "Read(//home/howl/.nvm/versions/**)",
+      "Read(//home/howl/.fnm/**)",
+      "Read(//home/howl/.volta/tools/image/**)",
+      "Bash(export PATH=\"$HOME/.local/share/mise/shims:$PATH\")",
+      "Bash(npm install *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d['packages']['node_modules/@sveltejs/kit']['version'], d['packages']['node_modules/svelte']['version'], d['packages']['node_modules/@picocss/pico']['version']\\)\")",
+      "Bash(npm run *)",
+      "Bash(node -e \"import\\('/var/home/howl/Developer/World of Warcraft/relentless/node_modules/@sveltejs/vite-plugin-svelte/src/index.js'\\).then\\(m => console.log\\(Object.keys\\(m\\)\\)\\)\")",
+      "Bash(node -e \"import\\('/var/home/howl/Developer/World of Warcraft/relentless/node_modules/@sveltejs/kit/src/exports/vite/index.js'\\).then\\(m => console.log\\(Object.keys\\(m\\)\\)\\).catch\\(e => console.log\\('not found:', e.message\\)\\)\")",
+      "Bash(ls node_modules/typescript/package.json)",
+      "Bash(node -e \"import\\('../node_modules/typescript/package.json', {assert:{type:'json'}}\\).then\\(m=>console.log\\('ts', m.default.version\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; print\\(json.load\\(sys.stdin\\)['version']\\)\")",
+      "Bash(node scripts/validate-roster.mjs)",
+      "Bash(node \"/var/home/howl/Developer/World of Warcraft/relentless/scripts/generate-uuid.mjs\")",
+      "Bash(node scripts/smoke-test-fetch.mjs)",
+      "Bash(node scripts/fetch.mjs)",
+      "Bash(node scripts/smoke-test-colours.mjs)",
+      "Bash(node scripts/smoke-test-pages.mjs)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\(JSON.stringify\\({vitest:p.devDependencies.vitest,'@testing-library/svelte':p.devDependencies['@testing-library/svelte'],'@playwright/test':p.devDependencies['@playwright/test']},null,2\\)\\)\")",
+      "Bash(npx playwright *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"for\\(let i=0;i<5;i++\\) console.log\\(crypto.randomUUID\\(\\)\\)\")",
+      "Bash(node --env-file=.env -e ' *)"
+    ]
+  }
+}

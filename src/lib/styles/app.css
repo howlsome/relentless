@@ -1,0 +1,252 @@
+/*
+ * Mobile-first base styles — Undaunted: Relentless
+ * Breakpoints: base (0px), tablet (640px), desktop (1024px)
+ * Written mobile-first: base targets phones, min-width queries add complexity.
+ */
+
+/* ── Touch targets (WCAG 2.5.5) ─────────────────────────────────────────── */
+/*
+ * All interactive tap targets must be at least 44×44px.
+ * We use min-height/min-width + padding rather than fixed sizes so content
+ * can still grow naturally.
+ */
+:root {
+	--touch-min: 44px;
+}
+
+button,
+[role='button'],
+.touch-target {
+	min-height: var(--touch-min);
+	min-width: var(--touch-min);
+}
+
+nav a,
+nav button {
+	min-height: var(--touch-min);
+	display: inline-flex;
+	align-items: center;
+	padding-inline: 0.75rem;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+/*
+ * Body font-size is inherited from PicoCSS (16px default).
+ * No text below 14px anywhere in the UI.
+ */
+body {
+	font-size: 1rem; /* 16px — minimum per spec */
+}
+
+small {
+	font-size: 0.875rem; /* 14px — floor */
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: var(--pico-background-color);
+	border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.site-header nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	padding-block: 0.25rem;
+}
+
+.nav-brand {
+	font-weight: 700;
+	font-size: 1rem;
+	white-space: nowrap;
+	margin-inline-end: auto;
+}
+
+.nav-links {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+/* ── Theme toggle button ─────────────────────────────────────────────────── */
+.theme-toggle {
+	background: none;
+	border: 1px solid var(--pico-muted-border-color);
+	border-radius: var(--pico-border-radius);
+	cursor: pointer;
+	color: var(--pico-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: var(--touch-min);
+	min-height: var(--touch-min);
+	padding: 0.25rem;
+	transition: background-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+	background: var(--pico-secondary-hover-background);
+}
+
+.theme-toggle:focus-visible {
+	outline: 2px solid var(--pico-primary);
+	outline-offset: 2px;
+}
+
+/* ── Season selector ─────────────────────────────────────────────────────── */
+.season-select {
+	font-size: 0.875rem;
+}
+
+/* ── Role icons ──────────────────────────────────────────────────────────── */
+.role-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.25em;
+	height: 1.25em;
+	flex-shrink: 0;
+}
+
+.role-icon svg {
+	width: 100%;
+	height: 100%;
+}
+
+/* ── Team designation badge ──────────────────────────────────────────────── */
+.designation-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.2em 0.6em;
+	border-radius: 0.3em;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.designation-badge--main {
+	background: var(--pico-primary-background);
+	color: var(--pico-primary-inverse);
+}
+
+.designation-badge--alt {
+	background: var(--pico-secondary-background);
+	color: var(--pico-secondary-inverse);
+}
+
+/* ── M+ status table — mobile: card layout ──────────────────────────────── */
+/*
+ * Below the tablet breakpoint, the M+ status table collapses to
+ * a card-per-raider layout using CSS grid.
+ * At ≥640px the standard table layout is restored.
+ */
+@media (max-width: 639px) {
+	.mplus-table thead {
+		display: none; /* Hide column headers on mobile */
+	}
+
+	.mplus-table,
+	.mplus-table tbody,
+	.mplus-table tr {
+		display: block;
+	}
+
+	.mplus-table tr {
+		background: var(--pico-card-background-color);
+		border: 1px solid var(--pico-muted-border-color);
+		border-radius: var(--pico-border-radius);
+		margin-block-end: 0.75rem;
+		padding: 0.75rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+	}
+
+	.mplus-table td {
+		border: none;
+		padding: 0.25rem;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.mplus-table td::before {
+		content: attr(data-label);
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--pico-muted-color);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-block-end: 0.15rem;
+	}
+
+	/* Full width for the raider name cell */
+	.mplus-table td:first-child {
+		grid-column: 1 / -1;
+	}
+}
+
+/* ── Raid parse table — horizontal scroll with sticky first column ───────── */
+.parse-table-wrapper {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	border-radius: var(--pico-border-radius);
+}
+
+.parse-table th:first-child,
+.parse-table td:first-child {
+	position: sticky;
+	left: 0;
+	z-index: 2;
+	background: var(--pico-background-color);
+	border-right: 1px solid var(--pico-muted-border-color);
+}
+
+.parse-table th:first-child {
+	z-index: 3; /* above tbody sticky cells */
+}
+
+/* ── Parse values in table cells ────────────────────────────────────────── */
+.parse-value {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+/* ── Main content padding ────────────────────────────────────────────────── */
+main {
+	padding-block: 1.5rem;
+}
+
+/* ── Tablet and above ────────────────────────────────────────────────────── */
+@media (min-width: 640px) {
+	/* Restore standard table layout */
+	.mplus-table,
+	.mplus-table thead,
+	.mplus-table tbody,
+	.mplus-table tr,
+	.mplus-table td,
+	.mplus-table th {
+		display: revert;
+	}
+}
+
+/* ── Desktop ─────────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+	.site-header nav {
+		padding-block: 0.5rem;
+	}
+}

@@ -1,0 +1,181 @@
+{
+  "app_name": "Undaunted: Relentless",
+  "realm": "EU-Draenor",
+  "region": "eu",
+  "mplus_weekly_minimum": 4,
+  "mplus_minimum_key_level": 10,
+  "tracking_start_date": "2026-03-17",
+  "mplus_seasons": [
+    {
+      "season_id": "midnight-s1",
+      "label": "Midnight Season 1",
+      "start_date": "2026-03-24",
+      "end_date": null,
+      "dungeon_count": 8,
+      "dungeons": [
+        "Windrunner Spire",
+        "Maisara Caverns",
+        "Magisters' Terrace",
+        "Nexus-Point Xenas",
+        "Algeth'ar Academy",
+        "Seat of the Triumvirate",
+        "Skyreach",
+        "Pit of Saron"
+      ]
+    }
+  ],
+  "raid_difficulties": ["heroic", "mythic"],
+  "wcl_expansion_id": 7,
+  "players": [
+    {
+      "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
+      "display_name": "Hxwl",
+      "status": "active",
+      "tracking_start_date": "2026-03-17",
+      "team_designation": "main",
+      "membership_history": [
+        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+      ],
+      "characters": [
+        {
+          "name": "Hxwl",
+          "realm": "Draenor",
+          "class": "Shaman",
+          "spec": "Elemental",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Shaman",
+          "spec": "Elemental",
+          "character": "Hxwl",
+          "from": "2026-03-17",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
+      "display_name": "Deathchonks",
+      "status": "active",
+      "tracking_start_date": "2026-03-17",
+      "team_designation": "main",
+      "membership_history": [
+        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+      ],
+      "characters": [
+        {
+          "name": "Deathchonks",
+          "realm": "Doomhammer",
+          "class": "DeathKnight",
+          "spec": "Blood",
+          "role": "tank",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "tank",
+          "class": "DeathKnight",
+          "spec": "Blood",
+          "character": "Deathchonks",
+          "from": "2026-03-17",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "07726c95-9cec-4f33-ae20-1b4e73d1365a",
+      "display_name": "Flukey",
+      "status": "active",
+      "tracking_start_date": "2026-03-17",
+      "team_designation": "main",
+      "membership_history": [
+        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+      ],
+      "characters": [
+        {
+          "name": "Flukey",
+          "realm": "Draenor",
+          "class": "Paladin",
+          "spec": "Retribution",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Paladin",
+          "spec": "Retribution",
+          "character": "Flukey",
+          "from": "2026-03-17",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "56a6cc30-3287-47ca-bfae-bb3d9afca3c0",
+      "display_name": "Eyeballshurt",
+      "status": "active",
+      "tracking_start_date": "2026-03-17",
+      "team_designation": "main",
+      "membership_history": [
+        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+      ],
+      "characters": [
+        {
+          "name": "Eyeballshurt",
+          "realm": "Draenor",
+          "class": "DemonHunter",
+          "spec": "Havoc",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "DemonHunter",
+          "spec": "Havoc",
+          "character": "Eyeballshurt",
+          "from": "2026-03-17",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "77d3af03-b9b3-4097-b5ad-4c8d5a536966",
+      "display_name": "Zyalayna",
+      "status": "active",
+      "tracking_start_date": "2026-03-17",
+      "team_designation": "main",
+      "membership_history": [
+        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+      ],
+      "characters": [
+        {
+          "name": "Zyalayna",
+          "realm": "Draenor",
+          "class": "Hunter",
+          "spec": "Survival",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Hunter",
+          "spec": "Survival",
+          "character": "Zyalayna",
+          "from": "2026-03-17",
+          "to": null
+        }
+      ]
+    }
+  ]
+}

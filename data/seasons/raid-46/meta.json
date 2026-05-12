@@ -1,0 +1,13 @@
+{
+  "wcl_zone_id": 46,
+  "name": "The Voidspire",
+  "bosses": [
+    { "id": 2901, "name": "Solanar the Dawnbreaker" },
+    { "id": 2902, "name": "Void Empress Xelathos" },
+    { "id": 2903, "name": "The Architect of Ruin" }
+  ],
+  "difficulties": [
+    { "id": 4, "name": "Heroic" },
+    { "id": 5, "name": "Mythic" }
+  ]
+}
