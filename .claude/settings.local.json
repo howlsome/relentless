@@ -74,7 +74,8 @@
       "Bash(pnpm --version)",
       "Bash(pnpm import *)",
       "Bash(pnpm install *)",
-      "Bash(pnpm run *)"
+      "Bash(pnpm run *)",
+      "Bash(git config *)"
     ]
   }
 }
