@@ -1,0 +1,9 @@
+**/*.js
+**/*.ts
+**/*.json
+**/*.md
+**/*.yml
+**/*.yaml
+build/
+.svelte-kit/
+node_modules/
