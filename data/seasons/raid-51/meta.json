@@ -1,0 +1,28 @@
+{
+  "wcl_zone_id": 51,
+  "name": "Sporefall (Beta)",
+  "bosses": [
+    {
+      "id": 53159,
+      "name": "Rotmire"
+    }
+  ],
+  "difficulties": [
+    {
+      "id": 5,
+      "name": "Mythic"
+    },
+    {
+      "id": 4,
+      "name": "Heroic"
+    },
+    {
+      "id": 3,
+      "name": "Normal"
+    },
+    {
+      "id": 1,
+      "name": "LFR"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+/*
+ * Parse percentile colour system — Undaunted: Relentless
+ *
+ * Two sets of variables are defined:
+ *
+ * 1. --parse-badge-{tier}: chip background colours for parse badges.
+ *    These are the canonical WCL hex codes and never change between themes.
+ *    The badge text colour (black or white) is determined at render time
+ *    by getBadgeTextColour() from src/lib/utils/parse-colours.ts.
+ *
+ * 2. --parse-{tier}: chart line stroke colours, split by theme.
+ *    Light mode: green, orange, and tan are darkened to clear WCAG 1.4.11
+ *    non-text contrast (3:1) against the light background.
+ *    Dark mode: all original WCL colours pass 3:1 on the dark background.
+ *
+ * All contrast values verified per PRD §Parse colour specification.
+ */
+
+/* ── Badge backgrounds (theme-invariant) ──────────────────────────────────── */
+:root {
+	--parse-badge-tan:    #e5cc80; /* Artifact  — 100        */
+	--parse-badge-pink:   #e268a8; /* Legendary — 99         */
+	--parse-badge-orange: #ff8000; /* Epic      — 95–98      */
+	--parse-badge-purple: #a335ee; /* Rare      — 75–94      */
+	--parse-badge-blue:   #0070ff; /* Uncommon  — 50–74      */
+	--parse-badge-green:  #1eff00; /* Common    — 25–49      */
+	--parse-badge-gray:   #666666; /* Gray      — 0–24       */
+}
+
+/* ── Raider.io score text colours ─────────────────────────────────────────── */
+/*
+ * WoW item quality colours matching Raider.io's scoreTiersSimple scheme.
+ * Thresholds (Midnight S1): ≥3000 gold, ≥2560 orange, ≥2080 purple,
+ *   ≥1600 blue, ≥0 green. No gray tier — every score is at least green.
+ *
+ * Light mode (#fff): #0070dd (4.8:1) and #a335ee (4.9:1) pass WCAG AA
+ *   directly. Green/orange/gold are too bright — darkened variants used.
+ * Dark mode (#11191f): WoW originals are too dark — brightened to pass WCAG.
+ */
+[data-theme='light'],
+[data-theme='auto'] {
+	--rio-gray:   #666666; /*  5.7:1  below top 40%         */
+	--rio-green:  #007700; /*  5.4:1  darkened from #1eff00 */
+	--rio-blue:   #0070dd; /*  4.8:1  WoW Rare              */
+	--rio-purple: #a335ee; /*  4.9:1  WoW Epic              */
+	--rio-orange: #b05800; /*  4.7:1  darkened from #ff8000 */
+	--rio-gold:   #866014; /*  5.2:1  darkened from #e5cc80 */
+}
+
+[data-theme='dark'] {
+	--rio-gray:   #9d9d9d; /*  6.4:1  below top 40%         */
+	--rio-green:  #1eff00; /* 13.5:1  WoW Uncommon          */
+	--rio-blue:   #0096ff; /*  5.9:1  brightened from #0070dd */
+	--rio-purple: #bf55f5; /*  5.0:1  brightened from #a335ee */
+	--rio-orange: #ff8000; /*  7.2:1  WoW Legendary         */
+	--rio-gold:   #e5cc80; /* 10.8:1  WoW Artifact          */
+}
+
+/* ── Chart line colours — light mode ──────────────────────────────────────── */
+[data-theme='light'],
+[data-theme='auto'] {
+	--parse-gray:   #666666; /* 5.7:1 ✅ unchanged    */
+	--parse-green:  #14ac00; /* 3.0:1 ✅ darkened     */
+	--parse-blue:   #0070ff; /* 4.4:1 ✅ unchanged    */
+	--parse-purple: #a335ee; /* 4.9:1 ✅ unchanged    */
+	--parse-orange: #e87500; /* 3.0:1 ✅ darkened     */
+	--parse-pink:   #e268a8; /* 3.1:1 ✅ unchanged    */
+	--parse-tan:    #a5935d; /* 3.0:1 ✅ darkened     */
+}
+
+/* ── Chart line colours — dark mode ──────────────────────────────────────── */
+[data-theme='dark'] {
+	--parse-gray:   #666666; /*  3.1:1 ✅ unchanged   */
+	--parse-green:  #1eff00; /* 13.1:1 ✅ original    */
+	--parse-blue:   #0070ff; /*  4.1:1 ✅ original    */
+	--parse-purple: #a335ee; /*  3.7:1 ✅ original    */
+	--parse-orange: #ff8000; /*  7.1:1 ✅ original    */
+	--parse-pink:   #e268a8; /*  5.8:1 ✅ original    */
+	--parse-tan:    #e5cc80; /* 11.4:1 ✅ original    */
+}
+
+/* ── Parse badge chip ─────────────────────────────────────────────────────── */
+.parse-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.2em 0.55em;
+	border-radius: 0.3em;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.2;
+	min-width: 2.8rem;
+	min-height: 1.6rem;
+	letter-spacing: 0.01em;
+}
+
+/* Gold left-border accent for rows with any orange (95+) parse */
+.parse-row--epic {
+	border-left: 3px solid var(--parse-badge-orange);
+}
