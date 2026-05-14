@@ -1,6 +1,6 @@
-# Undaunted: Relentless — Guild Dashboard
+# Relentless — Team Dashboard
 
-A static dashboard for the World of Warcraft guild **Undaunted: Relentless** on EU-Draenor. It tracks Mythic+ and raid performance for the active roster and is rebuilt automatically twice a day from live data.
+A static dashboard for the World of Warcraft guild **Undaunted**. This is for the team **Relentless** on EU-Draenor. It tracks Mythic+ and raid performance for the active roster and is rebuilt automatically twice a day from live data.
 
 ---
 
