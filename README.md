@@ -319,7 +319,7 @@ Parse data from blocking or exempt pug kills is excluded from the boss cards, pr
 |---|---|---|
 | `WCL_CLIENT_ID` | GitHub Actions secrets + local `.env` | WarcraftLogs OAuth client ID |
 | `WCL_CLIENT_SECRET` | GitHub Actions secrets + local `.env` | WarcraftLogs OAuth client secret |
-| `GH_PAT` | GitHub Actions secrets only | Personal access token used by the fetch workflow to commit data and trigger the deploy workflow |
+| `GH_PAT` | GitHub Actions secrets only | Personal access token used by the fetch workflow to commit data back to `main` |
 
 ### Getting WarcraftLogs API credentials
 
@@ -342,7 +342,7 @@ Do not commit this file. It is listed in `.gitignore`.
 
 The personal access token needs:
 
-- `repo` scope (to push commits and trigger workflow dispatches)
+- `repo` scope (to push data commits back to `main`)
 
 ---
 
@@ -366,14 +366,12 @@ Security headers (`X-Frame-Options`, CSP, etc.) are applied via `static/_headers
 
 ### Automatic deployment
 
-Every push to `main` triggers the CI pipeline (`deploy.yml`), which:
+Every push to `main` triggers two things simultaneously:
 
-1. Lints and type-checks the code
-2. Runs unit and component tests
-3. Builds the static site (`pnpm build` → `build/` directory)
-4. Runs Playwright e2e tests against the built site
+1. The CI pipeline (`ci.yml`) runs lint, type checks, unit tests, a build, and e2e tests.
+2. Cloudflare Pages detects the push via Git integration and deploys the latest `main` branch.
 
-After CI passes, Cloudflare Pages picks up the push and deploys the built output. The fetch cron commits new data to `main` twice a day, which in turn triggers a fresh deploy — the live site reflects up-to-date data automatically.
+The fetch cron commits new data to `main` twice a day. Cloudflare Pages picks this up automatically — the live site reflects up-to-date data without any manual steps.
 
 ### Manual deployment
 

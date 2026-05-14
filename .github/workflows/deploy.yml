@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: CI
 
 on:
   push:
@@ -7,10 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-and-deploy:
+  test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout
@@ -35,14 +33,12 @@ jobs:
       - name: Type check
         run: pnpm check:types
 
-      # ── Unit and component tests (must pass before build) ──────────────────
       - name: Run unit and component tests
         run: pnpm test:unit
 
       - name: Build
         run: pnpm build
 
-      # ── E2E tests against the built site ───────────────────────────────────
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
 
@@ -51,11 +47,5 @@ jobs:
         env:
           CI: true
 
-      # ── Deploy only when all tests pass ────────────────────────────────────
-      - name: Deploy to gh-pages
-        if: success()
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
+      # Cloudflare Pages deploys automatically on push to main via Git integration.
+      # No deploy step needed here.
