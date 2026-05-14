@@ -3,7 +3,8 @@ import {
 	getParseColour,
 	getBadgeTextColour,
 	getBadgeBgColour,
-	ALL_TIERS
+	ALL_TIERS,
+	getRioScoreStyle
 } from './parse-colours.js';
 
 describe('getParseColour', () => {
@@ -80,6 +81,71 @@ describe('WCAG contrast — badge backgrounds', () => {
 		it(`${tier.label} (${tier.bgHex}) passes WCAG AA 4.5:1 with ${tier.textHex}`, () => {
 			const ratio = contrastRatio(tier.bgHex, tier.textHex);
 			expect(ratio).toBeGreaterThanOrEqual(4.5);
+		});
+	}
+});
+
+// Thresholds from EU Midnight S1 cutoffs page (verified 2026-05-14)
+// top 0.1%=3891, top 1%=3677, top 10%=3284, top 25%=3006, top 40%=2719
+describe('getRioScoreStyle — tier boundaries', () => {
+	it('null → gray (unranked)', () => expect(getRioScoreStyle(null).textVar).toBe('var(--rio-gray)'));
+	it('0 → gray', () => expect(getRioScoreStyle(0).textVar).toBe('var(--rio-gray)'));
+	it('2718 → gray', () => expect(getRioScoreStyle(2718).textVar).toBe('var(--rio-gray)'));
+	it('2719 → green (top 40%)', () => expect(getRioScoreStyle(2719).textVar).toBe('var(--rio-green)'));
+	it('3005 → green', () => expect(getRioScoreStyle(3005).textVar).toBe('var(--rio-green)'));
+	it('3006 → blue (top 25%)', () => expect(getRioScoreStyle(3006).textVar).toBe('var(--rio-blue)'));
+	it('3283 → blue', () => expect(getRioScoreStyle(3283).textVar).toBe('var(--rio-blue)'));
+	it('3284 → purple (top 10%)', () => expect(getRioScoreStyle(3284).textVar).toBe('var(--rio-purple)'));
+	it('3676 → purple', () => expect(getRioScoreStyle(3676).textVar).toBe('var(--rio-purple)'));
+	it('3677 → orange (top 1%)', () => expect(getRioScoreStyle(3677).textVar).toBe('var(--rio-orange)'));
+	it('3890 → orange', () => expect(getRioScoreStyle(3890).textVar).toBe('var(--rio-orange)'));
+	it('3891 → gold (top 0.1%)', () => expect(getRioScoreStyle(3891).textVar).toBe('var(--rio-gold)'));
+	it('4125 → gold', () => expect(getRioScoreStyle(4125).textVar).toBe('var(--rio-gold)'));
+});
+
+describe('getRioScoreStyle — WCAG AA 4.5:1 on light and dark backgrounds', () => {
+	function lum(hex: string): number {
+		const r = parseInt(hex.slice(1, 3), 16) / 255;
+		const g = parseInt(hex.slice(3, 5), 16) / 255;
+		const b = parseInt(hex.slice(5, 7), 16) / 255;
+		const lin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+		return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+	}
+	function cr(a: string, b: string) {
+		const [lt, dk] = lum(a) > lum(b) ? [lum(a), lum(b)] : [lum(b), lum(a)];
+		return (lt + 0.05) / (dk + 0.05);
+	}
+
+	// Light mode resolved colours (see parse-colours.css [data-theme='light'])
+	const lightColours: Record<string, string> = {
+		'var(--rio-gray)':   '#666666',
+		'var(--rio-green)':  '#007700',
+		'var(--rio-blue)':   '#0070dd',
+		'var(--rio-purple)': '#a335ee',
+		'var(--rio-orange)': '#b05800',
+		'var(--rio-gold)':   '#866014',
+	};
+	// Dark mode resolved colours
+	const darkColours: Record<string, string> = {
+		'var(--rio-gray)':   '#9d9d9d',
+		'var(--rio-green)':  '#1eff00',
+		'var(--rio-blue)':   '#0096ff',
+		'var(--rio-purple)': '#bf55f5',
+		'var(--rio-orange)': '#ff8000',
+		'var(--rio-gold)':   '#e5cc80',
+	};
+
+	const lightBg = '#ffffff';
+	const darkBg  = '#11191f';
+
+	for (const [cssVar, hex] of Object.entries(lightColours)) {
+		it(`light: ${cssVar} (${hex}) ≥ 4.5:1 on white`, () => {
+			expect(cr(hex, lightBg)).toBeGreaterThanOrEqual(4.5);
+		});
+	}
+	for (const [cssVar, hex] of Object.entries(darkColours)) {
+		it(`dark: ${cssVar} (${hex}) ≥ 4.5:1 on dark bg`, () => {
+			expect(cr(hex, darkBg)).toBeGreaterThanOrEqual(4.5);
 		});
 	}
 });

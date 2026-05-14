@@ -4,7 +4,7 @@
   "region": "eu",
   "mplus_weekly_minimum": 4,
   "mplus_minimum_key_level": 10,
-  "tracking_start_date": "2026-03-17",
+  "tracking_start_date": "2026-05-20",
   "mplus_seasons": [
     {
       "season_id": "midnight-s1",
@@ -24,17 +24,59 @@
       ]
     }
   ],
-  "raid_difficulties": ["heroic", "mythic"],
+  "raid_difficulties": [
+    "heroic",
+    "mythic"
+  ],
   "wcl_expansion_id": 7,
+  "raid_schedule": {
+    "timezone": "Europe/Paris",
+    "sessions": [
+      {
+        "day": "monday",
+        "start": "20:30",
+        "end": "23:30",
+        "grace_minutes": 30
+      },
+      {
+        "day": "wednesday",
+        "start": "20:30",
+        "end": "23:30",
+        "grace_minutes": 30
+      }
+    ],
+    "safe_pug_windows": [
+      {
+        "day": "tuesday",
+        "start": "00:00",
+        "end": "23:59"
+      },
+      {
+        "day": "wednesday",
+        "start": "00:00",
+        "end": "05:59"
+      }
+    ]
+  },
+  "raid_difficulty_status": {
+    "raid-46": {
+      "heroic": "progression",
+      "mythic": "progression"
+    }
+  },
   "players": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
-      "display_name": "Hxwl",
+      "display_name": "Howl",
       "status": "active",
-      "tracking_start_date": "2026-03-17",
+      "tracking_start_date": "2026-05-20",
       "team_designation": "main",
       "membership_history": [
-        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
       ],
       "characters": [
         {
@@ -52,19 +94,23 @@
           "class": "Shaman",
           "spec": "Elemental",
           "character": "Hxwl",
-          "from": "2026-03-17",
+          "from": "2026-05-20",
           "to": null
         }
       ]
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
-      "display_name": "Deathchonks",
+      "display_name": "Raem",
       "status": "active",
-      "tracking_start_date": "2026-03-17",
+      "tracking_start_date": "2026-05-20",
       "team_designation": "main",
       "membership_history": [
-        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
       ],
       "characters": [
         {
@@ -82,19 +128,23 @@
           "class": "DeathKnight",
           "spec": "Blood",
           "character": "Deathchonks",
-          "from": "2026-03-17",
+          "from": "2026-05-20",
           "to": null
         }
       ]
     },
     {
       "raider_id": "07726c95-9cec-4f33-ae20-1b4e73d1365a",
-      "display_name": "Flukey",
+      "display_name": "Fluke",
       "status": "active",
-      "tracking_start_date": "2026-03-17",
+      "tracking_start_date": "2026-05-20",
       "team_designation": "main",
       "membership_history": [
-        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
       ],
       "characters": [
         {
@@ -112,19 +162,23 @@
           "class": "Paladin",
           "spec": "Retribution",
           "character": "Flukey",
-          "from": "2026-03-17",
+          "from": "2026-05-20",
           "to": null
         }
       ]
     },
     {
       "raider_id": "56a6cc30-3287-47ca-bfae-bb3d9afca3c0",
-      "display_name": "Eyeballshurt",
+      "display_name": "Osena",
       "status": "active",
-      "tracking_start_date": "2026-03-17",
+      "tracking_start_date": "2026-05-20",
       "team_designation": "main",
       "membership_history": [
-        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
       ],
       "characters": [
         {
@@ -142,23 +196,27 @@
           "class": "DemonHunter",
           "spec": "Havoc",
           "character": "Eyeballshurt",
-          "from": "2026-03-17",
+          "from": "2026-05-20",
           "to": null
         }
       ]
     },
     {
       "raider_id": "77d3af03-b9b3-4097-b5ad-4c8d5a536966",
-      "display_name": "Zyalayna",
+      "display_name": "Zya",
       "status": "active",
-      "tracking_start_date": "2026-03-17",
+      "tracking_start_date": "2026-05-20",
       "team_designation": "main",
       "membership_history": [
-        { "event": "joined", "date": "2026-03-17", "note": "Founding member" }
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
       ],
       "characters": [
         {
-          "name": "Zyalayna",
+          "name": "Zy\u00e1layna",
           "realm": "Draenor",
           "class": "Hunter",
           "spec": "Survival",
@@ -171,8 +229,8 @@
           "role": "dps",
           "class": "Hunter",
           "spec": "Survival",
-          "character": "Zyalayna",
-          "from": "2026-03-17",
+          "character": "Zy\u00e1layna",
+          "from": "2026-05-20",
           "to": null
         }
       ]

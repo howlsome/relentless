@@ -21,13 +21,14 @@
 			const since = joinedEvent?.date ?? null;
 			return `Active member since ${fmtDate(since)}`;
 		}
-		const since = leftEvent?.date ?? null;
-		return `Inactive — left ${fmtDate(since)}`;
+		const from = joinedEvent?.date ?? null;
+		const to = leftEvent?.date ?? null;
+		return `${fmtDate(from)} – ${fmtDate(to)}`;
 	});
 </script>
 
 <span class="membership-status membership-status--{isActive ? 'active' : 'inactive'}">
-	{isActive ? '✓' : '✗'}
+	{isActive ? '✓' : ''}
 	{label()}
 	{#if joinedCount > 1}
 		<span class="membership-rejoined" aria-label="Has rejoined the team">

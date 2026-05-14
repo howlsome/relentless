@@ -13,11 +13,12 @@
     "format": "biome format --write . && prettier --write '**/*.svelte'",
     "lint": "biome check . && prettier --check '**/*.svelte'",
     "lint:fix": "biome check --write . && prettier --write '**/*.svelte'",
-    "fetch": "node --env-file=.env scripts/fetch.mjs",
+    "fetch": "tsx --env-file=.env scripts/fetch.ts",
+    "backfill": "tsx --env-file=.env scripts/backfill.ts",
     "test:unit": "vitest run --config vitest.config.ts",
     "test:unit:watch": "vitest --config vitest.config.ts",
     "test:e2e": "playwright test",
-    "test": "npm run test:unit && npm run test:e2e"
+    "test": "pnpm test:unit && pnpm test:e2e"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
@@ -37,6 +38,7 @@
     "prettier-plugin-svelte": "^3.5.2",
     "svelte": "^5.28.1",
     "svelte-check": "^4.1.6",
+    "tsx": "^4.21.0",
     "vite": "^6.3.5",
     "vitest": "^4.1.6"
   }

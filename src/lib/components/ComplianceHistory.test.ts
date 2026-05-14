@@ -6,7 +6,7 @@ function compliance(weeks: any[]) {
 	return {
 		current_streak: 2, longest_streak: 5, total_weeks_met: 8, total_weeks_tracked: 10,
 		record_dungeons_week: null, record_highest_key: null,
-		resilience_level: null, resilience_history: [], weeks
+		weeks
 	};
 }
 

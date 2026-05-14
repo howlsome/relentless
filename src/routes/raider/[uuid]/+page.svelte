@@ -12,10 +12,11 @@
 	import ComplianceHistory from '$lib/components/ComplianceHistory.svelte';
 	import MilestoneBanner from '$lib/components/MilestoneBanner.svelte';
 	import CharacterParseSection from '$lib/components/CharacterParseSection.svelte';
-	import ResiliencePanel from '$lib/components/ResiliencePanel.svelte';
 	import RaiderTimeline from '$lib/components/RaiderTimeline.svelte';
 	import { computeMplusMilestones } from '$lib/utils/milestones.js';
 	import { fmtKey, fmtDate } from '$lib/utils/format.js';
+	import type { RaidRaiderEntry } from '$lib/types/weekly.js';
+	import { getPrimarySpec } from '$lib/utils/roster.js';
 
 	let {
 		data
@@ -24,17 +25,22 @@
 			raider: Player | null;
 			raiderCompliance: RaiderCompliance | null;
 			mplusSnapshot: MplusRaiderEntry | null;
-			raidSnapshots: Array<{ meta: { name: string; bosses: Array<{id: number; name: string}>; difficulties: Array<{id: number; name: string}> }; raiderData: { raid_parses: import('$lib/types/weekly.js').BossParse[] } | null; season_id: string }>;
+			primaryRaidZone: { meta: { name: string; wcl_zone_id?: number; bosses: Array<{id: number; name: string}>; difficulties: Array<{id: number; name: string}> }; raiderData: RaidRaiderEntry | null; season_id: string } | null;
 			raiderHistory: object | null;
-			activeSeason: { dungeons: string[]; dungeon_count: number } | null;
+			activeSeason: { label: string; start_date?: string; dungeons: string[]; dungeon_count: number } | null;
 			weeklyMinimum: number;
+			weeklyHistoryByDiff: Record<string, Record<number, (number | null)[]>>;
+			wowanalyzerByDiff: Record<string, Record<number, (string | null)[]>>;
 		};
 	} = $props();
 
-	const { raider, raiderCompliance, mplusSnapshot, raidSnapshots, activeSeason, weeklyMinimum } = $derived(data);
+	const { raider, raiderCompliance, mplusSnapshot, primaryRaidZone, activeSeason, weeklyMinimum, weeklyHistoryByDiff, wowanalyzerByDiff } = $derived(data);
 
 	// Difficulty toggle — persisted in localStorage
 	let difficulty = $state<'heroic' | 'mythic'>('mythic');
+
+	const weeklyHistory = $derived(weeklyHistoryByDiff?.[difficulty] ?? {});
+	const wowanalyzerUrls = $derived(wowanalyzerByDiff?.[difficulty] ?? {});
 
 	onMount(() => {
 		const stored = localStorage.getItem('raid-difficulty');
@@ -56,9 +62,18 @@
 
 	const dungeons = $derived(activeSeason?.dungeons ?? []);
 
-	// For raid section: get the first available raid zone's data
-	const raidZone = $derived(raidSnapshots[0] ?? null);
+	const raidZone = $derived(primaryRaidZone);
 	const raiderRaidData = $derived(raidZone?.raiderData ?? null);
+	const lockoutRaider = $derived(raiderRaidData ?? null);
+
+	const wclCharUrl = $derived((() => {
+		if (!activeChar || !raidZone) return null;
+		const region = 'eu';
+		const realm = activeChar.realm.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
+		const name = activeChar.name.toLowerCase();
+		return `https://www.warcraftlogs.com/character/${region}/${realm}/${name}`;
+	})());
+	const wclZoneId = $derived(raidZone?.meta?.wcl_zone_id ?? null);
 
 	// Date range formatting for inactive chars
 	function charDateRange(char: Player['characters'][0]): string {
@@ -67,6 +82,12 @@
 		const from = entry?.from ?? null;
 		const to = entry?.to ?? null;
 		return `${fmtDate(from)} → ${to ? fmtDate(to) : 'present'}`;
+	}
+
+	function charStartDate(char: Player['characters'][0]): string {
+		const rh = raider?.role_history ?? [];
+		const entry = rh.find((r) => r.character === char.name);
+		return fmtDate(entry?.from ?? null);
 	}
 
 	function bestParseForChar(charName: string): string | null {
@@ -97,112 +118,149 @@
 	<header class="raider-header">
 		<div class="raider-header__top">
 			<h1 class="raider-header__name">
-				{#if activeChar}<RoleIcon role={activeChar.role} />{/if}
+				{#if activeChar}<RoleIcon role={activeChar.role ?? 'dps'} spec={activeChar.spec} charClass={activeChar.class} />{/if}
 				{raider.display_name}
 			</h1>
 			<TeamDesignationBadge designation={raider.team_designation} />
 		</div>
 
-		{#if activeChar}
-			<div class="raider-header__subtitle">
-				{activeChar.name} — {activeChar.realm} — {activeChar.spec} {activeChar.class}
-			</div>
-		{/if}
 
 		<div class="raider-header__badges">
+			<MembershipStatus player={raider} />
 			<RioScoreBadge score={mplusSnapshot?.rio_score ?? null} characterName={activeChar?.name ?? ''} />
 
 			{#if isOnTrack === true}
-				<span class="status-badge status-badge--met" aria-label="On track this week">On track</span>
+				<span class="status-badge status-badge--met" aria-label="M+ requirement met this week">On track</span>
 			{:else if isOnTrack === false}
-				<span class="status-badge status-badge--missed" aria-label="Below target this week">Below target</span>
+				<span class="status-badge status-badge--behind" aria-label="M+ requirement not yet met — still time this week">Behind this week</span>
 			{:else}
 				<span class="status-badge status-badge--pending" aria-label="No data yet">Not yet tracked</span>
 			{/if}
 
-			{#if mplusSnapshot?.resilience_level != null}
-				<span class="status-badge status-badge--resilience" aria-label="Resilience level {mplusSnapshot.resilience_level}">
-					🛡️ Resilience {mplusSnapshot.resilience_level}
-				</span>
+			{#if lockoutRaider?.lockout_warnings?.length}
+				<span class="status-badge status-badge--blocking" aria-label="Progression-blocking pug this week">🚨 Progression-blocking pug</span>
+			{/if}
+			{#if lockoutRaider?.safe_pug_kills?.length}
+				<span class="status-badge status-badge--safe-pug" aria-label="Safe pugs this week">🌱 Progress pugging</span>
 			{/if}
 		</div>
 
-		<MembershipStatus player={raider} />
 	</header>
 
-	<!-- M+ gamification panel -->
-	<section class="panel" aria-label="M+ performance">
-		<h2>Mythic+ Performance</h2>
-
-		<MilestoneBanner {milestones} />
-		<StreakHero compliance={raiderCompliance} {weeklyMinimum} />
-		<DungeonVolume compliance={raiderCompliance} />
-
-		<!-- This week's runs -->
-		{#if mplusSnapshot?.mplus_runs_this_week?.length}
-			<div class="this-week-runs">
-				<h3>This week's runs</h3>
-				<table aria-label="Runs completed this reset">
-					<thead>
-						<tr>
-							<th scope="col">Dungeon</th>
-							<th scope="col">Key level</th>
-							<th scope="col">Timed</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each mplusSnapshot.mplus_runs_this_week as run}
-							<tr>
-								<td>{run.dungeon}</td>
-								<td>{fmtKey(run.level)}</td>
-								<td>{run.timed ? '✅' : '❌'}</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
-			</div>
-		{/if}
-
-		<ComplianceHistory compliance={raiderCompliance} {weeklyMinimum} />
-	</section>
-
-	<!-- Raid performance section -->
-	{#if raidZone}
-		<section class="panel" aria-label="Raid performance — {raidZone.meta.name}">
-			<h2>Raid Performance — {raidZone.meta.name}</h2>
-
-			<div class="difficulty-toggle" role="group" aria-label="Select difficulty">
-				{#each [['heroic', 'Heroic'], ['mythic', 'Mythic']] as [val, label]}
-					<button
-						type="button"
-						class="filter-btn {difficulty === val ? 'filter-btn--active' : ''}"
-						onclick={() => setDifficulty(val as 'heroic' | 'mythic')}
-						aria-pressed={difficulty === val}
-					>
-						{label}
-					</button>
+	<!-- Single blocking pug warning block — all blocked bosses this reset listed inside -->
+	{#if lockoutRaider?.lockout_warnings?.length}
+		<div class="blocking-warn" role="alert" aria-label="Progression-blocking pug warnings">
+			<p class="blocking-warn__title">🚨 Progression-blocking pug{lockoutRaider.lockout_warnings.length > 1 ? 's' : ''} this reset — locked out for the entirety of this reset.</p>
+			<ul class="blocking-warn__list">
+				{#each lockoutRaider.lockout_warnings as w}
+					<li>
+						{w.difficulty.charAt(0).toUpperCase() + w.difficulty.slice(1)} — {w.boss_name}{#if w.wcl_report_code}&nbsp;&mdash; <a href="https://www.warcraftlogs.com/reports/{w.wcl_report_code}#fight={w.wcl_fight_id ?? 'last'}" target="_blank" rel="noopener noreferrer" class="wcl-link">Logs</a>{/if}
+					</li>
 				{/each}
-			</div>
+			</ul>
+		</div>
+	{/if}
 
-			<!-- Active character section (expanded) -->
-			{#if activeChar && raiderRaidData}
-				<CharacterParseSection
-					character={{ ...activeChar, first_seen: raider.role_history?.find(r => r.character === activeChar.name)?.from ?? undefined }}
-					parses={raiderRaidData.raid_parses}
-					{difficulty}
-					isActive={true}
-				/>
-			{:else if activeChar}
-				<CharacterParseSection
-					character={activeChar}
-					parses={[]}
-					{difficulty}
-					isActive={true}
-				/>
+	<!-- Exempt pug notes — informational, blue style -->
+	{#if lockoutRaider?.exempt_pug_kills?.length}
+		<div class="exempt-notes">
+			{#each lockoutRaider.exempt_pug_kills as e}
+				<div class="exempt-note">
+					<span>ℹ️ Mythic <strong>{e.boss_name}</strong> pugged outside Relentless — exempt by <strong>{e.exemption_granted_by}</strong>{e.exemption_reason ? `: ${e.exemption_reason}` : ''}.</span>
+				</div>
+			{/each}
+		</div>
+	{/if}
+
+	<!-- Active character — expanded by default, contains both Raid and M+ -->
+	{#if activeChar}
+		<details class="char-wrapper" open>
+			<summary class="char-wrapper__summary">
+				<RoleIcon role={activeChar.role ?? 'dps'} />
+				<span class="char-wrapper__name">{activeChar.name}</span>
+				<span class="char-wrapper__detail">
+					{activeChar.specs?.length ? (getPrimarySpec(activeChar)?.spec ?? activeChar.spec) : activeChar.spec}
+					{activeChar.class} · {activeChar.realm}
+				</span>
+				<span class="char-wrapper__date">Since {charStartDate(activeChar)}</span>
+			</summary>
+
+			{#if raidZone}
+				<details class="zone-wrapper" open>
+					<summary class="zone-wrapper__summary">Raid — {raidZone.meta.name}</summary>
+					<section class="panel zone-panel" aria-label="Raid — {raidZone.meta.name}">
+						<div class="difficulty-toggle" role="group" aria-label="Select difficulty">
+							{#each [['heroic', 'Heroic'], ['mythic', 'Mythic']] as [val, label]}
+								<button
+									type="button"
+									class="filter-btn {difficulty === val ? 'filter-btn--active' : ''}"
+									onclick={() => setDifficulty(val as 'heroic' | 'mythic')}
+									aria-pressed={difficulty === val}
+								>{label}</button>
+							{/each}
+						</div>
+						<CharacterParseSection
+							character={{ ...activeChar, first_seen: raider.role_history?.find(r => r.character === activeChar.name)?.from ?? undefined }}
+							parses={raiderRaidData?.raid_parses ?? []}
+							{difficulty}
+							isActive={true}
+							bare={true}
+							{wclCharUrl}
+							{wclZoneId}
+							{weeklyHistory}
+							{wowanalyzerUrls}
+						/>
+					</section>
+				</details>
 			{/if}
 
-			<!-- Inactive character sections (collapsed) -->
-			{#each inactiveChars as char}
+			<details class="zone-wrapper" open>
+				<summary class="zone-wrapper__summary">Mythic+ — {activeSeason?.label ?? 'Current Season'}</summary>
+				<section class="panel zone-panel" aria-label="Mythic+">
+					<MilestoneBanner {milestones} />
+					<StreakHero compliance={raiderCompliance} {weeklyMinimum} />
+					<DungeonVolume compliance={raiderCompliance} />
+					{#if mplusSnapshot?.mplus_runs_this_week?.length}
+						<div class="this-week-runs">
+							<h3>This week's runs</h3>
+							<table aria-label="Runs completed this reset">
+								<thead>
+									<tr>
+										<th scope="col">Dungeon</th>
+										<th scope="col">Key level</th>
+										<th scope="col">Timed</th>
+									</tr>
+								</thead>
+								<tbody>
+									{#each mplusSnapshot.mplus_runs_this_week as run}
+										<tr>
+											<td>{run.dungeon}</td>
+											<td>{fmtKey(run.level)}</td>
+											<td>{run.timed ? '✅' : '❌'}</td>
+										</tr>
+									{/each}
+								</tbody>
+							</table>
+						</div>
+					{/if}
+					<ComplianceHistory compliance={raiderCompliance} {weeklyMinimum} seasonStartDate={activeSeason?.start_date ?? null} />
+				</section>
+			</details>
+		</details>
+	{/if}
+
+	<!-- Inactive characters — collapsed, raid history only -->
+	{#each inactiveChars as char}
+		<details class="char-wrapper">
+			<summary class="char-wrapper__summary">
+				<RoleIcon role={char.role ?? 'dps'} spec={char.spec} charClass={char.class} />
+				<span class="char-wrapper__name">{char.name}</span>
+				<span class="char-wrapper__detail">
+					{char.spec} {char.class} · {char.realm}
+				</span>
+				<span class="char-wrapper__date">{charDateRange(char)}</span>
+			</summary>
+			<section class="panel">
 				<CharacterParseSection
 					character={char}
 					parses={[]}
@@ -211,9 +269,9 @@
 					dateRange={charDateRange(char)}
 					bestParseSummary={bestParseForChar(char.name)}
 				/>
-			{/each}
-		</section>
-	{/if}
+			</section>
+		</details>
+	{/each}
 
 	<!-- Raider history timeline -->
 	<RaiderTimeline
@@ -221,15 +279,107 @@
 		roleHistory={raider.role_history}
 	/>
 
-	<!-- Resilience panel -->
-	<ResiliencePanel
-		compliance={raiderCompliance}
-		{dungeons}
-		progress={mplusSnapshot?.resilience_progress ?? {}}
-	/>
 {/if}
 
 <style>
+	.char-wrapper {
+		border: 1px solid var(--pico-muted-border-color);
+		border-radius: var(--pico-border-radius);
+		margin-block-end: 1rem;
+	}
+
+	.char-wrapper__summary {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1rem;
+		cursor: pointer;
+		list-style: none;
+		min-height: 48px;
+		background: var(--pico-card-sectioning-background-color);
+		border-radius: var(--pico-border-radius);
+		font-weight: 600;
+	}
+
+	.char-wrapper__summary::-webkit-details-marker { display: none; }
+
+	.char-wrapper__summary::before {
+		content: '＋';
+		font-size: 1.1rem;
+		font-weight: 900;
+		color: var(--pico-muted-color);
+		flex-shrink: 0;
+	}
+
+	details[open] .char-wrapper__summary::before { content: '－'; }
+
+	details[open] .char-wrapper__summary {
+		border-radius: var(--pico-border-radius) var(--pico-border-radius) 0 0;
+	}
+
+	.char-wrapper__name {
+		font-size: 1rem;
+	}
+
+	.char-wrapper__detail {
+		font-size: 0.85rem;
+		color: var(--pico-muted-color);
+		font-weight: 400;
+	}
+
+	.char-wrapper__date {
+		margin-inline-start: auto;
+		font-size: 0.75rem;
+		color: var(--pico-muted-color);
+		font-weight: 400;
+		white-space: nowrap;
+	}
+
+	.char-wrapper > .panel,
+	.char-wrapper > .zone-wrapper {
+		margin-block-end: 0;
+		border: none;
+		border-radius: 0;
+		border-top: 1px solid var(--pico-muted-border-color);
+	}
+
+	.char-wrapper > .zone-wrapper:last-child,
+	.char-wrapper > .panel:last-child {
+		border-radius: 0 0 var(--pico-border-radius) var(--pico-border-radius);
+	}
+
+	.zone-wrapper__summary {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.6rem 1rem;
+		cursor: pointer;
+		list-style: none;
+		min-height: 40px;
+		font-size: 0.9rem;
+		font-weight: 600;
+		background: var(--pico-card-sectioning-background-color);
+	}
+
+	.zone-wrapper__summary::-webkit-details-marker { display: none; }
+
+	.zone-wrapper__summary::before {
+		content: '＋';
+		font-size: 1rem;
+		font-weight: 900;
+		color: var(--pico-muted-color);
+		flex-shrink: 0;
+	}
+
+	details[open] .zone-wrapper__summary::before { content: '－'; }
+
+	.zone-panel {
+		border: none;
+		border-top: 1px solid var(--pico-muted-border-color);
+		border-radius: 0;
+		margin-block-end: 0;
+	}
+
 	.back-link {
 		display: inline-flex;
 		align-items: center;
@@ -243,6 +393,13 @@
 
 	.back-link:hover {
 		color: var(--pico-primary);
+	}
+
+	/* Hidden on desktop — the header nav shows the back link instead */
+	@media (min-width: 640px) {
+		.back-link {
+			display: none;
+		}
 	}
 
 	.raider-header {
@@ -264,11 +421,6 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-	}
-
-	.raider-header__subtitle {
-		color: var(--pico-muted-color);
-		font-size: 1rem;
 	}
 
 	.raider-header__badges {
@@ -299,19 +451,14 @@
 		color: color-mix(in srgb, #14ac00 80%, var(--pico-color));
 	}
 
-	.status-badge--missed {
-		background: color-mix(in srgb, red 20%, transparent);
-		color: color-mix(in srgb, red 70%, var(--pico-color));
+	.status-badge--behind {
+		background: color-mix(in srgb, orange 20%, transparent);
+		color: color-mix(in srgb, orange 60%, var(--pico-color));
 	}
 
 	.status-badge--pending {
 		background: var(--pico-muted-border-color);
 		color: var(--pico-muted-color);
-	}
-
-	.status-badge--resilience {
-		background: color-mix(in srgb, #e5cc80 20%, transparent);
-		border: 1px solid color-mix(in srgb, #e5cc80 50%, transparent);
 	}
 
 	.difficulty-toggle {
@@ -366,4 +513,66 @@
 		text-transform: uppercase;
 		color: var(--pico-muted-color);
 	}
+
+	.exempt-notes {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-block-end: 1rem;
+	}
+
+	.exempt-note {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		padding: 0.65rem 1rem;
+		background: color-mix(in srgb, #0070dd 10%, transparent);
+		border: 1px solid color-mix(in srgb, #0070dd 30%, transparent);
+		border-radius: var(--pico-border-radius);
+		font-size: 0.9rem;
+	}
+
+	.blocking-warn {
+		padding: 0.75rem 1rem;
+		background: color-mix(in srgb, red 10%, transparent);
+		border: 1px solid color-mix(in srgb, red 30%, transparent);
+		border-radius: var(--pico-border-radius);
+		margin-block-end: 1rem;
+		font-size: 0.9rem;
+	}
+
+	.blocking-warn__title {
+		margin: 0 0 0.5rem;
+		font-weight: 600;
+		color: color-mix(in srgb, red 70%, var(--pico-color));
+	}
+
+	.blocking-warn__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	.blocking-warn__list li {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+	}
+
+	.wcl-link {
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: color-mix(in srgb, red 70%, var(--pico-color));
+	}
+
+	@media (max-width: 639px) {
+		.blocking-warn {
+			padding: 0.65rem 0.75rem;
+		}
+	}
+
 </style>

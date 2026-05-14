@@ -20,17 +20,16 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
-import { getWclToken, fetchActiveRaidZones, fetchRaidParses } from '../src/lib/utils/wcl.mjs';
+import { getWclToken, fetchActiveRaidZones, fetchRaidParses, fetchHistoricalEncounterRankings, DIFFICULTY_IDS } from '../src/lib/utils/wcl.js';
+import { classifyKill, formatLocalTime, getIsoWeekForTimestamp } from '../src/lib/utils/lockout.js';
 import {
 	fetchRioBatch,
 	extractRioScore,
 	extractWeeklyHighestRuns,
-	extractBestRuns,
 	countTotalDungeonsThisWeek,
 	countQualifyingRuns,
 	highestKeyThisWeek
-} from '../src/lib/utils/rio.mjs';
-import { computeResilienceLevel, computeResilienceProgress } from '../src/lib/utils/resilience.mjs';
+} from '../src/lib/utils/rio.js';
 import {
 	getCurrentWoWWeek,
 	getResetStart,
@@ -40,7 +39,7 @@ import {
 	generateChangelogEntries,
 	buildRaiderHistory,
 	dateToWoWWeek
-} from '../src/lib/utils/raider-identity.mjs';
+} from '../src/lib/utils/raider-identity.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, '..', 'data');
@@ -106,8 +105,9 @@ async function main() {
 
 	// ── 3. Active zones from WCL ──────────────────────────────────────────────
 	console.log('[fetch] Fetching active raid zones…');
-	const raidZones = await fetchActiveRaidZones(wclToken, roster.wcl_expansion_id);
-	console.log(`[fetch] Found ${raidZones.length} zone(s) for expansion ${roster.wcl_expansion_id}.`);
+	const allZones = await fetchActiveRaidZones(wclToken, roster.wcl_expansion_id);
+	const raidZones = allZones.filter((z) => !z.name.toLowerCase().includes('mythic+'));
+	console.log(`[fetch] Found ${raidZones.length} raid zone(s) (filtered ${allZones.length - raidZones.length} M+ zone(s)) for expansion ${roster.wcl_expansion_id}.`);
 
 	// ── 4. Build active {player, char} list ──────────────────────────────────
 	/** @type {Array<{player: object, char: object}>} */
@@ -230,7 +230,6 @@ async function processMplusSeason({ season, activeItems, rioResults, currentWeek
 		let mplus_weekly_count = 0;
 		let mplus_total_dungeons = 0;
 		let mplus_highest_key = null;
-		let allBestRuns = [];
 		let hasError = null;
 
 		for (const { char, profile, error } of charResults) {
@@ -257,11 +256,7 @@ async function processMplusSeason({ season, activeItems, rioResults, currentWeek
 			if (highest != null && (mplus_highest_key == null || highest > mplus_highest_key)) {
 				mplus_highest_key = highest;
 			}
-			allBestRuns = [...allBestRuns, ...extractBestRuns(profile)];
 		}
-
-		const resilience_level = computeResilienceLevel(allBestRuns, dungeon_count);
-		const resilience_progress = computeResilienceProgress(allBestRuns, dungeons);
 		const mplus_requirement_met = mplus_weekly_count >= roster.mplus_weekly_minimum;
 
 		const activeChar = charResults.find((r) => !r.error)?.char ?? charResults[0]?.char;
@@ -282,8 +277,6 @@ async function processMplusSeason({ season, activeItems, rioResults, currentWeek
 			mplus_total_dungeons_this_week: mplus_total_dungeons,
 			mplus_highest_key_this_week: mplus_highest_key,
 			mplus_requirement_met,
-			resilience_level,
-			resilience_progress
 		};
 		if (hasError && !charResults.some((r) => !r.error)) {
 			entry.error = hasError;
@@ -305,8 +298,7 @@ async function processMplusSeason({ season, activeItems, rioResults, currentWeek
 					total_dungeons: mplus_total_dungeons,
 					highest_key_level: mplus_highest_key,
 					met: mplus_requirement_met
-				},
-				resilience_level
+				}
 			);
 			compliance.last_updated = fetchedAt;
 			writeJson(compliancePath, compliance);
@@ -318,6 +310,67 @@ async function processMplusSeason({ season, activeItems, rioResults, currentWeek
 	writeJson(`${prefix}/snapshot.json`, weeklyData);
 
 	console.log(`[fetch] M+ season ${season_id}: wrote ${raiders.length} raider(s).`);
+}
+
+// ── Lockout helpers ────────────────────────────────────────────────────────────
+
+function loadRecentWeeks(weeksDir, count, currentWeek) {
+	const weeks = [];
+	try {
+		const allFiles = existsSync(join(dataDir, weeksDir))
+			? [] // we'll load by known week keys below
+			: [];
+		// Load up to `count` most recent weeks before currentWeek
+		const [curYear, curWeekNum] = currentWeek.split('-').map(Number);
+		for (let i = 1; i <= count; i++) {
+			let wn = curWeekNum - i;
+			let wy = curYear;
+			if (wn <= 0) { wy -= 1; wn += 52; }
+			const key = `${wy}-${String(wn).padStart(2, '0')}`;
+			const path = `${weeksDir}/${key}.json`;
+			const data = loadJsonOr(path, null);
+			if (data) weeks.push(data);
+		}
+	} catch { /* no weeks dir yet */ }
+	return weeks;
+}
+
+function countPriorBlocks(recentWeeks, raiderId) {
+	let count = 0;
+	for (const week of recentWeeks) {
+		const raider = (week.raiders ?? []).find(r => r.raider_id === raiderId);
+		if (raider?.lockout_warnings?.length > 0) count++;
+	}
+	return count;
+}
+
+function describeMatchingSession(killTimeUtc, schedule) {
+	const date = new Date(killTimeUtc);
+	const fmt = new Intl.DateTimeFormat('en-GB', {
+		timeZone: schedule.timezone,
+		weekday: 'long',
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false
+	});
+	const parts = fmt.formatToParts(date);
+	const dayName = parts.find(p => p.type === 'weekday')?.value.toLowerCase() ?? '';
+	const hour = Number(parts.find(p => p.type === 'hour')?.value ?? 0);
+	const minute = Number(parts.find(p => p.type === 'minute')?.value ?? 0);
+	const localMinutes = hour * 60 + minute;
+
+	for (const session of schedule.sessions) {
+		if (session.day !== dayName) continue;
+		const start = session.start.split(':').map(Number);
+		const end = session.end.split(':').map(Number);
+		const grace = session.grace_minutes ?? 0;
+		const effStart = start[0] * 60 + start[1] - grace;
+		const effEnd = end[0] * 60 + end[1] + grace;
+		if (localMinutes >= effStart && localMinutes <= Math.min(effEnd, 24 * 60 - 1)) {
+			return `${session.day} ${session.start}–${session.end} server`;
+		}
+	}
+	return null;
 }
 
 // ── Raid zone ──────────────────────────────────────────────────────────────────
@@ -368,11 +421,14 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 						bossParsesMap.set(bossId, { boss_id: bossId, boss_name: bossName, difficulties: {} });
 					}
 					const bossEntry = bossParsesMap.get(bossId);
-					const killCount = ranking.kills?.total ?? 0;
+					const killCount = ranking.totalKills ?? ranking.kills?.total ?? 0;
 					const kill = killCount > 0;
 
 					const existing = bossEntry.difficulties[diffKey];
 					const rankPercent = ranking.rankPercent ?? null;
+
+					// zoneRankings scalar does not expose individual kill timestamps
+					const kill_time = null;
 
 					// Take best (highest) parse across multiple characters
 					if (!existing || (kill && (!existing.kill || rankPercent > (existing.parse_percentile ?? 0)))) {
@@ -380,7 +436,10 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 							kill,
 							parse_percentile: kill ? (Math.round(rankPercent * 10) / 10) : null,
 							spec: kill ? (ranking.spec ?? char.spec) : null,
-							dps: kill ? (ranking.bestAmount ?? null) : null
+							dps: kill ? (ranking.bestAmount ?? null) : null,
+							kill_time: kill ? kill_time : null,
+							kill_category: null,
+							detected_session: null
 						};
 					}
 				}
@@ -411,6 +470,70 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 		const activeChar = charResults.find((r) => !r.error)?.char ?? charResults[0]?.char;
 		const hasError = charResults.every((r) => r.error) ? charResults[0].error : null;
 
+		// ── Lockout detection ───────────────────────────────────────────────────
+		const raidSchedule = roster.raid_schedule;
+		const exemptions = player.exemptions ?? [];
+		const lockout_warnings = [];
+		const safe_pug_kills = [];
+		const exempt_pug_kills = [];
+
+		if (raidSchedule?.sessions?.length > 0) {
+			// Load history to compute prior_blocks_last_4_weeks
+			const historyPath = `${prefix}/weeks`;
+			const recentWeeks = loadRecentWeeks(historyPath, 4, currentWeek);
+			const priorBlockCount = countPriorBlocks(recentWeeks, player.raider_id);
+
+			for (const bossEntry of raid_parses) {
+				const mythicParse = bossEntry.difficulties['mythic'];
+				if (!mythicParse?.kill || !mythicParse.kill_time) continue;
+
+				const category = classifyKill(mythicParse.kill_time, raidSchedule, exemptions, 'mythic');
+				mythicParse.kill_category = category;
+
+				if (category === 'in_raid') {
+					mythicParse.detected_session = describeMatchingSession(mythicParse.kill_time, raidSchedule);
+					continue;
+				}
+
+				const localTime = formatLocalTime(mythicParse.kill_time, raidSchedule.timezone);
+
+				if (category === 'blocking_pug') {
+					lockout_warnings.push({
+						boss_id: bossEntry.boss_id,
+						boss_name: bossEntry.boss_name,
+						difficulty: 'mythic',
+						kill_time: mythicParse.kill_time,
+						detected_local_time: localTime,
+						reason: 'Outside all configured raid sessions and not in a safe-pug window — this kill locks the raider out of an upcoming Relentless raid',
+						prior_blocks_last_4_weeks: priorBlockCount
+					});
+				} else if (category === 'safe_pug') {
+					safe_pug_kills.push({
+						boss_id: bossEntry.boss_id,
+						boss_name: bossEntry.boss_name,
+						difficulty: 'mythic',
+						kill_time: mythicParse.kill_time,
+						detected_local_time: localTime
+					});
+				} else if (category === 'exempt_pug') {
+					const killWeek = getIsoWeekForTimestamp(mythicParse.kill_time, raidSchedule.timezone);
+					const weekExemptions = exemptions.filter(e => e.week === killWeek);
+					const latest = weekExemptions.sort((a, b) => b.granted_at.localeCompare(a.granted_at))[0];
+					exempt_pug_kills.push({
+						boss_id: bossEntry.boss_id,
+						boss_name: bossEntry.boss_name,
+						difficulty: 'mythic',
+						kill_time: mythicParse.kill_time,
+						detected_local_time: localTime,
+						exemption_reason: latest?.reason ?? '',
+						exemption_granted_by: latest?.granted_by ?? ''
+					});
+				}
+			}
+		} else if (raidSchedule && !raidSchedule.sessions?.length) {
+			console.warn(`[lockout] raid_schedule present but sessions is empty — lockout detection disabled`);
+		}
+
 		/** @type {object} */
 		const raiderEntry = {
 			raider_id: player.raider_id,
@@ -421,11 +544,61 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 			class: activeChar?.class ?? '',
 			spec: activeChar?.spec ?? '',
 			role: activeChar?.role ?? '',
-			raid_parses
+			raid_parses,
+			lockout_warnings,
+			safe_pug_kills,
+			exempt_pug_kills
 		};
 		if (hasError) raiderEntry.error = hasError;
 
 		raiders.push(raiderEntry);
+	}
+
+	// ── Patch report codes via encounterRankings ──────────────────────────────
+	// zoneRankings doesn't include report codes; a separate encounterRankings
+	// call fetches them so WoWAnalyzer links can be built on the raider page.
+	const weekStartMs = roster.raid_schedule
+		? (() => {
+				// Use the resetStart already calculated for the current week
+				const d = new Date(fetchedAt);
+				// Find Wednesday 07:00 UTC of this ISO week
+				const dayOfWeek = d.getUTCDay() || 7;
+				const wednesday = new Date(d.getTime() - (dayOfWeek - 3) * 86_400_000);
+				wednesday.setUTCHours(7, 0, 0, 0);
+				return wednesday.getTime();
+			})()
+		: 0;
+	const weekEndMs = weekStartMs + 7 * 86_400_000;
+
+	const diffPairs = difficulties
+		.map((d): [string, number] => [d, DIFFICULTY_IDS[d]])
+		.filter(([, id]) => id !== undefined);
+
+	const bossIds = (zone.encounters ?? []).map((e) => e.id);
+	if (bossIds.length > 0 && activeItems.length > 0) {
+		try {
+			console.log(`[fetch] Fetching report codes for ${zone.name}…`);
+			const historical = await fetchHistoricalEncounterRankings(wclToken, activeItems, bossIds, diffPairs);
+			for (const raiderEntry of raiders) {
+				const raiderMap = historical.get(raiderEntry.raider_id);
+				if (!raiderMap) continue;
+				for (const bp of raiderEntry.raid_parses) {
+					for (const [diffKey] of diffPairs) {
+						const diff = bp.difficulties?.[diffKey];
+						if (!diff?.kill) continue;
+						const weekKills = (raiderMap[bp.boss_id]?.[diffKey] ?? [])
+							.filter((k) => k.startTime >= weekStartMs && k.startTime < weekEndMs)
+							.sort((a, b) => (b.rankPercent ?? 0) - (a.rankPercent ?? 0));
+						if (weekKills.length > 0) {
+							diff.wcl_report_code = weekKills[0].reportCode ?? null;
+							diff.wcl_fight_id = weekKills[0].fightId ?? null;
+						}
+					}
+				}
+			}
+		} catch (err) {
+			console.warn(`[fetch] Could not fetch report codes for ${zone.name}:`, err);
+		}
 	}
 
 	const weeklyData = {

@@ -14,7 +14,7 @@ import {
 	upsertComplianceWeek,
 	computeCurrentStreak,
 	computeLongestStreak
-} from './raider-identity.mjs';
+} from './raider-identity.js';
 
 function makePlayer(overrides = {}) {
 	return {

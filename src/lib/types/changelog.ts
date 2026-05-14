@@ -65,13 +65,45 @@ interface SpecChangedEntry extends BaseEntry {
 	note?: string;
 }
 
+interface BlockingPugEntry extends BaseEntry {
+	event: 'blocking_pug';
+	character: string;
+	class: string;
+	spec: string;
+	boss_name: string;
+	difficulty: string;
+	kill_time: string;
+	detected_local_time: string;
+	wcl_report_code?: string;
+	wcl_fight_id?: number;
+	note?: string;
+}
+
+interface ExemptPugEntry extends BaseEntry {
+	event: 'exempt_pug';
+	character: string;
+	class: string;
+	spec: string;
+	boss_name: string;
+	difficulty: string;
+	kill_time: string;
+	detected_local_time: string;
+	exemption_reason: string;
+	exemption_granted_by: string;
+	wcl_report_code?: string;
+	wcl_fight_id?: number;
+	note?: string;
+}
+
 export type ChangelogEntry =
 	| JoinedEntry
 	| LeftEntry
 	| TeamChangedEntry
 	| RerolledEntry
 	| RoleChangedEntry
-	| SpecChangedEntry;
+	| SpecChangedEntry
+	| BlockingPugEntry
+	| ExemptPugEntry;
 
 export interface ChangelogFile {
 	last_updated: string | null;

@@ -9,46 +9,31 @@
 		parses,
 		difficulty,
 		isActive,
+		bare = false,
 		dateRange = null,
 		bestParseSummary = null,
-		weeklyHistory = {}
+		weeklyHistory = {},
+		wclCharUrl = null,
+		wclZoneId = null,
+		wowanalyzerUrls = {}
 	}: {
 		character: Character & { first_seen?: string; last_seen?: string };
 		parses: BossParse[];
 		difficulty: 'heroic' | 'mythic';
 		isActive: boolean;
+		/** Skip the details/summary wrapper — just render the cards directly */
+		bare?: boolean;
 		dateRange?: string | null;
-		/** For inactive section headers: e.g. "Best: 94 Purple" */
 		bestParseSummary?: string | null;
-		/** Map from boss_id → array of parse percentiles (newest last) */
 		weeklyHistory?: Record<number, (number | null)[]>;
+		wclCharUrl?: string | null;
+		wclZoneId?: number | null;
+		/** WoWAnalyzer URLs per boss — parallel to weeklyHistory array */
+		wowanalyzerUrls?: Record<number, (string | null)[]>;
 	} = $props();
 </script>
 
-<details class="char-section" open={isActive || undefined}>
-	<summary class="char-section__summary {isActive ? '' : 'char-section__summary--inactive'}">
-		<span class="char-section__identity">
-			<RoleIcon role={character.role} />
-			<span class="char-section__name {isActive ? '' : 'muted'}">{character.name}</span>
-			<span class="char-section__spec muted">— {character.spec} {character.class}</span>
-			{#if !isActive}
-				<span class="char-section__badge">Historical</span>
-			{/if}
-		</span>
-
-		<span class="char-section__meta">
-			{#if dateRange}
-				<span class="muted char-section__range">{dateRange}</span>
-			{/if}
-			{#if !isActive && bestParseSummary}
-				<span class="char-section__best">{bestParseSummary}</span>
-			{/if}
-			{#if isActive}
-				<span class="char-section__active-since muted">Active since {character.first_seen ?? '?'}</span>
-			{/if}
-		</span>
-	</summary>
-
+{#snippet cards()}
 	<div class="char-section__cards {isActive ? '' : 'char-section__cards--historical'}">
 		{#if parses.length === 0}
 			<p class="muted">No parse data for this character.</p>
@@ -61,12 +46,47 @@
 						characterName={character.name}
 						rosterSpec={character.spec}
 						history={weeklyHistory[bossparse.boss_id] ?? []}
+						wowanalyzerUrls={wowanalyzerUrls?.[bossparse.boss_id] ?? []}
+						{wclCharUrl}
+						{wclZoneId}
 					/>
 				{/each}
 			</div>
+			{#if Object.values(wowanalyzerUrls).some(arr => arr.some(u => u != null))}
+				<p class="wowa-footer-note">WoWAnalyzer links open the most recent report only.</p>
+			{/if}
 		{/if}
 	</div>
-</details>
+{/snippet}
+
+{#if bare}
+	{@render cards()}
+{:else}
+	<details class="char-section" open={isActive || undefined}>
+		<summary class="char-section__summary {isActive ? '' : 'char-section__summary--inactive'}">
+			<span class="char-section__identity">
+				<RoleIcon role={character.role ?? 'dps'} spec={character.spec} charClass={character.class} />
+				<span class="char-section__name {isActive ? '' : 'muted'}">{character.name}</span>
+				<span class="char-section__spec muted">— {character.spec} {character.class}</span>
+				{#if !isActive}
+					<span class="char-section__badge">Historical</span>
+				{/if}
+			</span>
+			<span class="char-section__meta">
+				{#if dateRange}
+					<span class="muted char-section__range">{dateRange}</span>
+				{/if}
+				{#if !isActive && bestParseSummary}
+					<span class="char-section__best">{bestParseSummary}</span>
+				{/if}
+				{#if isActive}
+					<span class="char-section__active-since muted">Active since {character.first_seen ?? '?'}</span>
+				{/if}
+			</span>
+		</summary>
+		{@render cards()}
+	</details>
+{/if}
 
 <style>
 	.char-section {
@@ -95,15 +115,16 @@
 	}
 
 	.char-section__summary::before {
-		content: '▶';
-		font-size: 0.7rem;
-		transition: transform 0.15s ease;
-		margin-right: 0.5rem;
+		content: '＋';
+		font-size: 1.2rem;
+		font-weight: 900;
+		margin-right: 0.6rem;
 		color: var(--pico-muted-color);
+		line-height: 1;
 	}
 
 	details[open] .char-section__summary::before {
-		transform: rotate(90deg);
+		content: '－';
 	}
 
 	.char-section__identity {
@@ -153,12 +174,19 @@
 
 	.boss-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 		gap: 0.75rem;
 	}
 
 	.muted {
 		color: var(--pico-muted-color);
+	}
+
+	.wowa-footer-note {
+		font-size: 0.72rem;
+		color: var(--pico-muted-color);
+		margin: 0.75rem 0 0;
+		text-align: center;
 	}
 
 	@media (max-width: 640px) {

@@ -7,7 +7,6 @@ function compliance(weeks: any[] = [], record = { count: 14, week: '2026-17' }, 
 		current_streak: 3, longest_streak: 5, total_weeks_met: 9, total_weeks_tracked: 10,
 		record_dungeons_week: record,
 		record_highest_key: recordKey,
-		resilience_level: null, resilience_history: [],
 		weeks
 	};
 }

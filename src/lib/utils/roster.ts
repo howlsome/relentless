@@ -1,4 +1,4 @@
-import type { WowClass, Role, Roster, Player, Character } from '$lib/types/index.js';
+import type { WowClass, Role, Roster, Player, Character, SpecEntry } from '$lib/types/index.js';
 
 /** Canonical spec → role mapping per class. Covers Midnight Season 1 (Patch 12.0). */
 export const CLASS_SPECS: Record<WowClass, Record<string, Role>> = {
@@ -53,25 +53,33 @@ function validateCharacter(char: Character, raiderName: string): ValidationResul
 	if (!char.name) errors.push(`${label}: missing character name`);
 	if (!char.realm) errors.push(`${label}: missing realm`);
 	if (!char.class) errors.push(`${label}: missing class`);
-	if (!char.spec) errors.push(`${label}: missing spec`);
-	if (!char.role) errors.push(`${label}: missing role`);
 	if (char.active === undefined || char.active === null) {
 		warnings.push(
 			`${label}: "active" field is missing — character will be treated as inactive and not polled`
 		);
 	}
 
-	if (char.class && char.spec) {
-		if (!isValidClassSpec(char.class, char.spec)) {
-			errors.push(
-				`${label}: invalid class/spec combination "${char.class} / ${char.spec}"`
-			);
-		} else if (char.role) {
-			const canonical = canonicalRole(char.class, char.spec);
-			if (canonical && canonical !== char.role) {
-				warnings.push(
-					`${label}: spec "${char.spec}" is a ${canonical} spec but role is listed as "${char.role}"`
+	if (char.specs && char.specs.length > 0) {
+		// New multi-spec form — validate each spec entry
+		const specsResult = validateSpecsArray(char.specs, char.class, label);
+		errors.push(...specsResult.errors);
+		warnings.push(...specsResult.warnings);
+	} else {
+		// Legacy single-spec form
+		if (!char.spec) errors.push(`${label}: missing spec`);
+		if (!char.role) errors.push(`${label}: missing role`);
+		if (char.class && char.spec) {
+			if (!isValidClassSpec(char.class, char.spec)) {
+				errors.push(
+					`${label}: invalid class/spec combination "${char.class} / ${char.spec}"`,
 				);
+			} else if (char.role) {
+				const canonical = canonicalRole(char.class, char.spec);
+				if (canonical && canonical !== char.role) {
+					warnings.push(
+						`${label}: spec "${char.spec}" is a ${canonical} spec but role is listed as "${char.role}"`,
+					);
+				}
 			}
 		}
 	}
@@ -145,6 +153,26 @@ export function validateRoster(roster: Roster): ValidationResult {
 		errors.push('players must be an array');
 	}
 
+	// Validate raid_schedule if present
+	if (roster.raid_schedule !== undefined) {
+		const sched = roster.raid_schedule;
+		if (!sched.timezone) {
+			errors.push('raid_schedule: missing timezone');
+		}
+		if (!Array.isArray(sched.sessions) || sched.sessions.length === 0) {
+			warnings.push('raid_schedule: sessions array is empty — lockout detection is disabled');
+		}
+		for (const win of sched.safe_pug_windows ?? []) {
+			const [sh, sm] = win.start.split(':').map(Number);
+			const [eh, em] = win.end.split(':').map(Number);
+			if (sh * 60 + sm >= eh * 60 + em) {
+				warnings.push(
+					`raid_schedule: safe_pug_window on ${win.day} has start >= end (${win.start}–${win.end}) — window will be ignored`,
+				);
+			}
+		}
+	}
+
 	const seenIds = new Set<string>();
 	for (const player of roster.players ?? []) {
 		if (player.raider_id && seenIds.has(player.raider_id)) {
@@ -211,4 +239,74 @@ export function validateRoleForSpec(cls: string, spec: string, role: string): bo
 	const canonical = canonicalRole(cls, spec);
 	if (canonical === null) return false;
 	return canonical === role;
+}
+
+// ── Stage 8: Multi-spec helpers ───────────────────────────────────────────────
+
+/** A Character-like object that may have specs[] or legacy spec/role. */
+interface CharLike {
+	class?: string;
+	spec?: string;
+	role?: Role;
+	specs?: SpecEntry[];
+}
+
+/** Return only specs with wcl_active: true. */
+export function getActiveSpecs(char: CharLike): SpecEntry[] {
+	return (char.specs ?? []).filter((s) => s.wcl_active);
+}
+
+/** Return the primary spec entry (first with primary: true, fallback to first entry). */
+export function getPrimarySpec(char: CharLike): SpecEntry | null {
+	const specs = char.specs ?? [];
+	if (specs.length === 0) return null;
+	return specs.find((s) => s.primary) ?? specs[0];
+}
+
+/** Return the deduplicated set of roles across all wcl_active specs. */
+export function getRolesPlayed(char: CharLike): Role[] {
+	const roles = new Set<Role>();
+	for (const spec of getActiveSpecs(char)) {
+		roles.add(spec.role);
+	}
+	return [...roles];
+}
+
+/** Validate a specs[] array. Returns errors and warnings. */
+export function validateSpecsArray(
+	specs: SpecEntry[],
+	charClass: string,
+	label: string,
+): { errors: string[]; warnings: string[] } {
+	const errors: string[] = [];
+	const warnings: string[] = [];
+
+	if (specs.length === 0) {
+		errors.push(`${label}: specs array must have at least one entry`);
+		return { errors, warnings };
+	}
+
+	const primaryCount = specs.filter((s) => s.primary).length;
+	if (primaryCount === 0) {
+		warnings.push(`${label}: no primary spec set — first entry will be used as primary`);
+	} else if (primaryCount > 1) {
+		warnings.push(`${label}: multiple primary: true entries — first occurrence will be used`);
+	}
+
+	for (const entry of specs) {
+		if (!isValidClassSpec(charClass, entry.spec)) {
+			errors.push(`${label}: invalid class/spec combination "${charClass} / ${entry.spec}"`);
+		}
+	}
+
+	return { errors, warnings };
+}
+
+/** Migrate a legacy spec/role character entry to the specs[] form (idempotent). */
+export function migrateCharacterToSpecs(char: CharLike): SpecEntry[] {
+	if (char.specs && char.specs.length > 0) return char.specs;
+	if (char.spec && char.role) {
+		return [{ spec: char.spec, role: char.role, primary: true, wcl_active: true }];
+	}
+	return [];
 }

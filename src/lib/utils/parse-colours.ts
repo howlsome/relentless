@@ -84,13 +84,55 @@ export function getParseTierLabel(percentile: number | null | undefined): string
 	return getParseInfo(percentile).label;
 }
 
-/**
- * Return true if this percentile qualifies for the gold left-border accent
- * (Epic or above: 95+).
- */
-export function isEpicOrAbove(percentile: number | null | undefined): boolean {
-	return percentile != null && percentile >= 95;
-}
-
 /** All tiers, ordered highest to lowest — for legend rendering. */
 export const ALL_TIERS: readonly ParseColourInfo[] = TIERS;
+
+// ── Raider.io score colour system ─────────────────────────────────────────────
+// Text-only colouring — no badge background. CSS variables handle the
+// per-theme contrast adjustments (see parse-colours.css).
+
+export interface RioScoreStyle {
+	/** CSS custom property — used for key level text colouring (theme-aware) */
+	textVar: string;
+	/** WoW quality hex for badge background (theme-invariant) */
+	bgHex: string;
+	/** Black or white — whichever clears WCAG AA against bgHex */
+	textHex: '#000000' | '#ffffff';
+	label: string;
+}
+
+// Raider.io EU Midnight S1 percentile cutoffs (verified 2026-05-14 from
+// raider.io/mythic-plus/cutoffs/season-mn-1/eu).
+// top 0.1% = 3891, top 1% = 3677, top 10% = 3284, top 25% = 3006, top 40% = 2719.
+const RIO_TIERS: Array<{ min: number; style: RioScoreStyle }> = [
+	{ min: 3891, style: { textVar: 'var(--rio-gold)',   bgHex: '#e5cc80', textHex: '#000000', label: 'Top 0.1%' } },
+	{ min: 3677, style: { textVar: 'var(--rio-orange)', bgHex: '#ff8000', textHex: '#000000', label: 'Top 1%'   } },
+	{ min: 3284, style: { textVar: 'var(--rio-purple)', bgHex: '#a335ee', textHex: '#ffffff', label: 'Top 10%'  } },
+	{ min: 3006, style: { textVar: 'var(--rio-blue)',   bgHex: '#0070dd', textHex: '#ffffff', label: 'Top 25%'  } },
+	{ min: 2719, style: { textVar: 'var(--rio-green)',  bgHex: '#1eff00', textHex: '#000000', label: 'Top 40%'  } },
+	{ min:    0, style: { textVar: 'var(--rio-gray)',   bgHex: '#666666', textHex: '#ffffff', label: 'Unranked' } },
+];
+
+export function getRioScoreStyle(score: number | null | undefined): RioScoreStyle {
+	if (score == null) return RIO_TIERS[RIO_TIERS.length - 1].style;
+	return (RIO_TIERS.find((t) => score >= t.min) ?? RIO_TIERS[RIO_TIERS.length - 1]).style;
+}
+
+// Key level colour tiers — same WoW quality colour palette as score tiers.
+// Thresholds tuned for Midnight S1 key scaling.
+const KEY_TIERS: Array<{ min: number; style: RioScoreStyle }> = [
+	{ min: 14, style: { textVar: 'var(--rio-gold)',   bgHex: '#e5cc80', textHex: '#000000', label: '+14' } },
+	{ min: 12, style: { textVar: 'var(--rio-orange)', bgHex: '#ff8000', textHex: '#000000', label: '+12' } },
+	{ min: 10, style: { textVar: 'var(--rio-purple)', bgHex: '#a335ee', textHex: '#ffffff', label: '+10' } },
+	{ min:  7, style: { textVar: 'var(--rio-blue)',   bgHex: '#0070dd', textHex: '#ffffff', label: '+7'  } },
+	{ min:  0, style: { textVar: 'var(--rio-green)',  bgHex: '#1eff00', textHex: '#000000', label: 'Low' } },
+];
+
+const KEY_LEVEL_NONE: RioScoreStyle = {
+	textVar: 'var(--rio-gray)', bgHex: '#666666', textHex: '#ffffff', label: 'None'
+};
+
+export function getKeyLevelStyle(level: number | null | undefined): RioScoreStyle {
+	if (level == null || level === 0) return KEY_LEVEL_NONE;
+	return (KEY_TIERS.find((t) => level >= t.min) ?? KEY_TIERS[KEY_TIERS.length - 1]).style;
+}

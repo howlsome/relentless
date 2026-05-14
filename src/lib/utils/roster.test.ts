@@ -179,3 +179,157 @@ describe('canonicalRole', () => {
 		expect(canonicalRole('Mage', 'Holy')).toBeNull();
 	});
 });
+
+// ── validateRaidSchedule ──────────────────────────────────────────────────────
+
+describe('validateRoster — raid_schedule validation', () => {
+	it('passes when raid_schedule is absent (feature disabled)', () => {
+		const roster = makeRoster([makePlayer()]);
+		const result = validateRoster(roster);
+		expect(result.valid).toBe(true);
+		expect(result.warnings).not.toContain(expect.stringMatching(/raid_schedule/));
+	});
+
+	it('passes with a valid raid_schedule', () => {
+		const roster = makeRoster([makePlayer()], {
+			raid_schedule: {
+				timezone: 'Europe/Paris',
+				sessions: [{ day: 'monday', start: '20:30', end: '23:30', grace_minutes: 30 }],
+				safe_pug_windows: [{ day: 'tuesday', start: '00:00', end: '23:59' }],
+			},
+		});
+		const result = validateRoster(roster);
+		expect(result.valid).toBe(true);
+	});
+
+	it('warns when raid_schedule has an empty sessions array', () => {
+		const roster = makeRoster([makePlayer()], {
+			raid_schedule: { timezone: 'Europe/Paris', sessions: [], safe_pug_windows: [] },
+		});
+		const result = validateRoster(roster);
+		expect(result.warnings.some((w) => /raid_schedule.*sessions/i.test(w))).toBe(true);
+	});
+
+	it('errors when raid_schedule is missing a timezone', () => {
+		const roster = makeRoster([makePlayer()], {
+			// @ts-ignore testing invalid shape
+			raid_schedule: { sessions: [{ day: 'monday', start: '20:30', end: '23:30', grace_minutes: 30 }], safe_pug_windows: [] },
+		});
+		const result = validateRoster(roster);
+		expect(result.errors.some((e) => /timezone/i.test(e))).toBe(true);
+	});
+
+	it('warns on a safe_pug_window with start >= end', () => {
+		const roster = makeRoster([makePlayer()], {
+			raid_schedule: {
+				timezone: 'Europe/Paris',
+				sessions: [{ day: 'monday', start: '20:30', end: '23:30', grace_minutes: 30 }],
+				safe_pug_windows: [{ day: 'tuesday', start: '23:00', end: '12:00' }],
+			},
+		});
+		const result = validateRoster(roster);
+		expect(result.warnings.some((w) => /start.*>=.*end|start >= end/i.test(w))).toBe(true);
+	});
+});
+
+// ── Stage 8: multi-spec helpers ───────────────────────────────────────────────
+
+import {
+	getActiveSpecs,
+	getPrimarySpec,
+	getRolesPlayed,
+	validateSpecsArray
+} from './roster.js';
+import type { SpecEntry } from '$lib/types/roster.js';
+
+const BALANCE_SPEC: SpecEntry = { spec: 'Balance', role: 'dps', primary: true, wcl_active: true };
+const RESTO_SPEC: SpecEntry = { spec: 'Restoration', role: 'healer', primary: false, wcl_active: true };
+const INACTIVE_SPEC: SpecEntry = { spec: 'Guardian', role: 'tank', primary: false, wcl_active: false };
+
+function makeMultiSpecChar(specs: SpecEntry[]) {
+	return { name: 'Druidchar', realm: 'Draenor', class: 'Druid' as const, active: true, specs };
+}
+
+describe('getActiveSpecs', () => {
+	it('returns only specs with wcl_active: true', () => {
+		const char = makeMultiSpecChar([BALANCE_SPEC, RESTO_SPEC, INACTIVE_SPEC]);
+		const active = getActiveSpecs(char);
+		expect(active).toHaveLength(2);
+		expect(active.map(s => s.spec)).not.toContain('Guardian');
+	});
+
+	it('returns all specs when all are wcl_active', () => {
+		const char = makeMultiSpecChar([BALANCE_SPEC, RESTO_SPEC]);
+		expect(getActiveSpecs(char)).toHaveLength(2);
+	});
+
+	it('returns empty array when all specs are inactive', () => {
+		const char = makeMultiSpecChar([INACTIVE_SPEC]);
+		expect(getActiveSpecs(char)).toHaveLength(0);
+	});
+});
+
+describe('getPrimarySpec', () => {
+	it('returns the spec with primary: true', () => {
+		const char = makeMultiSpecChar([BALANCE_SPEC, RESTO_SPEC]);
+		expect(getPrimarySpec(char)?.spec).toBe('Balance');
+	});
+
+	it('falls back to first entry when no primary is set', () => {
+		const noPrimary = [{ ...BALANCE_SPEC, primary: false }, RESTO_SPEC];
+		const char = makeMultiSpecChar(noPrimary);
+		expect(getPrimarySpec(char)?.spec).toBe('Balance');
+	});
+});
+
+describe('getRolesPlayed', () => {
+	it('returns deduplicated roles across all active specs', () => {
+		const char = makeMultiSpecChar([BALANCE_SPEC, RESTO_SPEC]);
+		const roles = getRolesPlayed(char);
+		expect(roles).toContain('dps');
+		expect(roles).toContain('healer');
+		expect(roles).toHaveLength(2);
+	});
+
+	it('excludes roles from wcl_active: false specs', () => {
+		const char = makeMultiSpecChar([BALANCE_SPEC, INACTIVE_SPEC]);
+		const roles = getRolesPlayed(char);
+		expect(roles).not.toContain('tank');
+	});
+
+	it('a Druid with Balance (DPS) and Restoration (healer) returns {dps, healer}', () => {
+		const char = makeMultiSpecChar([BALANCE_SPEC, RESTO_SPEC]);
+		const roles = getRolesPlayed(char);
+		expect(new Set(roles)).toEqual(new Set(['dps', 'healer']));
+	});
+});
+
+describe('validateSpecsArray', () => {
+	it('passes a valid specs array with exactly one primary', () => {
+		const result = validateSpecsArray([BALANCE_SPEC, RESTO_SPEC], 'Druid', 'TestRaider/Char');
+		expect(result.errors).toHaveLength(0);
+	});
+
+	it('rejects zero entries', () => {
+		const result = validateSpecsArray([], 'Druid', 'TestRaider/Char');
+		expect(result.errors.some(e => /empty|at least one/i.test(e))).toBe(true);
+	});
+
+	it('warns when multiple primary: true entries exist', () => {
+		const dualPrimary = [BALANCE_SPEC, { ...RESTO_SPEC, primary: true }];
+		const result = validateSpecsArray(dualPrimary, 'Druid', 'TestRaider/Char');
+		expect(result.warnings.some(w => /multiple.*primary|primary.*multiple/i.test(w))).toBe(true);
+	});
+
+	it('warns when no primary: true entry exists', () => {
+		const noPrimary = [{ ...BALANCE_SPEC, primary: false }, RESTO_SPEC];
+		const result = validateSpecsArray(noPrimary, 'Druid', 'TestRaider/Char');
+		expect(result.warnings.some(w => /no.*primary|primary.*not set/i.test(w))).toBe(true);
+	});
+
+	it('errors on invalid class/spec combination', () => {
+		const badSpec: SpecEntry = { spec: 'Holy', role: 'healer', primary: true, wcl_active: true };
+		const result = validateSpecsArray([badSpec], 'Druid', 'TestRaider/Char');
+		expect(result.errors.some(e => /invalid.*class\/spec|invalid.*spec/i.test(e))).toBe(true);
+	});
+});

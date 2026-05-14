@@ -4,6 +4,16 @@
  * Written mobile-first: base targets phones, min-width queries add complexity.
  */
 
+/* ── Suppress visited link colour ───────────────────────────────────────── */
+a:visited {
+	color: inherit;
+}
+
+/* ── WoW class colour on raider name hover ──────────────────────────────── */
+a.raider-name:hover {
+	color: var(--class-color, var(--pico-primary));
+}
+
 /* ── Touch targets (WCAG 2.5.5) ─────────────────────────────────────────── */
 /*
  * All interactive tap targets must be at least 44×44px.
@@ -110,6 +120,9 @@ small {
 /* ── Season selector ─────────────────────────────────────────────────────── */
 .season-select {
 	font-size: 0.875rem;
+	width: auto;
+	margin-block-end: 0;
+	min-height: var(--touch-min);
 }
 
 /* ── Role icons ──────────────────────────────────────────────────────────── */
@@ -205,6 +218,21 @@ small {
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 	border-radius: var(--pico-border-radius);
+	width: 100%;
+}
+
+.mplus-table,
+.parse-table {
+	width: 100%;
+	table-layout: auto;
+}
+
+/* Centre all data columns; first column (raider name) stays left-aligned */
+.mplus-table th:not(:first-child),
+.mplus-table td:not(:first-child),
+.parse-table th:not(:first-child),
+.parse-table td:not(:first-child) {
+	text-align: center;
 }
 
 .parse-table th:first-child,
@@ -241,6 +269,35 @@ main {
 	.mplus-table td,
 	.mplus-table th {
 		display: revert;
+	}
+}
+
+/* ── Mobile: centred brand + nav, theme toggle pinned top-right ──────────── */
+@media (max-width: 639px) {
+	.site-header nav {
+		position: relative;
+		justify-content: center;
+		padding-block: 0.5rem;
+	}
+
+	.nav-brand {
+		margin-inline-end: 0;
+		text-align: center;
+		width: 100%;
+		order: 1;
+	}
+
+	.nav-links {
+		justify-content: center;
+		order: 2;
+	}
+
+	.nav-actions {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		order: 3;
 	}
 }
 

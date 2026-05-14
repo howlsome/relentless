@@ -8,7 +8,8 @@ function safeJson(path) {
 	try {
 		if (!existsSync(path)) return null;
 		return JSON.parse(readFileSync(path, 'utf-8'));
-	} catch {
+	} catch (err) {
+		console.warn(`[safeJson] Failed to read ${path}:`, err);
 		return null;
 	}
 }

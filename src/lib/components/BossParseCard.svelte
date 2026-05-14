@@ -1,39 +1,58 @@
 <script lang="ts">
 	import type { BossParse } from '$lib/types/weekly.js';
-	import ParseBadge from './ParseBadge.svelte';
-	import ParseSparkline from './ParseSparkline.svelte';
-	import { fmtWeekLabel } from '$lib/utils/format.js';
+	import BossParseChart from './BossParseChart.svelte';
+	import { getBadgeBgColour, getBadgeTextColour } from '$lib/utils/parse-colours.js';
 
 	let {
 		parse,
 		difficulty,
 		characterName = '',
 		rosterSpec = '',
-		/** Parse history for this boss+difficulty, newest last (null = no kill) */
 		history = [],
-		currentWeek = ''
+		wclCharUrl = null,
+		wclZoneId = null,
+		wowanalyzerUrls = []
 	}: {
 		parse: BossParse;
 		difficulty: 'heroic' | 'mythic';
 		characterName?: string;
 		rosterSpec?: string;
 		history?: (number | null)[];
-		currentWeek?: string;
+		wclCharUrl?: string | null;
+		wclZoneId?: number | null;
+		wowanalyzerUrls?: (string | null)[];
 	} = $props();
 
+	const latestWowAnalyzerUrl = $derived(
+		[...wowanalyzerUrls].reverse().find((u) => u != null) ?? null
+	);
+
+	const DIFF_IDS: Record<string, number> = { heroic: 4, mythic: 5 };
+
+	function wclUrl(diff: string): string | null {
+		if (!wclCharUrl || !wclZoneId) return null;
+		const diffId = DIFF_IDS[diff];
+		if (!diffId) return null;
+		return `${wclCharUrl}#zone=${wclZoneId}&difficulty=${diffId}&encounter=${parse.boss_id}`;
+	}
+
 	const diffData = $derived(parse.difficulties[difficulty]);
-	const heroic = $derived(parse.difficulties['heroic']);
-	const mythic = $derived(parse.difficulties['mythic']);
+	// Only count kills made with Relentless (in_raid) or unclassified legacy data.
+	// Pug kills (blocking_pug, safe_pug, exempt_pug) are excluded from the card.
+	const isRelentlessKill = $derived(
+		diffData?.kill === true &&
+		(diffData.kill_category == null || diffData.kill_category === 'in_raid')
+	);
+	const currentPct = $derived(isRelentlessKill ? diffData!.parse_percentile : null);
+	const cardBg     = $derived(currentPct != null ? getBadgeBgColour(currentPct) : null);
+	const cardColor  = $derived(currentPct != null ? getBadgeTextColour(currentPct) : null);
 
 	const kills = $derived(history.filter((h): h is number => h != null));
 	const personalBest = $derived(kills.length > 0 ? Math.max(...kills) : null);
-	const firstKill = $derived(kills.length > 0 ? kills[kills.length - 1] : null); // oldest non-null
-	const currentPct = $derived(diffData?.kill ? diffData.parse_percentile : null);
-	const improvementDelta = $derived(
-		currentPct != null && firstKill != null ? Math.round(currentPct - firstKill) : null
+const avgPct = $derived(
+		kills.length > 0 ? Math.round(kills.reduce((a, b) => a + b, 0) / kills.length) : null
 	);
 
-	// Trend: compare current to previous week's parse (second-to-last non-null)
 	const previousPct = $derived(() => {
 		const prev = history.slice(0, -1).filter((h): h is number => h != null);
 		return prev.at(-1) ?? null;
@@ -47,183 +66,170 @@
 	});
 
 	const specMismatch = $derived(
-		diffData?.kill && diffData.spec && rosterSpec && diffData.spec !== rosterSpec
+		isRelentlessKill && diffData?.spec && rosterSpec && diffData.spec !== rosterSpec
 	);
 
-	const isPbThisWeek = $derived(currentPct != null && personalBest != null && currentPct >= personalBest);
 </script>
 
-<article class="boss-card" aria-label="Parse card for {parse.boss_name}">
-	<header class="boss-card__header">
-		<span class="boss-card__name">{parse.boss_name}</span>
+<article
+	class="boss-card"
+	style={cardBg ? `background:${cardBg};border-color:${cardBg};color:${cardColor}` : ''}
+	aria-label="Parse card for {parse.boss_name}"
+>
+	<!-- Boss name -->
+	<div class="boss-card__name" title={parse.boss_name}>{parse.boss_name}</div>
 
-		<!-- Cross-difficulty summary always visible -->
-		<div class="boss-card__cross-diff" aria-label="Parse summary across difficulties">
-			<span class="cross-diff-label">H:</span>
-			{#if heroic?.kill}
-				<ParseBadge percentile={heroic.parse_percentile} size="sm" />
-			{:else}
-				<span class="muted-dash">—</span>
-			{/if}
-			<span class="cross-diff-label">M:</span>
-			{#if mythic?.kill}
-				<ParseBadge percentile={mythic.parse_percentile} size="sm" />
-			{:else}
-				<span class="muted-dash">—</span>
-			{/if}
-		</div>
-	</header>
+	<!-- Chart -->
+	<div class="boss-card__chart">
+		<BossParseChart points={history} bossName={parse.boss_name} {characterName} />
+	</div>
 
-	<div class="boss-card__body">
-		{#if diffData?.kill}
-			<div class="boss-card__primary">
-				<ParseBadge percentile={diffData.parse_percentile} size="lg" />
-				<span
-					class="trend trend--{trend()}"
-					aria-label="Trend: {trend()}"
-					aria-hidden="true"
-				>
-					{trend() === 'up' ? '▲' : trend() === 'down' ? '▼' : '—'}
-				</span>
+	{#if isRelentlessKill}
+		<!-- Row 1: parse (left) + stacked PB/Avg (right) -->
+		<div class="boss-card__row boss-card__row--parse">
+			<div class="parse-group">
+				{#if wclUrl(difficulty)}
+					<a
+						href={wclUrl(difficulty)}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="parse-num"
+						aria-label="Parse {currentPct?.toFixed(0)}% — view on Warcraft Logs"
+					>{currentPct?.toFixed(0)}%</a>
+				{:else}
+					<span class="parse-num">{currentPct?.toFixed(0)}%</span>
+				{/if}
+				{#if trend() !== 'neutral'}
+					<span class="parse-trend parse-trend--{trend()}" aria-hidden="true">
+						{trend() === 'up' ? '▲' : '▼'}
+					</span>
+				{/if}
 				{#if specMismatch}
-					<span title="Spec mismatch: logged as {diffData.spec}, roster shows {rosterSpec}" aria-label="Spec mismatch warning">⚠️</span>
+					<span title="Spec mismatch: logged as {diffData?.spec}, roster shows {rosterSpec}">⚠️</span>
 				{/if}
 			</div>
 
-			<div class="boss-card__meta">
-				{#if diffData.spec}
-					<span class="boss-card__spec muted">{diffData.spec}</span>
-				{/if}
-
-				{#if personalBest != null}
-					<span class="boss-card__pb {isPbThisWeek ? 'pb--this-week' : ''}">
-						PB: {personalBest.toFixed(0)}%
-						{#if isPbThisWeek}<span class="pb-new" aria-label="Personal best set this week">★ This week!</span>{/if}
-					</span>
-				{/if}
-
-				{#if improvementDelta != null}
-					<span class="boss-card__delta muted">
-						{improvementDelta >= 0 ? `+${improvementDelta}` : improvementDelta} since first kill
-					</span>
-				{/if}
+			<div class="stat-stack">
+				<span class="stat">PB <strong>{personalBest != null ? personalBest.toFixed(0) + '%' : '—'}</strong></span>
+				<span class="stat">Avg <strong>{avgPct != null ? avgPct + '%' : '—'}</strong></span>
 			</div>
-		{:else}
-			<div class="boss-card__no-kill">
-				<span class="muted">No kills yet</span>
+		</div>
+
+		<!-- Row 2: WoWAnalyzer link on its own -->
+		{#if latestWowAnalyzerUrl}
+			<div class="boss-card__row boss-card__row--wowa">
+				<a
+					href={latestWowAnalyzerUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="wowa-link"
+					title="Opens your most recent log for this boss in WoWAnalyzer"
+				>Open in WoWAnalyzer</a>
 			</div>
 		{/if}
-
-		<!-- Sparkline (8-week history) -->
-		<div class="boss-card__sparkline">
-			<ParseSparkline
-				points={history}
-				bossName={parse.boss_name}
-				{characterName}
-			/>
+	{:else}
+		<div class="boss-card__row boss-card__row--parse">
+			<span class="no-kill">No kills yet</span>
+			<div class="stat-stack stat-stack--empty">
+				<span class="stat">Avg —</span>
+			</div>
 		</div>
-	</div>
+	{/if}
 </article>
 
 <style>
 	.boss-card {
-		padding: 0.75rem;
+		padding: 0.65rem 0.75rem;
 		border-radius: var(--pico-border-radius);
 		border: 1px solid var(--pico-muted-border-color);
 		background: var(--pico-card-background-color);
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.boss-card__header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
 		gap: 0.4rem;
 	}
 
 	.boss-card__name {
-		font-weight: 700;
-		font-size: 0.95rem;
+		font-weight: 600;
+		font-size: 0.82rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
-	.boss-card__cross-diff {
+	.boss-card__chart {
+		width: 100%;
+	}
+
+	/* Shared row styles */
+	.boss-card__row {
+		display: flex;
+		align-items: center;
+	}
+
+	/* Row 1: parse (left) + stacked PB/Avg (right) */
+	.boss-card__row--parse {
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.5rem;
+		min-height: 2.2rem;
+	}
+
+	.parse-group {
 		display: flex;
 		align-items: center;
 		gap: 0.3rem;
-		font-size: 0.8rem;
 	}
 
-	.cross-diff-label {
-		color: var(--pico-muted-color);
-		font-weight: 600;
+	.parse-num {
+		font-size: 1.5rem;
+		font-weight: 800;
+		line-height: 1;
+		text-decoration: none;
+		color: inherit;
 	}
 
-	.boss-card__primary {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
+	a.parse-num:hover { opacity: 0.85; }
 
-	.trend {
-		font-size: 1.1rem;
+	.parse-trend {
+		font-size: 0.75rem;
 		font-weight: 700;
 	}
 
-	.trend--up {
-		color: #14ac00;
-	}
-
-	.trend--down {
-		color: #c41e3a;
-	}
-
-	.trend--neutral {
-		color: var(--pico-muted-color);
-	}
-
-	.boss-card__meta {
+	.stat-stack {
 		display: flex;
 		flex-direction: column;
-		gap: 0.15rem;
+		align-items: flex-end;
+		gap: 0.1rem;
+		font-size: 0.72rem;
 	}
 
-	.boss-card__pb {
-		font-size: 0.8rem;
-		font-weight: 600;
+	.stat-stack--empty { opacity: 0.45; }
+
+	.stat strong { font-weight: 700; }
+
+/* Row 2: WoWAnalyzer */
+	.boss-card__row--wowa {
+		justify-content: stretch;
 	}
 
-	.pb--this-week {
-		color: #e5cc80;
+	.wowa-link {
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: 0.7rem;
+		font-weight: 700;
+		color: inherit;
+		text-decoration: none;
+		border: 1px solid currentColor;
+		border-radius: 4px;
+		padding: 0.25em 0.5em;
+		opacity: 0.65;
 	}
 
-	.pb-new {
-		margin-left: 0.3em;
-		font-size: 0.75em;
-		color: #e5cc80;
-	}
+	.wowa-link:hover { opacity: 1; }
 
-	.boss-card__delta {
-		font-size: 0.75rem;
-	}
-
-	.boss-card__sparkline {
-		margin-top: 0.25rem;
-		max-width: 120px;
-	}
-
-	.boss-card__no-kill {
-		padding: 0.5rem 0;
-	}
-
-	.muted {
-		color: var(--pico-muted-color);
-	}
-
-	.muted-dash {
-		color: var(--pico-muted-color);
-		font-size: 0.8rem;
+	.no-kill {
+		font-size: 0.85rem;
+		opacity: 0.5;
 	}
 </style>

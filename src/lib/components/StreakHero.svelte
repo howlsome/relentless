@@ -1,7 +1,5 @@
 <script lang="ts">
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
-	import { shouldShowMissedWeekCallout } from '$lib/utils/milestones.js';
-
 	let {
 		compliance,
 		weeklyMinimum = 4
@@ -25,17 +23,9 @@
 		return '';
 	});
 
-	const missed = $derived(shouldShowMissedWeekCallout(compliance));
 </script>
 
 <div class="streak-panel">
-	{#if missed.show}
-		<div class="missed-callout" role="alert">
-			<span aria-hidden="true">⚠️</span>
-			Requirement missed last week — {missed.count} keys completed, {weeklyMinimum} needed.
-		</div>
-	{/if}
-
 	<div class="streak-hero" aria-label="Current streak: {streak} weeks">
 		<div class="streak-main">
 			<span class="streak-emoji" aria-hidden="true">{streakEmoji()}</span>
@@ -61,20 +51,7 @@
 		margin-block-end: 1rem;
 	}
 
-	.missed-callout {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1rem;
-		margin-block-end: 0.75rem;
-		background: color-mix(in srgb, red 15%, transparent);
-		border: 1px solid color-mix(in srgb, red 35%, transparent);
-		border-radius: var(--pico-border-radius);
-		font-weight: 600;
-		color: color-mix(in srgb, red 70%, var(--pico-color));
-	}
-
-	.streak-hero {
+.streak-hero {
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;
@@ -83,7 +60,7 @@
 
 	.streak-main {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		gap: 0.25rem;
 	}
 

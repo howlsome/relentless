@@ -1,4 +1,6 @@
 export type Role = 'tank' | 'healer' | 'dps';
+export type KillCategory = 'in_raid' | 'safe_pug' | 'exempt_pug' | 'blocking_pug';
+export type DifficultyStatus = 'progression' | 'farm' | 'retired';
 export type Status = 'active' | 'inactive';
 export type TeamDesignation = 'main' | 'alt';
 
@@ -37,13 +39,25 @@ export interface RoleHistoryEntry {
 	to: string | null;
 }
 
+export interface SpecEntry {
+	spec: string;
+	role: Role;
+	primary: boolean;
+	wcl_active: boolean;
+}
+
 export interface Character {
 	name: string;
 	realm: string;
 	class: WowClass;
-	spec: string;
-	role: Role;
+	/** New multi-spec form. When present, replaces legacy spec/role fields. */
+	specs?: SpecEntry[];
+	/** Legacy single-spec field — kept for backwards compat. */
+	spec?: string;
+	/** Legacy single-role field — kept for backwards compat. */
+	role?: Role;
 	active: boolean;
+	last_seen?: string;
 }
 
 export interface Player {
@@ -55,6 +69,8 @@ export interface Player {
 	membership_history: MembershipEvent[];
 	characters: Character[];
 	role_history: RoleHistoryEntry[];
+	exemptions?: Exemption[];
+	designation_history?: Array<{ season_id: string; designation: TeamDesignation }>;
 }
 
 export interface MplusSeason {
@@ -64,6 +80,38 @@ export interface MplusSeason {
 	end_date: string | null;
 	dungeon_count: number;
 	dungeons: string[];
+}
+
+export interface RaidSession {
+	day: string;
+	start: string;
+	end: string;
+	grace_minutes: number;
+}
+
+export interface SafePugWindow {
+	day: string;
+	start: string;
+	end: string;
+}
+
+export interface Exemption {
+	week: string;
+	raid_nights_excused: string[];
+	reason: string;
+	granted_by: string;
+	granted_at: string;
+}
+
+export interface RaidSchedule {
+	timezone: string;
+	sessions: RaidSession[];
+	safe_pug_windows: SafePugWindow[];
+}
+
+export interface RaidDifficultyStatus {
+	heroic?: DifficultyStatus;
+	mythic?: DifficultyStatus;
 }
 
 export interface Roster {
@@ -77,4 +125,6 @@ export interface Roster {
 	raid_difficulties: string[];
 	wcl_expansion_id: number;
 	players: Player[];
+	raid_schedule?: RaidSchedule;
+	raid_difficulty_status?: Record<string, RaidDifficultyStatus>;
 }

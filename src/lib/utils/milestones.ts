@@ -5,6 +5,7 @@
 
 import type { RaiderCompliance, ComplianceWeek } from '$lib/types/compliance.js';
 import type { BossParse } from '$lib/types/weekly.js';
+import { fmtKey } from '$lib/utils/format.js';
 
 export interface Milestone {
 	key: string;
@@ -71,16 +72,6 @@ export function computeMplusMilestones(compliance: RaiderCompliance | null | und
 			key: 'volume-down',
 			emoji: '⬇️',
 			text: `Quieter week — ${current.total_dungeons} dungeons, down ${current.total_dungeons - prevCount} from last week.`
-		});
-	}
-
-	// Resilience level up (the most recently achieved level in history matches current level and was set this week)
-	const lastAchieved = compliance.resilience_history.at(-1);
-	if (lastAchieved && lastAchieved.achieved_week === current.week) {
-		milestones.push({
-			key: 'resilience-up',
-			emoji: '🛡️',
-			text: `Resilience ${lastAchieved.level} achieved! All 8 dungeons timed at +${lastAchieved.level}!`
 		});
 	}
 
@@ -156,9 +147,6 @@ export function computeBossMilestones(
 	return milestones;
 }
 
-function fmtKey(level: number): string {
-	return `+${level}`;
-}
 
 /**
  * Extract the parse history for a boss across all compliance weeks.

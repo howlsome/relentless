@@ -5,15 +5,20 @@ export type {
 	WowClass,
 	MembershipEvent,
 	RoleHistoryEntry,
+	SpecEntry,
 	Character,
 	Player,
 	MplusSeason,
-	Roster
+	Roster,
+	RaidSchedule,
+	RaidDifficultyStatus,
+	KillCategory,
+	DifficultyStatus,
+	Exemption
 } from './roster.js';
 
 export type {
 	MplusRun,
-	ResilienceProgress,
 	MplusRaiderEntry,
 	MplusWeeklyFile,
 	BossParseDifficulty,
@@ -26,7 +31,6 @@ export type {
 
 export type {
 	ComplianceWeek,
-	ResilienceHistoryEntry,
 	RecordEntry,
 	RaiderCompliance,
 	ComplianceFile

@@ -1,4 +1,4 @@
-import type { Role, TeamDesignation } from './roster.js';
+import type { Role, TeamDesignation, KillCategory } from './roster.js';
 
 export interface MplusRun {
 	dungeon: string;
@@ -6,8 +6,6 @@ export interface MplusRun {
 	timed: boolean;
 	completed_at: string;
 }
-
-export type ResilienceProgress = Record<string, number>;
 
 export interface MplusRaiderEntry {
 	raider_id: string;
@@ -24,8 +22,6 @@ export interface MplusRaiderEntry {
 	mplus_total_dungeons_this_week: number;
 	mplus_highest_key_this_week: number | null;
 	mplus_requirement_met: boolean;
-	resilience_level: number | null;
-	resilience_progress: ResilienceProgress;
 	error?: string;
 }
 
@@ -41,6 +37,39 @@ export interface BossParseDifficulty {
 	parse_percentile: number | null;
 	spec: string | null;
 	dps: number | null;
+	kill_time?: string | null;
+	kill_category?: KillCategory | null;
+	detected_session?: string | null;
+}
+
+export interface LockoutWarning {
+	boss_id: number;
+	boss_name: string;
+	difficulty: string;
+	kill_time: string;
+	detected_local_time: string;
+	reason: string;
+	prior_blocks_last_4_weeks: number;
+	wcl_report_code?: string | null;
+	wcl_fight_id?: number | null;
+}
+
+export interface SafePugKill {
+	boss_id: number;
+	boss_name: string;
+	difficulty: string;
+	kill_time: string;
+	detected_local_time: string;
+}
+
+export interface ExemptPugKill {
+	boss_id: number;
+	boss_name: string;
+	difficulty: string;
+	kill_time: string;
+	detected_local_time: string;
+	exemption_reason: string;
+	exemption_granted_by: string;
 }
 
 export interface BossParse {
@@ -62,6 +91,9 @@ export interface RaidRaiderEntry {
 	spec: string;
 	role: Role;
 	raid_parses: BossParse[];
+	lockout_warnings: LockoutWarning[];
+	safe_pug_kills: SafePugKill[];
+	exempt_pug_kills: ExemptPugKill[];
 	error?: string;
 }
 

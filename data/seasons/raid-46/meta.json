@@ -1,13 +1,60 @@
 {
   "wcl_zone_id": 46,
-  "name": "The Voidspire",
+  "name": "VS / DR / MQD",
   "bosses": [
-    { "id": 2901, "name": "Solanar the Dawnbreaker" },
-    { "id": 2902, "name": "Void Empress Xelathos" },
-    { "id": 2903, "name": "The Architect of Ruin" }
+    {
+      "id": 3176,
+      "name": "Imperator Averzian"
+    },
+    {
+      "id": 3177,
+      "name": "Vorasius"
+    },
+    {
+      "id": 3179,
+      "name": "Fallen-King Salhadaar"
+    },
+    {
+      "id": 3178,
+      "name": "Vaelgor & Ezzorak"
+    },
+    {
+      "id": 3180,
+      "name": "Lightblinded Vanguard"
+    },
+    {
+      "id": 3181,
+      "name": "Crown of the Cosmos"
+    },
+    {
+      "id": 3306,
+      "name": "Chimaerus, the Undreamt God"
+    },
+    {
+      "id": 3182,
+      "name": "Belo'ren, Child of Al'ar"
+    },
+    {
+      "id": 3183,
+      "name": "Midnight Falls"
+    }
   ],
   "difficulties": [
-    { "id": 4, "name": "Heroic" },
-    { "id": 5, "name": "Mythic" }
+    {
+      "id": 5,
+      "name": "Mythic"
+    },
+    {
+      "id": 4,
+      "name": "Heroic"
+    },
+    {
+      "id": 3,
+      "name": "Normal"
+    },
+    {
+      "id": 1,
+      "name": "LFR"
+    }
   ]
 }

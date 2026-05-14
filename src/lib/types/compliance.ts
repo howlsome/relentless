@@ -7,11 +7,6 @@ export interface ComplianceWeek {
 	met: boolean;
 }
 
-export interface ResilienceHistoryEntry {
-	level: number;
-	achieved_week: string;
-}
-
 export interface RecordEntry {
 	count?: number;
 	level?: number;
@@ -25,8 +20,6 @@ export interface RaiderCompliance {
 	total_weeks_tracked: number;
 	record_dungeons_week: { count: number; week: string } | null;
 	record_highest_key: { level: number; week: string } | null;
-	resilience_level: number | null;
-	resilience_history: ResilienceHistoryEntry[];
 	weeks: ComplianceWeek[];
 }
 

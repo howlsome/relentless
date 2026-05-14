@@ -27,6 +27,35 @@
 	--parse-badge-gray:   #666666; /* Gray      — 0–24       */
 }
 
+/* ── Raider.io score text colours ─────────────────────────────────────────── */
+/*
+ * WoW item quality colours matching Raider.io's scoreTiersSimple scheme.
+ * Thresholds (Midnight S1): ≥3000 gold, ≥2560 orange, ≥2080 purple,
+ *   ≥1600 blue, ≥0 green. No gray tier — every score is at least green.
+ *
+ * Light mode (#fff): #0070dd (4.8:1) and #a335ee (4.9:1) pass WCAG AA
+ *   directly. Green/orange/gold are too bright — darkened variants used.
+ * Dark mode (#11191f): WoW originals are too dark — brightened to pass WCAG.
+ */
+[data-theme='light'],
+[data-theme='auto'] {
+	--rio-gray:   #666666; /*  5.7:1  below top 40%         */
+	--rio-green:  #007700; /*  5.4:1  darkened from #1eff00 */
+	--rio-blue:   #0070dd; /*  4.8:1  WoW Rare              */
+	--rio-purple: #a335ee; /*  4.9:1  WoW Epic              */
+	--rio-orange: #b05800; /*  4.7:1  darkened from #ff8000 */
+	--rio-gold:   #866014; /*  5.2:1  darkened from #e5cc80 */
+}
+
+[data-theme='dark'] {
+	--rio-gray:   #9d9d9d; /*  6.4:1  below top 40%         */
+	--rio-green:  #1eff00; /* 13.5:1  WoW Uncommon          */
+	--rio-blue:   #0096ff; /*  5.9:1  brightened from #0070dd */
+	--rio-purple: #bf55f5; /*  5.0:1  brightened from #a335ee */
+	--rio-orange: #ff8000; /*  7.2:1  WoW Legendary         */
+	--rio-gold:   #e5cc80; /* 10.8:1  WoW Artifact          */
+}
+
 /* ── Chart line colours — light mode ──────────────────────────────────────── */
 [data-theme='light'],
 [data-theme='auto'] {

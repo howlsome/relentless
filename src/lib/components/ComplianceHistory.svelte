@@ -1,14 +1,21 @@
 <script lang="ts">
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
-	import { fmtWeekLabel, fmtKey, deltaClass } from '$lib/utils/format.js';
+	import { fmtKey, deltaClass, getSeasonWeek } from '$lib/utils/format.js';
 
 	let {
 		compliance,
-		weeklyMinimum = 4
+		weeklyMinimum = 4,
+		seasonStartDate = null
 	}: {
 		compliance: RaiderCompliance | null | undefined;
 		weeklyMinimum?: number;
+		seasonStartDate?: string | null;
 	} = $props();
+
+	function weekLabel(isoWeek: string): string {
+		const sw = seasonStartDate ? getSeasonWeek(isoWeek, seasonStartDate) : null;
+		return sw != null ? `Week ${sw}` : isoWeek;
+	}
 
 	const weeks = $derived(compliance?.weeks ?? []); // latest-first
 
@@ -37,7 +44,7 @@
 			<tbody>
 				{#each weeks as week, i}
 					<tr class={week.met ? '' : 'row--missed'}>
-						<td data-label="Week">{fmtWeekLabel(week.week, week.reset_start)}</td>
+						<td data-label="Week">{weekLabel(week.week)}</td>
 						<td data-label="Keys ≥ 10">{week.count}</td>
 						<td data-label="Total runs">{week.total_dungeons}</td>
 						<td data-label="Highest key">{fmtKey(week.highest_key_level)}</td>

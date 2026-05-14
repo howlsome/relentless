@@ -3,6 +3,7 @@
 	import '$lib/styles/parse-colours.css';
 	import '$lib/styles/app.css';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
 	import type { Snippet } from 'svelte';
@@ -41,39 +42,14 @@
 				</a>
 			</span>
 
-			<ul class="nav-links">
-				<li>
-					<a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>
-						Dashboard
-					</a>
-				</li>
-				<li>
-					<a href="/changelog" aria-current={currentPath === '/changelog' ? 'page' : undefined}>
-						Changelog
-					</a>
-				</li>
-			</ul>
 
 			<div class="nav-actions">
-				{#if pastSeasons.length > 0}
-					<label for="season-select" class="sr-only">Season archive</label>
-					<select
-						id="season-select"
-						class="season-select"
-						aria-label="Select season archive"
-						onchange={(e) => {
-							const id = (e.currentTarget as HTMLSelectElement).value;
-							if (id) window.location.href = `/season/${id}`;
-						}}
-					>
-						<option value="">Season archive…</option>
-						{#each pastSeasons as season}
-							<option value={season.season_id}>{season.label}</option>
-						{/each}
-					</select>
+				{#if currentPath.startsWith('/raider/') || currentPath === '/changelog'}
+					<a href="/" class="nav-back">← Dashboard</a>
 				{/if}
-
-				<ThemeToggle />
+				{#if browser}
+					<ThemeToggle />
+				{/if}
 			</div>
 		</nav>
 	</div>
@@ -83,25 +59,46 @@
 	{@render children()}
 </main>
 
-<footer class="container">
-	<small>EU-Draenor &middot; Data refreshed daily at 06:00 UTC</small>
+<footer class="site-footer container">
+	<small class="site-footer__made">Made with ♥ by howlsome</small>
+	<small class="site-footer__refresh">Data refreshed twice a day</small>
 </footer>
 
 <style>
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
+	/* Back link — only shown on desktop in the header */
+	.nav-back {
+		font-size: 0.85rem;
+		color: var(--pico-muted-color);
+		text-decoration: none;
 		white-space: nowrap;
-		border-width: 0;
 	}
 
-	a[aria-current='page'] {
-		font-weight: 700;
-		text-decoration: underline;
+	.nav-back:hover {
+		color: var(--pico-color);
+	}
+
+	@media (max-width: 639px) {
+		.nav-back {
+			display: none;
+		}
+	}
+
+	.site-footer {
+		border-top: 3px solid var(--pico-muted-border-color);
+		padding-block: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.25rem;
+	}
+
+	@media (min-width: 640px) {
+		.site-footer {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			text-align: left;
+		}
 	}
 </style>

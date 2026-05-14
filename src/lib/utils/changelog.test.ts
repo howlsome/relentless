@@ -3,7 +3,7 @@
  * Tests generateChangelogEntries from raider-identity.mjs.
  */
 import { describe, it, expect } from 'vitest';
-import { generateChangelogEntries } from './raider-identity.mjs';
+import { generateChangelogEntries } from './raider-identity.js';
 
 const TS = '2026-05-13T06:01:00Z';
 const WEEK = '2026-20';
