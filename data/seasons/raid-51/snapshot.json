@@ -1,0 +1,16 @@
+{
+  "season_id": "raid-51",
+  "week": "2026-20",
+  "fetched_at": "2026-05-15T17:35:48.323Z",
+  "raid_tier": {
+    "wcl_zone_id": 51,
+    "name": "Sporefall (PTR)",
+    "bosses": [
+      {
+        "id": 53159,
+        "name": "Rotmire"
+      }
+    ]
+  },
+  "raiders": []
+}
