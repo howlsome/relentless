@@ -7,9 +7,9 @@
  * Run with: node scripts/validate-roster.mjs
  */
 
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -28,7 +28,7 @@ const CLASS_SPECS = {
 	Rogue: { Assassination: 'dps', Outlaw: 'dps', Subtlety: 'dps' },
 	Shaman: { Elemental: 'dps', Enhancement: 'dps', Restoration: 'healer' },
 	Warlock: { Affliction: 'dps', Demonology: 'dps', Destruction: 'dps' },
-	Warrior: { Arms: 'dps', Fury: 'dps', Protection: 'tank' }
+	Warrior: { Arms: 'dps', Fury: 'dps', Protection: 'tank' },
 };
 
 function isValidClassSpec(cls, spec) {
@@ -61,7 +61,9 @@ function validateCharacter(char, raiderName) {
 		} else if (char.role) {
 			const canonical = canonicalRole(char.class, char.spec);
 			if (canonical && canonical !== char.role) {
-				warnings.push(`${label}: spec "${char.spec}" is a ${canonical} spec but role is "${char.role}"`);
+				warnings.push(
+					`${label}: spec "${char.spec}" is a ${canonical} spec but role is "${char.role}"`,
+				);
 			}
 		}
 	}
@@ -75,22 +77,28 @@ function validateRoster(roster) {
 	if (!roster.app_name) errors.push('Missing app_name');
 	if (!roster.realm) errors.push('Missing realm');
 	if (!roster.region) errors.push('Missing region');
-	if (typeof roster.mplus_weekly_minimum !== 'number') errors.push('mplus_weekly_minimum must be a number');
-	if (typeof roster.mplus_minimum_key_level !== 'number') errors.push('mplus_minimum_key_level must be a number');
+	if (typeof roster.mplus_weekly_minimum !== 'number')
+		errors.push('mplus_weekly_minimum must be a number');
+	if (typeof roster.mplus_minimum_key_level !== 'number')
+		errors.push('mplus_minimum_key_level must be a number');
 	if (!roster.tracking_start_date) errors.push('Missing tracking_start_date');
-	if (!Array.isArray(roster.mplus_seasons) || roster.mplus_seasons.length === 0) errors.push('mplus_seasons must be non-empty');
+	if (!Array.isArray(roster.mplus_seasons) || roster.mplus_seasons.length === 0)
+		errors.push('mplus_seasons must be non-empty');
 	if (!Array.isArray(roster.players)) errors.push('players must be an array');
 
 	const seenIds = new Set();
 	for (const player of roster.players ?? []) {
-		if (player.raider_id && seenIds.has(player.raider_id)) errors.push(`Duplicate raider_id: ${player.raider_id}`);
+		if (player.raider_id && seenIds.has(player.raider_id))
+			errors.push(`Duplicate raider_id: ${player.raider_id}`);
 		seenIds.add(player.raider_id);
 
 		const label = player.display_name || player.raider_id;
 		if (!player.raider_id) errors.push(`${label}: missing raider_id`);
 		if (!player.display_name) errors.push(`${label}: missing display_name`);
-		if (player.status !== 'active' && player.status !== 'inactive') errors.push(`${label}: invalid status "${player.status}"`);
-		if (player.team_designation !== 'main' && player.team_designation !== 'alt') errors.push(`${label}: invalid team_designation "${player.team_designation}"`);
+		if (player.status !== 'active' && player.status !== 'inactive')
+			errors.push(`${label}: invalid status "${player.status}"`);
+		if (player.team_designation !== 'main' && player.team_designation !== 'alt')
+			errors.push(`${label}: invalid team_designation "${player.team_designation}"`);
 
 		for (const char of player.characters ?? []) {
 			const r = validateCharacter(char, label);
@@ -114,11 +122,11 @@ const result1 = validateRoster(roster);
 
 if (result1.warnings.length > 0) {
 	console.log('Warnings:');
-	result1.warnings.forEach((w) => console.log('  ⚠', w));
+	for (const w of result1.warnings) console.log('  ⚠', w);
 }
 if (!result1.valid) {
 	console.error('FAIL — errors:');
-	result1.errors.forEach((e) => console.error('  ✗', e));
+	for (const e of result1.errors) console.error('  ✗', e);
 	process.exitCode = 1;
 } else {
 	console.log('PASS ✓ — roster.json is valid');
@@ -134,14 +142,24 @@ invalidRoster.players.push({
 	team_designation: 'main',
 	membership_history: [{ event: 'joined', date: '2026-03-17' }],
 	characters: [
-		{ name: 'Holymagebad', realm: 'Draenor', class: 'Mage', spec: 'Holy', role: 'healer', active: true }
+		{
+			name: 'Holymagebad',
+			realm: 'Draenor',
+			class: 'Mage',
+			spec: 'Holy',
+			role: 'healer',
+			active: true,
+		},
 	],
-	role_history: []
+	role_history: [],
 });
 const result2 = validateRoster(invalidRoster);
 const hasBadComboError = result2.errors.some((e) => e.includes('Mage') && e.includes('Holy'));
 if (hasBadComboError) {
-	console.log('PASS ✓ — Holy Mage correctly rejected:', result2.errors.find((e) => e.includes('Mage')));
+	console.log(
+		'PASS ✓ — Holy Mage correctly rejected:',
+		result2.errors.find((e) => e.includes('Mage')),
+	);
 } else {
 	console.error('FAIL — Holy Mage was not rejected');
 	process.exitCode = 1;
@@ -157,19 +175,30 @@ mismatchRoster.players.push({
 	team_designation: 'main',
 	membership_history: [{ event: 'joined', date: '2026-03-17' }],
 	characters: [
-		{ name: 'Pallydps', realm: 'Draenor', class: 'Paladin', spec: 'Holy', role: 'dps', active: true }
+		{ name: 'Pallydps', realm: 'Draenor', class: 'Paladin', spec: 'Holy', role: 'dps', active: true },
 	],
-	role_history: []
+	role_history: [],
 });
 const result3 = validateRoster(mismatchRoster);
-const hasMismatchWarning = result3.warnings.some((w) => w.includes('Pallydps') || w.includes('Holy'));
+const hasMismatchWarning = result3.warnings.some(
+	(w) => w.includes('Pallydps') || w.includes('Holy'),
+);
 const hasMismatchError = result3.errors.some((e) => e.includes('Pallydps'));
 if (hasMismatchWarning && !hasMismatchError) {
-	console.log('PASS ✓ — role mismatch is a warning, not an error:', result3.warnings.find((w) => w.includes('Holy')));
+	console.log(
+		'PASS ✓ — role mismatch is a warning, not an error:',
+		result3.warnings.find((w) => w.includes('Holy')),
+	);
 } else {
 	console.error('FAIL — role mismatch not handled correctly');
-	console.error('  errors:', result3.errors.filter((e) => e.includes('Pallydps')));
-	console.error('  warnings:', result3.warnings.filter((w) => w.includes('Holy')));
+	console.error(
+		'  errors:',
+		result3.errors.filter((e) => e.includes('Pallydps')),
+	);
+	console.error(
+		'  warnings:',
+		result3.warnings.filter((w) => w.includes('Holy')),
+	);
 	process.exitCode = 1;
 }
 

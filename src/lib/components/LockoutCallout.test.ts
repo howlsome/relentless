@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import LockoutCallout from './LockoutCallout.svelte';
 
 const BASE_RAIDER = {
@@ -49,14 +49,14 @@ describe('LockoutCallout — blocking pug', () => {
 
 	it('renders a red callout when lockout_warnings is non-empty', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } }
+			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } },
 		});
 		expect(screen.getByTestId('blocking-callout')).toBeTruthy();
 	});
 
 	it('lists each blocking_pug kill with detected_local_time', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } }
+			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } },
 		});
 		expect(screen.getByText(/Solanar the Dawnbreaker/i)).toBeTruthy();
 		expect(screen.getByText(/Thursday 16:22 server/i)).toBeTruthy();
@@ -67,9 +67,9 @@ describe('LockoutCallout — blocking pug', () => {
 			props: {
 				raider: {
 					...BASE_RAIDER,
-					lockout_warnings: [{ ...BLOCKING_WARNING, prior_blocks_last_4_weeks: 0 }]
-				}
-			}
+					lockout_warnings: [{ ...BLOCKING_WARNING, prior_blocks_last_4_weeks: 0 }],
+				},
+			},
 		});
 		expect(screen.queryByText(/removal from/i)).toBeNull();
 	});
@@ -79,23 +79,23 @@ describe('LockoutCallout — blocking pug', () => {
 			props: {
 				raider: {
 					...BASE_RAIDER,
-					lockout_warnings: [{ ...BLOCKING_WARNING, prior_blocks_last_4_weeks: 1 }]
-				}
-			}
+					lockout_warnings: [{ ...BLOCKING_WARNING, prior_blocks_last_4_weeks: 1 }],
+				},
+			},
 		});
 		expect(screen.getByText(/removal from/i)).toBeTruthy();
 	});
 
 	it('renders [Log officer review] clipboard helper', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } }
+			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } },
 		});
 		expect(screen.getByText(/log officer review/i)).toBeTruthy();
 	});
 
 	it('renders [Add retrospective exemption] clipboard helper', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } }
+			props: { raider: { ...BASE_RAIDER, lockout_warnings: [BLOCKING_WARNING] } },
 		});
 		expect(screen.getByText(/retrospective exemption/i)).toBeTruthy();
 	});
@@ -111,14 +111,14 @@ describe('LockoutCallout — safe pug', () => {
 
 	it('renders a green callout when safe_pug_kills is non-empty', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, safe_pug_kills: [SAFE_PUG] } }
+			props: { raider: { ...BASE_RAIDER, safe_pug_kills: [SAFE_PUG] } },
 		});
 		expect(screen.getByTestId('safe-pug-callout')).toBeTruthy();
 	});
 
 	it('lists each safe_pug kill with local time', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, safe_pug_kills: [SAFE_PUG] } }
+			props: { raider: { ...BASE_RAIDER, safe_pug_kills: [SAFE_PUG] } },
 		});
 		expect(screen.getByText(/Veluna the Skyrender/i)).toBeTruthy();
 		expect(screen.getByText(/Tuesday 23:14 server/i)).toBeTruthy();
@@ -135,14 +135,14 @@ describe('LockoutCallout — exempt pug', () => {
 
 	it('renders a neutral callout when exempt_pug_kills is non-empty', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, exempt_pug_kills: [EXEMPT_KILL] } }
+			props: { raider: { ...BASE_RAIDER, exempt_pug_kills: [EXEMPT_KILL] } },
 		});
 		expect(screen.getByTestId('exempt-callout')).toBeTruthy();
 	});
 
 	it('shows exemption reason and granter', () => {
 		render(LockoutCallout, {
-			props: { raider: { ...BASE_RAIDER, exempt_pug_kills: [EXEMPT_KILL] } }
+			props: { raider: { ...BASE_RAIDER, exempt_pug_kills: [EXEMPT_KILL] } },
 		});
 		expect(screen.getByText(/Family wedding/i)).toBeTruthy();
 		expect(screen.getByText(/OfficerName/i)).toBeTruthy();
@@ -158,9 +158,9 @@ describe('LockoutCallout — combined', () => {
 				raider: {
 					...BASE_RAIDER,
 					lockout_warnings: [BLOCKING_WARNING],
-					safe_pug_kills: [SAFE_PUG]
-				}
-			}
+					safe_pug_kills: [SAFE_PUG],
+				},
+			},
 		});
 		expect(screen.getByTestId('blocking-callout')).toBeTruthy();
 		expect(screen.getByTestId('safe-pug-callout')).toBeTruthy();

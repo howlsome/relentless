@@ -1,15 +1,15 @@
 <script lang="ts">
 	import type { Roster } from '$lib/types/roster.js';
 	import type { RaidWeeklyFile } from '$lib/types/weekly.js';
-	import RoleIcon from './RoleIcon.svelte';
-	import TeamDesignationBadge from './TeamDesignationBadge.svelte';
-	import { getPrimarySpec } from '$lib/utils/roster.js';
 	import { getWowClassColor } from '$lib/utils/format.js';
 	import { getBadgeBgColour, getBadgeTextColour } from '$lib/utils/parse-colours.js';
+	import { getPrimarySpec } from '$lib/utils/roster.js';
+	import RoleIcon from './RoleIcon.svelte';
+	import TeamDesignationBadge from './TeamDesignationBadge.svelte';
 
 	let {
 		roster,
-		raidSnapshot = null
+		raidSnapshot = null,
 	}: {
 		roster: Roster;
 		raidSnapshot?: RaidWeeklyFile | null;
@@ -20,7 +20,7 @@
 	const activePlayers = $derived(
 		roster.players
 			.filter((p) => p.status === 'active')
-			.sort((a, b) => a.display_name.localeCompare(b.display_name))
+			.sort((a, b) => a.display_name.localeCompare(b.display_name)),
 	);
 
 	const bosses = $derived(raidSnapshot?.raid_tier?.bosses ?? []);
@@ -37,25 +37,27 @@
 	}
 
 	const BOSS_ABBREV: Record<string, string> = {
-		'Imperator Averzian':           'Imp A',
-		'Vorasius':                     'Vora',
-		'Fallen-King Salhadaar':        'FK Sal',
-		'Vaelgor & Ezzorak':            'V&E',
-		'Lightblinded Vanguard':        'Vang',
-		'Crown of the Cosmos':          'Crown',
-		'Chimaerus, the Undreamt God':  'Chim',
-		"Belo'ren, Child of Al'ar":     'Belo',
-		'Midnight Falls':               "L'ura",
+		'Imperator Averzian': 'Imp A',
+		Vorasius: 'Vora',
+		'Fallen-King Salhadaar': 'FK Sal',
+		'Vaelgor & Ezzorak': 'V&E',
+		'Lightblinded Vanguard': 'Vang',
+		'Crown of the Cosmos': 'Crown',
+		'Chimaerus, the Undreamt God': 'Chim',
+		"Belo'ren, Child of Al'ar": 'Belo',
+		'Midnight Falls': "L'ura",
 	};
 
 	function abbrevBoss(name: string): string {
 		if (BOSS_ABBREV[name]) return BOSS_ABBREV[name];
 		// Generic fallback: strip ", X" and "& X" suffixes, take first word, max 5 chars
-		const stripped = name.replace(/,\s.+$/, '').replace(/\s*&\s*.+$/, '').trim();
+		const stripped = name
+			.replace(/,\s.+$/, '')
+			.replace(/\s*&\s*.+$/, '')
+			.trim();
 		const first = stripped.split(' ')[0];
 		return first.length <= 5 ? first : first.slice(0, 5);
 	}
-
 </script>
 
 {#if raidSnapshot}
@@ -96,18 +98,24 @@
 								<div class="raider-cell">
 									{#if char}
 										<RoleIcon
-										role={char.specs?.length ? (getPrimarySpec(char)?.role ?? 'dps') : (char.role ?? 'dps')}
-										spec={char.specs?.length ? (getPrimarySpec(char)?.spec ?? char.spec) : char.spec}
-										charClass={char.class}
-									/>
+											role={char.specs?.length ? (getPrimarySpec(char)?.role ?? 'dps') : (char.role ?? 'dps')}
+											spec={char.specs?.length ? (getPrimarySpec(char)?.spec ?? char.spec) : char.spec}
+											charClass={char.class}
+										/>
 									{/if}
 									<div>
-										<a href="/raider/{player.raider_id}" class="raider-name" style="--class-color:{getWowClassColor(char?.class)}">{player.display_name}</a>
+										<a
+											href="/raider/{player.raider_id}"
+											class="raider-name"
+											style="--class-color:{getWowClassColor(char?.class)}">{player.display_name}</a
+										>
 										{#if char}
 											<div class="char-subtitle muted">{char.name}</div>
 										{/if}
 									</div>
-									<span class="badge-right"><TeamDesignationBadge designation={player.team_designation} /></span>
+									<span class="badge-right"
+										><TeamDesignationBadge designation={player.team_designation} /></span
+									>
 								</div>
 							</td>
 							{#each bosses as boss}
@@ -218,7 +226,6 @@
 		min-width: 64px;
 	}
 
-
 	@media (max-width: 768px) {
 		.spacer-col {
 			display: none;
@@ -241,9 +248,7 @@
 		text-decoration: none;
 	}
 
-
 	.muted {
 		color: var(--pico-muted-color);
 	}
-
 </style>

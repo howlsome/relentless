@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { chunkArray, DIFFICULTY_IDS } from './wcl.js';
 
 // ── chunkArray ────────────────────────────────────────────────────────────────

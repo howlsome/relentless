@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import ChangelogEntry from './ChangelogEntry.svelte';
 
 function entry(overrides: Record<string, unknown> = {}) {
@@ -16,7 +16,7 @@ function entry(overrides: Record<string, unknown> = {}) {
 		spec: 'Unholy',
 		role: 'dps',
 		note: '',
-		...overrides
+		...overrides,
 	};
 }
 
@@ -37,33 +37,59 @@ describe('ChangelogEntry', () => {
 	});
 
 	it('renders team_changed entry with reason in italics', () => {
-		const { container } = render(ChangelogEntry, { entry: entry({
-			event: 'team_changed', from: 'alt', to: 'main', reason: 'Strong performance', character: 'Howlsome'
-		}) });
+		const { container } = render(ChangelogEntry, {
+			entry: entry({
+				event: 'team_changed',
+				from: 'alt',
+				to: 'main',
+				reason: 'Strong performance',
+				character: 'Howlsome',
+			}),
+		});
 		expect(container.textContent).toContain('Strong performance');
 		expect(container.textContent).toContain('→');
 	});
 
 	it('renders rerolled entry with old and new character', () => {
-		const { container } = render(ChangelogEntry, { entry: entry({
-			event: 'rerolled', from_character: 'OldChar', from_class: 'Mage', from_spec: 'Fire',
-			to_character: 'NewChar', to_class: 'Rogue', to_spec: 'Subtlety', role: 'dps'
-		}) });
+		const { container } = render(ChangelogEntry, {
+			entry: entry({
+				event: 'rerolled',
+				from_character: 'OldChar',
+				from_class: 'Mage',
+				from_spec: 'Fire',
+				to_character: 'NewChar',
+				to_class: 'Rogue',
+				to_spec: 'Subtlety',
+				role: 'dps',
+			}),
+		});
 		expect(container.textContent).toContain('OldChar');
 		expect(container.textContent).toContain('NewChar');
 	});
 
 	it('renders role_changed entry', () => {
-		const { container } = render(ChangelogEntry, { entry: entry({
-			event: 'role_changed', from_spec: 'Protection', from_role: 'tank', to_spec: 'Retribution', to_role: 'dps', character: 'C'
-		}) });
+		const { container } = render(ChangelogEntry, {
+			entry: entry({
+				event: 'role_changed',
+				from_spec: 'Protection',
+				from_role: 'tank',
+				to_spec: 'Retribution',
+				to_role: 'dps',
+				character: 'C',
+			}),
+		});
 		expect(container.textContent).toContain('Role change');
 	});
 
 	it('renders spec_changed entry', () => {
-		const { container } = render(ChangelogEntry, { entry: entry({
-			event: 'spec_changed', from_spec: 'Assassination', to_spec: 'Subtlety', character: 'C'
-		}) });
+		const { container } = render(ChangelogEntry, {
+			entry: entry({
+				event: 'spec_changed',
+				from_spec: 'Assassination',
+				to_spec: 'Subtlety',
+				character: 'C',
+			}),
+		});
 		expect(container.textContent).toContain('Spec change');
 	});
 

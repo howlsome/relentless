@@ -1,12 +1,12 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import RaiderTimeline from './RaiderTimeline.svelte';
 
 describe('RaiderTimeline', () => {
 	it('hidden for raider with only a single join event', () => {
 		const { container } = render(RaiderTimeline, {
 			membershipHistory: [{ event: 'joined', date: '2026-01-01', note: '' }],
-			roleHistory: []
+			roleHistory: [],
 		});
 		expect(container.querySelector('.raider-timeline')).toBeNull();
 	});
@@ -15,9 +15,9 @@ describe('RaiderTimeline', () => {
 		const { container } = render(RaiderTimeline, {
 			membershipHistory: [
 				{ event: 'joined', date: '2026-01-01' },
-				{ event: 'left',   date: '2026-03-01', note: 'Break' }
+				{ event: 'left', date: '2026-03-01', note: 'Break' },
 			],
-			roleHistory: []
+			roleHistory: [],
 		});
 		expect(container.querySelector('details')).toBeTruthy();
 		expect(container.textContent).toContain('team history');
@@ -27,9 +27,9 @@ describe('RaiderTimeline', () => {
 		const { container } = render(RaiderTimeline, {
 			membershipHistory: [
 				{ event: 'joined', date: '2026-01-01' },
-				{ event: 'left',   date: '2026-03-01' }
+				{ event: 'left', date: '2026-03-01' },
 			],
-			roleHistory: []
+			roleHistory: [],
 		});
 		expect(container.textContent).toContain('🚪');
 	});
@@ -38,9 +38,9 @@ describe('RaiderTimeline', () => {
 		const { container } = render(RaiderTimeline, {
 			membershipHistory: [
 				{ event: 'joined', date: '2026-01-01' },
-				{ event: 'left',   date: '2026-03-01' }
+				{ event: 'left', date: '2026-03-01' },
 			],
-			roleHistory: []
+			roleHistory: [],
 		});
 		expect(container.textContent).toContain('💤');
 	});
@@ -49,9 +49,15 @@ describe('RaiderTimeline', () => {
 		const { container } = render(RaiderTimeline, {
 			membershipHistory: [
 				{ event: 'joined', date: '2026-01-01' },
-				{ event: 'team_changed', date: '2026-03-17', from: 'alt', to: 'main', reason: 'Strong performance' }
+				{
+					event: 'team_changed',
+					date: '2026-03-17',
+					from: 'alt',
+					to: 'main',
+					reason: 'Strong performance',
+				},
 			],
-			roleHistory: []
+			roleHistory: [],
 		});
 		expect(container.textContent).toContain('Strong performance');
 	});
@@ -60,9 +66,9 @@ describe('RaiderTimeline', () => {
 		const { container } = render(RaiderTimeline, {
 			membershipHistory: [
 				{ event: 'joined', date: '2026-01-01' },
-				{ event: 'left',   date: '2026-06-01' }
+				{ event: 'left', date: '2026-06-01' },
 			],
-			roleHistory: []
+			roleHistory: [],
 		});
 		const entries = container.querySelectorAll('.timeline-entry');
 		const texts = [...entries].map((e) => e.textContent ?? '');

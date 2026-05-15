@@ -24,10 +24,7 @@
       ]
     }
   ],
-  "raid_difficulties": [
-    "heroic",
-    "mythic"
-  ],
+  "raid_difficulties": ["heroic", "mythic"],
   "wcl_expansion_id": 7,
   "raid_schedule": {
     "timezone": "Europe/Paris",

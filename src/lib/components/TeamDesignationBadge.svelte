@@ -6,7 +6,7 @@
 
 <span
 	class="designation-badge designation-badge--{designation}"
-	aria-label="{designation === 'main' ? 'Main team' : 'Alt team'}"
+	aria-label={designation === 'main' ? 'Main team' : 'Alt team'}
 >
 	{designation === 'main' ? 'Main' : 'Alt'}
 </span>

@@ -22,13 +22,49 @@ export interface ParseColourInfo {
 
 // Ordered from highest to lowest tier for range checks
 const TIERS: ParseColourInfo[] = [
-	{ tier: 'tan',    label: 'Artifact',  bgHex: '#e5cc80', textHex: '#000000', cssVar: 'var(--parse-tan)'    }, // 100
-	{ tier: 'pink',   label: 'Legendary', bgHex: '#e268a8', textHex: '#000000', cssVar: 'var(--parse-pink)'   }, // 99
-	{ tier: 'orange', label: 'Epic',      bgHex: '#ff8000', textHex: '#000000', cssVar: 'var(--parse-orange)' }, // 95–98
-	{ tier: 'purple', label: 'Rare',      bgHex: '#a335ee', textHex: '#ffffff', cssVar: 'var(--parse-purple)' }, // 75–94
-	{ tier: 'blue',   label: 'Uncommon',  bgHex: '#0070ff', textHex: '#000000', cssVar: 'var(--parse-blue)'   }, // 50–74
-	{ tier: 'green',  label: 'Common',    bgHex: '#1eff00', textHex: '#000000', cssVar: 'var(--parse-green)'  }, // 25–49
-	{ tier: 'gray',   label: 'Gray',      bgHex: '#666666', textHex: '#ffffff', cssVar: 'var(--parse-gray)'   }, // 0–24
+	{
+		tier: 'tan',
+		label: 'Artifact',
+		bgHex: '#e5cc80',
+		textHex: '#000000',
+		cssVar: 'var(--parse-tan)',
+	}, // 100
+	{
+		tier: 'pink',
+		label: 'Legendary',
+		bgHex: '#e268a8',
+		textHex: '#000000',
+		cssVar: 'var(--parse-pink)',
+	}, // 99
+	{
+		tier: 'orange',
+		label: 'Epic',
+		bgHex: '#ff8000',
+		textHex: '#000000',
+		cssVar: 'var(--parse-orange)',
+	}, // 95–98
+	{
+		tier: 'purple',
+		label: 'Rare',
+		bgHex: '#a335ee',
+		textHex: '#ffffff',
+		cssVar: 'var(--parse-purple)',
+	}, // 75–94
+	{
+		tier: 'blue',
+		label: 'Uncommon',
+		bgHex: '#0070ff',
+		textHex: '#000000',
+		cssVar: 'var(--parse-blue)',
+	}, // 50–74
+	{
+		tier: 'green',
+		label: 'Common',
+		bgHex: '#1eff00',
+		textHex: '#000000',
+		cssVar: 'var(--parse-green)',
+	}, // 25–49
+	{ tier: 'gray', label: 'Gray', bgHex: '#666666', textHex: '#ffffff', cssVar: 'var(--parse-gray)' }, // 0–24
 ];
 
 /**
@@ -38,12 +74,12 @@ const TIERS: ParseColourInfo[] = [
 export function getParseInfo(percentile: number | null | undefined): ParseColourInfo {
 	if (percentile == null || percentile < 0) return TIERS[6]; // gray
 	if (percentile >= 100) return TIERS[0]; // tan (Artifact)
-	if (percentile >= 99)  return TIERS[1]; // pink (Legendary)
-	if (percentile >= 95)  return TIERS[2]; // orange (Epic)
-	if (percentile >= 75)  return TIERS[3]; // purple (Rare)
-	if (percentile >= 50)  return TIERS[4]; // blue (Uncommon)
-	if (percentile >= 25)  return TIERS[5]; // green (Common)
-	return TIERS[6];                         // gray
+	if (percentile >= 99) return TIERS[1]; // pink (Legendary)
+	if (percentile >= 95) return TIERS[2]; // orange (Epic)
+	if (percentile >= 75) return TIERS[3]; // purple (Rare)
+	if (percentile >= 50) return TIERS[4]; // blue (Uncommon)
+	if (percentile >= 25) return TIERS[5]; // green (Common)
+	return TIERS[6]; // gray
 }
 
 /**
@@ -105,12 +141,30 @@ export interface RioScoreStyle {
 // raider.io/mythic-plus/cutoffs/season-mn-1/eu).
 // top 0.1% = 3891, top 1% = 3677, top 10% = 3284, top 25% = 3006, top 40% = 2719.
 const RIO_TIERS: Array<{ min: number; style: RioScoreStyle }> = [
-	{ min: 3891, style: { textVar: 'var(--rio-gold)',   bgHex: '#e5cc80', textHex: '#000000', label: 'Top 0.1%' } },
-	{ min: 3677, style: { textVar: 'var(--rio-orange)', bgHex: '#ff8000', textHex: '#000000', label: 'Top 1%'   } },
-	{ min: 3284, style: { textVar: 'var(--rio-purple)', bgHex: '#a335ee', textHex: '#ffffff', label: 'Top 10%'  } },
-	{ min: 3006, style: { textVar: 'var(--rio-blue)',   bgHex: '#0070dd', textHex: '#ffffff', label: 'Top 25%'  } },
-	{ min: 2719, style: { textVar: 'var(--rio-green)',  bgHex: '#1eff00', textHex: '#000000', label: 'Top 40%'  } },
-	{ min:    0, style: { textVar: 'var(--rio-gray)',   bgHex: '#666666', textHex: '#ffffff', label: 'Unranked' } },
+	{
+		min: 3891,
+		style: { textVar: 'var(--rio-gold)', bgHex: '#e5cc80', textHex: '#000000', label: 'Top 0.1%' },
+	},
+	{
+		min: 3677,
+		style: { textVar: 'var(--rio-orange)', bgHex: '#ff8000', textHex: '#000000', label: 'Top 1%' },
+	},
+	{
+		min: 3284,
+		style: { textVar: 'var(--rio-purple)', bgHex: '#a335ee', textHex: '#ffffff', label: 'Top 10%' },
+	},
+	{
+		min: 3006,
+		style: { textVar: 'var(--rio-blue)', bgHex: '#0070dd', textHex: '#ffffff', label: 'Top 25%' },
+	},
+	{
+		min: 2719,
+		style: { textVar: 'var(--rio-green)', bgHex: '#1eff00', textHex: '#000000', label: 'Top 40%' },
+	},
+	{
+		min: 0,
+		style: { textVar: 'var(--rio-gray)', bgHex: '#666666', textHex: '#ffffff', label: 'Unranked' },
+	},
 ];
 
 export function getRioScoreStyle(score: number | null | undefined): RioScoreStyle {
@@ -121,15 +175,33 @@ export function getRioScoreStyle(score: number | null | undefined): RioScoreStyl
 // Key level colour tiers — same WoW quality colour palette as score tiers.
 // Thresholds tuned for Midnight S1 key scaling.
 const KEY_TIERS: Array<{ min: number; style: RioScoreStyle }> = [
-	{ min: 14, style: { textVar: 'var(--rio-gold)',   bgHex: '#e5cc80', textHex: '#000000', label: '+14' } },
-	{ min: 12, style: { textVar: 'var(--rio-orange)', bgHex: '#ff8000', textHex: '#000000', label: '+12' } },
-	{ min: 10, style: { textVar: 'var(--rio-purple)', bgHex: '#a335ee', textHex: '#ffffff', label: '+10' } },
-	{ min:  7, style: { textVar: 'var(--rio-blue)',   bgHex: '#0070dd', textHex: '#ffffff', label: '+7'  } },
-	{ min:  0, style: { textVar: 'var(--rio-green)',  bgHex: '#1eff00', textHex: '#000000', label: 'Low' } },
+	{
+		min: 14,
+		style: { textVar: 'var(--rio-gold)', bgHex: '#e5cc80', textHex: '#000000', label: '+14' },
+	},
+	{
+		min: 12,
+		style: { textVar: 'var(--rio-orange)', bgHex: '#ff8000', textHex: '#000000', label: '+12' },
+	},
+	{
+		min: 10,
+		style: { textVar: 'var(--rio-purple)', bgHex: '#a335ee', textHex: '#ffffff', label: '+10' },
+	},
+	{
+		min: 7,
+		style: { textVar: 'var(--rio-blue)', bgHex: '#0070dd', textHex: '#ffffff', label: '+7' },
+	},
+	{
+		min: 0,
+		style: { textVar: 'var(--rio-green)', bgHex: '#1eff00', textHex: '#000000', label: 'Low' },
+	},
 ];
 
 const KEY_LEVEL_NONE: RioScoreStyle = {
-	textVar: 'var(--rio-gray)', bgHex: '#666666', textHex: '#ffffff', label: 'None'
+	textVar: 'var(--rio-gray)',
+	bgHex: '#666666',
+	textHex: '#ffffff',
+	label: 'None',
 };
 
 export function getKeyLevelStyle(level: number | null | undefined): RioScoreStyle {

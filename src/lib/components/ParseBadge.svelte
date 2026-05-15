@@ -1,12 +1,16 @@
 <script lang="ts">
-	import { getBadgeBgColour, getBadgeTextColour, getParseTierLabel } from '$lib/utils/parse-colours.js';
 	import { fmtParse } from '$lib/utils/format.js';
+	import {
+		getBadgeBgColour,
+		getBadgeTextColour,
+		getParseTierLabel,
+	} from '$lib/utils/parse-colours.js';
 
 	let {
 		percentile,
 		size = 'md',
 		showLabel = false,
-		href = null
+		href = null,
 	}: {
 		percentile: number | null | undefined;
 		size?: 'sm' | 'md' | 'lg';
@@ -26,7 +30,7 @@
 		Rare: 'High performer. Well above average.',
 		Uncommon: 'Above average. Solid work.',
 		Common: 'Below average. Room to grow.',
-		Gray: 'Needs attention.'
+		Gray: 'Needs attention.',
 	};
 </script>
 

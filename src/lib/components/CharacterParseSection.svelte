@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { BossParse } from '$lib/types/weekly.js';
 	import type { Character } from '$lib/types/roster.js';
+	import type { BossParse } from '$lib/types/weekly.js';
 	import BossParseCard from './BossParseCard.svelte';
 	import RoleIcon from './RoleIcon.svelte';
 
@@ -15,7 +15,7 @@
 		weeklyHistory = {},
 		wclCharUrl = null,
 		wclZoneId = null,
-		wowanalyzerUrls = {}
+		wowanalyzerUrls = {},
 	}: {
 		character: Character & { first_seen?: string; last_seen?: string };
 		parses: BossParse[];
@@ -52,7 +52,7 @@
 					/>
 				{/each}
 			</div>
-			{#if Object.values(wowanalyzerUrls).some(arr => arr.some(u => u != null))}
+			{#if Object.values(wowanalyzerUrls).some((arr) => arr.some((u) => u != null))}
 				<p class="wowa-footer-note">WoWAnalyzer links open the most recent report only.</p>
 			{/if}
 		{/if}
@@ -80,7 +80,8 @@
 					<span class="char-section__best">{bestParseSummary}</span>
 				{/if}
 				{#if isActive}
-					<span class="char-section__active-since muted">Active since {character.first_seen ?? '?'}</span>
+					<span class="char-section__active-since muted">Active since {character.first_seen ?? '?'}</span
+					>
 				{/if}
 			</span>
 		</summary>

@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { classifyKill, getKillCategoryCounts } from './lockout.js';
-import type { RaidSchedule, Exemption } from '$lib/types/roster.js';
+import { describe, expect, it } from 'vitest';
+import type { Exemption, RaidSchedule } from '$lib/types/roster.js';
+import { classifyKill } from './lockout.js';
 
 // ── Fixture schedule ──────────────────────────────────────────────────────────
 // sessions:         Mon 20:30–23:30 (+30min grace) → effective 20:00–24:00 server
@@ -32,7 +32,7 @@ const SCHEDULE: RaidSchedule = {
 function serverToUTC(isoDate: string, serverHour: number, serverMin = 0): string {
 	// CEST = UTC+2, so UTC = server - 2h
 	const utcHour = serverHour - 2;
-	const date = new Date(isoDate + 'T00:00:00Z');
+	const date = new Date(`${isoDate}T00:00:00Z`);
 	date.setUTCHours(utcHour, serverMin, 0, 0);
 	return date.toISOString();
 }
@@ -203,7 +203,9 @@ describe('classifyKill — exempt_pug', () => {
 				granted_at: '2026-05-10T12:00:00Z',
 			},
 		];
-		expect(classifyKill(serverToUTC('2026-05-11', 15), SCHEDULE, emptyExemptions)).toBe('blocking_pug');
+		expect(classifyKill(serverToUTC('2026-05-11', 15), SCHEDULE, emptyExemptions)).toBe(
+			'blocking_pug',
+		);
 	});
 
 	it('Most recent exemption by granted_at wins when multiple exist for same week', () => {
@@ -244,7 +246,9 @@ describe('classifyKill — exempt_pug', () => {
 				granted_at: '2026-05-10T12:00:00Z',
 			},
 		];
-		expect(classifyKill(serverToUTC('2026-05-11', 15), SCHEDULE, multiExemptions)).toBe('blocking_pug');
+		expect(classifyKill(serverToUTC('2026-05-11', 15), SCHEDULE, multiExemptions)).toBe(
+			'blocking_pug',
+		);
 	});
 });
 
@@ -264,7 +268,11 @@ describe('classifyKill — priority and edge cases', () => {
 	});
 
 	it('Feature disabled: empty sessions array → returns in_raid for all kills', () => {
-		const disabledSchedule: RaidSchedule = { timezone: 'Europe/Paris', sessions: [], safe_pug_windows: [] };
+		const disabledSchedule: RaidSchedule = {
+			timezone: 'Europe/Paris',
+			sessions: [],
+			safe_pug_windows: [],
+		};
 		expect(classifyKill(serverToUTC('2026-05-14', 21), disabledSchedule)).toBe('in_raid');
 	});
 
@@ -332,4 +340,3 @@ describe('classifyKill — priority and edge cases', () => {
 		expect(classifyKill(utcTs, SCHEDULE)).toBe('in_raid');
 	});
 });
-

@@ -27,7 +27,9 @@ export async function getRioProfile(
 	if (resp.status === 404) return null;
 	if (resp.status === 429) {
 		if (attempt < 2) {
-			console.warn(`[rio] 429 rate-limited for ${name}-${realm} — waiting ${RIO_RETRY_DELAY_MS / 1000}s then retrying`);
+			console.warn(
+				`[rio] 429 rate-limited for ${name}-${realm} — waiting ${RIO_RETRY_DELAY_MS / 1000}s then retrying`,
+			);
 			await sleep(RIO_RETRY_DELAY_MS);
 			return getRioProfile(region, realm, name, fields, attempt + 1);
 		}
@@ -78,11 +80,11 @@ export async function fetchRioBatch(
 
 			const outcome = settled[j];
 			if (outcome.status === 'fulfilled') {
-				results.get(rid)!.push(outcome.value);
+				results.get(rid)?.push(outcome.value);
 			} else {
 				const reason = outcome.reason as Error;
 				console.warn(`[rio] Error fetching ${char.name}-${char.realm}: ${reason?.message ?? reason}`);
-				results.get(rid)!.push({ char, profile: null, error: 'rio_error' });
+				results.get(rid)?.push({ char, profile: null, error: 'rio_error' });
 			}
 		}
 	}
@@ -112,7 +114,8 @@ type RioProfile = Record<string, unknown>;
 
 export function extractRioScore(profile: RioProfile | null): number | null {
 	if (!profile) return null;
-	const season = (profile.mythic_plus_scores_by_season as Array<{ scores: { all: number } }> ?? [])[0];
+	const season = ((profile.mythic_plus_scores_by_season as Array<{ scores: { all: number } }>) ??
+		[])[0];
 	return season?.scores?.all ?? null;
 }
 
@@ -120,10 +123,7 @@ export function extractWeeklyHighestRuns(profile: RioProfile | null): object[] {
 	return (profile?.mythic_plus_weekly_highest_level_runs as object[]) ?? [];
 }
 
-export function countTotalDungeonsThisWeek(
-	profile: RioProfile | null,
-	resetStart: Date,
-): number {
+export function countTotalDungeonsThisWeek(profile: RioProfile | null, resetStart: Date): number {
 	const runs = (profile?.mythic_plus_recent_runs as Array<{ completed_at: string }>) ?? [];
 	return runs.filter((r) => new Date(r.completed_at) >= resetStart).length;
 }
@@ -139,4 +139,3 @@ export function highestKeyThisWeek(weeklyRuns: Array<{ mythic_level: number }>):
 	if (!weeklyRuns.length) return null;
 	return Math.max(...weeklyRuns.map((r) => r.mythic_level));
 }
-

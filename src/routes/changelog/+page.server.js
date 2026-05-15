@@ -1,7 +1,7 @@
 export const prerender = true;
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 /** @type {import('@sveltejs/kit').Load} */
 export function load() {

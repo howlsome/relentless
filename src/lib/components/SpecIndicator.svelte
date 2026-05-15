@@ -13,7 +13,13 @@
 		<span class="spec-indicator__primary">{charClass} — {primary.spec} ({primary.role})</span>
 	{/if}
 	{#if extraCount > 0}
-		<span class="spec-indicator__extra" title="{activeSpecs.slice(1).map(s => s.spec).join(', ')}">
+		<span
+			class="spec-indicator__extra"
+			title={activeSpecs
+				.slice(1)
+				.map((s) => s.spec)
+				.join(', ')}
+		>
 			+{extraCount}
 		</span>
 	{/if}

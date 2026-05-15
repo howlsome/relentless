@@ -4,7 +4,7 @@
 
 	let {
 		membershipHistory = [],
-		roleHistory = []
+		roleHistory = [],
 	}: {
 		membershipHistory?: MembershipEvent[];
 		roleHistory?: RoleHistoryEntry[];
@@ -28,7 +28,7 @@
 					type: 'membership',
 					icon: '🚪',
 					text: `Joined Relentless`,
-					subtext: 'note' in e ? e.note : undefined
+					subtext: 'note' in e ? e.note : undefined,
 				});
 			} else if (e.event === 'left') {
 				all.push({
@@ -36,7 +36,7 @@
 					type: 'membership',
 					icon: '💤',
 					text: `Left team`,
-					subtext: 'note' in e ? e.note : undefined
+					subtext: 'note' in e ? e.note : undefined,
 				});
 			} else if (e.event === 'team_changed') {
 				const te = e as Extract<MembershipEvent, { event: 'team_changed' }>;
@@ -45,7 +45,7 @@
 					type: 'team',
 					icon: '🔄',
 					text: `Moved from ${te.from} → ${te.to} team`,
-					subtext: te.reason
+					subtext: te.reason,
 				});
 			}
 		}
@@ -62,16 +62,15 @@
 					type: 'character',
 					icon: '🎮',
 					text: `Rerolled: ${prev.spec} ${prev.class} → ${entry.spec} ${entry.class}`,
-					subtext: prev.character !== entry.character
-						? `${prev.character} → ${entry.character}`
-						: undefined
+					subtext:
+						prev.character !== entry.character ? `${prev.character} → ${entry.character}` : undefined,
 				});
 			} else if (prev.spec !== entry.spec || prev.role !== entry.role) {
 				all.push({
 					date: entry.from,
 					type: 'character',
 					icon: '⚔️',
-					text: `Spec change: ${prev.spec} → ${entry.spec}`
+					text: `Spec change: ${prev.spec} → ${entry.spec}`,
 				});
 			}
 		}

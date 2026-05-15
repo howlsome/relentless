@@ -1,7 +1,7 @@
 export const prerender = true;
 
-import { existsSync, readFileSync } from 'fs';
-import { join } from 'path';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 /** @param {string} path */
 function safeJson(path) {
@@ -39,6 +39,6 @@ export function load({ params }) {
 		roster,
 		snapshot,
 		compliance,
-		zoneMeta: meta
+		zoneMeta: meta,
 	};
 }

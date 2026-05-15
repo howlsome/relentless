@@ -7,10 +7,14 @@
 <ul class="spec-pills" role="list">
 	{#each specs as entry}
 		<li
-			class="spec-pill {entry.primary ? 'spec-pill--primary' : ''} {!entry.wcl_active ? 'spec-pill--inactive' : ''}"
+			class="spec-pill {entry.primary ? 'spec-pill--primary' : ''} {!entry.wcl_active
+				? 'spec-pill--inactive'
+				: ''}"
 			data-testid="spec-pill-{entry.spec}"
 			data-primary={entry.primary ? 'true' : 'false'}
-			aria-label="{entry.spec} ({entry.role}){entry.primary ? ' — primary' : ''}{!entry.wcl_active ? ' — not tracked' : ''}"
+			aria-label="{entry.spec} ({entry.role}){entry.primary ? ' — primary' : ''}{!entry.wcl_active
+				? ' — not tracked'
+				: ''}"
 		>
 			{#if entry.primary}
 				<span class="spec-pill__star" aria-hidden="true">★</span>

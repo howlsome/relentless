@@ -1,7 +1,6 @@
-import type { RaidSchedule, Exemption, KillCategory } from '$lib/types/roster.js';
+import type { Exemption, KillCategory, RaidSchedule } from '$lib/types/roster.js';
 
-
-const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+const _DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 // ── Time helpers ──────────────────────────────────────────────────────────────
 
@@ -71,7 +70,7 @@ export function getIsoWeekForTimestamp(utcIso: string, timezone: string): string
 		day: '2-digit',
 	});
 	const localDate = localFmt.format(date); // "YYYY-MM-DD"
-	const d = new Date(localDate + 'T12:00:00Z');
+	const d = new Date(`${localDate}T12:00:00Z`);
 	const dayNum = d.getUTCDay() || 7;
 	d.setUTCDate(d.getUTCDate() + 4 - dayNum);
 	const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
@@ -107,7 +106,11 @@ function isInSessionWindow(
 
 // ── Safe-pug window check ─────────────────────────────────────────────────────
 
-function isInSafePugWindow(localDay: string, localMinutes: number, schedule: RaidSchedule): boolean {
+function isInSafePugWindow(
+	localDay: string,
+	localMinutes: number,
+	schedule: RaidSchedule,
+): boolean {
 	for (const window of schedule.safe_pug_windows ?? []) {
 		if (window.day !== localDay) continue;
 
@@ -115,7 +118,9 @@ function isInSafePugWindow(localDay: string, localMinutes: number, schedule: Rai
 		const winEnd = hmToMinutes(window.end);
 
 		if (winStart >= winEnd) {
-			console.warn(`[lockout] Safe-pug window ${window.day} ${window.start}–${window.end} has start >= end — ignoring`);
+			console.warn(
+				`[lockout] Safe-pug window ${window.day} ${window.start}–${window.end} has start >= end — ignoring`,
+			);
 			continue;
 		}
 
@@ -190,4 +195,3 @@ export function classifyKill(
 	// 4. Fallback: blocking_pug
 	return 'blocking_pug';
 }
-

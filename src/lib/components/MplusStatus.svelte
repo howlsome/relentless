@@ -1,19 +1,19 @@
 <script lang="ts">
+	import type { ComplianceFile } from '$lib/types/compliance.js';
 	import type { Roster } from '$lib/types/roster.js';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
-	import type { MplusWeeklyFile, MplusRaiderEntry } from '$lib/types/weekly.js';
-	import type { ComplianceFile } from '$lib/types/compliance.js';
+	import type { MplusRaiderEntry, MplusWeeklyFile } from '$lib/types/weekly.js';
+	import { fmtKey, fmtWeekLabel, getSeasonWeek, getWowClassColor } from '$lib/utils/format.js';
+	import { getKeyLevelStyle } from '$lib/utils/parse-colours.js';
+	import RioScoreBadge from './RioScoreBadge.svelte';
 	import RoleIcon from './RoleIcon.svelte';
 	import TeamDesignationBadge from './TeamDesignationBadge.svelte';
-	import { fmtKey, fmtWeekLabel, getSeasonWeek, getWowClassColor } from '$lib/utils/format.js';
-	import RioScoreBadge from './RioScoreBadge.svelte';
-	import { getKeyLevelStyle } from '$lib/utils/parse-colours.js';
 
 	let {
 		roster,
 		seasonsIndex,
 		snapshot = null,
-		compliance = null
+		compliance = null,
 	}: {
 		roster: Roster;
 		seasonsIndex: SeasonsIndex;
@@ -28,15 +28,13 @@
 	}
 
 	const activeSeason = $derived(
-		seasonsIndex.all_mplus_seasons.find((s) => s.season_id === seasonsIndex.active_mplus_season)
+		seasonsIndex.all_mplus_seasons.find((s) => s.season_id === seasonsIndex.active_mplus_season),
 	);
 	const seasonWeek = $derived(
-		snapshot ? getSeasonWeek(snapshot.week, activeSeason?.start_date) : null
+		snapshot ? getSeasonWeek(snapshot.week, activeSeason?.start_date) : null,
 	);
 	const weekLabel = $derived(
-		seasonWeek != null
-			? `Week ${seasonWeek}`
-			: snapshot ? fmtWeekLabel(snapshot.week) : 'Current'
+		seasonWeek != null ? `Week ${seasonWeek}` : snapshot ? fmtWeekLabel(snapshot.week) : 'Current',
 	);
 
 	const raiderEntries = $derived((): (MplusRaiderEntry & { _trackingStart?: string })[] => {
@@ -47,8 +45,10 @@
 				return player?.status === 'active';
 			})
 			.sort((a, b) => {
-				const nameA = roster.players.find((p) => p.raider_id === a.raider_id)?.display_name ?? a.display_name;
-				const nameB = roster.players.find((p) => p.raider_id === b.raider_id)?.display_name ?? b.display_name;
+				const nameA =
+					roster.players.find((p) => p.raider_id === a.raider_id)?.display_name ?? a.display_name;
+				const nameB =
+					roster.players.find((p) => p.raider_id === b.raider_id)?.display_name ?? b.display_name;
 				return nameA.localeCompare(nameB);
 			});
 	});
@@ -81,19 +81,26 @@
 						{@const countFg = keyCount < 3 ? '#ffffff' : '#000000'}
 						{@const ks = getKeyLevelStyle(raider.mplus_highest_key_this_week)}
 						{@const record = getRecordWeek(raider.raider_id)}
-						{@const recBg = record != null ? (record >= 4 ? '#14ac00' : record === 3 ? '#ff8000' : '#c41e3a') : null}
+						{@const recBg =
+							record != null ? (record >= 4 ? '#14ac00' : record === 3 ? '#ff8000' : '#c41e3a') : null}
 						{@const recFg = record != null ? (record < 3 ? '#ffffff' : '#000000') : null}
 						<tr>
 							<td data-label="Raider" class="raider-col">
 								<div class="raider-cell">
 									<RoleIcon role={raider.role} spec={raider.spec} charClass={raider.class} />
 									<div>
-										<a href="/raider/{raider.raider_id}" class="raider-name" style="--class-color:{getWowClassColor(raider.class)}">
+										<a
+											href="/raider/{raider.raider_id}"
+											class="raider-name"
+											style="--class-color:{getWowClassColor(raider.class)}"
+										>
 											{player?.display_name ?? raider.display_name}
 										</a>
 										<div class="char-subtitle muted">{raider.active_character}</div>
 									</div>
-									<span class="badge-right"><TeamDesignationBadge designation={raider.team_designation} /></span>
+									<span class="badge-right"
+										><TeamDesignationBadge designation={raider.team_designation} /></span
+									>
 								</div>
 							</td>
 							<td data-label="RIO"><RioScoreBadge score={raider.rio_score} /></td>
@@ -101,7 +108,9 @@
 								<span class="count-badge" style="background:{countBg};color:{countFg}">{keyCount}</span>
 							</td>
 							<td data-label="Highest key">
-								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}">{fmtKey(raider.mplus_highest_key_this_week)}</span>
+								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}"
+									>{fmtKey(raider.mplus_highest_key_this_week)}</span
+								>
 							</td>
 							<td data-label="Record week">
 								{#if record != null && recBg && recFg}

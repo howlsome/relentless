@@ -1,4 +1,4 @@
-import type { Player, Roster, Character } from '$lib/types/roster.js';
+import type { Character, Player, Roster } from '$lib/types/roster.js';
 
 // ── ISO week / WoW reset helpers ──────────────────────────────────────────────
 
@@ -19,12 +19,7 @@ export function getResetStart(now: Date = new Date()): Date {
 	if (daysSinceWed === 0 && hourUTC < 7) daysSinceWed = 7;
 
 	return new Date(
-		Date.UTC(
-			now.getUTCFullYear(),
-			now.getUTCMonth(),
-			now.getUTCDate() - daysSinceWed,
-			7, 0, 0, 0,
-		),
+		Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - daysSinceWed, 7, 0, 0, 0),
 	);
 }
 
@@ -35,7 +30,7 @@ export function getCurrentWoWWeek(now: Date = new Date()): string {
 }
 
 export function dateToWoWWeek(isoDateString: string): string {
-	const d = new Date(isoDateString + 'T12:00:00Z');
+	const d = new Date(`${isoDateString}T12:00:00Z`);
 	return getCurrentWoWWeek(d);
 }
 
@@ -135,9 +130,7 @@ export function upsertComplianceWeek(
 
 	const withKeys = weeks.filter((w) => w.highest_key_level != null);
 	const byKey = [...withKeys].sort(
-		(a, b) =>
-			(b.highest_key_level ?? 0) - (a.highest_key_level ?? 0) ||
-			b.week.localeCompare(a.week),
+		(a, b) => (b.highest_key_level ?? 0) - (a.highest_key_level ?? 0) || b.week.localeCompare(a.week),
 	);
 	const record_highest_key = byKey[0]
 		? { level: byKey[0].highest_key_level, week: byKey[0].week }
@@ -435,9 +428,19 @@ export function buildMergedTimeline(player: Player): TimelineEvent[] {
 
 	for (const e of player.membership_history ?? []) {
 		if (e.event === 'joined')
-			events.push({ date: e.date, type: 'joined', description: 'Joined Relentless', note: (e as { note?: string }).note });
+			events.push({
+				date: e.date,
+				type: 'joined',
+				description: 'Joined Relentless',
+				note: (e as { note?: string }).note,
+			});
 		else if (e.event === 'left')
-			events.push({ date: e.date, type: 'left', description: 'Left team', note: (e as { note?: string }).note });
+			events.push({
+				date: e.date,
+				type: 'left',
+				description: 'Left team',
+				note: (e as { note?: string }).note,
+			});
 		else if (e.event === 'team_changed')
 			events.push({
 				date: e.date,
@@ -458,7 +461,11 @@ export function buildMergedTimeline(player: Player): TimelineEvent[] {
 				description: `Rerolled: ${prev.spec} ${prev.class} → ${cur.spec} ${cur.class}`,
 			});
 		} else if (cur.spec !== prev.spec || cur.role !== prev.role) {
-			events.push({ date: cur.from, type: 'spec_changed', description: `Spec change: ${prev.spec} → ${cur.spec}` });
+			events.push({
+				date: cur.from,
+				type: 'spec_changed',
+				description: `Spec change: ${prev.spec} → ${cur.spec}`,
+			});
 		}
 	}
 
@@ -469,8 +476,9 @@ export function buildMergedTimeline(player: Player): TimelineEvent[] {
 }
 
 export function getDesignationForSeason(player: Player, seasonId: string) {
-	const history = (player as unknown as { designation_history?: Array<{ season_id: string; designation: string }> })
-		.designation_history ?? [];
+	const history =
+		(player as unknown as { designation_history?: Array<{ season_id: string; designation: string }> })
+			.designation_history ?? [];
 	const entry = history.find((h) => h.season_id === seasonId);
 	return entry?.designation ?? player.team_designation;
 }

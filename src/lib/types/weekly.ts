@@ -1,4 +1,4 @@
-import type { Role, TeamDesignation, KillCategory } from './roster.js';
+import type { KillCategory, Role, TeamDesignation } from './roster.js';
 
 export interface MplusRun {
 	dungeon: string;

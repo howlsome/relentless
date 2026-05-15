@@ -32,7 +32,7 @@
 	}
 
 	const ariaLabel = $derived(
-		effectiveTheme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+		effectiveTheme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
 	);
 
 	const isDark = $derived(effectiveTheme() === 'dark');

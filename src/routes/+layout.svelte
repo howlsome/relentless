@@ -2,15 +2,15 @@
 	import '@picocss/pico/css/pico.conditional.min.css';
 	import '$lib/styles/parse-colours.css';
 	import '$lib/styles/app.css';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import type { Snippet } from 'svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
-	import type { Snippet } from 'svelte';
 
 	let {
 		data,
-		children
+		children,
 	}: {
 		data: { seasonsIndex: SeasonsIndex };
 		children: Snippet;
@@ -18,30 +18,22 @@
 
 	const { seasonsIndex } = $derived(data);
 
-	/** All seasons available in the selector (past M+ + raid zones). */
-	const pastSeasons = $derived([
-		...seasonsIndex.all_mplus_seasons.filter(
-			(s) => s.season_id !== seasonsIndex.active_mplus_season
-		),
-		...seasonsIndex.all_raid_zones
-	]);
-
 	const currentPath = $derived($page.url.pathname);
 </script>
 
 <svelte:head>
-	<meta name="description" content="Undaunted: Relentless — raid and M+ performance dashboard, EU-Draenor" />
+	<meta
+		name="description"
+		content="Undaunted: Relentless — raid and M+ performance dashboard, EU-Draenor"
+	/>
 </svelte:head>
 
 <header class="site-header">
 	<div class="container">
 		<nav aria-label="Main navigation">
 			<span class="nav-brand">
-				<a href="/" aria-label="Undaunted: Relentless — Dashboard home">
-					Undaunted: Relentless
-				</a>
+				<a href="/" aria-label="Undaunted: Relentless — Dashboard home"> Undaunted: Relentless </a>
 			</span>
-
 
 			<div class="nav-actions">
 				{#if currentPath.startsWith('/raider/') || currentPath === '/changelog'}

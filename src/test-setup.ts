@@ -6,9 +6,15 @@ if (typeof localStorage === 'undefined') {
 	Object.defineProperty(globalThis, 'localStorage', {
 		value: {
 			getItem: (key: string) => store[key] ?? null,
-			setItem: (key: string, value: string) => { store[key] = value; },
-			removeItem: (key: string) => { delete store[key]; },
-			clear: () => { for (const k in store) delete store[k]; }
-		}
+			setItem: (key: string, value: string) => {
+				store[key] = value;
+			},
+			removeItem: (key: string) => {
+				delete store[key];
+			},
+			clear: () => {
+				for (const k in store) delete store[k];
+			},
+		},
 	});
 }

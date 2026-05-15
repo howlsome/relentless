@@ -1,11 +1,6 @@
 {
   "active_mplus_season": "midnight-s1",
-  "active_raid_zones": [
-    "raid-509",
-    "raid-51",
-    "raid-48",
-    "raid-46"
-  ],
+  "active_raid_zones": ["raid-509", "raid-51", "raid-48", "raid-46"],
   "all_mplus_seasons": [
     {
       "season_id": "midnight-s1",

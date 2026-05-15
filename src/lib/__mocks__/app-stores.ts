@@ -1,4 +1,4 @@
-import { readable, writable } from 'svelte/store';
+import { readable } from 'svelte/store';
 
 export const page = readable({
 	url: new URL('http://localhost/'),
@@ -8,7 +8,7 @@ export const page = readable({
 	error: null,
 	data: {},
 	form: null,
-	state: {}
+	state: {},
 });
 
 export const navigating = readable(null);

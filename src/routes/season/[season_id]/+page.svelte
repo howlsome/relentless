@@ -3,7 +3,7 @@
 	import { fmtDate } from '$lib/utils/format.js';
 
 	let {
-		data
+		data,
 	}: {
 		data: {
 			season_id: string;
@@ -37,11 +37,13 @@
 {/if}
 
 {#if !snapshot}
-	<p class="muted">No data is available for this season yet. Data is written by the cron after each weekly reset.</p>
+	<p class="muted">
+		No data is available for this season yet. Data is written by the cron after each weekly reset.
+	</p>
 {:else if isRaidZone}
 	<p>Raid tier historical data for <strong>{label}</strong>.</p>
 	{#if zoneMeta}
-		<p>Zone: {(zoneMeta as {name: string}).name}</p>
+		<p>Zone: {(zoneMeta as { name: string }).name}</p>
 	{/if}
 	<p class="muted">Full historical raid parse view coming in a future update.</p>
 {:else}
