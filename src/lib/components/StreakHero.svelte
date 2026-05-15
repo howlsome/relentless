@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
+
 	let {
 		compliance,
-		weeklyMinimum = 4
+		weeklyMinimum = 4,
 	}: {
 		compliance: RaiderCompliance | null | undefined;
 		weeklyMinimum?: number;
@@ -22,7 +23,6 @@
 		if (streak === 0 && weeks.length >= 2 && weeks[1]?.met) return '💀';
 		return '';
 	});
-
 </script>
 
 <div class="streak-panel">
@@ -51,7 +51,7 @@
 		margin-block-end: 1rem;
 	}
 
-.streak-hero {
+	.streak-hero {
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;

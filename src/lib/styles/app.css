@@ -25,7 +25,7 @@ a.raider-name:hover {
 }
 
 button,
-[role='button'],
+[role="button"],
 .touch-target {
 	min-height: var(--touch-min);
 	min-width: var(--touch-min);

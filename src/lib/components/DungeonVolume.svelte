@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
-	import { fmtKey, fmtWeekLabel, deltaClass } from '$lib/utils/format.js';
+	import { deltaClass, fmtKey, fmtWeekLabel } from '$lib/utils/format.js';
 
 	let { compliance }: { compliance: RaiderCompliance | null | undefined } = $props();
 
@@ -33,7 +33,12 @@
 				<span class="vol-card__label">This week</span>
 				<span class="vol-card__value">{current?.total_dungeons ?? '—'}</span>
 				{#if volDelta() != null}
-					<span class="delta delta--{deltaClass(current?.total_dungeons ?? null, previous?.total_dungeons ?? null)}">
+					<span
+						class="delta delta--{deltaClass(
+							current?.total_dungeons ?? null,
+							previous?.total_dungeons ?? null,
+						)}"
+					>
 						{volDelta()! > 0 ? `▲ +${volDelta()}` : volDelta()! < 0 ? `▼ ${volDelta()}` : '—'}
 					</span>
 				{/if}
@@ -42,7 +47,11 @@
 				<span class="vol-card__label">Last week</span>
 				<span class="vol-card__value">{previous?.total_dungeons ?? '—'}</span>
 			</div>
-			<div class="vol-card vol-card--gold {recordDungeons?.week === current?.week ? 'vol-card--record' : ''}">
+			<div
+				class="vol-card vol-card--gold {recordDungeons?.week === current?.week
+					? 'vol-card--record'
+					: ''}"
+			>
 				<span class="vol-card__label">🏆 Record</span>
 				<span class="vol-card__value">{recordDungeons?.count ?? '—'}</span>
 				{#if recordDungeons}
@@ -60,7 +69,12 @@
 				<span class="vol-card__label">This week</span>
 				<span class="vol-card__value">{fmtKey(current?.highest_key_level ?? null)}</span>
 				{#if keyDelta() != null}
-					<span class="delta delta--{deltaClass(current?.highest_key_level ?? null, previous?.highest_key_level ?? null)}">
+					<span
+						class="delta delta--{deltaClass(
+							current?.highest_key_level ?? null,
+							previous?.highest_key_level ?? null,
+						)}"
+					>
 						{keyDelta()! > 0 ? `▲ +${keyDelta()}` : keyDelta()! < 0 ? `▼ ${keyDelta()}` : '—'}
 					</span>
 				{/if}

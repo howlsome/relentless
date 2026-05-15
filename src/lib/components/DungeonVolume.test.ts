@@ -1,18 +1,39 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import DungeonVolume from './DungeonVolume.svelte';
 
-function compliance(weeks: any[] = [], record = { count: 14, week: '2026-17' }, recordKey = { level: 16, week: '2026-16' }) {
+function compliance(
+	weeks: any[] = [],
+	record = { count: 14, week: '2026-17' },
+	recordKey = { level: 16, week: '2026-16' },
+) {
 	return {
-		current_streak: 3, longest_streak: 5, total_weeks_met: 9, total_weeks_tracked: 10,
+		current_streak: 3,
+		longest_streak: 5,
+		total_weeks_met: 9,
+		total_weeks_tracked: 10,
 		record_dungeons_week: record,
 		record_highest_key: recordKey,
-		weeks
+		weeks,
 	};
 }
 
-const thisWeek = { week: '2026-19', reset_start: '', count: 5, total_dungeons: 8, highest_key_level: 14, met: true };
-const lastWeek = { week: '2026-18', reset_start: '', count: 4, total_dungeons: 5, highest_key_level: 11, met: true };
+const thisWeek = {
+	week: '2026-19',
+	reset_start: '',
+	count: 5,
+	total_dungeons: 8,
+	highest_key_level: 14,
+	met: true,
+};
+const lastWeek = {
+	week: '2026-18',
+	reset_start: '',
+	count: 4,
+	total_dungeons: 5,
+	highest_key_level: 11,
+	met: true,
+};
 
 describe('DungeonVolume', () => {
 	it('renders current week total dungeon count', () => {

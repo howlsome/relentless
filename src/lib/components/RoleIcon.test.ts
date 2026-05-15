@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import RoleIcon from './RoleIcon.svelte';
 
 describe('RoleIcon', () => {
@@ -22,7 +22,11 @@ describe('RoleIcon', () => {
 	});
 
 	it('each role has correct aria-label', () => {
-		for (const [role, label] of [['tank', 'Tank'], ['healer', 'Healer'], ['dps', 'DPS']] as const) {
+		for (const [role, label] of [
+			['tank', 'Tank'],
+			['healer', 'Healer'],
+			['dps', 'DPS'],
+		] as const) {
 			const { container } = render(RoleIcon, { role });
 			expect(container.querySelector(`[aria-label="${label}"]`)).toBeTruthy();
 		}

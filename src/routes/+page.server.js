@@ -1,7 +1,7 @@
 export const prerender = true;
 
-import { existsSync, readFileSync } from 'fs';
-import { join } from 'path';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 /** @param {string} path */
 function safeJson(path) {
@@ -24,8 +24,12 @@ export function load() {
 	const seasonsIndex = JSON.parse(readFileSync(join(dataDir, 'seasons', 'index.json'), 'utf-8'));
 
 	const activeMplusSeasonId = seasonsIndex.active_mplus_season ?? '';
-	const mplusSnapshot = activeMplusSeasonId ? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'snapshot.json')) : null;
-	const mplusCompliance = activeMplusSeasonId ? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'compliance.json')) : null;
+	const mplusSnapshot = activeMplusSeasonId
+		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'snapshot.json'))
+		: null;
+	const mplusCompliance = activeMplusSeasonId
+		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'compliance.json'))
+		: null;
 
 	const raidZones = [];
 	for (const zone of seasonsIndex.all_raid_zones ?? []) {

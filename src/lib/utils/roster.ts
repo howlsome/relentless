@@ -1,4 +1,4 @@
-import type { WowClass, Role, Roster, Player, Character, SpecEntry } from '$lib/types/index.js';
+import type { Character, Player, Role, Roster, SpecEntry, WowClass } from '$lib/types/index.js';
 
 /** Canonical spec → role mapping per class. Covers Midnight Season 1 (Patch 12.0). */
 export const CLASS_SPECS: Record<WowClass, Record<string, Role>> = {
@@ -14,7 +14,7 @@ export const CLASS_SPECS: Record<WowClass, Record<string, Role>> = {
 	Rogue: { Assassination: 'dps', Outlaw: 'dps', Subtlety: 'dps' },
 	Shaman: { Elemental: 'dps', Enhancement: 'dps', Restoration: 'healer' },
 	Warlock: { Affliction: 'dps', Demonology: 'dps', Destruction: 'dps' },
-	Warrior: { Arms: 'dps', Fury: 'dps', Protection: 'tank' }
+	Warrior: { Arms: 'dps', Fury: 'dps', Protection: 'tank' },
 };
 
 export const VALID_CLASSES = Object.keys(CLASS_SPECS) as WowClass[];
@@ -55,7 +55,7 @@ function validateCharacter(char: Character, raiderName: string): ValidationResul
 	if (!char.class) errors.push(`${label}: missing class`);
 	if (char.active === undefined || char.active === null) {
 		warnings.push(
-			`${label}: "active" field is missing — character will be treated as inactive and not polled`
+			`${label}: "active" field is missing — character will be treated as inactive and not polled`,
 		);
 	}
 
@@ -70,9 +70,7 @@ function validateCharacter(char: Character, raiderName: string): ValidationResul
 		if (!char.role) errors.push(`${label}: missing role`);
 		if (char.class && char.spec) {
 			if (!isValidClassSpec(char.class, char.spec)) {
-				errors.push(
-					`${label}: invalid class/spec combination "${char.class} / ${char.spec}"`,
-				);
+				errors.push(`${label}: invalid class/spec combination "${char.class} / ${char.spec}"`);
 			} else if (char.role) {
 				const canonical = canonicalRole(char.class, char.spec);
 				if (canonical && canonical !== char.role) {
@@ -102,7 +100,7 @@ function validatePlayer(player: Player): ValidationResult {
 	if (!player.team_designation) errors.push(`${label}: missing team_designation`);
 	if (player.team_designation !== 'main' && player.team_designation !== 'alt') {
 		errors.push(
-			`${label}: team_designation must be "main" or "alt", got "${player.team_designation}"`
+			`${label}: team_designation must be "main" or "alt", got "${player.team_designation}"`,
 		);
 	}
 	if (!Array.isArray(player.characters) || player.characters.length === 0) {
@@ -122,9 +120,7 @@ function validatePlayer(player: Player): ValidationResult {
 
 	for (const event of player.membership_history ?? []) {
 		if (event.event === 'team_changed' && !('reason' in event && event.reason)) {
-			warnings.push(
-				`${label}: team_changed event on ${event.date} is missing a reason`
-			);
+			warnings.push(`${label}: team_changed event on ${event.date} is missing a reason`);
 		}
 	}
 
@@ -195,9 +191,7 @@ export function validateRoster(roster: Roster): ValidationResult {
  * Missing status defaults to 'active' for backwards compatibility.
  */
 export function getActivePlayers(roster: Roster): Player[] {
-	return (roster.players ?? []).filter(
-		(p) => !p.status || p.status === 'active'
-	);
+	return (roster.players ?? []).filter((p) => !p.status || p.status === 'active');
 }
 
 /**
@@ -210,7 +204,7 @@ export function getEffectiveStartDate(player: Player, roster: Roster): string {
 	if (roster.tracking_start_date) return roster.tracking_start_date;
 	const today = new Date().toISOString().slice(0, 10);
 	console.warn(
-		`[roster] No tracking_start_date for ${player.display_name} or roster — defaulting to ${today}`
+		`[roster] No tracking_start_date for ${player.display_name} or roster — defaulting to ${today}`,
 	);
 	return today;
 }

@@ -1,16 +1,16 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import type { Player, Roster } from '$lib/types/roster.js';
 import {
-	isValidClassSpec,
-	canonicalRole,
 	CLASS_SPECS,
-	VALID_CLASSES,
-	validateRoster,
+	canonicalRole,
 	getActivePlayers,
 	getEffectiveStartDate,
+	isValidClassSpec,
 	isWeekTracked,
-	validateRoleForSpec
+	VALID_CLASSES,
+	validateRoleForSpec,
+	validateRoster,
 } from './roster.js';
-import type { Roster, Player } from '$lib/types/roster.js';
 
 // ── Fixture helpers ────────────────────────────────────────────────────────────
 
@@ -21,9 +21,11 @@ function makePlayer(overrides: Partial<Player> = {}): Player {
 		status: 'active',
 		team_designation: 'main',
 		membership_history: [{ event: 'joined', date: '2026-03-17' }],
-		characters: [{ name: 'Char', realm: 'Draenor', class: 'Rogue', spec: 'Subtlety', role: 'dps', active: true }],
+		characters: [
+			{ name: 'Char', realm: 'Draenor', class: 'Rogue', spec: 'Subtlety', role: 'dps', active: true },
+		],
 		role_history: [],
-		...overrides
+		...overrides,
 	};
 }
 
@@ -35,11 +37,20 @@ function makeRoster(players: Player[] = [], overrides: Partial<Roster> = {}): Ro
 		mplus_weekly_minimum: 4,
 		mplus_minimum_key_level: 10,
 		tracking_start_date: '2026-01-01',
-		mplus_seasons: [{ season_id: 'test-s1', label: 'Test', start_date: '2026-01-01', end_date: null, dungeon_count: 8, dungeons: [] }],
+		mplus_seasons: [
+			{
+				season_id: 'test-s1',
+				label: 'Test',
+				start_date: '2026-01-01',
+				end_date: null,
+				dungeon_count: 8,
+				dungeons: [],
+			},
+		],
 		raid_difficulties: ['heroic', 'mythic'],
 		wcl_expansion_id: 11,
 		players,
-		...overrides
+		...overrides,
 	};
 }
 
@@ -47,7 +58,10 @@ function makeRoster(players: Player[] = [], overrides: Partial<Roster> = {}): Ro
 
 describe('getActivePlayers', () => {
 	it('returns players with status active', () => {
-		const roster = makeRoster([makePlayer(), makePlayer({ raider_id: 'b', status: 'inactive' as const })]);
+		const roster = makeRoster([
+			makePlayer(),
+			makePlayer({ raider_id: 'b', status: 'inactive' as const }),
+		]);
 		expect(getActivePlayers(roster)).toHaveLength(1);
 		expect(getActivePlayers(roster)[0].raider_id).toBe('test-uuid');
 	});
@@ -59,7 +73,7 @@ describe('getActivePlayers', () => {
 
 	it('missing status defaults to active', () => {
 		const player = makePlayer();
-		// @ts-ignore testing missing field
+		// @ts-expect-error testing missing field
 		delete player.status;
 		expect(getActivePlayers(makeRoster([player]))).toHaveLength(1);
 	});
@@ -212,8 +226,11 @@ describe('validateRoster — raid_schedule validation', () => {
 
 	it('errors when raid_schedule is missing a timezone', () => {
 		const roster = makeRoster([makePlayer()], {
-			// @ts-ignore testing invalid shape
-			raid_schedule: { sessions: [{ day: 'monday', start: '20:30', end: '23:30', grace_minutes: 30 }], safe_pug_windows: [] },
+			// @ts-expect-error testing invalid shape
+			raid_schedule: {
+				sessions: [{ day: 'monday', start: '20:30', end: '23:30', grace_minutes: 30 }],
+				safe_pug_windows: [],
+			},
 		});
 		const result = validateRoster(roster);
 		expect(result.errors.some((e) => /timezone/i.test(e))).toBe(true);
@@ -234,17 +251,22 @@ describe('validateRoster — raid_schedule validation', () => {
 
 // ── Stage 8: multi-spec helpers ───────────────────────────────────────────────
 
-import {
-	getActiveSpecs,
-	getPrimarySpec,
-	getRolesPlayed,
-	validateSpecsArray
-} from './roster.js';
 import type { SpecEntry } from '$lib/types/roster.js';
+import { getActiveSpecs, getPrimarySpec, getRolesPlayed, validateSpecsArray } from './roster.js';
 
 const BALANCE_SPEC: SpecEntry = { spec: 'Balance', role: 'dps', primary: true, wcl_active: true };
-const RESTO_SPEC: SpecEntry = { spec: 'Restoration', role: 'healer', primary: false, wcl_active: true };
-const INACTIVE_SPEC: SpecEntry = { spec: 'Guardian', role: 'tank', primary: false, wcl_active: false };
+const RESTO_SPEC: SpecEntry = {
+	spec: 'Restoration',
+	role: 'healer',
+	primary: false,
+	wcl_active: true,
+};
+const INACTIVE_SPEC: SpecEntry = {
+	spec: 'Guardian',
+	role: 'tank',
+	primary: false,
+	wcl_active: false,
+};
 
 function makeMultiSpecChar(specs: SpecEntry[]) {
 	return { name: 'Druidchar', realm: 'Draenor', class: 'Druid' as const, active: true, specs };
@@ -255,7 +277,7 @@ describe('getActiveSpecs', () => {
 		const char = makeMultiSpecChar([BALANCE_SPEC, RESTO_SPEC, INACTIVE_SPEC]);
 		const active = getActiveSpecs(char);
 		expect(active).toHaveLength(2);
-		expect(active.map(s => s.spec)).not.toContain('Guardian');
+		expect(active.map((s) => s.spec)).not.toContain('Guardian');
 	});
 
 	it('returns all specs when all are wcl_active', () => {
@@ -312,24 +334,24 @@ describe('validateSpecsArray', () => {
 
 	it('rejects zero entries', () => {
 		const result = validateSpecsArray([], 'Druid', 'TestRaider/Char');
-		expect(result.errors.some(e => /empty|at least one/i.test(e))).toBe(true);
+		expect(result.errors.some((e) => /empty|at least one/i.test(e))).toBe(true);
 	});
 
 	it('warns when multiple primary: true entries exist', () => {
 		const dualPrimary = [BALANCE_SPEC, { ...RESTO_SPEC, primary: true }];
 		const result = validateSpecsArray(dualPrimary, 'Druid', 'TestRaider/Char');
-		expect(result.warnings.some(w => /multiple.*primary|primary.*multiple/i.test(w))).toBe(true);
+		expect(result.warnings.some((w) => /multiple.*primary|primary.*multiple/i.test(w))).toBe(true);
 	});
 
 	it('warns when no primary: true entry exists', () => {
 		const noPrimary = [{ ...BALANCE_SPEC, primary: false }, RESTO_SPEC];
 		const result = validateSpecsArray(noPrimary, 'Druid', 'TestRaider/Char');
-		expect(result.warnings.some(w => /no.*primary|primary.*not set/i.test(w))).toBe(true);
+		expect(result.warnings.some((w) => /no.*primary|primary.*not set/i.test(w))).toBe(true);
 	});
 
 	it('errors on invalid class/spec combination', () => {
 		const badSpec: SpecEntry = { spec: 'Holy', role: 'healer', primary: true, wcl_active: true };
 		const result = validateSpecsArray([badSpec], 'Druid', 'TestRaider/Char');
-		expect(result.errors.some(e => /invalid.*class\/spec|invalid.*spec/i.test(e))).toBe(true);
+		expect(result.errors.some((e) => /invalid.*class\/spec|invalid.*spec/i.test(e))).toBe(true);
 	});
 });

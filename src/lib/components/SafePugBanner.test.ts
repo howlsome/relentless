@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/svelte';
+import { fireEvent, render, screen } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import SafePugBanner from './SafePugBanner.svelte';
 
 const SAFE_RAIDER = {
@@ -11,17 +11,17 @@ const SAFE_RAIDER = {
 			boss_name: 'Veluna the Skyrender',
 			difficulty: 'mythic',
 			kill_time: '2026-05-12T21:14:00Z',
-			detected_local_time: 'Tuesday 23:14 server (22:14 BST)'
-		}
+			detected_local_time: 'Tuesday 23:14 server (22:14 BST)',
+		},
 	],
 	lockout_warnings: [],
-	exempt_pug_kills: []
+	exempt_pug_kills: [],
 };
 
 describe('SafePugBanner', () => {
 	it('renders nothing when no raiders have safe_pug kills', () => {
 		const { container } = render(SafePugBanner, {
-			props: { raiders: [{ ...SAFE_RAIDER, safe_pug_kills: [] }] }
+			props: { raiders: [{ ...SAFE_RAIDER, safe_pug_kills: [] }] },
 		});
 		expect(container.querySelector('[data-safe-pug-banner]')).toBeNull();
 	});
@@ -62,7 +62,7 @@ describe('SafePugBanner', () => {
 	it('counts raiders correctly in the summary line', () => {
 		const twoRaiders = [
 			SAFE_RAIDER,
-			{ ...SAFE_RAIDER, raider_id: 'r2', display_name: 'Deathchonks' }
+			{ ...SAFE_RAIDER, raider_id: 'r2', display_name: 'Deathchonks' },
 		];
 		render(SafePugBanner, { props: { raiders: twoRaiders } });
 		expect(screen.getByText(/3 raiders|2 raiders/i)).toBeTruthy();

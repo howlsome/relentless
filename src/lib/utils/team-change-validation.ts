@@ -3,7 +3,7 @@
  * Used by the cron to warn when officers forget to add reasons or paired events.
  */
 
-import type { MembershipEvent, Player, Roster } from '$lib/types/roster.js';
+import type { MembershipEvent, Roster } from '$lib/types/roster.js';
 
 export interface ValidationWarning {
 	level: 'warning' | 'error';
@@ -23,7 +23,7 @@ export function validateTeamChange(event: MembershipEvent): ValidationWarning[] 
 	if (!te.reason || te.reason.trim() === '') {
 		warnings.push({
 			level: 'warning',
-			message: `team_changed event on ${te.date} is missing a reason — recording "(no reason given)"`
+			message: `team_changed event on ${te.date} is missing a reason — recording "(no reason given)"`,
 		});
 	}
 	return warnings;
@@ -38,7 +38,7 @@ export function validateTeamChange(event: MembershipEvent): ValidationWarning[] 
  */
 export function checkDesignationParity(
 	currentRoster: Roster,
-	previousRoster: Roster | null
+	previousRoster: Roster | null,
 ): ValidationWarning[] {
 	if (!previousRoster) return [];
 
@@ -54,15 +54,15 @@ export function checkDesignationParity(
 			(e) =>
 				e.event === 'team_changed' &&
 				!(prev.membership_history ?? []).some(
-					(pe) => pe.event === 'team_changed' && pe.date === e.date
-				)
+					(pe) => pe.event === 'team_changed' && pe.date === e.date,
+				),
 		);
 
 		if (designationChanged && !hasTeamChangedEvent) {
 			warnings.push({
 				level: 'warning',
 				raiderId: current.raider_id,
-				message: `team_designation changed for ${current.display_name} without a corresponding team_changed event in membership_history`
+				message: `team_designation changed for ${current.display_name} without a corresponding team_changed event in membership_history`,
 			});
 		}
 
@@ -70,7 +70,7 @@ export function checkDesignationParity(
 			warnings.push({
 				level: 'warning',
 				raiderId: current.raider_id,
-				message: `team_changed event found for ${current.display_name} but team_designation did not change`
+				message: `team_changed event found for ${current.display_name} but team_designation did not change`,
 			});
 		}
 	}

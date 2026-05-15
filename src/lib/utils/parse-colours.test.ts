@@ -1,10 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
-	getParseColour,
-	getBadgeTextColour,
-	getBadgeBgColour,
 	ALL_TIERS,
-	getRioScoreStyle
+	getBadgeTextColour,
+	getParseColour,
+	getRioScoreStyle,
 } from './parse-colours.js';
 
 describe('getParseColour', () => {
@@ -47,13 +46,13 @@ describe('getBadgeTextColour', () => {
 describe('WCL canonical hex codes', () => {
 	it('all 7 tiers export named constants matching official WCL values', () => {
 		const expected: Record<string, string> = {
-			tan:    '#e5cc80',
-			pink:   '#e268a8',
+			tan: '#e5cc80',
+			pink: '#e268a8',
 			orange: '#ff8000',
 			purple: '#a335ee',
-			blue:   '#0070ff',
-			green:  '#1eff00',
-			gray:   '#666666'
+			blue: '#0070ff',
+			green: '#1eff00',
+			gray: '#666666',
 		};
 		for (const tier of ALL_TIERS) {
 			expect(tier.bgHex).toBe(expected[tier.tier]);
@@ -67,7 +66,7 @@ describe('WCAG contrast — badge backgrounds', () => {
 		const r = parseInt(hex.slice(1, 3), 16) / 255;
 		const g = parseInt(hex.slice(3, 5), 16) / 255;
 		const b = parseInt(hex.slice(5, 7), 16) / 255;
-		const lin = (c: number) => c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+		const lin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
 		return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
 	}
 	function contrastRatio(hex1: string, hex2: string): number {
@@ -91,13 +90,16 @@ describe('getRioScoreStyle — tier boundaries', () => {
 	it('null → gray (unranked)', () => expect(getRioScoreStyle(null).textVar).toBe('var(--rio-gray)'));
 	it('0 → gray', () => expect(getRioScoreStyle(0).textVar).toBe('var(--rio-gray)'));
 	it('2718 → gray', () => expect(getRioScoreStyle(2718).textVar).toBe('var(--rio-gray)'));
-	it('2719 → green (top 40%)', () => expect(getRioScoreStyle(2719).textVar).toBe('var(--rio-green)'));
+	it('2719 → green (top 40%)', () =>
+		expect(getRioScoreStyle(2719).textVar).toBe('var(--rio-green)'));
 	it('3005 → green', () => expect(getRioScoreStyle(3005).textVar).toBe('var(--rio-green)'));
 	it('3006 → blue (top 25%)', () => expect(getRioScoreStyle(3006).textVar).toBe('var(--rio-blue)'));
 	it('3283 → blue', () => expect(getRioScoreStyle(3283).textVar).toBe('var(--rio-blue)'));
-	it('3284 → purple (top 10%)', () => expect(getRioScoreStyle(3284).textVar).toBe('var(--rio-purple)'));
+	it('3284 → purple (top 10%)', () =>
+		expect(getRioScoreStyle(3284).textVar).toBe('var(--rio-purple)'));
 	it('3676 → purple', () => expect(getRioScoreStyle(3676).textVar).toBe('var(--rio-purple)'));
-	it('3677 → orange (top 1%)', () => expect(getRioScoreStyle(3677).textVar).toBe('var(--rio-orange)'));
+	it('3677 → orange (top 1%)', () =>
+		expect(getRioScoreStyle(3677).textVar).toBe('var(--rio-orange)'));
 	it('3890 → orange', () => expect(getRioScoreStyle(3890).textVar).toBe('var(--rio-orange)'));
 	it('3891 → gold (top 0.1%)', () => expect(getRioScoreStyle(3891).textVar).toBe('var(--rio-gold)'));
 	it('4125 → gold', () => expect(getRioScoreStyle(4125).textVar).toBe('var(--rio-gold)'));
@@ -118,25 +120,25 @@ describe('getRioScoreStyle — WCAG AA 4.5:1 on light and dark backgrounds', () 
 
 	// Light mode resolved colours (see parse-colours.css [data-theme='light'])
 	const lightColours: Record<string, string> = {
-		'var(--rio-gray)':   '#666666',
-		'var(--rio-green)':  '#007700',
-		'var(--rio-blue)':   '#0070dd',
+		'var(--rio-gray)': '#666666',
+		'var(--rio-green)': '#007700',
+		'var(--rio-blue)': '#0070dd',
 		'var(--rio-purple)': '#a335ee',
 		'var(--rio-orange)': '#b05800',
-		'var(--rio-gold)':   '#866014',
+		'var(--rio-gold)': '#866014',
 	};
 	// Dark mode resolved colours
 	const darkColours: Record<string, string> = {
-		'var(--rio-gray)':   '#9d9d9d',
-		'var(--rio-green)':  '#1eff00',
-		'var(--rio-blue)':   '#0096ff',
+		'var(--rio-gray)': '#9d9d9d',
+		'var(--rio-green)': '#1eff00',
+		'var(--rio-blue)': '#0096ff',
 		'var(--rio-purple)': '#bf55f5',
 		'var(--rio-orange)': '#ff8000',
-		'var(--rio-gold)':   '#e5cc80',
+		'var(--rio-gold)': '#e5cc80',
 	};
 
 	const lightBg = '#ffffff';
-	const darkBg  = '#11191f';
+	const darkBg = '#11191f';
 
 	for (const [cssVar, hex] of Object.entries(lightColours)) {
 		it(`light: ${cssVar} (${hex}) ≥ 4.5:1 on white`, () => {
@@ -157,7 +159,7 @@ describe('WCAG non-text contrast — chart line colours', () => {
 		const r = parseInt(hex.slice(1, 3), 16) / 255;
 		const g = parseInt(hex.slice(3, 5), 16) / 255;
 		const b = parseInt(hex.slice(5, 7), 16) / 255;
-		const lin = (c: number) => c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+		const lin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
 		return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
 	}
 	function contrastRatio(hex1: string, hex2: string): number {
@@ -169,27 +171,27 @@ describe('WCAG non-text contrast — chart line colours', () => {
 
 	// Light mode chart colours (spec-defined, darkened for contrast)
 	const lightModeColours: Record<string, string> = {
-		gray:   '#666666',
-		green:  '#14ac00',
-		blue:   '#0070ff',
+		gray: '#666666',
+		green: '#14ac00',
+		blue: '#0070ff',
 		purple: '#a335ee',
 		orange: '#e87500',
-		pink:   '#e268a8',
-		tan:    '#a5935d'
+		pink: '#e268a8',
+		tan: '#a5935d',
 	};
 	// Dark mode chart colours (original WCL values)
 	const darkModeColours: Record<string, string> = {
-		gray:   '#666666',
-		green:  '#1eff00',
-		blue:   '#0070ff',
+		gray: '#666666',
+		green: '#1eff00',
+		blue: '#0070ff',
 		purple: '#a335ee',
 		orange: '#ff8000',
-		pink:   '#e268a8',
-		tan:    '#e5cc80'
+		pink: '#e268a8',
+		tan: '#e5cc80',
 	};
 
 	const lightBg = '#ffffff';
-	const darkBg  = '#11191f'; // approximate PicoCSS dark background
+	const darkBg = '#11191f'; // approximate PicoCSS dark background
 
 	for (const [tier, hex] of Object.entries(lightModeColours)) {
 		it(`light mode --parse-${tier} (${hex}) passes 3:1 non-text contrast`, () => {

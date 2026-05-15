@@ -142,7 +142,7 @@ export async function fetchRaidParses(
 		for (const item of batchResult) {
 			const rid = item.player.raider_id;
 			if (!results.has(rid)) results.set(rid, []);
-			results.get(rid)!.push(item);
+			results.get(rid)?.push(item);
 		}
 	}
 
@@ -286,7 +286,10 @@ export async function fetchHistoricalEncounterRankings(
 		const query = `{ ${aliases.join('\n')} }`;
 		const result = await wclQuery(token, query);
 		if (result.errors?.length) {
-			console.warn('[wcl] Partial errors in historical batch:', result.errors.map((e) => e.message).join('; '));
+			console.warn(
+				'[wcl] Partial errors in historical batch:',
+				result.errors.map((e) => e.message).join('; '),
+			);
 		}
 
 		const dataObj = (result as Record<string, unknown>).data as
@@ -340,4 +343,3 @@ export function chunkArray<T>(arr: T[], size: number): T[][] {
 	}
 	return chunks;
 }
-

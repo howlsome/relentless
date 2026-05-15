@@ -3,7 +3,7 @@
  * Returns a list of milestone objects to display as banners on the raider detail page.
  */
 
-import type { RaiderCompliance, ComplianceWeek } from '$lib/types/compliance.js';
+import type { RaiderCompliance } from '$lib/types/compliance.js';
 import type { BossParse } from '$lib/types/weekly.js';
 import { fmtKey } from '$lib/utils/format.js';
 
@@ -17,7 +17,9 @@ export interface Milestone {
  * Compute M+ milestones for a raider from their compliance data.
  * Compares current week against previous week and historical records.
  */
-export function computeMplusMilestones(compliance: RaiderCompliance | null | undefined): Milestone[] {
+export function computeMplusMilestones(
+	compliance: RaiderCompliance | null | undefined,
+): Milestone[] {
 	if (!compliance || compliance.weeks.length === 0) return [];
 
 	const milestones: Milestone[] = [];
@@ -26,20 +28,16 @@ export function computeMplusMilestones(compliance: RaiderCompliance | null | und
 	if (!current) return milestones;
 
 	const prevCount = previous?.total_dungeons ?? null;
-	const prevKey = previous?.highest_key_level ?? null;
+	const _prevKey = previous?.highest_key_level ?? null;
 	const prevRecord = compliance.record_dungeons_week;
 	const prevKeyRecord = compliance.record_highest_key;
 
 	// Dungeon record broken
-	if (
-		prevRecord &&
-		current.total_dungeons > prevRecord.count &&
-		current.week === prevRecord.week
-	) {
+	if (prevRecord && current.total_dungeons > prevRecord.count && current.week === prevRecord.week) {
 		milestones.push({
 			key: 'dungeon-record',
 			emoji: '🏅',
-			text: `New personal dungeon record — ${current.total_dungeons} this week!`
+			text: `New personal dungeon record — ${current.total_dungeons} this week!`,
 		});
 	}
 
@@ -53,7 +51,7 @@ export function computeMplusMilestones(compliance: RaiderCompliance | null | und
 		milestones.push({
 			key: 'key-record',
 			emoji: '🗝️',
-			text: `New highest key — ${fmtKey(current.highest_key_level)} this week!`
+			text: `New highest key — ${fmtKey(current.highest_key_level)} this week!`,
 		});
 	}
 
@@ -62,7 +60,7 @@ export function computeMplusMilestones(compliance: RaiderCompliance | null | und
 		milestones.push({
 			key: 'volume-up',
 			emoji: '⬆️',
-			text: `Big week — ${current.total_dungeons} dungeons, up +${current.total_dungeons - prevCount} from last week!`
+			text: `Big week — ${current.total_dungeons} dungeons, up +${current.total_dungeons - prevCount} from last week!`,
 		});
 	}
 
@@ -71,7 +69,7 @@ export function computeMplusMilestones(compliance: RaiderCompliance | null | und
 		milestones.push({
 			key: 'volume-down',
 			emoji: '⬇️',
-			text: `Quieter week — ${current.total_dungeons} dungeons, down ${current.total_dungeons - prevCount} from last week.`
+			text: `Quieter week — ${current.total_dungeons} dungeons, down ${current.total_dungeons - prevCount} from last week.`,
 		});
 	}
 
@@ -85,7 +83,7 @@ export function computeMplusMilestones(compliance: RaiderCompliance | null | und
 export function computeBossMilestones(
 	bossName: string,
 	parsesDesc: (number | null)[],
-	difficulty: string
+	_difficulty: string,
 ): Milestone[] {
 	const milestones: Milestone[] = [];
 	const [current, ...history] = parsesDesc;
@@ -98,7 +96,7 @@ export function computeBossMilestones(
 		milestones.push({
 			key: `first-kill-${bossName}`,
 			emoji: '🗡️',
-			text: `First kill recorded on ${bossName}!`
+			text: `First kill recorded on ${bossName}!`,
 		});
 		return milestones; // First kill supersedes all other milestones
 	}
@@ -110,7 +108,7 @@ export function computeBossMilestones(
 		milestones.push({
 			key: `pb-${bossName}`,
 			emoji: '🏆',
-			text: `New personal best on ${bossName}! (${current.toFixed(0)}%)`
+			text: `New personal best on ${bossName}! (${current.toFixed(0)}%)`,
 		});
 	}
 
@@ -119,7 +117,7 @@ export function computeBossMilestones(
 		milestones.push({
 			key: `first-purple-${bossName}`,
 			emoji: '💜',
-			text: `First Rare parse on ${bossName}!`
+			text: `First Rare parse on ${bossName}!`,
 		});
 	}
 
@@ -128,7 +126,7 @@ export function computeBossMilestones(
 		milestones.push({
 			key: `first-orange-${bossName}`,
 			emoji: '🔥',
-			text: `First Epic parse on ${bossName}!`
+			text: `First Epic parse on ${bossName}!`,
 		});
 	}
 
@@ -139,14 +137,13 @@ export function computeBossMilestones(
 			milestones.push({
 				key: `3-improve-${bossName}`,
 				emoji: '📈',
-				text: `Three weeks of improvement on ${bossName}!`
+				text: `Three weeks of improvement on ${bossName}!`,
 			});
 		}
 	}
 
 	return milestones;
 }
-
 
 /**
  * Extract the parse history for a boss across all compliance weeks.
@@ -155,8 +152,11 @@ export function computeBossMilestones(
 export function extractBossParseHistory(
 	bossId: number,
 	difficulty: string,
-	weeklySnapshots: Array<{ week: string; raiders: Array<{ raider_id: string; raid_parses: BossParse[] }> }>,
-	raiderId: string
+	weeklySnapshots: Array<{
+		week: string;
+		raiders: Array<{ raider_id: string; raid_parses: BossParse[] }>;
+	}>,
+	raiderId: string,
 ): (number | null)[] {
 	return weeklySnapshots.map((snap) => {
 		const raider = snap.raiders.find((r) => r.raider_id === raiderId);
@@ -183,6 +183,6 @@ export function shouldShowMissedWeekCallout(compliance: RaiderCompliance | null 
 	return {
 		show: !latest.met,
 		count: latest.count,
-		required: 4 // from roster config; passed separately in real use
+		required: 4, // from roster config; passed separately in real use
 	};
 }

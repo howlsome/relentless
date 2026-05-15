@@ -1,17 +1,26 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 import ComplianceHistory from './ComplianceHistory.svelte';
 
 function compliance(weeks: any[]) {
 	return {
-		current_streak: 2, longest_streak: 5, total_weeks_met: 8, total_weeks_tracked: 10,
-		record_dungeons_week: null, record_highest_key: null,
-		weeks
+		current_streak: 2,
+		longest_streak: 5,
+		total_weeks_met: 8,
+		total_weeks_tracked: 10,
+		record_dungeons_week: null,
+		record_highest_key: null,
+		weeks,
 	};
 }
 
 const week = (w: string, met: boolean, count = 4, total = 6, key = 12) => ({
-	week: w, reset_start: '2026-01-01T07:00:00Z', count, total_dungeons: total, highest_key_level: key, met
+	week: w,
+	reset_start: '2026-01-01T07:00:00Z',
+	count,
+	total_dungeons: total,
+	highest_key_level: key,
+	met,
 });
 
 describe('ComplianceHistory', () => {

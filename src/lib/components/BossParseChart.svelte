@@ -4,7 +4,7 @@
 	let {
 		points,
 		bossName = '',
-		characterName = ''
+		characterName = '',
 	}: {
 		points: (number | null)[];
 		bossName?: string;
@@ -23,7 +23,9 @@
 
 	const nonNull = $derived(recent.filter((p): p is number => p != null));
 	const bestPct = $derived(nonNull.length ? Math.max(...nonNull) : null);
-	const avgPct  = $derived(nonNull.length ? nonNull.reduce((a, b) => a + b, 0) / nonNull.length : null);
+	const avgPct = $derived(
+		nonNull.length ? nonNull.reduce((a, b) => a + b, 0) / nonNull.length : null,
+	);
 
 	const innerH = $derived(H - PAD * 2);
 
@@ -39,16 +41,14 @@
 			const barH = Math.max(4, (pct / 100) * innerH);
 			const y = H - PAD - barH;
 			return { x, pct, barH, y, opacity: 0.55 };
-		})
+		}),
 	);
 
-	const avgY = $derived(
-		avgPct != null ? H - PAD - (avgPct / 100) * innerH : null
-	);
+	const avgY = $derived(avgPct != null ? H - PAD - (avgPct / 100) * innerH : null);
 
 	const ariaLabel = $derived(
-		`${bossName ? bossName + ' ' : ''}parse history for ${characterName}` +
-		(avgPct != null ? `, average ${avgPct.toFixed(0)}%` : ', no kill data')
+		`${bossName ? `${bossName} ` : ''}parse history for ${characterName}` +
+			(avgPct != null ? `, average ${avgPct.toFixed(0)}%` : ', no kill data'),
 	);
 </script>
 

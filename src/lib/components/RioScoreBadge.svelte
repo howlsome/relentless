@@ -3,7 +3,7 @@
 
 	let {
 		score,
-		characterName = ''
+		characterName = '',
 	}: {
 		score: number | null | undefined;
 		characterName?: string;
@@ -15,7 +15,8 @@
 <span
 	class="rio-badge"
 	style={score != null ? `background:${style.bgHex};color:${style.textHex}` : ''}
-	aria-label="Raider.io score{characterName ? ' for ' + characterName : ''}: {score ?? 'unavailable'}"
+	aria-label="Raider.io score{characterName ? ' for ' + characterName : ''}: {score ??
+		'unavailable'}"
 	title="Raider.io score{score != null ? ` — ${style.label}` : ''}"
 >
 	{#if score != null}

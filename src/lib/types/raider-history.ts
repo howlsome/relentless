@@ -1,4 +1,10 @@
-import type { MembershipEvent, RoleHistoryEntry, TeamDesignation, WowClass, Role } from './roster.js';
+import type {
+	MembershipEvent,
+	Role,
+	RoleHistoryEntry,
+	TeamDesignation,
+	WowClass,
+} from './roster.js';
 
 export interface CharacterHistoryEntry {
 	name: string;

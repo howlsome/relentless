@@ -22,19 +22,16 @@
 </script>
 
 {#if count > 0}
-	<section
-		data-safe-pug-banner
-		aria-label="Safe pugs this week"
-		class="safe-pug-banner"
-	>
+	<section data-safe-pug-banner aria-label="Safe pugs this week" class="safe-pug-banner">
 		<button
 			type="button"
 			aria-expanded={expanded}
 			onclick={() => (expanded = !expanded)}
 			class="safe-pug-banner__toggle"
 		>
-			🌱 {count} {count === 1 ? 'raider has' : 'raiders have'} pugged Mythic on their own time this
-			week — showing initiative without affecting team plans.
+			🌱 {count}
+			{count === 1 ? 'raider has' : 'raiders have'} pugged Mythic on their own time this week — showing initiative
+			without affecting team plans.
 		</button>
 
 		{#if expanded}

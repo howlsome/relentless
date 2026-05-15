@@ -7,13 +7,13 @@
 	const isActive = $derived(player.status === 'active');
 
 	const joinedEvent = $derived(
-		[...(player.membership_history ?? [])].reverse().find((e) => e.event === 'joined')
+		[...(player.membership_history ?? [])].reverse().find((e) => e.event === 'joined'),
 	);
 	const leftEvent = $derived(
-		[...(player.membership_history ?? [])].reverse().find((e) => e.event === 'left')
+		[...(player.membership_history ?? [])].reverse().find((e) => e.event === 'left'),
 	);
 	const joinedCount = $derived(
-		(player.membership_history ?? []).filter((e) => e.event === 'joined').length
+		(player.membership_history ?? []).filter((e) => e.event === 'joined').length,
 	);
 
 	const label = $derived(() => {
@@ -31,9 +31,7 @@
 	{isActive ? '✓' : ''}
 	{label()}
 	{#if joinedCount > 1}
-		<span class="membership-rejoined" aria-label="Has rejoined the team">
-			(rejoined)
-		</span>
+		<span class="membership-rejoined" aria-label="Has rejoined the team"> (rejoined) </span>
 	{/if}
 </span>
 

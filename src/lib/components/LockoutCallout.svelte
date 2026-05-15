@@ -92,9 +92,9 @@
 	>
 		<h3>🚨 Progression-blocking pug this reset</h3>
 		<p>
-			This raider killed Mythic boss(es) outside team raid times without permission, locking them
-			out of upcoming Relentless raid nights. This directly damages team progression and is a
-			serious issue that officers should address with the raider:
+			This raider killed Mythic boss(es) outside team raid times without permission, locking them out
+			of upcoming Relentless raid nights. This directly damages team progression and is a serious issue
+			that officers should address with the raider:
 		</p>
 		<ul>
 			{#each warnings as warning}
@@ -106,8 +106,8 @@
 
 		{#if maxPriorBlocks >= 1}
 			<p class="lockout-callout__escalation">
-				Prior progression-blocking pugs in the last 4 weeks: {maxPriorBlocks}.
-				Repeated progression-blocking pugs can result in removal from the raid team.
+				Prior progression-blocking pugs in the last 4 weeks: {maxPriorBlocks}. Repeated
+				progression-blocking pugs can result in removal from the raid team.
 			</p>
 		{/if}
 
@@ -140,9 +140,7 @@
 		aria-label="Exempt pug callout"
 	>
 		<h3>ℹ️ Exempt pugs this reset</h3>
-		<p>
-			This raider has kills covered by an officer-granted exemption:
-		</p>
+		<p>This raider has kills covered by an officer-granted exemption:</p>
 		<ul>
 			{#each exemptPugs as kill}
 				<li>

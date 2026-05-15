@@ -47,9 +47,9 @@
 				onclick={() => (expanded = !expanded)}
 				class="lockout-banner__toggle"
 			>
-				🚨 {count} {count === 1 ? 'raider has' : 'raiders have'} killed Mythic bosses outside team
-				raid times in a way that blocks Relentless progression this week. Officers should review
-				immediately.
+				🚨 {count}
+				{count === 1 ? 'raider has' : 'raiders have'} killed Mythic bosses outside team raid times in a way
+				that blocks Relentless progression this week. Officers should review immediately.
 			</button>
 			<button
 				type="button"

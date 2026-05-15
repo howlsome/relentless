@@ -15,17 +15,16 @@
  *   raider-history.json, changelog.json, any M+ files.
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
-
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { getActiveCharacters } from '../src/lib/utils/raider-identity.js';
 import {
-	getWclToken,
+	DIFFICULTY_IDS,
 	fetchActiveRaidZones,
 	fetchHistoricalEncounterRankings,
-	DIFFICULTY_IDS,
+	getWclToken,
 } from '../src/lib/utils/wcl.js';
-import { getActiveCharacters } from '../src/lib/utils/raider-identity.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, '..', 'data');
@@ -37,7 +36,7 @@ function loadJson(relPath: string) {
 function writeJson(relPath: string, data: object) {
 	const full = join(dataDir, relPath);
 	mkdirSync(dirname(full), { recursive: true });
-	writeFileSync(full, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+	writeFileSync(full, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
 }
 
 // ── WoW week bounds ───────────────────────────────────────────────────────────
@@ -64,7 +63,9 @@ if (!weekArg || !/^\d{4}-\d{2}$/.test(weekArg)) {
 
 const targetWeek = weekArg;
 const { start: weekStart, end: weekEnd } = getWeekBounds(targetWeek);
-console.log(`[backfill] Week ${targetWeek}: ${new Date(weekStart).toISOString()} → ${new Date(weekEnd).toISOString()}`);
+console.log(
+	`[backfill] Week ${targetWeek}: ${new Date(weekStart).toISOString()} → ${new Date(weekEnd).toISOString()}`,
+);
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -81,7 +82,9 @@ async function main() {
 
 	console.log('[backfill] Fetching raid zones…');
 	const allZones = await fetchActiveRaidZones(wclToken, roster.wcl_expansion_id);
-	const raidZones = allZones.filter((z: { name: string }) => !z.name.toLowerCase().includes('mythic+'));
+	const raidZones = allZones.filter(
+		(z: { name: string }) => !z.name.toLowerCase().includes('mythic+'),
+	);
 
 	const activeItems: Array<{ player: object; char: object }> = [];
 	for (const player of roster.players) {
@@ -90,7 +93,9 @@ async function main() {
 			activeItems.push({ player, char });
 		}
 	}
-	console.log(`[backfill] ${activeItems.length} character(s) across ${new Set(activeItems.map((i: any) => i.player.raider_id)).size} raider(s).`);
+	console.log(
+		`[backfill] ${activeItems.length} character(s) across ${new Set(activeItems.map((i: any) => i.player.raider_id)).size} raider(s).`,
+	);
 
 	const difficulties: string[] = roster.raid_difficulties ?? ['heroic', 'mythic'];
 	const diffPairs = difficulties
@@ -114,9 +119,16 @@ async function main() {
 		}
 
 		console.log(`[backfill] Zone ${zone.name} (${zoneId}): fetching historical encounter rankings…`);
-		const historical = await fetchHistoricalEncounterRankings(wclToken, activeItems, bossIds, diffPairs);
+		const historical = await fetchHistoricalEncounterRankings(
+			wclToken,
+			activeItems,
+			bossIds,
+			diffPairs,
+		);
 
-		const bossNames = new Map((zone.encounters ?? []).map((e: { id: number; name: string }) => [e.id, e.name]));
+		const bossNames = new Map(
+			(zone.encounters ?? []).map((e: { id: number; name: string }) => [e.id, e.name]),
+		);
 
 		const raiders = [];
 
@@ -135,18 +147,19 @@ async function main() {
 				for (const [diffKey] of diffPairs) {
 					const kills = raiderMap?.[bossId]?.[diffKey] ?? [];
 					// Filter to kills that occurred within this WoW week
-					const weekKills = kills.filter(
-						(k) => k.startTime >= weekStart && k.startTime < weekEnd,
-					);
+					const weekKills = kills.filter((k) => k.startTime >= weekStart && k.startTime < weekEnd);
 
 					if (weekKills.length === 0) {
 						(entry.difficulties as Record<string, unknown>)[diffKey] = {
-							kill: false, parse_percentile: null, spec: null, dps: null,
+							kill: false,
+							parse_percentile: null,
+							spec: null,
+							dps: null,
 						};
 					} else {
 						// Best parse from this week
-						const best = weekKills.reduce(
-							(a, b) => ((b.rankPercent ?? -1) > (a.rankPercent ?? -1) ? b : a),
+						const best = weekKills.reduce((a, b) =>
+							(b.rankPercent ?? -1) > (a.rankPercent ?? -1) ? b : a,
 						);
 						(entry.difficulties as Record<string, unknown>)[diffKey] = {
 							kill: true,

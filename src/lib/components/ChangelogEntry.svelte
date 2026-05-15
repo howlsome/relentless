@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ChangelogEntry } from '$lib/types/changelog.js';
-	import TeamDesignationBadge from './TeamDesignationBadge.svelte';
 	import { fmtDate } from '$lib/utils/format.js';
+	import TeamDesignationBadge from './TeamDesignationBadge.svelte';
 
 	let { entry }: { entry: ChangelogEntry } = $props();
 
@@ -13,7 +13,7 @@
 		role_changed: '⚔️',
 		spec_changed: '📖',
 		blocking_pug: '🚨',
-		exempt_pug: 'ℹ️'
+		exempt_pug: 'ℹ️',
 	};
 
 	const icon = $derived(icons[entry.event] ?? '📋');
@@ -54,16 +54,22 @@
 	});
 
 	const character = $derived(
-		'character' in entry ? entry.character : 'to_character' in entry ? entry.to_character : ''
+		'character' in entry ? entry.character : 'to_character' in entry ? entry.to_character : '',
 	);
-	const charClass = $derived('class' in entry ? entry.class : 'to_class' in entry ? entry.to_class : '');
+	const charClass = $derived(
+		'class' in entry ? entry.class : 'to_class' in entry ? entry.to_class : '',
+	);
 	const charSpec = $derived('spec' in entry ? entry.spec : 'to_spec' in entry ? entry.to_spec : '');
 	const note = $derived('note' in entry ? entry.note : undefined);
-	const reason = $derived('reason' in entry ? (entry as Extract<ChangelogEntry, { event: 'team_changed' }>).reason : undefined);
+	const reason = $derived(
+		'reason' in entry
+			? (entry as Extract<ChangelogEntry, { event: 'team_changed' }>).reason
+			: undefined,
+	);
 	const displayTime = $derived(
-		(entry.event === 'blocking_pug' || entry.event === 'exempt_pug')
+		entry.event === 'blocking_pug' || entry.event === 'exempt_pug'
 			? (entry as Extract<ChangelogEntry, { event: 'blocking_pug' }>).kill_time
-			: entry.timestamp
+			: entry.timestamp,
 	);
 </script>
 
@@ -76,7 +82,9 @@
 				{entry.display_name}
 			</a>
 			{#if character}
-				<span class="muted changelog-entry__char">— {character}{charClass ? ` (${charClass}` : ''}{charSpec ? `/${charSpec})` : ''}</span>
+				<span class="muted changelog-entry__char"
+					>— {character}{charClass ? ` (${charClass}` : ''}{charSpec ? `/${charSpec})` : ''}</span
+				>
 			{/if}
 			<TeamDesignationBadge designation={entry.team} />
 		</div>
@@ -87,11 +95,12 @@
 			{@const bp = entry as Extract<ChangelogEntry, { event: 'blocking_pug' }>}
 			{#if bp.wcl_report_code}
 				<a
-					href="https://www.warcraftlogs.com/reports/{bp.wcl_report_code}#fight={bp.wcl_fight_id ?? 'last'}"
+					href="https://www.warcraftlogs.com/reports/{bp.wcl_report_code}#fight={bp.wcl_fight_id ??
+						'last'}"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="changelog-entry__wcl"
-				>View on Warcraft Logs</a>
+					class="changelog-entry__wcl">View on Warcraft Logs</a
+				>
 			{/if}
 		{/if}
 

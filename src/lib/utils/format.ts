@@ -18,7 +18,10 @@ export function fmtDelta(current: number | null, previous: number | null): strin
 }
 
 /** Class for the delta indicator: 'up', 'down', or 'neutral'. */
-export function deltaClass(current: number | null, previous: number | null): 'up' | 'down' | 'neutral' {
+export function deltaClass(
+	current: number | null,
+	previous: number | null,
+): 'up' | 'down' | 'neutral' {
 	if (current == null || previous == null) return 'neutral';
 	const d = current - previous;
 	if (d > 0) return 'up';
@@ -30,7 +33,10 @@ export function deltaClass(current: number | null, previous: number | null): 'up
  * Format an ISO week string ("2026-20") to a human label.
  * Uses the reset_start timestamp when available for the date portion.
  */
-export function fmtWeekLabel(isoWeek: string | null | undefined, resetStart?: string | null): string {
+export function fmtWeekLabel(
+	isoWeek: string | null | undefined,
+	resetStart?: string | null,
+): string {
 	if (!isoWeek) return '—';
 	const [, weekNum] = isoWeek.split('-');
 	if (resetStart) {
@@ -47,7 +53,10 @@ export function fmtWeekLabel(isoWeek: string | null | undefined, resetStart?: st
  * return which week of the season this is (1-based).
  * Returns null if inputs are invalid or the current week is before the season.
  */
-export function getSeasonWeek(currentIsoWeek: string | null | undefined, seasonStartDate: string | null | undefined): number | null {
+export function getSeasonWeek(
+	currentIsoWeek: string | null | undefined,
+	seasonStartDate: string | null | undefined,
+): number | null {
 	if (!currentIsoWeek || !seasonStartDate) return null;
 	try {
 		const [curYearStr, curWeekStr] = currentIsoWeek.split('-');
@@ -55,7 +64,7 @@ export function getSeasonWeek(currentIsoWeek: string | null | undefined, seasonS
 		const curWeek = Number(curWeekStr);
 
 		// ISO week number for the season start date
-		const d = new Date(seasonStartDate + 'T12:00:00Z');
+		const d = new Date(`${seasonStartDate}T12:00:00Z`);
 		const dayOfWeek = d.getUTCDay() || 7; // 1=Mon 7=Sun
 		d.setUTCDate(d.getUTCDate() + 4 - dayOfWeek); // move to Thursday of that week
 		const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
@@ -73,7 +82,12 @@ export function getSeasonWeek(currentIsoWeek: string | null | undefined, seasonS
 export function fmtDate(iso: string | null | undefined): string {
 	if (!iso) return '—';
 	const d = new Date(iso);
-	return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+	return d.toLocaleDateString('en-GB', {
+		day: 'numeric',
+		month: 'short',
+		year: 'numeric',
+		timeZone: 'UTC',
+	});
 }
 
 /** Format a short date label from an ISO date string: "14 May". */
@@ -93,19 +107,19 @@ export function fmtAmount(n: number | null | undefined): string {
 
 /** Official WoW class colours. */
 const CLASS_COLOURS: Record<string, string> = {
-	DeathKnight:  '#C41E3A',
-	DemonHunter:  '#A330C9',
-	Druid:        '#FF7C0A',
-	Evoker:       '#33937F',
-	Hunter:       '#AAD372',
-	Mage:         '#3FC7EB',
-	Monk:         '#00FF98',
-	Paladin:      '#F48CBA',
-	Priest:       '#AAAAAA',
-	Rogue:        '#FFF468',
-	Shaman:       '#0070DD',
-	Warlock:      '#8788EE',
-	Warrior:      '#C69B3A',
+	DeathKnight: '#C41E3A',
+	DemonHunter: '#A330C9',
+	Druid: '#FF7C0A',
+	Evoker: '#33937F',
+	Hunter: '#AAD372',
+	Mage: '#3FC7EB',
+	Monk: '#00FF98',
+	Paladin: '#F48CBA',
+	Priest: '#AAAAAA',
+	Rogue: '#FFF468',
+	Shaman: '#0070DD',
+	Warlock: '#8788EE',
+	Warrior: '#C69B3A',
 };
 
 export function getWowClassColor(className: string | null | undefined): string {

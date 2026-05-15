@@ -5,7 +5,7 @@
 		team = $bindable('all'),
 		eventType = $bindable('all'),
 		seasonId = $bindable('all'),
-		seasonsIndex
+		seasonsIndex,
 	}: {
 		team: string;
 		eventType: string;
@@ -14,7 +14,7 @@
 	} = $props();
 
 	const activeCount = $derived(
-		(team !== 'all' ? 1 : 0) + (eventType !== 'all' ? 1 : 0) + (seasonId !== 'all' ? 1 : 0)
+		(team !== 'all' ? 1 : 0) + (eventType !== 'all' ? 1 : 0) + (seasonId !== 'all' ? 1 : 0),
 	);
 
 	let open = $state(false);
@@ -64,7 +64,12 @@
 			<!-- Event type filter -->
 			<div class="filter-group">
 				<label for="filter-event" class="filter-label">Event type</label>
-				<select id="filter-event" bind:value={eventType} class="filter-select" aria-label="Filter by event type">
+				<select
+					id="filter-event"
+					bind:value={eventType}
+					class="filter-select"
+					aria-label="Filter by event type"
+				>
 					<option value="all">All events</option>
 					<option value="joined">🟢 Joined</option>
 					<option value="left">🔴 Left</option>
@@ -80,7 +85,12 @@
 			<!-- Date range / season filter -->
 			<div class="filter-group">
 				<label for="filter-season" class="filter-label">Date range</label>
-				<select id="filter-season" bind:value={seasonId} class="filter-select" aria-label="Filter by season">
+				<select
+					id="filter-season"
+					bind:value={seasonId}
+					class="filter-select"
+					aria-label="Filter by season"
+				>
 					<option value="all">All time</option>
 					{#each seasonsIndex.all_mplus_seasons as s}
 						<option value={s.season_id}>{s.label}</option>
@@ -145,7 +155,7 @@
 		flex-wrap: wrap;
 		gap: 1rem;
 		min-width: 280px;
-		box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 		/* Fallback for browsers without anchor positioning support */
 		@supports not (anchor-name: --x) {
 			position: absolute;

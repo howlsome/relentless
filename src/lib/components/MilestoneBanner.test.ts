@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte';
-import MilestoneBanner from './MilestoneBanner.svelte';
+import { describe, expect, it } from 'vitest';
 import { computeBossMilestones, computeMplusMilestones } from '$lib/utils/milestones.js';
+import MilestoneBanner from './MilestoneBanner.svelte';
 
 describe('MilestoneBanner', () => {
 	it('renders nothing when no milestones', () => {
@@ -12,7 +12,7 @@ describe('MilestoneBanner', () => {
 	it('renders all milestones when multiple are present', () => {
 		const milestones = [
 			{ key: 'a', emoji: '🏆', text: 'First milestone' },
-			{ key: 'b', emoji: '🗡️', text: 'Second milestone' }
+			{ key: 'b', emoji: '🗡️', text: 'Second milestone' },
 		];
 		const { container } = render(MilestoneBanner, { milestones });
 		expect(container.querySelectorAll('.milestone-banner').length).toBe(2);
@@ -54,29 +54,69 @@ describe('computeBossMilestones', () => {
 		// Same parse, no improvement, not first kill
 		const milestones = computeBossMilestones('Solanar', [60, 70, 65, 60], 'mythic');
 		// No PB (60 < 70), no first kill (has history), no 3 improvement (60,65,70,60 not strictly ascending)
-		expect(milestones.filter((m) => m.key.includes('pb') || m.key.includes('3-improve'))).toHaveLength(0);
+		expect(
+			milestones.filter((m) => m.key.includes('pb') || m.key.includes('3-improve')),
+		).toHaveLength(0);
 	});
 });
 
 describe('computeMplusMilestones', () => {
-	function compliance(weeks: any[], record = { count: 14, week: '2026-17' }, recordKey = { level: 18, week: '2026-15' }) {
-		return { current_streak: 3, longest_streak: 5, total_weeks_met: 9, total_weeks_tracked: 10,
-			record_dungeons_week: record, record_highest_key: recordKey,
-			weeks };
+	function compliance(
+		weeks: any[],
+		record = { count: 14, week: '2026-17' },
+		recordKey = { level: 18, week: '2026-15' },
+	) {
+		return {
+			current_streak: 3,
+			longest_streak: 5,
+			total_weeks_met: 9,
+			total_weeks_tracked: 10,
+			record_dungeons_week: record,
+			record_highest_key: recordKey,
+			weeks,
+		};
 	}
 
 	it('shows "big week" banner when total_dungeons increased by ≥ 3', () => {
 		const c = compliance([
-			{ week: '2026-19', count: 5, total_dungeons: 11, highest_key_level: 14, met: true, reset_start: '' },
-			{ week: '2026-18', count: 4, total_dungeons:  8, highest_key_level: 12, met: true, reset_start: '' }
+			{
+				week: '2026-19',
+				count: 5,
+				total_dungeons: 11,
+				highest_key_level: 14,
+				met: true,
+				reset_start: '',
+			},
+			{
+				week: '2026-18',
+				count: 4,
+				total_dungeons: 8,
+				highest_key_level: 12,
+				met: true,
+				reset_start: '',
+			},
 		]);
 		expect(computeMplusMilestones(c).some((m) => m.key === 'volume-up')).toBe(true);
 	});
 
 	it('does not show volume banner when delta < 3', () => {
 		const c = compliance([
-			{ week: '2026-19', count: 5, total_dungeons: 9, highest_key_level: 14, met: true, reset_start: '' },
-			{ week: '2026-18', count: 4, total_dungeons: 8, highest_key_level: 12, met: true, reset_start: '' }
+			{
+				week: '2026-19',
+				count: 5,
+				total_dungeons: 9,
+				highest_key_level: 14,
+				met: true,
+				reset_start: '',
+			},
+			{
+				week: '2026-18',
+				count: 4,
+				total_dungeons: 8,
+				highest_key_level: 12,
+				met: true,
+				reset_start: '',
+			},
 		]);
 		expect(computeMplusMilestones(c).some((m) => m.key === 'volume-up')).toBe(false);
 	});

@@ -1,19 +1,17 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
-	getActiveCharacters,
-	getCurrentWoWWeek,
-	getResetStart,
-	getCurrentRole,
-	getRoleAtDate,
-	getCharacterAtDate,
-	buildRoleSummary,
-	mergeComplianceAcrossCharacters,
-	getMembershipStatus,
 	buildMergedTimeline,
-	getDesignationForSeason,
-	upsertComplianceWeek,
+	buildRoleSummary,
 	computeCurrentStreak,
-	computeLongestStreak
+	computeLongestStreak,
+	getActiveCharacters,
+	getCharacterAtDate,
+	getCurrentRole,
+	getCurrentWoWWeek,
+	getDesignationForSeason,
+	getMembershipStatus,
+	getRoleAtDate,
+	mergeComplianceAcrossCharacters,
 } from './raider-identity.js';
 
 function makePlayer(overrides = {}) {
@@ -23,9 +21,27 @@ function makePlayer(overrides = {}) {
 		status: 'active',
 		team_designation: 'main',
 		membership_history: [{ event: 'joined', date: '2026-03-17', note: 'Founder' }],
-		characters: [{ name: 'TestChar', realm: 'Draenor', class: 'Rogue', spec: 'Subtlety', role: 'dps', active: true }],
-		role_history: [{ role: 'dps', class: 'Rogue', spec: 'Subtlety', character: 'TestChar', from: '2026-03-17', to: null }],
-		...overrides
+		characters: [
+			{
+				name: 'TestChar',
+				realm: 'Draenor',
+				class: 'Rogue',
+				spec: 'Subtlety',
+				role: 'dps',
+				active: true,
+			},
+		],
+		role_history: [
+			{
+				role: 'dps',
+				class: 'Rogue',
+				spec: 'Subtlety',
+				character: 'TestChar',
+				from: '2026-03-17',
+				to: null,
+			},
+		],
+		...overrides,
 	};
 }
 
@@ -36,8 +52,8 @@ describe('getActiveCharacters', () => {
 		const player = makePlayer({
 			characters: [
 				{ name: 'A', realm: 'D', class: 'Rogue', spec: 'Subtlety', role: 'dps', active: true },
-				{ name: 'B', realm: 'D', class: 'Mage',  spec: 'Fire',     role: 'dps', active: false }
-			]
+				{ name: 'B', realm: 'D', class: 'Mage', spec: 'Fire', role: 'dps', active: false },
+			],
 		});
 		const result = getActiveCharacters(player);
 		expect(result).toHaveLength(1);
@@ -48,14 +64,16 @@ describe('getActiveCharacters', () => {
 		const player = makePlayer({
 			characters: [
 				{ name: 'A', realm: 'D', class: 'Rogue', spec: 'Subtlety', role: 'dps', active: true },
-				{ name: 'B', realm: 'D', class: 'Mage',  spec: 'Fire',     role: 'dps', active: true }
-			]
+				{ name: 'B', realm: 'D', class: 'Mage', spec: 'Fire', role: 'dps', active: true },
+			],
 		});
 		expect(getActiveCharacters(player)).toHaveLength(2);
 	});
 
 	it('treats missing active field as inactive', () => {
-		const player = makePlayer({ characters: [{ name: 'X', realm: 'D', class: 'Mage', spec: 'Fire', role: 'dps' }] });
+		const player = makePlayer({
+			characters: [{ name: 'X', realm: 'D', class: 'Mage', spec: 'Fire', role: 'dps' }],
+		});
 		expect(getActiveCharacters(player)).toHaveLength(0);
 	});
 });
@@ -66,9 +84,16 @@ describe('getCurrentRole', () => {
 	it('returns the role_history entry with to === null', () => {
 		const player = makePlayer({
 			role_history: [
-				{ role: 'healer', class: 'Priest', spec: 'Holy', character: 'Old', from: '2025-01-01', to: '2026-01-01' },
-				{ role: 'dps',    class: 'Rogue',  spec: 'Sub',  character: 'New', from: '2026-01-01', to: null }
-			]
+				{
+					role: 'healer',
+					class: 'Priest',
+					spec: 'Holy',
+					character: 'Old',
+					from: '2025-01-01',
+					to: '2026-01-01',
+				},
+				{ role: 'dps', class: 'Rogue', spec: 'Sub', character: 'New', from: '2026-01-01', to: null },
+			],
 		});
 		const cur = getCurrentRole(player);
 		expect(cur?.character).toBe('New');
@@ -86,9 +111,16 @@ describe('getCurrentRole', () => {
 describe('getRoleAtDate', () => {
 	const player = makePlayer({
 		role_history: [
-			{ role: 'healer', class: 'Priest', spec: 'Holy', character: 'OldChar', from: '2025-10-01', to: '2026-01-01' },
-			{ role: 'dps',    class: 'Rogue',  spec: 'Sub',  character: 'NewChar', from: '2026-01-01', to: null }
-		]
+			{
+				role: 'healer',
+				class: 'Priest',
+				spec: 'Holy',
+				character: 'OldChar',
+				from: '2025-10-01',
+				to: '2026-01-01',
+			},
+			{ role: 'dps', class: 'Rogue', spec: 'Sub', character: 'NewChar', from: '2026-01-01', to: null },
+		],
 	});
 
 	it('returns correct entry for a date in range', () => {
@@ -106,8 +138,15 @@ describe('getRoleAtDate', () => {
 describe('getCharacterAtDate', () => {
 	const player = makePlayer({
 		role_history: [
-			{ role: 'dps', class: 'Rogue', spec: 'Sub', character: 'TestChar', from: '2026-03-17', to: null }
-		]
+			{
+				role: 'dps',
+				class: 'Rogue',
+				spec: 'Sub',
+				character: 'TestChar',
+				from: '2026-03-17',
+				to: null,
+			},
+		],
 	});
 
 	it('returns character name active at the given date', () => {
@@ -125,9 +164,16 @@ describe('buildRoleSummary', () => {
 	it('returns role history sorted oldest-first', () => {
 		const player = makePlayer({
 			role_history: [
-				{ role: 'dps',    class: 'Rogue',  spec: 'Sub',  character: 'B', from: '2026-01-01', to: null },
-				{ role: 'healer', class: 'Priest', spec: 'Holy', character: 'A', from: '2025-01-01', to: '2026-01-01' }
-			]
+				{ role: 'dps', class: 'Rogue', spec: 'Sub', character: 'B', from: '2026-01-01', to: null },
+				{
+					role: 'healer',
+					class: 'Priest',
+					spec: 'Holy',
+					character: 'A',
+					from: '2025-01-01',
+					to: '2026-01-01',
+				},
+			],
 		});
 		const summary = buildRoleSummary(player);
 		expect(summary[0].character).toBe('A');
@@ -141,7 +187,7 @@ describe('mergeComplianceAcrossCharacters', () => {
 	it('sums runs from multiple characters', () => {
 		const result = mergeComplianceAcrossCharacters([
 			{ mplus_weekly_count_at_or_above_minimum: 3, mplus_total_dungeons_this_week: 5 },
-			{ mplus_weekly_count_at_or_above_minimum: 2, mplus_total_dungeons_this_week: 3 }
+			{ mplus_weekly_count_at_or_above_minimum: 2, mplus_total_dungeons_this_week: 3 },
 		]);
 		expect(result.count).toBe(5);
 		expect(result.total_dungeons).toBe(8);
@@ -157,19 +203,23 @@ describe('getMembershipStatus', () => {
 	});
 
 	it('returns inactive when last event is left', () => {
-		const p = makePlayer({ membership_history: [
-			{ event: 'joined', date: '2026-01-01' },
-			{ event: 'left',   date: '2026-03-01' }
-		]});
+		const p = makePlayer({
+			membership_history: [
+				{ event: 'joined', date: '2026-01-01' },
+				{ event: 'left', date: '2026-03-01' },
+			],
+		});
 		expect(getMembershipStatus(p)).toBe('inactive');
 	});
 
 	it('returns active when raider has rejoined after leaving', () => {
-		const p = makePlayer({ membership_history: [
-			{ event: 'joined', date: '2026-01-01' },
-			{ event: 'left',   date: '2026-02-01' },
-			{ event: 'joined', date: '2026-03-01' }
-		]});
+		const p = makePlayer({
+			membership_history: [
+				{ event: 'joined', date: '2026-01-01' },
+				{ event: 'left', date: '2026-02-01' },
+				{ event: 'joined', date: '2026-03-01' },
+			],
+		});
 		expect(getMembershipStatus(p)).toBe('active');
 	});
 });
@@ -186,9 +236,9 @@ describe('buildMergedTimeline', () => {
 		const p = makePlayer({
 			membership_history: [
 				{ event: 'joined', date: '2026-01-01', note: 'Joined' },
-				{ event: 'left',   date: '2026-02-01', note: 'Break' }
+				{ event: 'left', date: '2026-02-01', note: 'Break' },
 			],
-			role_history: []
+			role_history: [],
 		});
 		const timeline = buildMergedTimeline(p);
 		expect(timeline.length).toBeGreaterThanOrEqual(2);
@@ -202,9 +252,7 @@ describe('getDesignationForSeason', () => {
 	it('returns correct designation from designation_history', () => {
 		const p = makePlayer({
 			team_designation: 'main',
-			designation_history: [
-				{ season_id: 'midnight-s1', designation: 'alt', set_date: '2026-03-17' }
-			]
+			designation_history: [{ season_id: 'midnight-s1', designation: 'alt', set_date: '2026-03-17' }],
 		});
 		expect(getDesignationForSeason(p, 'midnight-s1')).toBe('alt');
 	});
@@ -235,7 +283,7 @@ describe('computeCurrentStreak / computeLongestStreak', () => {
 		{ week: '2026-18', met: true },
 		{ week: '2026-17', met: true },
 		{ week: '2026-16', met: false },
-		{ week: '2026-15', met: true }
+		{ week: '2026-15', met: true },
 	];
 
 	it('current streak counts consecutive met from latest', () => {

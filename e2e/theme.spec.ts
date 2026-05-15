@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Theme toggle', () => {
 	test('on first load with no localStorage, html data-theme defaults to auto', async ({ page }) => {

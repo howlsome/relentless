@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { ChangelogFile, ChangelogEntry } from '$lib/types/changelog.js';
-	import type { SeasonsIndex } from '$lib/types/seasons.js';
 	import ChangelogEntryComp from '$lib/components/ChangelogEntry.svelte';
 	import ChangelogFilter from '$lib/components/ChangelogFilter.svelte';
-	import { fmtWeekLabel, fmtDate } from '$lib/utils/format.js';
+	import type { ChangelogEntry, ChangelogFile } from '$lib/types/changelog.js';
+	import type { SeasonsIndex } from '$lib/types/seasons.js';
+	import { fmtDate, fmtWeekLabel } from '$lib/utils/format.js';
 
 	type BlockingPugEntry = Extract<ChangelogEntry, { event: 'blocking_pug' }>;
 
 	let {
-		data
+		data,
 	}: {
 		data: { changelog: ChangelogFile; seasonsIndex: SeasonsIndex };
 	} = $props();
@@ -25,9 +25,9 @@
 		new Map(
 			seasonsIndex.all_mplus_seasons.map((s) => [
 				s.season_id,
-				{ start: s.start_date, end: s.end_date ?? null }
-			])
-		)
+				{ start: s.start_date, end: s.end_date ?? null },
+			]),
+		),
 	);
 
 	function entryInSeason(entry: ChangelogEntry, seasonId: string): boolean {
@@ -50,22 +50,30 @@
 
 	// Group by ISO week, newest first
 	// Within each week, blocking_pug entries are further grouped per raider into one block
-	const grouped = $derived((): Map<string, { others: ChangelogEntry[]; blockingGroups: Map<string, BlockingPugEntry[]> }> => {
-		const map = new Map<string, { others: ChangelogEntry[]; blockingGroups: Map<string, BlockingPugEntry[]> }>();
-		for (const entry of filteredEntries()) {
-			const week = entry.week;
-			if (!map.has(week)) map.set(week, { others: [], blockingGroups: new Map() });
-			const bucket = map.get(week)!;
-			if (entry.event === 'blocking_pug') {
-				const key = entry.raider_id;
-				if (!bucket.blockingGroups.has(key)) bucket.blockingGroups.set(key, []);
-				bucket.blockingGroups.get(key)!.push(entry as BlockingPugEntry);
-			} else {
-				bucket.others.push(entry);
+	const grouped = $derived(
+		(): Map<
+			string,
+			{ others: ChangelogEntry[]; blockingGroups: Map<string, BlockingPugEntry[]> }
+		> => {
+			const map = new Map<
+				string,
+				{ others: ChangelogEntry[]; blockingGroups: Map<string, BlockingPugEntry[]> }
+			>();
+			for (const entry of filteredEntries()) {
+				const week = entry.week;
+				if (!map.has(week)) map.set(week, { others: [], blockingGroups: new Map() });
+				const bucket = map.get(week)!;
+				if (entry.event === 'blocking_pug') {
+					const key = entry.raider_id;
+					if (!bucket.blockingGroups.has(key)) bucket.blockingGroups.set(key, []);
+					bucket.blockingGroups.get(key)?.push(entry as BlockingPugEntry);
+				} else {
+					bucket.others.push(entry);
+				}
 			}
-		}
-		return new Map([...map.entries()].sort((a, b) => b[0].localeCompare(a[0])));
-	});
+			return new Map([...map.entries()].sort((a, b) => b[0].localeCompare(a[0])));
+		},
+	);
 </script>
 
 <svelte:head>
@@ -89,7 +97,6 @@
 		<section class="week-group" aria-label="Events in {fmtWeekLabel(week)}">
 			<h2 class="week-heading sticky-heading">{week.split('-')[0]} — {fmtWeekLabel(week)}</h2>
 			<div role="list" aria-label="Changelog entries for {fmtWeekLabel(week)}">
-
 				<!-- Blocking pug groups — one block per raider, matching raider page style -->
 				{#each blockingGroups as [, kills]}
 					{@const first = kills[0]}
@@ -100,11 +107,21 @@
 								<a href="/raider/{first.raider_id}" class="bpg__raider">{first.display_name}</a>
 								<span class="muted bpg__char">— {first.character} ({first.class}/{first.spec})</span>
 							</div>
-							<p class="bpg__title">Progression-blocking pug{kills.length > 1 ? 's' : ''} this reset — locked out for the entirety of this reset.</p>
+							<p class="bpg__title">
+								Progression-blocking pug{kills.length > 1 ? 's' : ''} this reset — locked out for the entirety
+								of this reset.
+							</p>
 							<ul class="bpg__list">
 								{#each kills as k}
 									<li>
-										{k.difficulty.charAt(0).toUpperCase() + k.difficulty.slice(1)} — {k.boss_name}{#if k.wcl_report_code}&nbsp;&mdash; <a href="https://www.warcraftlogs.com/reports/{k.wcl_report_code}#fight={k.wcl_fight_id ?? 'last'}" target="_blank" rel="noopener noreferrer" class="bpg__wcl">Logs</a>{/if}
+										{k.difficulty.charAt(0).toUpperCase() + k.difficulty.slice(1)} — {k.boss_name}{#if k.wcl_report_code}&nbsp;&mdash;
+											<a
+												href="https://www.warcraftlogs.com/reports/{k.wcl_report_code}#fight={k.wcl_fight_id ??
+													'last'}"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="bpg__wcl">Logs</a
+											>{/if}
 									</li>
 								{/each}
 							</ul>
@@ -117,7 +134,6 @@
 				{#each others as entry (entry.id)}
 					<ChangelogEntryComp {entry} />
 				{/each}
-
 			</div>
 		</section>
 	{/each}
@@ -241,7 +257,6 @@
 		.bpg__title {
 			font-size: 0.85rem;
 		}
-
 	}
 
 	.week-heading {

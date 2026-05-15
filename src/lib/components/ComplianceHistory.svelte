@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
-	import { fmtKey, deltaClass, getSeasonWeek } from '$lib/utils/format.js';
+	import { deltaClass, fmtKey, getSeasonWeek } from '$lib/utils/format.js';
 
 	let {
 		compliance,
 		weeklyMinimum = 4,
-		seasonStartDate = null
+		seasonStartDate = null,
 	}: {
 		compliance: RaiderCompliance | null | undefined;
 		weeklyMinimum?: number;
@@ -51,7 +51,12 @@
 						<td data-label="vs prev week">
 							{#if getDelta(i) != null}
 								{@const d = getDelta(i)!}
-								<span class="delta delta--{deltaClass(week.total_dungeons, weeks[i + 1]?.total_dungeons ?? null)}">
+								<span
+									class="delta delta--{deltaClass(
+										week.total_dungeons,
+										weeks[i + 1]?.total_dungeons ?? null,
+									)}"
+								>
 									{d > 0 ? `▲ +${d}` : d < 0 ? `▼ ${d}` : '—'}
 								</span>
 							{:else}
@@ -62,7 +67,10 @@
 							{#if week.met}
 								<span class="status status--met" aria-label="Requirement met">✅</span>
 							{:else}
-								<span class="status status--missed" aria-label="Requirement missed ({week.count}/{weeklyMinimum})">
+								<span
+									class="status status--missed"
+									aria-label="Requirement missed ({week.count}/{weeklyMinimum})"
+								>
 									❌ {week.count}/{weeklyMinimum}
 								</span>
 							{/if}

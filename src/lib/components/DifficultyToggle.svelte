@@ -4,7 +4,7 @@
 	let {
 		difficulties = ['heroic', 'mythic'],
 		value = $bindable<string>('mythic'),
-		onchange
+		onchange,
 	}: {
 		difficulties?: string[];
 		value?: string;
@@ -39,7 +39,9 @@
 		{/each}
 	</div>
 {:else if difficulties.length === 1}
-	<span class="difficulty-label">{difficulties[0].charAt(0).toUpperCase() + difficulties[0].slice(1)}</span>
+	<span class="difficulty-label"
+		>{difficulties[0].charAt(0).toUpperCase() + difficulties[0].slice(1)}</span
+	>
 {/if}
 
 <style>

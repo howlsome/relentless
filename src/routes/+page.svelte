@@ -1,22 +1,27 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import MplusStatus from '$lib/components/MplusStatus.svelte';
+	import RoleIcon from '$lib/components/RoleIcon.svelte';
+	import RosterTable from '$lib/components/RosterTable.svelte';
+	import type { ComplianceFile } from '$lib/types/compliance.js';
 	import type { Roster } from '$lib/types/roster.js';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
 	import type { MplusWeeklyFile, RaidWeeklyFile } from '$lib/types/weekly.js';
-	import type { ComplianceFile } from '$lib/types/compliance.js';
-	import { browser } from '$app/environment';
-	import MplusStatus from '$lib/components/MplusStatus.svelte';
-	import RosterTable from '$lib/components/RosterTable.svelte';
-	import RoleIcon from '$lib/components/RoleIcon.svelte';
 
 	let {
-		data
+		data,
 	}: {
 		data: {
 			roster: Roster;
 			seasonsIndex: SeasonsIndex;
 			mplusSnapshot: MplusWeeklyFile | null;
 			mplusCompliance: ComplianceFile | null;
-			raidZones: Array<{ meta: object; snapshot: RaidWeeklyFile | null; season_id: string; label: string }>;
+			raidZones: Array<{
+				meta: object;
+				snapshot: RaidWeeklyFile | null;
+				season_id: string;
+				label: string;
+			}>;
 		};
 	} = $props();
 
@@ -31,21 +36,31 @@
 				return !l.includes('beta') && !l.includes('complete');
 			});
 			const pool = live.length ? live : raidZones;
-			return [...pool].sort(
-				(a, b) =>
-					((b.meta as MetaShape)?.bosses?.length ?? 0) -
-					((a.meta as MetaShape)?.bosses?.length ?? 0)
-			)[0] ?? null;
-		})()
+			return (
+				[...pool].sort(
+					(a, b) =>
+						((b.meta as MetaShape)?.bosses?.length ?? 0) - ((a.meta as MetaShape)?.bosses?.length ?? 0),
+				)[0] ?? null
+			);
+		})(),
 	);
 
 	// Summary stats
 	const activePlayers = $derived(roster.players.filter((p) => p.status === 'active'));
 
 	const RANGED_SPECS = new Set([
-		'Balance', 'Elemental', 'Shadow', 'Arcane', 'Fire',
-		'Affliction', 'Demonology', 'Destruction',
-		'Beast Mastery', 'Marksmanship', 'Devastation', 'Augmentation',
+		'Balance',
+		'Elemental',
+		'Shadow',
+		'Arcane',
+		'Fire',
+		'Affliction',
+		'Demonology',
+		'Destruction',
+		'Beast Mastery',
+		'Marksmanship',
+		'Devastation',
+		'Augmentation',
 	]);
 
 	const rosterComp = $derived(() => {
@@ -59,16 +74,15 @@
 				const spec = char?.spec ?? '';
 				const cls = char?.class ?? '';
 				const ranged = RANGED_SPECS.has(spec) || (spec === 'Frost' && cls === 'Mage');
-				if (ranged) counts.rangedDps++; else counts.meleeDps++;
+				if (ranged) counts.rangedDps++;
+				else counts.meleeDps++;
 			}
 		}
 		return counts;
 	});
 
 	const onTrackCount = $derived(
-		mplusSnapshot
-			? mplusSnapshot.raiders.filter((r) => r.mplus_requirement_met).length
-			: 0
+		mplusSnapshot ? mplusSnapshot.raiders.filter((r) => r.mplus_requirement_met).length : 0,
 	);
 
 	const raidRaiders = $derived(primaryRaidZone?.snapshot?.raiders ?? []);
@@ -90,14 +104,14 @@
 			const bosses = (zone.meta as MetaShape)?.bosses ?? [];
 			const raiders = zone.snapshot?.raiders ?? [];
 			return bosses.map((boss) => {
-				const killed = raiders.some((r: typeof raidRaiders[0]) => {
+				const killed = raiders.some((r: (typeof raidRaiders)[0]) => {
 					const diff = r.raid_parses?.find((p) => p.boss_id === boss.id)?.difficulties?.[progDifficulty];
 					// Only count Relentless kills — exclude pug kills (blocking or exempt)
 					return diff?.kill === true && (diff.kill_category == null || diff.kill_category === 'in_raid');
 				});
 				return { id: boss.id, name: boss.name, killed };
 			});
-		})(primaryRaidZone)
+		})(primaryRaidZone),
 	);
 	const bossDown = $derived(bossProg.filter((b) => b.killed).length);
 	const bossTotal = $derived(bossProg.length);
@@ -114,7 +128,9 @@
 			<div class="stat-card stat-card--progression" role="listitem">
 				<div class="prog-card-header">
 					<div class="stat-card__label">
-						{seasonsIndex.all_raid_zones.length > 1 ? 'Raid tier' : ((primaryRaidZone?.meta as MetaShape)?.name ?? primaryRaidZone?.label ?? 'Raid')}
+						{seasonsIndex.all_raid_zones.length > 1
+							? 'Raid tier'
+							: ((primaryRaidZone?.meta as MetaShape)?.name ?? primaryRaidZone?.label ?? 'Raid')}
 					</div>
 					{#if browser}
 						<div class="prog-diff-toggle" role="group" aria-label="Progression difficulty">
@@ -124,8 +140,8 @@
 									class="prog-diff-btn {progDifficulty === val ? 'prog-diff-btn--active' : ''}"
 									onclick={() => setProgDifficulty(val as 'heroic' | 'mythic')}
 									aria-pressed={progDifficulty === val}
-									title="{val.charAt(0).toUpperCase() + val.slice(1)}"
-								>{short}</button>
+									title={val.charAt(0).toUpperCase() + val.slice(1)}>{short}</button
+								>
 							{/each}
 						</div>
 					{:else}
@@ -138,8 +154,18 @@
 					</span>
 					<span class="progression-label">{bossDown === bossTotal ? 'Clear 🎉' : 'bosses'}</span>
 				</div>
-				<div class="prog-bar" role="progressbar" aria-valuenow={bossDown} aria-valuemin={0} aria-valuemax={bossTotal} aria-label="{progDifficulty} progression">
-					<div class="prog-bar__fill" style="width: {bossTotal > 0 ? (bossDown / bossTotal) * 100 : 0}%"></div>
+				<div
+					class="prog-bar"
+					role="progressbar"
+					aria-valuenow={bossDown}
+					aria-valuemin={0}
+					aria-valuemax={bossTotal}
+					aria-label="{progDifficulty} progression"
+				>
+					<div
+						class="prog-bar__fill"
+						style="width: {bossTotal > 0 ? (bossDown / bossTotal) * 100 : 0}%"
+					></div>
 				</div>
 				<ol class="boss-pips" aria-label="Boss kill status">
 					{#each bossProg as boss}
@@ -161,13 +187,17 @@
 				<span class="roster-comp__item">🏹 {rosterComp().rangedDps}</span>
 			</div>
 		</div>
-		<div class="stat-card stat-card--ontrack {onTrackCount === activePlayers.length ? 'stat-card--good' : 'stat-card--warn'}" role="listitem">
+		<div
+			class="stat-card stat-card--ontrack {onTrackCount === activePlayers.length
+				? 'stat-card--good'
+				: 'stat-card--warn'}"
+			role="listitem"
+		>
 			<div class="stat-card__label">On track this week</div>
 			<div class="stat-card__value--xl">{onTrackCount} / {activePlayers.length}</div>
 		</div>
 	</div>
 {/if}
-
 
 {#if primaryRaidZone?.snapshot}
 	<RosterTable {roster} raidSnapshot={primaryRaidZone.snapshot} />
@@ -370,7 +400,7 @@
 		background: var(--pico-muted-border-color);
 	}
 
-.stat-card--good {
+	.stat-card--good {
 		border-color: color-mix(in srgb, #14ac00 40%, transparent);
 		background: color-mix(in srgb, #14ac00 8%, var(--pico-card-background-color));
 	}
@@ -389,7 +419,6 @@
 		margin-block-end: 0.25rem;
 	}
 
-
 	.roster-comp {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -402,7 +431,7 @@
 		font-weight: 700;
 	}
 
-.muted {
+	.muted {
 		color: var(--pico-muted-color);
 	}
 </style>

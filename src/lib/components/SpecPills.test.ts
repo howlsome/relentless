@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
-import SpecPills from './SpecPills.svelte';
+import { describe, expect, it } from 'vitest';
 import type { SpecEntry } from '$lib/types/roster.js';
+import SpecPills from './SpecPills.svelte';
 
 const BALANCE: SpecEntry = { spec: 'Balance', role: 'dps', primary: true, wcl_active: true };
 const RESTO: SpecEntry = { spec: 'Restoration', role: 'healer', primary: false, wcl_active: true };

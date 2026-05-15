@@ -1,11 +1,12 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('No JavaScript', () => {
 	test.use({ javaScriptEnabled: false });
 
-	test('dashboard renders with heading visible', async ({ page }) => {
+	test('dashboard renders with site header visible', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.getByRole('heading', { name: /undaunted|dashboard/i })).toBeVisible();
+		// The nav brand "Undaunted: Relentless" is always visible (no h1 on dashboard)
+		await expect(page.locator('header nav')).toContainText('Undaunted');
 	});
 
 	test('dashboard renders raider data without JS', async ({ page }) => {

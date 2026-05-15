@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/svelte';
+import { fireEvent, render, screen } from '@testing-library/svelte';
+import { beforeEach, describe, expect, it } from 'vitest';
 import ProgressionBlockingBanner from './ProgressionBlockingBanner.svelte';
 
 const BLOCKING_RAIDER = {
@@ -13,11 +13,11 @@ const BLOCKING_RAIDER = {
 			kill_time: '2026-05-14T14:22:00Z',
 			detected_local_time: 'Thursday 16:22 server (15:22 BST)',
 			reason: 'Outside all configured raid sessions',
-			prior_blocks_last_4_weeks: 0
-		}
+			prior_blocks_last_4_weeks: 0,
+		},
 	],
 	safe_pug_kills: [],
-	exempt_pug_kills: []
+	exempt_pug_kills: [],
 };
 
 describe('ProgressionBlockingBanner', () => {
@@ -27,7 +27,7 @@ describe('ProgressionBlockingBanner', () => {
 
 	it('renders nothing when no raiders have blocking_pug kills', () => {
 		const { container } = render(ProgressionBlockingBanner, {
-			props: { raiders: [{ ...BLOCKING_RAIDER, lockout_warnings: [] }] }
+			props: { raiders: [{ ...BLOCKING_RAIDER, lockout_warnings: [] }] },
 		});
 		expect(container.querySelector('[data-lockout-banner]')).toBeNull();
 	});
@@ -74,7 +74,7 @@ describe('ProgressionBlockingBanner', () => {
 	it('starts dismissed when sessionStorage key is set', () => {
 		sessionStorage.setItem('lockout-banner-dismissed', '1');
 		const { container } = render(ProgressionBlockingBanner, {
-			props: { raiders: [BLOCKING_RAIDER] }
+			props: { raiders: [BLOCKING_RAIDER] },
 		});
 		expect(container.querySelector('[data-lockout-banner]')).toBeNull();
 	});
@@ -82,7 +82,7 @@ describe('ProgressionBlockingBanner', () => {
 	it('counts raiders correctly in the summary line', () => {
 		const twoRaiders = [
 			BLOCKING_RAIDER,
-			{ ...BLOCKING_RAIDER, raider_id: 'r2', display_name: 'Deathchonks' }
+			{ ...BLOCKING_RAIDER, raider_id: 'r2', display_name: 'Deathchonks' },
 		];
 		render(ProgressionBlockingBanner, { props: { raiders: twoRaiders } });
 		expect(screen.getByText(/2 raiders/i)).toBeTruthy();

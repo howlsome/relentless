@@ -1,7 +1,7 @@
 export const prerender = true;
 
-import { existsSync, readFileSync, readdirSync } from 'fs';
-import { join } from 'path';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 /** @param {string} path */
 function safeJson(path) {
@@ -26,17 +26,23 @@ export function load({ params }) {
 	const raider = roster.players.find((r) => r.raider_id === params.uuid) ?? null;
 
 	const activeMplusSeasonId = seasonsIndex.active_mplus_season ?? '';
-	const complianceFile = activeMplusSeasonId ? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'compliance.json')) : null;
+	const complianceFile = activeMplusSeasonId
+		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'compliance.json'))
+		: null;
 	const raiderCompliance = complianceFile?.raiders?.[/** @type {string} */ (params.uuid)] ?? null;
 
-	const mplusSnapshotFile = activeMplusSeasonId ? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'snapshot.json')) : null;
-	const mplusSnapshot = mplusSnapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
+	const mplusSnapshotFile = activeMplusSeasonId
+		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'snapshot.json'))
+		: null;
+	const mplusSnapshot =
+		mplusSnapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
 
 	const allRaidSnapshots = [];
 	for (const zone of seasonsIndex.all_raid_zones ?? []) {
 		const meta = safeJson(join(dataDir, 'seasons', zone.season_id, 'meta.json'));
 		const snapshotFile = safeJson(join(dataDir, 'seasons', zone.season_id, 'snapshot.json'));
-		const raiderData = snapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
+		const raiderData =
+			snapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
 		if (meta) allRaidSnapshots.push({ meta, raiderData, season_id: zone.season_id });
 	}
 
@@ -46,7 +52,8 @@ export function load({ params }) {
 		return !name.includes('beta') && !name.includes('complete');
 	});
 	const pool = liveZones.length ? liveZones : allRaidSnapshots;
-	const primaryRaidZone = pool.sort((a, b) => (b.meta.bosses?.length ?? 0) - (a.meta.bosses?.length ?? 0))[0] ?? null;
+	const primaryRaidZone =
+		pool.sort((a, b) => (b.meta.bosses?.length ?? 0) - (a.meta.bosses?.length ?? 0))[0] ?? null;
 
 	const raiderHistoryFile = safeJson(join(dataDir, 'raider-history.json'));
 	const raiderHistory = raiderHistoryFile?.raiders?.[/** @type {string} */ (params.uuid)] ?? null;
@@ -60,7 +67,8 @@ export function load({ params }) {
 	const hourUTC = now.getUTCHours();
 	let daysSinceWed = (dow - 3 + 7) % 7;
 	if (daysSinceWed === 0 && hourUTC < 7) daysSinceWed = 7;
-	const currentWeekStart = now.getTime() - daysSinceWed * 86_400_000 - (now.getTime() % 86_400_000) + 7 * 3_600_000;
+	const currentWeekStart =
+		now.getTime() - daysSinceWed * 86_400_000 - (now.getTime() % 86_400_000) + 7 * 3_600_000;
 	const currentWeekEnd = currentWeekStart + 7 * 86_400_000;
 
 	// Weeks that the raider has an exemption for
@@ -87,7 +95,9 @@ export function load({ params }) {
 
 	// Patch primaryRaidZone raiderData with filtered warnings
 	if (primaryRaidZone?.raiderData) {
-		primaryRaidZone.raiderData.lockout_warnings = filterWarnings(primaryRaidZone.raiderData.lockout_warnings);
+		primaryRaidZone.raiderData.lockout_warnings = filterWarnings(
+			primaryRaidZone.raiderData.lockout_warnings,
+		);
 	}
 
 	// ── Weekly parse history for boss charts ──────────────────────────────────
@@ -105,7 +115,9 @@ export function load({ params }) {
 				.sort(); // YYYY-WW.json sorts chronologically oldest→newest
 			for (const file of weekFiles) {
 				const weekData = safeJson(join(weeksDir, file));
-				const raiderData = weekData?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid);
+				const raiderData = weekData?.raiders?.find(
+					(/** @type {any} */ r) => r.raider_id === params.uuid,
+				);
 				if (!raiderData) continue;
 				for (const diff of ['heroic', 'mythic']) {
 					// Only include this week if the raider killed at least one boss WITH Relentless
@@ -119,12 +131,16 @@ export function load({ params }) {
 						if (!wowanalyzerByDiff[diff][bp.boss_id]) wowanalyzerByDiff[diff][bp.boss_id] = [];
 						const d = bp.difficulties?.[diff];
 						// Only count Relentless kills (in_raid or unclassified legacy) in the chart
-						const isRelentlessKill = d?.kill && (d.kill_category == null || d.kill_category === 'in_raid');
-						weeklyHistoryByDiff[diff][bp.boss_id].push(isRelentlessKill ? (d.parse_percentile ?? null) : null);
+						const isRelentlessKill =
+							d?.kill && (d.kill_category == null || d.kill_category === 'in_raid');
+						weeklyHistoryByDiff[diff][bp.boss_id].push(
+							isRelentlessKill ? (d.parse_percentile ?? null) : null,
+						);
 						// Build WoWAnalyzer URL if report code is available
-						const url = (isRelentlessKill && d?.wcl_report_code && d?.wcl_fight_id)
-							? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
-							: null;
+						const url =
+							isRelentlessKill && d?.wcl_report_code && d?.wcl_fight_id
+								? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
+								: null;
 						wowanalyzerByDiff[diff][bp.boss_id].push(url);
 					}
 				}
