@@ -1,0 +1,20 @@
+{
+  "season_id": "raid-509",
+  "week": "2026-20",
+  "fetched_at": "2026-05-15T17:35:48.323Z",
+  "raid_tier": {
+    "wcl_zone_id": 509,
+    "name": "Complete Raids (VS / DR / MQD)",
+    "bosses": [
+      {
+        "id": 3175,
+        "name": "The Voidspire"
+      },
+      {
+        "id": 3198,
+        "name": "March on Quel'Danas"
+      }
+    ]
+  },
+  "raiders": []
+}

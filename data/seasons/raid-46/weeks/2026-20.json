@@ -1,0 +1,48 @@
+{
+  "season_id": "raid-46",
+  "week": "2026-20",
+  "fetched_at": "2026-05-15T17:35:48.323Z",
+  "raid_tier": {
+    "wcl_zone_id": 46,
+    "name": "VS / DR / MQD",
+    "bosses": [
+      {
+        "id": 3176,
+        "name": "Imperator Averzian"
+      },
+      {
+        "id": 3177,
+        "name": "Vorasius"
+      },
+      {
+        "id": 3179,
+        "name": "Fallen-King Salhadaar"
+      },
+      {
+        "id": 3178,
+        "name": "Vaelgor & Ezzorak"
+      },
+      {
+        "id": 3180,
+        "name": "Lightblinded Vanguard"
+      },
+      {
+        "id": 3181,
+        "name": "Crown of the Cosmos"
+      },
+      {
+        "id": 3306,
+        "name": "Chimaerus, the Undreamt God"
+      },
+      {
+        "id": 3182,
+        "name": "Belo'ren, Child of Al'ar"
+      },
+      {
+        "id": 3183,
+        "name": "Midnight Falls"
+      }
+    ]
+  },
+  "raiders": []
+}
