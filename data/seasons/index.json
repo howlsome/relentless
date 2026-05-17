@@ -19,28 +19,28 @@
       "season_id": "raid-509",
       "label": "Complete Raids (VS / DR / MQD)",
       "wcl_zone_id": 509,
-      "start_date": "2026-05-16",
+      "start_date": "2026-05-17",
       "end_date": null
     },
     {
       "season_id": "raid-51",
       "label": "Sporefall (PTR)",
       "wcl_zone_id": 51,
-      "start_date": "2026-05-16",
+      "start_date": "2026-05-17",
       "end_date": null
     },
     {
       "season_id": "raid-48",
       "label": "VS / DR / MQD (Beta)",
       "wcl_zone_id": 48,
-      "start_date": "2026-05-16",
+      "start_date": "2026-05-17",
       "end_date": null
     },
     {
       "season_id": "raid-46",
       "label": "VS / DR / MQD",
       "wcl_zone_id": 46,
-      "start_date": "2026-05-16",
+      "start_date": "2026-05-17",
       "end_date": null
     }
   ]
