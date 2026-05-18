@@ -9,11 +9,6 @@ test.describe('Changelog page', () => {
 		await expect(page.locator('h1:has-text("Changelog")')).toBeVisible();
 	});
 
-	test('shows empty state when no entries exist', async ({ page }) => {
-		// Changelog is empty at launch — empty state message should show
-		await expect(page.locator('.empty-state')).toBeVisible();
-	});
-
 	test('entries are grouped by ISO week when data exists', async ({ page }) => {
 		const headings = await page.locator('.week-heading').allTextContents();
 		// If no entries, headings will be empty — just verify no crash
@@ -30,8 +25,9 @@ test.describe('Changelog page', () => {
 	});
 
 	test('empty state appears when filters produce zero results', async ({ page }) => {
-		// Even with empty data, the empty state message should always be visible
-		await expect(page.locator('text=No changes found')).toBeVisible();
+		await page.locator('.filter-toggle').click();
+		await page.locator('#filter-event').selectOption('team_changed');
+		await expect(page.locator('.empty-state')).toBeVisible();
 	});
 
 	test('filter count badge appears when filter is active', async ({ page }) => {

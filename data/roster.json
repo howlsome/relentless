@@ -24,7 +24,10 @@
       ]
     }
   ],
-  "raid_difficulties": ["heroic", "mythic"],
+  "raid_difficulties": [
+    "heroic",
+    "mythic"
+  ],
   "wcl_expansion_id": 7,
   "raid_schedule": {
     "timezone": "Europe/Paris",
@@ -383,7 +386,7 @@
       ],
       "characters": [
         {
-          "name": "Thômâtschô",
+          "name": "Th\u00f4m\u00e2tsch\u00f4",
           "realm": "Antonidas",
           "class": "Warrior",
           "spec": "Fury",
@@ -396,7 +399,7 @@
           "role": "dps",
           "class": "Warrior",
           "spec": "Fury",
-          "character": "Thômâtschô",
+          "character": "Th\u00f4m\u00e2tsch\u00f4",
           "from": "2026-05-20",
           "to": null
         }
