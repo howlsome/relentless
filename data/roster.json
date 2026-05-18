@@ -435,6 +435,40 @@
           "to": null
         }
       ]
+    },
+    {
+      "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
+      "display_name": "Gary",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 18th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Gaymeron",
+          "realm": "Draenor",
+          "class": "Druid",
+          "spec": "Feral",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Druid",
+          "spec": "Feral",
+          "character": "Gaymeron",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
     }
   ]
 }
