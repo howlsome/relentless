@@ -111,20 +111,20 @@
       ],
       "characters": [
         {
-          "name": "Deathchonks",
+          "name": "Raem",
           "realm": "Doomhammer",
-          "class": "DeathKnight",
-          "spec": "Blood",
-          "role": "tank",
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps",
           "active": true
         }
       ],
       "role_history": [
         {
-          "role": "tank",
-          "class": "DeathKnight",
-          "spec": "Blood",
-          "character": "Deathchonks",
+          "role": "dps",
+          "class": "Priest",
+          "spec": "Shadow",
+          "character": "Raem",
           "from": "2026-05-20",
           "to": null
         }
@@ -231,6 +231,210 @@
           "to": null
         }
       ]
-    }
+    },
+    {
+      "raider_id": "0bede844-3d15-48b3-ad62-471ea652a874",
+      "display_name": "Sleipner",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 7th May - Guildmaster"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Sleipner",
+          "realm": "SteamwheedleCartel",
+          "class": "DeathKnight",
+          "spec": "Blood",
+          "role": "tank",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "tank",
+          "class": "DeathKnight",
+          "spec": "Blood",
+          "character": "Sleipner",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "7b772b7b-9e9b-4ac3-b68b-cedf0fc36dff",
+      "display_name": "Tickle",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Ticklefist",
+          "realm": "Doomhammer",
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "role": "healer",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "character": "Ticklefest",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "7ad5ac04-e4cb-4ebd-bee2-240b4a9275c9",
+      "display_name": "Holgers",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 13th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Holgshame",
+          "realm": "Draenor",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "character": "Holgshame",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "8a1c5c47-c359-49ba-ad7d-96f6707e0162",
+      "display_name": "Qrysocorax",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 12th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Qrysocorax",
+          "realm": "ArgentDawn",
+          "class": "Druid",
+          "spec": "Balance",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Druid",
+          "spec": "Balance",
+          "character": "Qrysocorax",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "3752b0c0-364e-440f-a08b-78330ed4239c",
+      "display_name": "Thomas",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 12th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Thômâtschô",
+          "realm": "Antonidas",
+          "class": "Warrior",
+          "spec": "Fury",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Warrior",
+          "spec": "Fury",
+          "character": "Thômâtschô",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "185f2e13-823b-42bb-9387-fb439efc132e",
+      "display_name": "Fanghui",
+      "status": "active",
+      "tracking_start_date": "2026-05-20",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 13th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Fanghui",
+          "realm": "Draenor",
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Mage",
+          "spec": "Frost",
+          "character": "Fanghui",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },    
   ]
 }
