@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
+import { FIXTURES } from './fixtures/raiders.js';
 
-// Real raider UUIDs from roster.json
+// Real raider UUID — used as a live smoke test for an active player
 const HOWL = 'ad297730-db58-4d5d-87d9-2774ba988f2b';
-const RAEM = '6b6181f7-636d-4614-b37f-be5231d540af';
 
 test.describe('Raider detail — Howl', () => {
 	test.beforeEach(async ({ page }) => {
@@ -69,17 +69,35 @@ test.describe('Raider detail — Howl', () => {
 	});
 });
 
-test.describe('Raider detail — Raem (tank)', () => {
-	test.beforeEach(async ({ page }) => {
-		await page.goto(`/raider/${RAEM}`);
-	});
+// ── Role fixture tests — one per role, using stable WoW lore characters ─────
+// These target inactive fixture entries in roster.json and will never change.
 
-	test('renders identity header with display name', async ({ page }) => {
-		await expect(page.locator('h1')).toContainText('Raem');
-	});
+for (const [roleKey, fixture] of Object.entries(FIXTURES)) {
+	test.describe(`Fixture raider — ${fixture.displayName} (${roleKey})`, () => {
+		test.beforeEach(async ({ page }) => {
+			await page.goto(`/raider/${fixture.uuid}`);
+		});
 
-	test('shows tank class', async ({ page }) => {
-		await expect(page.locator('body')).toContainText('Blood');
-		await expect(page.locator('body')).toContainText('DeathKnight');
+		test('renders display name', async ({ page }) => {
+			await expect(page.locator('h1')).toContainText(fixture.displayName);
+		});
+
+		test('shows class', async ({ page }) => {
+			await expect(page.locator('body')).toContainText(fixture.charClass);
+		});
+
+		test('shows spec', async ({ page }) => {
+			await expect(page.locator('body')).toContainText(fixture.spec);
+		});
+
+		test('role icon has correct aria-label', async ({ page }) => {
+			await expect(
+				page.locator(`.role-icon[aria-label="${fixture.roleLabel}"]`).first(),
+			).toBeVisible();
+		});
+
+		test('page does not crash or show undefined', async ({ page }) => {
+			await expect(page.locator('body')).not.toContainText('undefined');
+		});
 	});
-});
+}

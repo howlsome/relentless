@@ -1,0 +1,114 @@
+[
+  {
+    "raider_id": "e2e00000-0000-0000-0000-000000000001",
+    "display_name": "Arthas",
+    "status": "inactive",
+    "tracking_start_date": "2020-01-01",
+    "team_designation": "alt",
+    "membership_history": [{ "event": "joined", "date": "2020-01-01", "note": "e2e fixture" }],
+    "characters": [
+      {
+        "name": "Arthas",
+        "realm": "Stormwind",
+        "class": "DeathKnight",
+        "spec": "Blood",
+        "role": "tank",
+        "active": true
+      }
+    ],
+    "role_history": [
+      {
+        "role": "tank",
+        "class": "DeathKnight",
+        "spec": "Blood",
+        "character": "Arthas",
+        "from": "2020-01-01",
+        "to": null
+      }
+    ]
+  },
+  {
+    "raider_id": "e2e00000-0000-0000-0000-000000000002",
+    "display_name": "Anduin",
+    "status": "inactive",
+    "tracking_start_date": "2020-01-01",
+    "team_designation": "alt",
+    "membership_history": [{ "event": "joined", "date": "2020-01-01", "note": "e2e fixture" }],
+    "characters": [
+      {
+        "name": "Anduin",
+        "realm": "Stormwind",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "active": true
+      }
+    ],
+    "role_history": [
+      {
+        "role": "healer",
+        "class": "Priest",
+        "spec": "Holy",
+        "character": "Anduin",
+        "from": "2020-01-01",
+        "to": null
+      }
+    ]
+  },
+  {
+    "raider_id": "e2e00000-0000-0000-0000-000000000003",
+    "display_name": "Garrosh",
+    "status": "inactive",
+    "tracking_start_date": "2020-01-01",
+    "team_designation": "alt",
+    "membership_history": [{ "event": "joined", "date": "2020-01-01", "note": "e2e fixture" }],
+    "characters": [
+      {
+        "name": "Garrosh",
+        "realm": "Stormwind",
+        "class": "Warrior",
+        "spec": "Fury",
+        "role": "dps",
+        "active": true
+      }
+    ],
+    "role_history": [
+      {
+        "role": "dps",
+        "class": "Warrior",
+        "spec": "Fury",
+        "character": "Garrosh",
+        "from": "2020-01-01",
+        "to": null
+      }
+    ]
+  },
+  {
+    "raider_id": "e2e00000-0000-0000-0000-000000000004",
+    "display_name": "Jaina",
+    "status": "inactive",
+    "tracking_start_date": "2020-01-01",
+    "team_designation": "alt",
+    "membership_history": [{ "event": "joined", "date": "2020-01-01", "note": "e2e fixture" }],
+    "characters": [
+      {
+        "name": "Jaina",
+        "realm": "Stormwind",
+        "class": "Mage",
+        "spec": "Frost",
+        "role": "dps",
+        "active": true
+      }
+    ],
+    "role_history": [
+      {
+        "role": "dps",
+        "class": "Mage",
+        "spec": "Frost",
+        "character": "Jaina",
+        "from": "2020-01-01",
+        "to": null
+      }
+    ]
+  }
+]

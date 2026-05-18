@@ -3,6 +3,16 @@ export const prerender = true;
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+const E2E_FIXTURES =
+	process.env.E2E_FIXTURES === 'true'
+		? JSON.parse(readFileSync(join(process.cwd(), 'e2e/fixtures/roster-entries.json'), 'utf-8'))
+		: [];
+
+/** Tell SvelteKit to prerender fixture UUIDs when E2E_FIXTURES is set. */
+export function entries() {
+	return E2E_FIXTURES.map((/** @type {any} */ f) => ({ uuid: f.raider_id }));
+}
+
 /** @param {string} path */
 function safeJson(path) {
 	try {
@@ -23,7 +33,8 @@ export function load({ params }) {
 	/** @type {import('$lib/types').SeasonsIndex} */
 	const seasonsIndex = JSON.parse(readFileSync(join(dataDir, 'seasons', 'index.json'), 'utf-8'));
 
-	const raider = roster.players.find((r) => r.raider_id === params.uuid) ?? null;
+	const allPlayers = [...roster.players, ...E2E_FIXTURES];
+	const raider = allPlayers.find((r) => r.raider_id === params.uuid) ?? null;
 
 	const activeMplusSeasonId = seasonsIndex.active_mplus_season ?? '';
 	const complianceFile = activeMplusSeasonId
