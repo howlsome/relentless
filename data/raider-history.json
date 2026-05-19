@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-18T17:45:40.164Z",
+  "last_updated": "2026-05-19T06:27:32.234Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -291,7 +291,7 @@
     },
     "3752b0c0-364e-440f-a08b-78330ed4239c": {
       "display_name": "Thomas",
-      "team_designation": "main",
+      "team_designation": "alt",
       "membership_history": [
         {
           "event": "joined",
@@ -348,6 +348,38 @@
           "class": "Mage",
           "spec": "Frost",
           "character": "Fanghui",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "9b9364da-6525-4693-80f2-e6a28e995b4f": {
+      "display_name": "Gary",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 18th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Gaymeron",
+          "realm": "Draenor",
+          "class": "Druid",
+          "spec": "Feral",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Druid",
+          "spec": "Feral",
+          "character": "Gaymeron",
           "from": "2026-05-20",
           "to": null
         }

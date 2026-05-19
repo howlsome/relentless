@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-18T17:45:40.164Z",
-  "roster_hash": "2bc5d6bbb83a2f366716d3216b5942936c87b75fce375bb2a97c865175cabd6e",
+  "last_updated": "2026-05-19T06:27:32.234Z",
+  "roster_hash": "fbdc02137aee6dfbae9e2e03ba7cf3db8e0f9290525b2ef1f495e8f97797a46e",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -379,7 +379,7 @@
         "display_name": "Thomas",
         "status": "active",
         "tracking_start_date": "2026-05-20",
-        "team_designation": "main",
+        "team_designation": "alt",
         "membership_history": [
           {
             "event": "joined",
@@ -441,8 +441,70 @@
             "to": null
           }
         ]
+      },
+      {
+        "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
+        "display_name": "Gary",
+        "status": "active",
+        "tracking_start_date": "2026-05-20",
+        "team_designation": "alt",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-05-20",
+            "note": "Applied on 18th May 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Gaymeron",
+            "realm": "Draenor",
+            "class": "Druid",
+            "spec": "Feral",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Druid",
+            "spec": "Feral",
+            "character": "Gaymeron",
+            "from": "2026-05-20",
+            "to": null
+          }
+        ]
       }
     ]
   },
-  "entries": []
+  "entries": [
+    {
+      "id": "91d06c3f-e016-4d0d-a2b1-259dac72b97e",
+      "timestamp": "2026-05-19T06:27:32.234Z",
+      "week": "2026-20",
+      "team": "alt",
+      "event": "team_changed",
+      "raider_id": "3752b0c0-364e-440f-a08b-78330ed4239c",
+      "display_name": "Thomas",
+      "character": "Thômâtschô",
+      "from": "main",
+      "to": "alt",
+      "reason": "(no reason given)"
+    },
+    {
+      "id": "0bcdcb0f-e157-4aee-a633-3d3c48213e01",
+      "timestamp": "2026-05-19T06:27:32.234Z",
+      "week": "2026-20",
+      "team": "alt",
+      "event": "joined",
+      "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
+      "display_name": "Gary",
+      "character": "Gaymeron",
+      "class": "Druid",
+      "spec": "Feral",
+      "role": "dps",
+      "note": "Applied on 18th May 2026"
+    }
+  ]
 }
