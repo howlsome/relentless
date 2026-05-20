@@ -269,12 +269,11 @@ export async function fetchHistoricalEncounterRankings(
 			const serverSlug = char.realm.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
 			const region = player.region ?? 'eu';
 			const charName = char.name.replace(/"/g, '');
-			const startFilter = startTimeMs != null ? `, startTime: ${startTimeMs}` : '';
 			const encounterFields = bossIds
 				.flatMap((bossId) =>
 					diffPairs.map(
 						([diffKey, diffId]) =>
-							`b${bossId}_${diffKey}: encounterRankings(encounterID: ${bossId}, difficulty: ${diffId}, timeframe: Historical${startFilter})`,
+							`b${bossId}_${diffKey}: encounterRankings(encounterID: ${bossId}, difficulty: ${diffId}, timeframe: Historical)`,
 					),
 				)
 				.join('\n');
