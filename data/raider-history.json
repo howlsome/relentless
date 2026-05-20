@@ -1,0 +1,389 @@
+{
+  "last_updated": "2026-05-20T22:33:01.730Z",
+  "raiders": {
+    "ad297730-db58-4d5d-87d9-2774ba988f2b": {
+      "display_name": "Howl",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Hxwl",
+          "realm": "Draenor",
+          "class": "Shaman",
+          "spec": "Elemental",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Shaman",
+          "spec": "Elemental",
+          "character": "Hxwl",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "6b6181f7-636d-4614-b37f-be5231d540af": {
+      "display_name": "Raem",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Raem",
+          "realm": "Doomhammer",
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Priest",
+          "spec": "Shadow",
+          "character": "Raem",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "07726c95-9cec-4f33-ae20-1b4e73d1365a": {
+      "display_name": "Fluke",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Flukey",
+          "realm": "Draenor",
+          "class": "Paladin",
+          "spec": "Retribution",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Paladin",
+          "spec": "Retribution",
+          "character": "Flukey",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "56a6cc30-3287-47ca-bfae-bb3d9afca3c0": {
+      "display_name": "Osena",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Eyeballshurt",
+          "realm": "Draenor",
+          "class": "DemonHunter",
+          "spec": "Havoc",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "DemonHunter",
+          "spec": "Havoc",
+          "character": "Eyeballshurt",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "77d3af03-b9b3-4097-b5ad-4c8d5a536966": {
+      "display_name": "Zya",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Zyálayna",
+          "realm": "Draenor",
+          "class": "Hunter",
+          "spec": "Survival",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Hunter",
+          "spec": "Survival",
+          "character": "Zyálayna",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "0bede844-3d15-48b3-ad62-471ea652a874": {
+      "display_name": "Sleipner",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 7th May - Guildmaster"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Sleipner",
+          "realm": "SteamwheedleCartel",
+          "class": "DeathKnight",
+          "spec": "Blood",
+          "role": "tank",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "tank",
+          "class": "DeathKnight",
+          "spec": "Blood",
+          "character": "Sleipner",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "7b772b7b-9e9b-4ac3-b68b-cedf0fc36dff": {
+      "display_name": "Tickle",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Founding member"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Ticklefist",
+          "realm": "Doomhammer",
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "role": "healer",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "character": "Ticklefist",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "7ad5ac04-e4cb-4ebd-bee2-240b4a9275c9": {
+      "display_name": "Holgers",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 13th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Holgshame",
+          "realm": "Draenor",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "character": "Holgshame",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "8a1c5c47-c359-49ba-ad7d-96f6707e0162": {
+      "display_name": "Qryso",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 12th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Qrysocorax",
+          "realm": "ArgentDawn",
+          "class": "Druid",
+          "spec": "Balance",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Druid",
+          "spec": "Balance",
+          "character": "Qrysocorax",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "3752b0c0-364e-440f-a08b-78330ed4239c": {
+      "display_name": "Thomas",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 12th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Thômâtschô",
+          "realm": "Antonidas",
+          "class": "Warrior",
+          "spec": "Fury",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Warrior",
+          "spec": "Fury",
+          "character": "Thômâtschô",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "185f2e13-823b-42bb-9387-fb439efc132e": {
+      "display_name": "Fanghui",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 13th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Fanghui",
+          "realm": "Draenor",
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Mage",
+          "spec": "Frost",
+          "character": "Fanghui",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "9b9364da-6525-4693-80f2-e6a28e995b4f": {
+      "display_name": "Gary",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-20",
+          "note": "Applied on 18th May 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Gaymeron",
+          "realm": "Draenor",
+          "class": "Druid",
+          "spec": "Guardian",
+          "role": "tank",
+          "active": true,
+          "first_seen": "2026-05-20"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "tank",
+          "class": "Druid",
+          "spec": "Guardian",
+          "character": "Gaymeron",
+          "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    }
+  }
+}
