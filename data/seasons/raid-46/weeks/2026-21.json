@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-21",
-  "fetched_at": "2026-05-20T17:59:56.626Z",
+  "fetched_at": "2026-05-20T21:02:44.288Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -61,12 +61,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 58.2,
+              "parse_percentile": 63,
               "spec": "Elemental",
-              "dps": 90557.798975226,
+              "dps": 96777.469388899,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -85,12 +87,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 67.7,
+              "parse_percentile": 69.9,
               "spec": "Elemental",
-              "dps": 83550.814535729,
+              "dps": 87904.029994644,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -114,7 +118,9 @@
               "dps": 75159.785753828,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -135,10 +141,12 @@
               "kill": true,
               "parse_percentile": 60.1,
               "spec": "Elemental",
-              "dps": 80033.553023401,
+              "dps": 82747.518924218,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -157,12 +165,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 48.9,
+              "parse_percentile": 60.2,
               "spec": "Elemental",
-              "dps": 95302.854159148,
+              "dps": 104362.59672616,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -181,12 +191,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 33.6,
+              "parse_percentile": 58.5,
               "spec": "Elemental",
-              "dps": 79919.409316414,
+              "dps": 94942.070558334,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -258,7 +270,9 @@
               "dps": 75797.288341791,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -294,10 +308,12 @@
               "kill": true,
               "parse_percentile": 97.6,
               "spec": "Shadow",
-              "dps": 118158.60952531,
+              "dps": 119053.47042621,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": true,
@@ -321,7 +337,9 @@
               "dps": 103538.14573776,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": true,
@@ -342,10 +360,12 @@
               "kill": true,
               "parse_percentile": 91.7,
               "spec": "Shadow",
-              "dps": 116076.93353305,
+              "dps": 131287.45589159,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -369,7 +389,9 @@
               "dps": 121346.46922632,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -388,12 +410,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 88,
+              "parse_percentile": 90.1,
               "spec": "Shadow",
-              "dps": 156647.75211324,
+              "dps": 162117.18863716,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -412,12 +436,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 88.1,
+              "parse_percentile": 90,
               "spec": "Shadow",
-              "dps": 140723.22418587,
+              "dps": 143484.24552254,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -489,7 +515,9 @@
               "dps": 94405.077989941,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": true,
@@ -522,13 +550,15 @@
           "boss_name": "Imperator Averzian",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 63.6,
+              "spec": "Retribution",
+              "dps": 92555.450422983,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -546,13 +576,15 @@
           "boss_name": "Vorasius",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 79,
+              "spec": "Retribution",
+              "dps": 98625.332619175,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -570,13 +602,15 @@
           "boss_name": "Vaelgor & Ezzorak",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 0,
+              "spec": "Retribution",
+              "dps": 0,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -594,13 +628,15 @@
           "boss_name": "Fallen-King Salhadaar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 85,
+              "spec": "Retribution",
+              "dps": 102334.27040481,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -618,13 +654,15 @@
           "boss_name": "Lightblinded Vanguard",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 77.1,
+              "spec": "Retribution",
+              "dps": 139346.97105001,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -642,13 +680,15 @@
           "boss_name": "Crown of the Cosmos",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 59,
+              "spec": "Retribution",
+              "dps": 91228.269208967,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -720,7 +760,9 @@
               "dps": 80195.709762114,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -754,12 +796,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 51.9,
+              "parse_percentile": 87.2,
               "spec": "Havoc",
-              "dps": 79307.402264803,
+              "dps": 108191.74078513,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -783,7 +827,9 @@
               "dps": 68922.260830817,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -807,7 +853,9 @@
               "dps": 85511.208830093,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -826,12 +874,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 8.9,
+              "parse_percentile": 74,
               "spec": "Havoc",
-              "dps": 33836.613080379,
+              "dps": 86671.4773648,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -855,7 +905,9 @@
               "dps": 107187.22640471,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -879,7 +931,9 @@
               "dps": 73259.99423747,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -946,12 +1000,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 41.8,
+              "parse_percentile": 52.4,
               "spec": "Havoc",
-              "dps": 62167.611942841,
+              "dps": 67760.795480314,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -1215,13 +1271,15 @@
           "boss_name": "Imperator Averzian",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 93.8,
+              "spec": "Blood",
+              "dps": 64516.390168002,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -1239,13 +1297,15 @@
           "boss_name": "Vorasius",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 90.4,
+              "spec": "Blood",
+              "dps": 53646.821638993,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -1263,13 +1323,15 @@
           "boss_name": "Vaelgor & Ezzorak",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 71.2,
+              "spec": "Blood",
+              "dps": 48089.137713994,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -1287,13 +1349,15 @@
           "boss_name": "Fallen-King Salhadaar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 85.9,
+              "spec": "Blood",
+              "dps": 50733.919450649,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -1311,13 +1375,15 @@
           "boss_name": "Lightblinded Vanguard",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 14.3,
+              "spec": "Blood",
+              "dps": 43610.455670209,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -1335,13 +1401,15 @@
           "boss_name": "Crown of the Cosmos",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 73.5,
+              "spec": "Blood",
+              "dps": 47749.868833528,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -1407,13 +1475,15 @@
           "boss_name": "Chimaerus, the Undreamt God",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 65.1,
+              "spec": "Blood",
+              "dps": 37293.575514911,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -1447,12 +1517,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 26.4,
+              "parse_percentile": 66.6,
               "spec": "Mistweaver",
-              "dps": 71242.141617509,
+              "dps": 96448.635729655,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": true,
@@ -1471,12 +1543,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 35.4,
+              "parse_percentile": 66.4,
               "spec": "Mistweaver",
-              "dps": 78953.119365308,
+              "dps": 96311.241564006,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -1495,12 +1569,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 15.3,
+              "parse_percentile": 81.7,
               "spec": "Mistweaver",
-              "dps": 65789.825269438,
+              "dps": 112440.20265228,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -1519,12 +1595,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 59.4,
+              "parse_percentile": 72.2,
               "spec": "Mistweaver",
-              "dps": 96901.845016094,
+              "dps": 116179.05376671,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -1543,12 +1621,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 65.4,
+              "parse_percentile": 75.4,
               "spec": "Mistweaver",
-              "dps": 103655.30347798,
+              "dps": 111121.01244311,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -1566,13 +1646,15 @@
           "boss_name": "Crown of the Cosmos",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 67.3,
+              "spec": "Mistweaver",
+              "dps": 111017.78314167,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -1639,12 +1721,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 47.5,
+              "parse_percentile": 85.3,
               "spec": "Mistweaver",
-              "dps": 81708.981835688,
+              "dps": 113068.44966212,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": true,
@@ -1677,13 +1761,15 @@
           "boss_name": "Imperator Averzian",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 11,
+              "spec": "Restoration",
+              "dps": 50157.229266105,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -1701,13 +1787,15 @@
           "boss_name": "Vorasius",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 8,
+              "spec": "Restoration",
+              "dps": 52180.717728977,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -1725,13 +1813,15 @@
           "boss_name": "Vaelgor & Ezzorak",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 15.5,
+              "spec": "Restoration",
+              "dps": 64425.031893233,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -1749,13 +1839,15 @@
           "boss_name": "Fallen-King Salhadaar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 25.3,
+              "spec": "Restoration",
+              "dps": 80162.186480207,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -1773,13 +1865,15 @@
           "boss_name": "Lightblinded Vanguard",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 8.1,
+              "spec": "Restoration",
+              "dps": 61178.066617623,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -1797,13 +1891,15 @@
           "boss_name": "Crown of the Cosmos",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 10.1,
+              "spec": "Restoration",
+              "dps": 69499.324560622,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -1869,13 +1965,15 @@
           "boss_name": "Chimaerus, the Undreamt God",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 32.6,
+              "spec": "Restoration",
+              "dps": 75792.360719677,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -1909,12 +2007,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 90.4,
+              "parse_percentile": 98.4,
               "spec": "Balance",
-              "dps": 110342.31404555,
+              "dps": 147521.15617794,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -1935,10 +2035,12 @@
               "kill": true,
               "parse_percentile": 97.2,
               "spec": "Balance",
-              "dps": 104169.82670282,
+              "dps": 111971.58650241,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -1962,7 +2064,9 @@
               "dps": 169950.13695143,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -1986,7 +2090,9 @@
               "dps": 114028.50903451,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -2010,7 +2116,9 @@
               "dps": 162334.00996931,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -2029,12 +2137,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 75.2,
+              "parse_percentile": 82.5,
               "spec": "Balance",
-              "dps": 101737.9215768,
+              "dps": 110546.85740952,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -2106,7 +2216,9 @@
               "dps": 100102.42132185,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -2140,12 +2252,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 50.3,
+              "parse_percentile": 85.7,
               "spec": "Fury",
-              "dps": 85041.096657049,
+              "dps": 110011.90801601,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -2169,7 +2283,9 @@
               "dps": 75571.702570009,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -2193,7 +2309,9 @@
               "dps": 103827.4547311,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -2212,12 +2330,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 43.3,
+              "parse_percentile": 60.5,
               "spec": "Fury",
-              "dps": 68262.097744331,
+              "dps": 80022.301704187,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -2236,12 +2356,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 35.2,
+              "parse_percentile": 64.2,
               "spec": "Fury",
-              "dps": 104463.40349072,
+              "dps": 131862.18562768,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -2265,7 +2387,9 @@
               "dps": 58598.305724451,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -2332,12 +2456,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 26.2,
+              "parse_percentile": 68.3,
               "spec": "Fury",
-              "dps": 55206.615230017,
+              "dps": 74915.239687198,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -2376,7 +2502,9 @@
               "dps": 99215.127847975,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 7
             },
             "mythic": {
               "kill": false,
@@ -2400,7 +2528,9 @@
               "dps": 82273.938250478,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 8
             },
             "mythic": {
               "kill": false,
@@ -2424,7 +2554,9 @@
               "dps": 109897.77048248,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 19
             },
             "mythic": {
               "kill": false,
@@ -2445,10 +2577,12 @@
               "kill": true,
               "parse_percentile": 69.9,
               "spec": "Frost",
-              "dps": 90468.828756865,
+              "dps": 93734.846077058,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "K1nZf86VphHbQyTa",
+              "wcl_fight_id": 13
             },
             "mythic": {
               "kill": false,
@@ -2472,7 +2606,9 @@
               "dps": 136979.13032218,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 24
             },
             "mythic": {
               "kill": false,
@@ -2491,12 +2627,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 24.8,
+              "parse_percentile": 32.5,
               "spec": "Frost",
-              "dps": 88627.573466211,
+              "dps": 93471.155240463,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 28
             },
             "mythic": {
               "kill": false,
@@ -2568,7 +2706,9 @@
               "dps": 86638.880656754,
               "kill_time": null,
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "JA2cN3FjYgV4Mt1z",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
