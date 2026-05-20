@@ -5,9 +5,7 @@ import { join } from 'node:path';
 
 const E2E_FIXTURE_ENTRIES =
 	process.env.E2E_FIXTURES === 'true'
-		? JSON.parse(
-				readFileSync(join(process.cwd(), 'e2e/fixtures/changelog-entries.json'), 'utf-8'),
-			)
+		? JSON.parse(readFileSync(join(process.cwd(), 'e2e/fixtures/changelog-entries.json'), 'utf-8'))
 		: null;
 
 /** @type {import('@sveltejs/kit').Load} */

@@ -153,7 +153,6 @@ async function main() {
 	if (activeMplusSeason) {
 		await processMplusSeason({
 			season: activeMplusSeason,
-			activeItems,
 			rioResults,
 			currentWeek,
 			fetchedAt,
@@ -230,14 +229,13 @@ async function main() {
 
 async function processMplusSeason({
 	season,
-	activeItems,
 	rioResults,
 	currentWeek,
 	fetchedAt,
 	resetStart,
 	roster,
 }) {
-	const { season_id, dungeon_count, dungeons } = season;
+	const { season_id } = season;
 	const prefix = `seasons/${season_id}`;
 
 	const raiders = [];
@@ -254,7 +252,7 @@ async function processMplusSeason({
 		let mplus_highest_key = null;
 		let hasError = null;
 
-		for (const { char, profile, error } of charResults) {
+		for (const { profile, error } of charResults) {
 			if (error) {
 				hasError = error;
 				continue;
@@ -641,8 +639,7 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 			);
 			for (const raiderEntry of raiders) {
 				const raiderMap = historical.get(raiderEntry.raider_id);
-				const playerStartMs =
-					playerTrackingStarts.get(raiderEntry.raider_id) ?? rosterTrackingStartMs;
+				const playerStartMs = playerTrackingStarts.get(raiderEntry.raider_id) ?? rosterTrackingStartMs;
 				for (const bp of raiderEntry.raid_parses) {
 					for (const [diffKey] of diffPairs) {
 						const diff = bp.difficulties?.[diffKey];
@@ -660,9 +657,7 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 							);
 							diff.kill = true;
 							diff.parse_percentile =
-								bestKill.rankPercent != null
-									? Math.round(bestKill.rankPercent * 10) / 10
-									: null;
+								bestKill.rankPercent != null ? Math.round(bestKill.rankPercent * 10) / 10 : null;
 							diff.spec = bestKill.spec || diff.spec;
 							diff.dps = bestKill.amount || diff.dps;
 						} else {
