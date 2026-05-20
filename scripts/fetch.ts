@@ -509,15 +509,21 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 		const safe_pug_kills = [];
 		const exempt_pug_kills = [];
 
-		if (raidSchedule?.sessions?.length > 0) {
+		const zoneKey = `raid-${zoneId}`;
+		const mythicStartDate = roster.raid_difficulty_status?.[zoneKey]?.mythic_start_date ?? null;
+
+		if (raidSchedule?.sessions?.length > 0 && mythicStartDate != null) {
 			// Load history to compute prior_blocks_last_4_weeks
 			const historyPath = `${prefix}/weeks`;
 			const recentWeeks = loadRecentWeeks(historyPath, 4, currentWeek);
 			const priorBlockCount = countPriorBlocks(recentWeeks, player.raider_id);
+			const mythicStartMs = new Date(mythicStartDate).getTime();
 
 			for (const bossEntry of raid_parses) {
 				const mythicParse = bossEntry.difficulties.mythic;
 				if (!mythicParse?.kill || !mythicParse.kill_time) continue;
+				// Skip kills that happened before the guild started mythic
+				if (new Date(mythicParse.kill_time).getTime() < mythicStartMs) continue;
 
 				const category = classifyKill(mythicParse.kill_time, raidSchedule, exemptions, 'mythic');
 				mythicParse.kill_category = category;
@@ -589,9 +595,10 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 		raiders.push(raiderEntry);
 	}
 
-	// ── Patch report codes via encounterRankings ──────────────────────────────
-	// zoneRankings doesn't include report codes; a separate encounterRankings
-	// call fetches them so WoWAnalyzer links can be built on the raider page.
+	// ── Patch kill/parse data and report codes via encounterRankings ──────────
+	// zoneRankings returns all-time bests with no date filter. We override kill
+	// status, parse percentile, and report codes using encounterRankings filtered
+	// to each raider's tracking_start_date so pre-tracking kills are excluded.
 	const weekStartMs = roster.raid_schedule
 		? (() => {
 				// Use the resetStart already calculated for the current week
@@ -609,35 +616,74 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 		.map((d): [string, number] => [d, DIFFICULTY_IDS[d]])
 		.filter(([, id]) => id !== undefined);
 
+	// Per-player tracking start so a raider who joined later only gets their kills
+	const playerTrackingStarts = new Map(
+		roster.players.map((p) => [
+			p.raider_id,
+			new Date(p.tracking_start_date ?? roster.tracking_start_date).getTime(),
+		]),
+	);
+	// Use the roster-wide (earliest) tracking start as the API-level filter
+	const rosterTrackingStartMs = new Date(roster.tracking_start_date).getTime();
+
 	const bossIds = (zone.encounters ?? []).map((e) => e.id);
 	if (bossIds.length > 0 && activeItems.length > 0) {
 		try {
-			console.log(`[fetch] Fetching report codes for ${zone.name}…`);
+			console.log(
+				`[fetch] Fetching encounter data for ${zone.name} (since ${roster.tracking_start_date})…`,
+			);
 			const historical = await fetchHistoricalEncounterRankings(
 				wclToken,
 				activeItems,
 				bossIds,
 				diffPairs,
+				rosterTrackingStartMs,
 			);
 			for (const raiderEntry of raiders) {
 				const raiderMap = historical.get(raiderEntry.raider_id);
-				if (!raiderMap) continue;
+				const playerStartMs =
+					playerTrackingStarts.get(raiderEntry.raider_id) ?? rosterTrackingStartMs;
 				for (const bp of raiderEntry.raid_parses) {
 					for (const [diffKey] of diffPairs) {
 						const diff = bp.difficulties?.[diffKey];
-						if (!diff?.kill) continue;
-						const weekKills = (raiderMap[bp.boss_id]?.[diffKey] ?? [])
+						if (!diff) continue;
+
+						// Filter kills to this player's own tracking start (client-side)
+						const allKills = (raiderMap?.[bp.boss_id]?.[diffKey] ?? []).filter(
+							(k) => k.startTime >= playerStartMs,
+						);
+
+						// Override kill/parse with tracking-start-filtered data
+						if (allKills.length > 0) {
+							const bestKill = allKills.reduce((best, k) =>
+								(k.rankPercent ?? 0) > (best.rankPercent ?? 0) ? k : best,
+							);
+							diff.kill = true;
+							diff.parse_percentile =
+								bestKill.rankPercent != null
+									? Math.round(bestKill.rankPercent * 10) / 10
+									: null;
+							diff.spec = bestKill.spec || diff.spec;
+							diff.dps = bestKill.amount || diff.dps;
+						} else {
+							diff.kill = false;
+							diff.parse_percentile = null;
+						}
+
+						// Report code + kill_time from best-parse kill in the current WoW week
+						const weekKills = allKills
 							.filter((k) => k.startTime >= weekStartMs && k.startTime < weekEndMs)
 							.sort((a, b) => (b.rankPercent ?? 0) - (a.rankPercent ?? 0));
 						if (weekKills.length > 0) {
 							diff.wcl_report_code = weekKills[0].reportCode ?? null;
 							diff.wcl_fight_id = weekKills[0].fightId ?? null;
+							diff.kill_time = new Date(weekKills[0].startTime).toISOString();
 						}
 					}
 				}
 			}
 		} catch (err) {
-			console.warn(`[fetch] Could not fetch report codes for ${zone.name}:`, err);
+			console.warn(`[fetch] Could not fetch encounter data for ${zone.name}:`, err);
 		}
 	}
 

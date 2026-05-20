@@ -61,7 +61,8 @@
   "raid_difficulty_status": {
     "raid-46": {
       "heroic": "progression",
-      "mythic": "progression"
+      "mythic": "progression",
+      "mythic_start_date": null
     }
   },
   "players": [

@@ -112,6 +112,8 @@ export interface RaidSchedule {
 export interface RaidDifficultyStatus {
 	heroic?: DifficultyStatus;
 	mythic?: DifficultyStatus;
+	/** ISO date on/after which mythic kills outside raid windows trigger lockout warnings. Null = mythic not yet started. */
+	mythic_start_date?: string | null;
 }
 
 export interface Roster {

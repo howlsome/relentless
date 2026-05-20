@@ -256,6 +256,7 @@ export async function fetchHistoricalEncounterRankings(
 	items: Array<{ player: PlayerLike; char: CharLike }>,
 	bossIds: number[],
 	diffPairs: Array<[string, number]>,
+	startTimeMs?: number,
 ): Promise<HistoricalRankings> {
 	const results: HistoricalRankings = new Map();
 
@@ -268,11 +269,12 @@ export async function fetchHistoricalEncounterRankings(
 			const serverSlug = char.realm.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
 			const region = player.region ?? 'eu';
 			const charName = char.name.replace(/"/g, '');
+			const startFilter = startTimeMs != null ? `, startTime: ${startTimeMs}` : '';
 			const encounterFields = bossIds
 				.flatMap((bossId) =>
 					diffPairs.map(
 						([diffKey, diffId]) =>
-							`b${bossId}_${diffKey}: encounterRankings(encounterID: ${bossId}, difficulty: ${diffId}, timeframe: Historical)`,
+							`b${bossId}_${diffKey}: encounterRankings(encounterID: ${bossId}, difficulty: ${diffId}, timeframe: Historical${startFilter})`,
 					),
 				)
 				.join('\n');
@@ -314,7 +316,7 @@ export async function fetchHistoricalEncounterRankings(
 					const field = `b${bossId}_${diffKey}`;
 					// encounterRankings returns { ranks: [...] } not { data: [...] }
 					const raw = charData[field] as { ranks?: unknown[] } | null;
-					raiderMap[bossId][diffKey] = (raw?.ranks ?? []).map((entry: unknown) => {
+					const newKills = (raw?.ranks ?? []).map((entry: unknown) => {
 						const e = entry as Record<string, unknown>;
 						const report = e.report as Record<string, unknown> | undefined;
 						return {
@@ -326,6 +328,8 @@ export async function fetchHistoricalEncounterRankings(
 							fightId: typeof report?.fightID === 'number' ? report.fightID : null,
 						} as EncounterKill;
 					});
+					// Merge across multiple active characters (concatenate, don't overwrite)
+					raiderMap[bossId][diffKey] = [...(raiderMap[bossId][diffKey] ?? []), ...newKills];
 				}
 			}
 		}
