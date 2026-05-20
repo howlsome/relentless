@@ -457,16 +457,16 @@
           "name": "Gaymeron",
           "realm": "Draenor",
           "class": "Druid",
-          "spec": "Feral",
-          "role": "dps",
+          "spec": "Guardian",
+          "role": "tank",
           "active": true
         }
       ],
       "role_history": [
         {
-          "role": "dps",
+          "role": "tank",
           "class": "Druid",
-          "spec": "Feral",
+          "spec": "Guardian",
           "character": "Gaymeron",
           "from": "2026-05-20",
           "to": null
