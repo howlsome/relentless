@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-20T21:02:44.288Z",
+  "fetched_at": "2026-05-20T22:17:57.758Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -128,8 +128,14 @@
       "class": "Monk",
       "spec": "Mistweaver",
       "role": "healer",
-      "rio_score": 3793,
+      "rio_score": 3809.7,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-20T21:19:42.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 20,
@@ -137,8 +143,8 @@
           "completed_at": "2026-05-20T08:07:39.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 20,
       "mplus_requirement_met": false
     },
@@ -206,11 +212,18 @@
       "class": "Mage",
       "spec": "Frost",
       "role": "dps",
-      "rio_score": 3022.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3053.9,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-20T21:45:48.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -220,8 +233,8 @@
       "active_character": "Gaymeron",
       "realm": "Draenor",
       "class": "Druid",
-      "spec": "Feral",
-      "role": "dps",
+      "spec": "Guardian",
+      "role": "tank",
       "rio_score": 3779.4,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,

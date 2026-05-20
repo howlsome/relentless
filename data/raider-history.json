@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20T21:02:44.288Z",
+  "last_updated": "2026-05-20T22:17:57.758Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -368,17 +368,17 @@
           "name": "Gaymeron",
           "realm": "Draenor",
           "class": "Druid",
-          "spec": "Feral",
-          "role": "dps",
+          "spec": "Guardian",
+          "role": "tank",
           "active": true,
           "first_seen": "2026-05-20"
         }
       ],
       "role_history": [
         {
-          "role": "dps",
+          "role": "tank",
           "class": "Druid",
-          "spec": "Feral",
+          "spec": "Guardian",
           "character": "Gaymeron",
           "from": "2026-05-20",
           "to": null

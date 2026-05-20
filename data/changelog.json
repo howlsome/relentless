@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-20T21:02:44.288Z",
-  "roster_hash": "fbdc02137aee6dfbae9e2e03ba7cf3db8e0f9290525b2ef1f495e8f97797a46e",
+  "last_updated": "2026-05-20T22:17:57.758Z",
+  "roster_hash": "0ebaf5a95c8f3271951ba993236b4e0348ac54e8fa7fb09d068a32f04e9be80f",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -64,7 +64,8 @@
     "raid_difficulty_status": {
       "raid-46": {
         "heroic": "progression",
-        "mythic": "progression"
+        "mythic": "progression",
+        "mythic_start_date": null
       }
     },
     "players": [
@@ -460,16 +461,16 @@
             "name": "Gaymeron",
             "realm": "Draenor",
             "class": "Druid",
-            "spec": "Feral",
-            "role": "dps",
+            "spec": "Guardian",
+            "role": "tank",
             "active": true
           }
         ],
         "role_history": [
           {
-            "role": "dps",
+            "role": "tank",
             "class": "Druid",
-            "spec": "Feral",
+            "spec": "Guardian",
             "character": "Gaymeron",
             "from": "2026-05-20",
             "to": null
@@ -505,6 +506,21 @@
       "spec": "Feral",
       "role": "dps",
       "note": "Applied on 18th May 2026"
+    },
+    {
+      "id": "f377bec5-cfc8-4500-8cbe-27aad9cf2151",
+      "timestamp": "2026-05-20T22:17:57.758Z",
+      "week": "2026-21",
+      "team": "alt",
+      "event": "role_changed",
+      "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
+      "display_name": "Gary",
+      "character": "Gaymeron",
+      "from_spec": "Feral",
+      "from_role": "dps",
+      "to_spec": "Guardian",
+      "to_role": "tank",
+      "note": ""
     }
   ]
 }
