@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-21",
-  "fetched_at": "2026-05-21T17:44:13.055Z",
+  "fetched_at": "2026-05-21T21:44:45.262Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -2422,7 +2422,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 53.1,
+              "parse_percentile": 53.8,
               "spec": "Restoration",
               "dps": 5133.013247354,
               "kill_time": "2026-05-20T18:53:02.834Z",
@@ -2626,7 +2626,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 35.7,
+              "parse_percentile": 36.5,
               "spec": "Restoration",
               "dps": 1970.2650521228,
               "kill_time": "2026-05-20T18:35:50.066Z",
@@ -2871,7 +2871,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 73.8,
+              "parse_percentile": 74.3,
               "spec": "Balance",
               "dps": 80703.988415713,
               "kill_time": "2026-05-20T18:35:50.066Z",
@@ -2990,7 +2990,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 60,
+              "parse_percentile": 61.1,
               "spec": "Fury",
               "dps": 80022.301704187,
               "kill_time": "2026-05-20T19:19:54.337Z",
@@ -3016,7 +3016,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 63.7,
+              "parse_percentile": 64.5,
               "spec": "Fury",
               "dps": 131865.29814195,
               "kill_time": "2026-05-20T20:04:54.524Z",
@@ -3157,14 +3157,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 45.6,
+              "parse_percentile": 85.5,
               "spec": "Frost",
-              "dps": 92957.53136609,
-              "kill_time": "2026-05-20T18:53:02.834Z",
+              "dps": 117567.88478223,
+              "kill_time": "2026-05-21T21:38:06.306Z",
               "kill_category": null,
               "detected_session": null,
-              "wcl_report_code": "gPq7wWKvbck9CZND",
-              "wcl_fight_id": 9
+              "wcl_report_code": "TDM1H9cPkd4wG3Nz",
+              "wcl_fight_id": 12
             },
             "mythic": {
               "kill": false,
@@ -3412,8 +3412,8 @@
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Restoration",
+              "dps": 3078.650290776,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -3436,8 +3436,8 @@
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Restoration",
+              "dps": 3171.6848777857,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -3604,13 +3604,15 @@
               "detected_session": null
             },
             "mythic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
+              "kill": true,
+              "parse_percentile": 81.4,
+              "spec": "Guardian",
+              "dps": 58726.631486136,
+              "kill_time": "2026-05-21T18:55:17.587Z",
               "kill_category": null,
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "hMxH9z1nBcWbJXNv",
+              "wcl_fight_id": 10
             }
           }
         }
@@ -3631,13 +3633,15 @@
                 "detected_session": null
               },
               "mythic": {
-                "kill": false,
-                "parse_percentile": null,
-                "spec": null,
-                "dps": null,
-                "kill_time": null,
+                "kill": true,
+                "parse_percentile": 54.8,
+                "spec": "Restoration",
+                "dps": 3078.650290776,
+                "kill_time": "2026-05-21T19:28:18.922Z",
                 "kill_category": null,
-                "detected_session": null
+                "detected_session": null,
+                "wcl_report_code": "Mrcv7jVRDgnthWTm",
+                "wcl_fight_id": 28
               }
             }
           },
@@ -3655,13 +3659,15 @@
                 "detected_session": null
               },
               "mythic": {
-                "kill": false,
-                "parse_percentile": null,
-                "spec": null,
-                "dps": null,
-                "kill_time": null,
+                "kill": true,
+                "parse_percentile": 52.9,
+                "spec": "Restoration",
+                "dps": 3171.6848777857,
+                "kill_time": "2026-05-21T19:41:50.220Z",
                 "kill_category": null,
-                "detected_session": null
+                "detected_session": null,
+                "wcl_report_code": "BfWyJCML7txj19K8",
+                "wcl_fight_id": 11
               }
             }
           },

@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-21T17:44:13.055Z",
+  "fetched_at": "2026-05-21T21:44:45.262Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -12,8 +12,38 @@
       "class": "Shaman",
       "spec": "",
       "role": "",
-      "rio_score": 3263.8,
+      "rio_score": 3307.5,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-05-21T21:22:30.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-21T20:18:44.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-21T18:26:27.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": false,
+          "completed_at": "2026-05-21T19:41:47.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-21T19:06:59.000Z"
+        },
         {
           "dungeon": "Magisters' Terrace",
           "level": 12,
@@ -21,10 +51,10 @@
           "completed_at": "2026-05-21T15:17:50.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 6,
+      "mplus_total_dungeons_this_week": 6,
+      "mplus_highest_key_this_week": 16,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
@@ -155,13 +185,19 @@
       "class": "Monk",
       "spec": "Mistweaver",
       "role": "healer",
-      "rio_score": 3826.9,
+      "rio_score": 3845.1,
       "mplus_runs_this_week": [
         {
           "dungeon": "Maisara Caverns",
           "level": 20,
           "timed": true,
           "completed_at": "2026-05-20T21:19:42.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-21T15:54:21.000Z"
         },
         {
           "dungeon": "Windrunner Spire",
@@ -176,10 +212,10 @@
           "completed_at": "2026-05-20T08:07:39.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 20,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "7ad5ac04-e4cb-4ebd-bee2-240b4a9275c9",
@@ -207,10 +243,17 @@
       "spec": "Balance",
       "role": "dps",
       "rio_score": 3546.6,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-05-21T17:52:45.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": false
     },
     {
@@ -275,10 +318,23 @@
       "spec": "",
       "role": "",
       "rio_score": 3779.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-21T18:29:09.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-05-21T17:43:16.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     }
   ]
