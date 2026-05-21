@@ -24,6 +24,7 @@
 	);
 
 	const bosses = $derived(raidSnapshot?.raid_tier?.bosses ?? []);
+
 	function getRaiderParse(raiderId: string, bossId: number) {
 		if (!raidSnapshot) return null;
 		const r = raidSnapshot.raiders.find((r) => r.raider_id === raiderId);
@@ -31,9 +32,26 @@
 		const bp = r.raid_parses.find((p) => p.boss_id === bossId);
 		if (!bp) return null;
 		const d = bp.difficulties[difficulty] ?? null;
-		// Only show Relentless kills — exclude pug kills (blocking or exempt)
 		if (!d?.kill || (d.kill_category != null && d.kill_category !== 'in_raid')) return null;
 		return d;
+	}
+
+	function getOffspecParses(raiderId: string, bossId: number) {
+		if (!raidSnapshot) return [];
+		const r = raidSnapshot.raiders.find((r) => r.raider_id === raiderId);
+		if (!r?.offspec_parses) return [];
+		const results: Array<{ pct: string; bg: string; fg: string }> = [];
+		for (const bossParsesForSpec of Object.values(r.offspec_parses)) {
+			const bp = bossParsesForSpec.find((p) => p.boss_id === bossId);
+			const d = bp?.difficulties?.[difficulty];
+			if (!d?.kill) continue;
+			results.push({
+				pct: d.parse_percentile?.toFixed(0) ?? '?',
+				bg: getBadgeBgColour(d.parse_percentile),
+				fg: getBadgeTextColour(d.parse_percentile),
+			});
+		}
+		return results;
 	}
 
 	const BOSS_ABBREV: Record<string, string> = {
@@ -122,16 +140,26 @@
 								{@const pd = getRaiderParse(player.raider_id, boss.id)}
 								{@const bg = pd?.kill ? getBadgeBgColour(pd.parse_percentile) : null}
 								{@const fg = pd?.kill ? getBadgeTextColour(pd.parse_percentile) : null}
+								{@const offspecs = getOffspecParses(player.raider_id, boss.id)}
 								<td
 									class="parse-cell"
 									style={bg ? `background:${bg};color:${fg}` : ''}
 									data-label={boss.name}
 								>
-									{#if pd?.kill}
-										<span class="parse-link">{pd.parse_percentile?.toFixed(0)}</span>
-									{:else}
-										<span class="muted">—</span>
-									{/if}
+									<div class="parse-cell-inner">
+										{#if pd?.kill}
+											<span class="parse-main">{pd.parse_percentile?.toFixed(0)}</span>
+										{:else}
+											<span class="muted">—</span>
+										{/if}
+										{#each offspecs as op}
+											<span
+												class="parse-offspec"
+												style="background:{op.bg};color:{op.fg}"
+												title="Offspec parse">Off: {op.pct}</span
+											>
+										{/each}
+									</div>
 								</td>
 							{/each}
 							<td class="spacer-col" aria-hidden="true"></td>
@@ -236,16 +264,33 @@
 		text-align: center;
 		padding: 0;
 		min-width: 64px;
+		vertical-align: middle;
 	}
 
-	.parse-link {
-		display: block;
-		width: 100%;
-		height: 100%;
-		padding: 0.5rem 0.75rem;
+	.parse-cell-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.2rem;
+		padding: 0.4rem 0.5rem;
+		min-height: 3.25rem;
+	}
+
+	.parse-main {
 		font-weight: 800;
 		font-size: 0.95rem;
-		text-decoration: none;
+		line-height: 1;
+	}
+
+	.parse-offspec {
+		font-size: 0.62rem;
+		font-weight: 700;
+		padding: 0.1em 0.45em;
+		border-radius: 999px;
+		opacity: 0.82;
+		white-space: nowrap;
+		line-height: 1.4;
 	}
 
 	.muted {

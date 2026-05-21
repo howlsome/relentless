@@ -40,6 +40,8 @@ export interface BossParseDifficulty {
 	kill_time?: string | null;
 	kill_category?: KillCategory | null;
 	detected_session?: string | null;
+	wcl_report_code?: string | null;
+	wcl_fight_id?: number | null;
 }
 
 export interface LockoutWarning {
@@ -91,6 +93,7 @@ export interface RaidRaiderEntry {
 	spec: string;
 	role: Role;
 	raid_parses: BossParse[];
+	offspec_parses?: Record<string, BossParse[]>;
 	lockout_warnings: LockoutWarning[];
 	safe_pug_kills: SafePugKill[];
 	exempt_pug_kills: ExemptPugKill[];

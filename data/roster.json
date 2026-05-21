@@ -84,8 +84,10 @@
           "name": "Hxwl",
           "realm": "Draenor",
           "class": "Shaman",
-          "spec": "Elemental",
-          "role": "dps",
+          "specs": [
+            { "spec": "Elemental", "role": "dps", "primary": true, "wcl_active": true },
+            { "spec": "Restoration", "role": "healer", "primary": false, "wcl_active": true }
+          ],
           "active": true
         }
       ],
@@ -152,8 +154,10 @@
           "name": "Flukey",
           "realm": "Draenor",
           "class": "Paladin",
-          "spec": "Retribution",
-          "role": "dps",
+          "specs": [
+            { "spec": "Retribution", "role": "dps", "primary": true, "wcl_active": true },
+            { "spec": "Protection", "role": "tank", "primary": false, "wcl_active": true }
+          ],
           "active": true
         }
       ],
@@ -186,8 +190,10 @@
           "name": "Eyeballshurt",
           "realm": "Draenor",
           "class": "DemonHunter",
-          "spec": "Havoc",
-          "role": "dps",
+          "specs": [
+            { "spec": "Havoc", "role": "dps", "primary": true, "wcl_active": true },
+            { "spec": "Vengeance", "role": "tank", "primary": false, "wcl_active": true }
+          ],
           "active": true
         }
       ],
@@ -458,8 +464,11 @@
           "name": "Gaymeron",
           "realm": "Draenor",
           "class": "Druid",
-          "spec": "Guardian",
-          "role": "tank",
+          "specs": [
+            { "spec": "Guardian", "role": "tank", "primary": true, "wcl_active": true },
+            { "spec": "Restoration", "role": "healer", "primary": false, "wcl_active": true },
+            { "spec": "Feral", "role": "dps", "primary": false, "wcl_active": true }
+          ],
           "active": true
         }
       ],

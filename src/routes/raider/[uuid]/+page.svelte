@@ -44,6 +44,8 @@
 			weeklyMinimum: number;
 			weeklyHistoryByDiff: Record<string, Record<number, (number | null)[]>>;
 			wowanalyzerByDiff: Record<string, Record<number, (string | null)[]>>;
+			offspecWeeklyHistoryByDiff: Record<string, Record<string, Record<number, (number | null)[]>>>;
+			offspecWowanalyzerByDiff: Record<string, Record<string, Record<number, (string | null)[]>>>;
 		};
 	} = $props();
 
@@ -56,6 +58,8 @@
 		weeklyMinimum,
 		weeklyHistoryByDiff,
 		wowanalyzerByDiff,
+		offspecWeeklyHistoryByDiff,
+		offspecWowanalyzerByDiff,
 	} = $derived(data);
 
 	// Difficulty toggle — persisted in localStorage
@@ -266,6 +270,39 @@
 							{weeklyHistory}
 							{wowanalyzerUrls}
 						/>
+
+						{#each Object.entries(raiderRaidData?.offspec_parses ?? {}) as [specName, offspecParses]}
+							{@const offspecHasKills = offspecParses.some((bp) => {
+								const d = bp.difficulties?.[difficulty];
+								return d?.kill;
+							})}
+							<details class="offspec-wrapper" open={offspecHasKills || undefined}>
+								<summary class="offspec-summary">
+									<RoleIcon
+										spec={specName}
+										charClass={activeChar.class}
+										role={activeChar.specs?.find((s) => s.spec === specName)?.role ?? 'dps'}
+									/>
+									<span class="offspec-label">Offspec — {specName}</span>
+									{#if !offspecHasKills}
+										<span class="offspec-no-kills">No kills this tracking period</span>
+									{/if}
+								</summary>
+								<div class="offspec-body">
+									<CharacterParseSection
+										character={{ ...activeChar, spec: specName }}
+										parses={offspecParses}
+										{difficulty}
+										isActive={true}
+										bare={true}
+										{wclCharUrl}
+										{wclZoneId}
+										weeklyHistory={offspecWeeklyHistoryByDiff?.[specName]?.[difficulty] ?? {}}
+										wowanalyzerUrls={offspecWowanalyzerByDiff?.[specName]?.[difficulty] ?? {}}
+									/>
+								</div>
+							</details>
+						{/each}
 					</section>
 				</details>
 			{/if}
@@ -640,5 +677,52 @@
 		.blocking-warn {
 			padding: 0.65rem 0.75rem;
 		}
+	}
+
+	.offspec-wrapper {
+		border-top: 1px solid var(--pico-muted-border-color);
+		margin-top: 1rem;
+	}
+
+	.offspec-summary {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.6rem 0;
+		cursor: pointer;
+		list-style: none;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--pico-muted-color);
+	}
+
+	.offspec-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.offspec-summary::before {
+		content: '＋';
+		font-size: 0.9rem;
+		font-weight: 900;
+		flex-shrink: 0;
+	}
+
+	details[open] .offspec-summary::before {
+		content: '－';
+	}
+
+	.offspec-label {
+		color: var(--pico-color);
+	}
+
+	.offspec-no-kills {
+		font-size: 0.75rem;
+		font-weight: 400;
+		color: var(--pico-muted-color);
+		margin-inline-start: 0.25rem;
+	}
+
+	.offspec-body {
+		padding-top: 0.75rem;
 	}
 </style>

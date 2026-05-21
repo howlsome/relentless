@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21T06:26:56.868Z",
+  "last_updated": "2026-05-21T11:05:17.804Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -16,8 +16,6 @@
           "name": "Hxwl",
           "realm": "Draenor",
           "class": "Shaman",
-          "spec": "Elemental",
-          "role": "dps",
           "active": true,
           "first_seen": "2026-05-20"
         }
@@ -80,8 +78,6 @@
           "name": "Flukey",
           "realm": "Draenor",
           "class": "Paladin",
-          "spec": "Retribution",
-          "role": "dps",
           "active": true,
           "first_seen": "2026-05-20"
         }
@@ -112,8 +108,6 @@
           "name": "Eyeballshurt",
           "realm": "Draenor",
           "class": "DemonHunter",
-          "spec": "Havoc",
-          "role": "dps",
           "active": true,
           "first_seen": "2026-05-20"
         }
@@ -368,8 +362,6 @@
           "name": "Gaymeron",
           "realm": "Draenor",
           "class": "Druid",
-          "spec": "Guardian",
-          "role": "tank",
           "active": true,
           "first_seen": "2026-05-20"
         }

@@ -329,6 +329,29 @@ async function processMplusSeason({
 	console.log(`[fetch] M+ season ${season_id}: wrote ${raiders.length} raider(s).`);
 }
 
+// ── Spec helpers ──────────────────────────────────────────────────────────────
+
+function getPrimarySpecName(char) {
+	if (char.specs?.length) {
+		return (char.specs.find((s) => s.primary) ?? char.specs[0]).spec;
+	}
+	return char.spec ?? null;
+}
+
+function getPrimarySpecRole(char) {
+	if (char.specs?.length) {
+		return (char.specs.find((s) => s.primary) ?? char.specs[0]).role;
+	}
+	return char.role ?? 'dps';
+}
+
+function getCharOffspecs(char) {
+	if (char.specs?.length) {
+		return char.specs.filter((s) => !s.primary && s.wcl_active);
+	}
+	return [];
+}
+
 // ── Lockout helpers ────────────────────────────────────────────────────────────
 
 function loadRecentWeeks(weeksDir, count, currentWeek) {
@@ -418,6 +441,30 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 	);
 	const parseResults = await fetchRaidParses(wclToken, activeItems, zoneId, difficulties);
 
+	// ── Offspec fetching ──────────────────────────────────────────────────────
+	// Build per-spec item lists for players who have wcl_active offspecs
+	/** @type {Map<string, Array<{player: object, char: object}>>} specName → items */
+	const offspecItemsBySpec = new Map();
+	for (const { player, char } of activeItems) {
+		for (const offspec of getCharOffspecs(char)) {
+			if (!offspecItemsBySpec.has(offspec.spec)) offspecItemsBySpec.set(offspec.spec, []);
+			offspecItemsBySpec.get(offspec.spec).push({
+				player,
+				char: { ...char, spec: offspec.spec, role: offspec.role },
+			});
+		}
+	}
+
+	/** @type {Map<string, Map<string, object[]>>} specName → parseResults */
+	const offspecParseResultsBySpec = new Map();
+	for (const [specName, items] of offspecItemsBySpec) {
+		console.log(`[fetch] Fetching offspec parses for ${specName} (${items.length} raider(s))…`);
+		offspecParseResultsBySpec.set(
+			specName,
+			await fetchRaidParses(wclToken, items, zoneId, difficulties),
+		);
+	}
+
 	const raiders = [];
 
 	for (const player of roster.players) {
@@ -500,6 +547,74 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 		const activeChar = charResults.find((r) => !r.error)?.char ?? charResults[0]?.char;
 		const hasError = charResults.every((r) => r.error) ? charResults[0].error : null;
 
+		// ── Build offspec boss parse maps ───────────────────────────────────────
+		/** @type {Record<string, object[]>} specName → BossParse[] */
+		const offspec_parses = {};
+		for (const [specName, offspecParseResults] of offspecParseResultsBySpec) {
+			const offspecCharResults = offspecParseResults.get(player.raider_id);
+			if (!offspecCharResults) continue;
+
+			const offspecBossMap = new Map();
+			for (const { char, parses, error } of offspecCharResults) {
+				if (error && !parses) continue;
+				for (const [diffKey, rankings] of Object.entries(parses)) {
+					for (const ranking of rankings) {
+						const bossId = ranking.encounter?.id;
+						const bossName = ranking.encounter?.name ?? bossNames.get(bossId) ?? `Boss ${bossId}`;
+						if (!bossId) continue;
+
+						if (!offspecBossMap.has(bossId)) {
+							offspecBossMap.set(bossId, { boss_id: bossId, boss_name: bossName, difficulties: {} });
+						}
+						const bossEntry = offspecBossMap.get(bossId);
+						const killCount = ranking.totalKills ?? ranking.kills?.total ?? 0;
+						const kill = killCount > 0;
+						const existing = bossEntry.difficulties[diffKey];
+						const rankPercent = ranking.rankPercent ?? null;
+
+						if (
+							!existing ||
+							(kill && (!existing.kill || rankPercent > (existing.parse_percentile ?? 0)))
+						) {
+							bossEntry.difficulties[diffKey] = {
+								kill,
+								parse_percentile: kill ? Math.round(rankPercent * 10) / 10 : null,
+								spec: kill ? (ranking.spec ?? char.spec) : null,
+								dps: kill ? (ranking.bestAmount ?? null) : null,
+								kill_time: null,
+								kill_category: null,
+								detected_session: null,
+							};
+						}
+					}
+				}
+			}
+
+			// Fill missing bosses
+			for (const [encId, encName] of bossNames) {
+				if (!offspecBossMap.has(encId)) {
+					const entry = { boss_id: encId, boss_name: encName, difficulties: {} };
+					for (const diff of difficulties) {
+						entry.difficulties[diff] = { kill: false, parse_percentile: null, spec: null, dps: null };
+					}
+					offspecBossMap.set(encId, entry);
+				} else {
+					for (const diff of difficulties) {
+						if (!offspecBossMap.get(encId).difficulties[diff]) {
+							offspecBossMap.get(encId).difficulties[diff] = {
+								kill: false,
+								parse_percentile: null,
+								spec: null,
+								dps: null,
+							};
+						}
+					}
+				}
+			}
+
+			offspec_parses[specName] = [...offspecBossMap.values()].sort((a, b) => a.boss_id - b.boss_id);
+		}
+
 		// ── Lockout detection ───────────────────────────────────────────────────
 		const raidSchedule = roster.raid_schedule;
 		const exemptions = player.exemptions ?? [];
@@ -581,9 +696,10 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 			active_character: activeChar?.name ?? '',
 			realm: activeChar?.realm ?? '',
 			class: activeChar?.class ?? '',
-			spec: activeChar?.spec ?? '',
-			role: activeChar?.role ?? '',
+			spec: getPrimarySpecName(activeChar) ?? '',
+			role: getPrimarySpecRole(activeChar),
 			raid_parses,
+			...(Object.keys(offspec_parses).length > 0 ? { offspec_parses } : {}),
 			lockout_warnings,
 			safe_pug_kills,
 			exempt_pug_kills,
@@ -640,17 +756,19 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 			for (const raiderEntry of raiders) {
 				const raiderMap = historical.get(raiderEntry.raider_id);
 				const playerStartMs = playerTrackingStarts.get(raiderEntry.raider_id) ?? rosterTrackingStartMs;
+				const primarySpecName = raiderEntry.spec || null;
+
+				// ── Patch primary spec parses ───────────────────────────────────────
 				for (const bp of raiderEntry.raid_parses) {
 					for (const [diffKey] of diffPairs) {
 						const diff = bp.difficulties?.[diffKey];
 						if (!diff) continue;
 
-						// Filter kills to this player's own tracking start (client-side)
+						// Filter to this player's tracking start AND primary spec only
 						const allKills = (raiderMap?.[bp.boss_id]?.[diffKey] ?? []).filter(
-							(k) => k.startTime >= playerStartMs,
+							(k) => k.startTime >= playerStartMs && (!primarySpecName || k.spec === primarySpecName),
 						);
 
-						// Override kill/parse with tracking-start-filtered data
 						if (allKills.length > 0) {
 							const bestKill = allKills.reduce((best, k) =>
 								(k.rankPercent ?? 0) > (best.rankPercent ?? 0) ? k : best,
@@ -665,7 +783,6 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 							diff.parse_percentile = null;
 						}
 
-						// Report code + kill_time from best-parse kill in the current WoW week
 						const weekKills = allKills
 							.filter((k) => k.startTime >= weekStartMs && k.startTime < weekEndMs)
 							.sort((a, b) => (b.rankPercent ?? 0) - (a.rankPercent ?? 0));
@@ -673,6 +790,43 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 							diff.wcl_report_code = weekKills[0].reportCode ?? null;
 							diff.wcl_fight_id = weekKills[0].fightId ?? null;
 							diff.kill_time = new Date(weekKills[0].startTime).toISOString();
+						}
+					}
+				}
+
+				// ── Patch offspec parses with historical data ────────────────────────
+				for (const [specName, bossParsesForSpec] of Object.entries(raiderEntry.offspec_parses ?? {})) {
+					for (const bp of bossParsesForSpec) {
+						for (const [diffKey] of diffPairs) {
+							const diff = bp.difficulties?.[diffKey];
+							if (!diff) continue;
+
+							const allKills = (raiderMap?.[bp.boss_id]?.[diffKey] ?? []).filter(
+								(k) => k.startTime >= playerStartMs && k.spec === specName,
+							);
+
+							if (allKills.length > 0) {
+								const bestKill = allKills.reduce((best, k) =>
+									(k.rankPercent ?? 0) > (best.rankPercent ?? 0) ? k : best,
+								);
+								diff.kill = true;
+								diff.parse_percentile =
+									bestKill.rankPercent != null ? Math.round(bestKill.rankPercent * 10) / 10 : null;
+								diff.spec = specName;
+								diff.dps = bestKill.amount || diff.dps;
+							} else {
+								diff.kill = false;
+								diff.parse_percentile = null;
+							}
+
+							const weekKills = allKills
+								.filter((k) => k.startTime >= weekStartMs && k.startTime < weekEndMs)
+								.sort((a, b) => (b.rankPercent ?? 0) - (a.rankPercent ?? 0));
+							if (weekKills.length > 0) {
+								diff.wcl_report_code = weekKills[0].reportCode ?? null;
+								diff.wcl_fight_id = weekKills[0].fightId ?? null;
+								diff.kill_time = new Date(weekKills[0].startTime).toISOString();
+							}
 						}
 					}
 				}

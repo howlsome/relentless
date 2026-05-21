@@ -3,6 +3,7 @@
   "active_raid_zones": [
     "raid-509",
     "raid-51",
+    "raid-50",
     "raid-48",
     "raid-46"
   ],
@@ -26,6 +27,13 @@
       "season_id": "raid-51",
       "label": "Sporefall (PTR)",
       "wcl_zone_id": 51,
+      "start_date": "2026-05-21",
+      "end_date": null
+    },
+    {
+      "season_id": "raid-50",
+      "label": "Sporefall",
+      "wcl_zone_id": 50,
       "start_date": "2026-05-21",
       "end_date": null
     },

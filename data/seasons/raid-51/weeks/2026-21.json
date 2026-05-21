@@ -1,7 +1,7 @@
 {
   "season_id": "raid-51",
   "week": "2026-21",
-  "fetched_at": "2026-05-21T06:26:56.868Z",
+  "fetched_at": "2026-05-21T11:05:17.804Z",
   "raid_tier": {
     "wcl_zone_id": 51,
     "name": "Sporefall (PTR)",
@@ -48,6 +48,34 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Restoration": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
@@ -126,6 +154,34 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Protection": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
@@ -165,6 +221,34 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Vengeance": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
@@ -477,6 +561,60 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Restoration": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ],
+        "Feral": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []

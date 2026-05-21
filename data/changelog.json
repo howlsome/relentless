@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-21T06:26:56.868Z",
-  "roster_hash": "abd9f36ceab0574a4dc2f51166c1897064fc4415ddeb7779900fa37d2b289a6d",
+  "last_updated": "2026-05-21T11:05:17.804Z",
+  "roster_hash": "500700381fa47d97c1ac5aca0d251b897453b5bf6dfdf55208f2b1777e35dc53",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -87,8 +87,20 @@
             "name": "Hxwl",
             "realm": "Draenor",
             "class": "Shaman",
-            "spec": "Elemental",
-            "role": "dps",
+            "specs": [
+              {
+                "spec": "Elemental",
+                "role": "dps",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Restoration",
+                "role": "healer",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
             "active": true
           }
         ],
@@ -155,8 +167,20 @@
             "name": "Flukey",
             "realm": "Draenor",
             "class": "Paladin",
-            "spec": "Retribution",
-            "role": "dps",
+            "specs": [
+              {
+                "spec": "Retribution",
+                "role": "dps",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Protection",
+                "role": "tank",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
             "active": true
           }
         ],
@@ -189,8 +213,20 @@
             "name": "Eyeballshurt",
             "realm": "Draenor",
             "class": "DemonHunter",
-            "spec": "Havoc",
-            "role": "dps",
+            "specs": [
+              {
+                "spec": "Havoc",
+                "role": "dps",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Vengeance",
+                "role": "tank",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
             "active": true
           }
         ],
@@ -461,8 +497,26 @@
             "name": "Gaymeron",
             "realm": "Draenor",
             "class": "Druid",
-            "spec": "Guardian",
-            "role": "tank",
+            "specs": [
+              {
+                "spec": "Guardian",
+                "role": "tank",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Restoration",
+                "role": "healer",
+                "primary": false,
+                "wcl_active": true
+              },
+              {
+                "spec": "Feral",
+                "role": "dps",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
             "active": true
           }
         ],
@@ -479,5 +533,58 @@
       }
     ]
   },
-  "entries": []
+  "entries": [
+    {
+      "id": "a6dfd2c0-7339-4d6e-85dc-4961dae555ca",
+      "timestamp": "2026-05-21T11:05:17.804Z",
+      "week": "2026-21",
+      "team": "main",
+      "event": "role_changed",
+      "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
+      "display_name": "Howl",
+      "character": "Hxwl",
+      "from_spec": "Elemental",
+      "from_role": "dps",
+      "note": ""
+    },
+    {
+      "id": "31c9309d-7510-4243-ac5b-fd299b7f2e18",
+      "timestamp": "2026-05-21T11:05:17.804Z",
+      "week": "2026-21",
+      "team": "main",
+      "event": "role_changed",
+      "raider_id": "07726c95-9cec-4f33-ae20-1b4e73d1365a",
+      "display_name": "Fluke",
+      "character": "Flukey",
+      "from_spec": "Retribution",
+      "from_role": "dps",
+      "note": ""
+    },
+    {
+      "id": "8d5197b1-fbf0-4ca9-a5b2-f71dc75bc8b5",
+      "timestamp": "2026-05-21T11:05:17.804Z",
+      "week": "2026-21",
+      "team": "main",
+      "event": "role_changed",
+      "raider_id": "56a6cc30-3287-47ca-bfae-bb3d9afca3c0",
+      "display_name": "Osena",
+      "character": "Eyeballshurt",
+      "from_spec": "Havoc",
+      "from_role": "dps",
+      "note": ""
+    },
+    {
+      "id": "35c7dd12-339b-4e4f-b8ed-5ca667bb0a0f",
+      "timestamp": "2026-05-21T11:05:17.804Z",
+      "week": "2026-21",
+      "team": "alt",
+      "event": "role_changed",
+      "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
+      "display_name": "Gary",
+      "character": "Gaymeron",
+      "from_spec": "Guardian",
+      "from_role": "tank",
+      "note": ""
+    }
+  ]
 }

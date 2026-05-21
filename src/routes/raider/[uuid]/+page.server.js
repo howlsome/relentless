@@ -117,21 +117,26 @@ export function load({ params }) {
 	const weeklyHistoryByDiff = { heroic: {}, mythic: {} };
 	/** @type {Record<string, Record<number,(string|null)[]>>} wowanalyzer URLs per diff/boss/week */
 	const wowanalyzerByDiff = { heroic: {}, mythic: {} };
+	/** @type {Record<string, Record<string, Record<number,(number|null)[]>>>} specName → diff → bossId → history */
+	const offspecWeeklyHistoryByDiff = {};
+	/** @type {Record<string, Record<string, Record<number,(string|null)[]>>>} specName → diff → bossId → urls */
+	const offspecWowanalyzerByDiff = {};
 
 	if (primaryRaidZone) {
 		const weeksDir = join(dataDir, 'seasons', primaryRaidZone.season_id, 'weeks');
 		if (existsSync(weeksDir)) {
 			const weekFiles = readdirSync(weeksDir)
 				.filter((f) => f.endsWith('.json'))
-				.sort(); // YYYY-WW.json sorts chronologically oldest→newest
+				.sort();
 			for (const file of weekFiles) {
 				const weekData = safeJson(join(weeksDir, file));
 				const raiderData = weekData?.raiders?.find(
 					(/** @type {any} */ r) => r.raider_id === params.uuid,
 				);
 				if (!raiderData) continue;
+
+				// Primary spec weekly history
 				for (const diff of ['heroic', 'mythic']) {
-					// Only include this week if the raider killed at least one boss WITH Relentless
 					const attended = (raiderData.raid_parses ?? []).some((/** @type {any} */ bp) => {
 						const d = bp.difficulties?.[diff];
 						return d?.kill && (d.kill_category == null || d.kill_category === 'in_raid');
@@ -141,18 +146,44 @@ export function load({ params }) {
 						if (!weeklyHistoryByDiff[diff][bp.boss_id]) weeklyHistoryByDiff[diff][bp.boss_id] = [];
 						if (!wowanalyzerByDiff[diff][bp.boss_id]) wowanalyzerByDiff[diff][bp.boss_id] = [];
 						const d = bp.difficulties?.[diff];
-						// Only count Relentless kills (in_raid or unclassified legacy) in the chart
 						const isRelentlessKill =
 							d?.kill && (d.kill_category == null || d.kill_category === 'in_raid');
 						weeklyHistoryByDiff[diff][bp.boss_id].push(
 							isRelentlessKill ? (d.parse_percentile ?? null) : null,
 						);
-						// Build WoWAnalyzer URL if report code is available
 						const url =
 							isRelentlessKill && d?.wcl_report_code && d?.wcl_fight_id
 								? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
 								: null;
 						wowanalyzerByDiff[diff][bp.boss_id].push(url);
+					}
+				}
+
+				// Offspec weekly history — one structure per spec name
+				for (const [specName, bossParsesForSpec] of Object.entries(raiderData.offspec_parses ?? {})) {
+					if (!offspecWeeklyHistoryByDiff[specName]) {
+						offspecWeeklyHistoryByDiff[specName] = { heroic: {}, mythic: {} };
+						offspecWowanalyzerByDiff[specName] = { heroic: {}, mythic: {} };
+					}
+					for (const diff of ['heroic', 'mythic']) {
+						const attended = /** @type {any[]} */ (bossParsesForSpec).some((/** @type {any} */ bp) => {
+							const d = bp.difficulties?.[diff];
+							return d?.kill;
+						});
+						if (!attended) continue;
+						for (const bp of /** @type {any[]} */ (bossParsesForSpec)) {
+							const hist = offspecWeeklyHistoryByDiff[specName][diff];
+							const urls = offspecWowanalyzerByDiff[specName][diff];
+							if (!hist[bp.boss_id]) hist[bp.boss_id] = [];
+							if (!urls[bp.boss_id]) urls[bp.boss_id] = [];
+							const d = bp.difficulties?.[diff];
+							hist[bp.boss_id].push(d?.kill ? (d.parse_percentile ?? null) : null);
+							const url =
+								d?.kill && d?.wcl_report_code && d?.wcl_fight_id
+									? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
+									: null;
+							urls[bp.boss_id].push(url);
+						}
 					}
 				}
 			}
@@ -169,5 +200,7 @@ export function load({ params }) {
 		weeklyMinimum: roster.mplus_weekly_minimum ?? 4,
 		weeklyHistoryByDiff,
 		wowanalyzerByDiff,
+		offspecWeeklyHistoryByDiff,
+		offspecWowanalyzerByDiff,
 	};
 }

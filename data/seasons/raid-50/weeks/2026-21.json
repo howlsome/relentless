@@ -1,13 +1,13 @@
 {
-  "season_id": "raid-51",
+  "season_id": "raid-50",
   "week": "2026-21",
   "fetched_at": "2026-05-21T11:05:17.804Z",
   "raid_tier": {
-    "wcl_zone_id": 51,
-    "name": "Sporefall (PTR)",
+    "wcl_zone_id": 50,
+    "name": "Sporefall",
     "bosses": [
       {
-        "id": 53159,
+        "id": 3159,
         "name": "Rotmire"
       }
     ]
@@ -24,26 +24,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -51,26 +45,20 @@
       "offspec_parses": {
         "Restoration": [
           {
-            "boss_id": 53159,
+            "boss_id": 3159,
             "boss_name": "Rotmire",
             "difficulties": {
               "heroic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               },
               "mythic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               }
             }
           }
@@ -91,26 +79,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -130,26 +112,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -157,26 +133,20 @@
       "offspec_parses": {
         "Protection": [
           {
-            "boss_id": 53159,
+            "boss_id": 3159,
             "boss_name": "Rotmire",
             "difficulties": {
               "heroic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               },
               "mythic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               }
             }
           }
@@ -197,26 +167,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -224,26 +188,20 @@
       "offspec_parses": {
         "Vengeance": [
           {
-            "boss_id": 53159,
+            "boss_id": 3159,
             "boss_name": "Rotmire",
             "difficulties": {
               "heroic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               },
               "mythic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               }
             }
           }
@@ -264,26 +222,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -303,26 +255,20 @@
       "role": "tank",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -342,26 +288,20 @@
       "role": "healer",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -381,26 +321,20 @@
       "role": "healer",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -420,26 +354,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -459,26 +387,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -498,26 +420,20 @@
       "role": "dps",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -537,26 +453,20 @@
       "role": "tank",
       "raid_parses": [
         {
-          "boss_id": 53159,
+          "boss_id": 3159,
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "dps": null
             }
           }
         }
@@ -564,52 +474,40 @@
       "offspec_parses": {
         "Restoration": [
           {
-            "boss_id": 53159,
+            "boss_id": 3159,
             "boss_name": "Rotmire",
             "difficulties": {
               "heroic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               },
               "mythic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               }
             }
           }
         ],
         "Feral": [
           {
-            "boss_id": 53159,
+            "boss_id": 3159,
             "boss_name": "Rotmire",
             "difficulties": {
               "heroic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               },
               "mythic": {
                 "kill": false,
                 "parse_percentile": null,
                 "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "dps": null
               }
             }
           }

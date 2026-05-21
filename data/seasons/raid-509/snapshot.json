@@ -1,7 +1,7 @@
 {
   "season_id": "raid-509",
   "week": "2026-21",
-  "fetched_at": "2026-05-21T06:26:56.868Z",
+  "fetched_at": "2026-05-21T11:05:17.804Z",
   "raid_tier": {
     "wcl_zone_id": 509,
     "name": "Complete Raids (VS / DR / MQD)",
@@ -64,6 +64,46 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Restoration": [
+          {
+            "boss_id": 3175,
+            "boss_name": "The Voidspire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          },
+          {
+            "boss_id": 3198,
+            "boss_name": "March on Quel'Danas",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
@@ -166,6 +206,46 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Protection": [
+          {
+            "boss_id": 3175,
+            "boss_name": "The Voidspire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          },
+          {
+            "boss_id": 3198,
+            "boss_name": "March on Quel'Danas",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
@@ -217,6 +297,46 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Vengeance": [
+          {
+            "boss_id": 3175,
+            "boss_name": "The Voidspire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          },
+          {
+            "boss_id": 3198,
+            "boss_name": "March on Quel'Danas",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
@@ -625,6 +745,84 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Restoration": [
+          {
+            "boss_id": 3175,
+            "boss_name": "The Voidspire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          },
+          {
+            "boss_id": 3198,
+            "boss_name": "March on Quel'Danas",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ],
+        "Feral": [
+          {
+            "boss_id": 3175,
+            "boss_name": "The Voidspire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          },
+          {
+            "boss_id": 3198,
+            "boss_name": "March on Quel'Danas",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []
