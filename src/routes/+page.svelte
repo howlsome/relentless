@@ -7,6 +7,7 @@
 	import type { Roster } from '$lib/types/roster.js';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
 	import type { MplusWeeklyFile, RaidWeeklyFile } from '$lib/types/weekly.js';
+	import { getPrimarySpec } from '$lib/utils/roster.js';
 
 	let {
 		data,
@@ -67,11 +68,12 @@
 		const counts = { tank: 0, healer: 0, rangedDps: 0, meleeDps: 0 };
 		for (const p of activePlayers) {
 			const char = p.characters.find((c: { active: boolean }) => c.active);
-			const role = (char?.role ?? 'dps') as 'tank' | 'healer' | 'dps';
+			const primarySpec = char ? getPrimarySpec(char) : null;
+			const role = (primarySpec?.role ?? char?.role ?? 'dps') as 'tank' | 'healer' | 'dps';
 			if (role === 'tank') counts.tank++;
 			else if (role === 'healer') counts.healer++;
 			else {
-				const spec = char?.spec ?? '';
+				const spec = primarySpec?.spec ?? char?.spec ?? '';
 				const cls = char?.class ?? '';
 				const ranged = RANGED_SPECS.has(spec) || (spec === 'Frost' && cls === 'Mage');
 				if (ranged) counts.rangedDps++;
