@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-24T17:25:42.979Z",
+  "fetched_at": "2026-05-25T06:34:16.264Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -329,13 +329,37 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 1766.9,
+      "rio_score": 2271.4,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": false,
+          "completed_at": "2026-05-24T19:10:05.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-05-24T19:42:26.000Z"
+        },
         {
           "dungeon": "Skyreach",
           "level": 10,
           "timed": true,
           "completed_at": "2026-05-23T21:12:17.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-24T20:34:44.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-24T20:10:29.000Z"
         },
         {
           "dungeon": "Maisara Caverns",
@@ -366,24 +390,12 @@
           "level": 7,
           "timed": true,
           "completed_at": "2026-05-21T19:35:08.000Z"
-        },
-        {
-          "dungeon": "Skyreach",
-          "level": 5,
-          "timed": true,
-          "completed_at": "2026-05-21T20:02:01.000Z"
-        },
-        {
-          "dungeon": "Maisara Caverns",
-          "level": 2,
-          "timed": true,
-          "completed_at": "2026-05-21T19:06:43.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 8,
-      "mplus_highest_key_this_week": 10,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 7,
+      "mplus_total_dungeons_this_week": 10,
+      "mplus_highest_key_this_week": 12,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "8a1c5c47-c359-49ba-ad7d-96f6707e0162",
@@ -394,7 +406,7 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3630,
+      "rio_score": 3647.3,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
@@ -407,6 +419,12 @@
           "level": 18,
           "timed": true,
           "completed_at": "2026-05-24T15:44:24.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-05-24T17:34:46.000Z"
         },
         {
           "dungeon": "Pit of Saron",
@@ -449,12 +467,6 @@
           "level": 17,
           "timed": true,
           "completed_at": "2026-05-23T18:08:02.000Z"
-        },
-        {
-          "dungeon": "Pit of Saron",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-05-22T18:02:30.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
@@ -601,8 +613,14 @@
       "class": "Druid",
       "spec": "",
       "role": "",
-      "rio_score": 3830.3,
+      "rio_score": 3845.7,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-24T19:27:40.000Z"
+        },
         {
           "dungeon": "Pit of Saron",
           "level": 20,
@@ -656,12 +674,6 @@
           "level": 19,
           "timed": true,
           "completed_at": "2026-05-24T15:20:51.000Z"
-        },
-        {
-          "dungeon": "Maisara Caverns",
-          "level": 19,
-          "timed": true,
-          "completed_at": "2026-05-22T17:21:25.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
