@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-25T06:34:16.264Z",
+  "fetched_at": "2026-05-25T17:36:51.164Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -329,7 +329,7 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 2271.4,
+      "rio_score": 2666.5,
       "mplus_runs_this_week": [
         {
           "dungeon": "Maisara Caverns",
@@ -350,6 +350,12 @@
           "completed_at": "2026-05-23T21:12:17.000Z"
         },
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-25T13:00:16.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 10,
           "timed": true,
@@ -368,6 +374,12 @@
           "completed_at": "2026-05-23T20:43:19.000Z"
         },
         {
+          "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-25T12:29:27.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 10,
           "timed": true,
@@ -378,21 +390,9 @@
           "level": 8,
           "timed": true,
           "completed_at": "2026-05-23T12:34:22.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 7,
-          "timed": true,
-          "completed_at": "2026-05-23T11:37:31.000Z"
-        },
-        {
-          "dungeon": "Algeth'ar Academy",
-          "level": 7,
-          "timed": true,
-          "completed_at": "2026-05-21T19:35:08.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 7,
+      "mplus_weekly_count_at_or_above_minimum": 9,
       "mplus_total_dungeons_this_week": 10,
       "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": true
@@ -406,7 +406,7 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3647.3,
+      "rio_score": 3664.6,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
@@ -425,6 +425,12 @@
           "level": 18,
           "timed": true,
           "completed_at": "2026-05-24T17:34:46.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-05-25T15:36:18.000Z"
         },
         {
           "dungeon": "Pit of Saron",
@@ -461,12 +467,6 @@
           "level": 17,
           "timed": true,
           "completed_at": "2026-05-23T20:38:39.000Z"
-        },
-        {
-          "dungeon": "Windrunner Spire",
-          "level": 17,
-          "timed": true,
-          "completed_at": "2026-05-23T18:08:02.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
@@ -483,13 +483,19 @@
       "class": "Warrior",
       "spec": "Fury",
       "role": "dps",
-      "rio_score": 3302,
+      "rio_score": 3317.9,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
           "level": 15,
           "timed": true,
           "completed_at": "2026-05-24T10:30:13.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-25T11:27:29.000Z"
         },
         {
           "dungeon": "Maisara Caverns",
@@ -534,8 +540,8 @@
           "completed_at": "2026-05-23T17:19:30.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 8,
-      "mplus_total_dungeons_this_week": 8,
+      "mplus_weekly_count_at_or_above_minimum": 9,
+      "mplus_total_dungeons_this_week": 9,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     },
