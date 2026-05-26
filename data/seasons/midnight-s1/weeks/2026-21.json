@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-26T14:12:50.239Z",
+  "fetched_at": "2026-05-26T18:03:57.824Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -451,6 +451,12 @@
           "completed_at": "2026-05-25T15:36:18.000Z"
         },
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-05-26T14:27:07.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 18,
           "timed": true,
@@ -479,12 +485,6 @@
           "level": 17,
           "timed": true,
           "completed_at": "2026-05-21T17:52:45.000Z"
-        },
-        {
-          "dungeon": "Skyreach",
-          "level": 17,
-          "timed": true,
-          "completed_at": "2026-05-23T20:38:39.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
