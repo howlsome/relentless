@@ -85,8 +85,18 @@
           "realm": "Draenor",
           "class": "Shaman",
           "specs": [
-            { "spec": "Elemental", "role": "dps", "primary": true, "wcl_active": true },
-            { "spec": "Restoration", "role": "healer", "primary": false, "wcl_active": true }
+            {
+              "spec": "Elemental",
+              "role": "dps",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Restoration",
+              "role": "healer",
+              "primary": false,
+              "wcl_active": true
+            }
           ],
           "active": true
         }
@@ -155,8 +165,18 @@
           "realm": "Draenor",
           "class": "Paladin",
           "specs": [
-            { "spec": "Retribution", "role": "dps", "primary": true, "wcl_active": true },
-            { "spec": "Protection", "role": "tank", "primary": false, "wcl_active": true }
+            {
+              "spec": "Retribution",
+              "role": "dps",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Protection",
+              "role": "tank",
+              "primary": false,
+              "wcl_active": true
+            }
           ],
           "active": true
         }
@@ -191,8 +211,18 @@
           "realm": "Draenor",
           "class": "DemonHunter",
           "specs": [
-            { "spec": "Havoc", "role": "dps", "primary": true, "wcl_active": true },
-            { "spec": "Vengeance", "role": "tank", "primary": false, "wcl_active": true }
+            {
+              "spec": "Havoc",
+              "role": "dps",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Vengeance",
+              "role": "tank",
+              "primary": false,
+              "wcl_active": true
+            }
           ],
           "active": true
         }
@@ -465,9 +495,24 @@
           "realm": "Draenor",
           "class": "Druid",
           "specs": [
-            { "spec": "Guardian", "role": "tank", "primary": true, "wcl_active": true },
-            { "spec": "Restoration", "role": "healer", "primary": false, "wcl_active": true },
-            { "spec": "Feral", "role": "dps", "primary": false, "wcl_active": true }
+            {
+              "spec": "Guardian",
+              "role": "tank",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Restoration",
+              "role": "healer",
+              "primary": false,
+              "wcl_active": true
+            },
+            {
+              "spec": "Feral",
+              "role": "dps",
+              "primary": false,
+              "wcl_active": true
+            }
           ],
           "active": true
         }
@@ -479,6 +524,98 @@
           "spec": "Guardian",
           "character": "Gaymeron",
           "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
+      "display_name": "Starfoullah",
+      "status": "active",
+      "tracking_start_date": "2026-05-25",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-25",
+          "note": "Fearless main"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Starfoullah",
+          "realm": "Draenor",
+          "class": "Druid",
+          "specs": [
+            {
+              "spec": "Restoration",
+              "role": "healer",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Feral",
+              "role": "dps",
+              "primary": false,
+              "wcl_active": true
+            }
+          ],
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Druid",
+          "spec": "Restoration",
+          "character": "Starfoullah",
+          "from": "2026-05-25",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
+      "display_name": "Quillet",
+      "status": "active",
+      "tracking_start_date": "2026-05-25",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-25",
+          "note": ""
+        }
+      ],
+      "characters": [
+        {
+          "name": "Quillet",
+          "realm": "Tarren Mill",
+          "class": "Shaman",
+          "specs": [
+            {
+              "spec": "Elemental",
+              "role": "dps",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Restoration",
+              "role": "healer",
+              "primary": false,
+              "wcl_active": true
+            }
+          ],
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Shaman",
+          "spec": "Elemental",
+          "character": "Quillet",
+          "from": "2026-05-25",
           "to": null
         }
       ]

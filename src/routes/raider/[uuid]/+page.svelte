@@ -409,7 +409,7 @@
 		flex-shrink: 0;
 	}
 
-	details[open] .char-wrapper__summary::before {
+	details[open] > .char-wrapper__summary::before {
 		content: '－';
 	}
 
@@ -473,7 +473,7 @@
 		flex-shrink: 0;
 	}
 
-	details[open] .zone-wrapper__summary::before {
+	details[open] > .zone-wrapper__summary::before {
 		content: '－';
 	}
 
@@ -707,7 +707,7 @@
 		flex-shrink: 0;
 	}
 
-	details[open] .offspec-summary::before {
+	details[open] > .offspec-summary::before {
 		content: '－';
 	}
 

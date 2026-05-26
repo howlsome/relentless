@@ -84,7 +84,7 @@
 	</div>
 
 	{#if isRelentlessKill}
-		<!-- Row 1: parse (left) + stacked PB/Avg (right) -->
+		<!-- Row 1: parse % on its own line -->
 		<div class="boss-card__row boss-card__row--parse">
 			<div class="parse-group">
 				{#if wclUrl(difficulty)}
@@ -108,16 +108,30 @@
 					<span title="Spec mismatch: logged as {diffData?.spec}, roster shows {rosterSpec}">⚠️</span>
 				{/if}
 			</div>
-
-			<div class="stat-stack">
-				<span class="stat"
-					>PB <strong>{personalBest != null ? personalBest.toFixed(0) + '%' : '—'}</strong></span
-				>
-				<span class="stat">Avg <strong>{avgPct != null ? avgPct + '%' : '—'}</strong></span>
-			</div>
 		</div>
 
-		<!-- Row 2: WoWAnalyzer link on its own -->
+		<!-- Row 2: PB and Avg side by side -->
+		<div class="boss-card__row boss-card__row--stats">
+			<span class="stat"
+				>PB <strong>{personalBest != null ? personalBest.toFixed(0) + '%' : '—'}</strong></span
+			>
+			<span class="stat">Avg <strong>{avgPct != null ? avgPct + '%' : '—'}</strong></span>
+		</div>
+
+		<!-- Row 3: Historical best (pre-tracking) -->
+		{#if diffData?.historical_best_parse != null}
+			<div
+				class="boss-card__row boss-card__row--historical"
+				style="background:{getBadgeBgColour(diffData.historical_best_parse)};color:{getBadgeTextColour(
+					diffData.historical_best_parse,
+				)}"
+			>
+				<span class="historical-label">Historical:</span>
+				<strong class="historical-value">{diffData.historical_best_parse.toFixed(0)}%</strong>
+			</div>
+		{/if}
+
+		<!-- Row 4: WoWAnalyzer link on its own -->
 		{#if latestWowAnalyzerUrl}
 			<div class="boss-card__row boss-card__row--wowa">
 				<a
@@ -132,9 +146,6 @@
 	{:else}
 		<div class="boss-card__row boss-card__row--parse">
 			<span class="no-kill">No kills yet</span>
-			<div class="stat-stack stat-stack--empty">
-				<span class="stat">Avg —</span>
-			</div>
 		</div>
 	{/if}
 </article>
@@ -168,12 +179,11 @@
 		align-items: center;
 	}
 
-	/* Row 1: parse (left) + stacked PB/Avg (right) */
+	/* Row 1: parse % on its own line */
 	.boss-card__row--parse {
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
-		gap: 0.5rem;
-		min-height: 2.2rem;
+		gap: 0.3rem;
 	}
 
 	.parse-group {
@@ -199,23 +209,37 @@
 		font-weight: 700;
 	}
 
-	.stat-stack {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 0.1rem;
+	/* Row 2: PB and Avg side by side */
+	.boss-card__row--stats {
+		justify-content: space-between;
 		font-size: 0.72rem;
-	}
-
-	.stat-stack--empty {
-		opacity: 0.45;
 	}
 
 	.stat strong {
 		font-weight: 700;
 	}
 
-	/* Row 2: WoWAnalyzer */
+	/* Row 3: Historical best */
+	.boss-card__row--historical {
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.72rem;
+		border-radius: 999px;
+		padding: 0.2em 0.65em;
+		border: 2px solid currentColor;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.historical-label {
+		opacity: 0.85;
+	}
+
+	.historical-value {
+		font-weight: 700;
+	}
+
+	/* Row 4: WoWAnalyzer */
 	.boss-card__row--wowa {
 		justify-content: stretch;
 	}

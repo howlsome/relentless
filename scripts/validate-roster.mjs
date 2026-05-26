@@ -49,24 +49,34 @@ function validateCharacter(char, raiderName) {
 	if (!char.name) errors.push(`${label}: missing character name`);
 	if (!char.realm) errors.push(`${label}: missing realm`);
 	if (!char.class) errors.push(`${label}: missing class`);
-	if (!char.spec) errors.push(`${label}: missing spec`);
-	if (!char.role) errors.push(`${label}: missing role`);
 	if (char.active === undefined || char.active === null) {
 		warnings.push(`${label}: "active" field is missing — treated as inactive`);
 	}
 
-	if (char.class && char.spec) {
-		if (!isValidClassSpec(char.class, char.spec)) {
-			errors.push(`${label}: INVALID class/spec "${char.class} / ${char.spec}"`);
-		} else if (char.role) {
-			const canonical = canonicalRole(char.class, char.spec);
-			if (canonical && canonical !== char.role) {
+	// Support both legacy flat spec/role and new specs[] array format
+	const specsToCheck = char.specs?.length
+		? char.specs
+		: char.spec && char.role
+			? [{ spec: char.spec, role: char.role, primary: true }]
+			: [];
+
+	if (specsToCheck.length === 0) {
+		errors.push(`${label}: missing spec/role (neither flat spec/role nor specs[] found)`);
+	}
+
+	for (const { spec, role } of specsToCheck) {
+		if (!isValidClassSpec(char.class, spec)) {
+			errors.push(`${label}: INVALID class/spec "${char.class} / ${spec}"`);
+		} else if (role) {
+			const canonical = canonicalRole(char.class, spec);
+			if (canonical && canonical !== role) {
 				warnings.push(
-					`${label}: spec "${char.spec}" is a ${canonical} spec but role is "${char.role}"`,
+					`${label}: spec "${spec}" is a ${canonical} spec but role is "${role}"`,
 				);
 			}
 		}
 	}
+
 	return { valid: errors.length === 0, errors, warnings };
 }
 

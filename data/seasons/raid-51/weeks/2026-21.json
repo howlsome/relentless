@@ -1,7 +1,7 @@
 {
   "season_id": "raid-51",
   "week": "2026-21",
-  "fetched_at": "2026-05-26T06:26:42.648Z",
+  "fetched_at": "2026-05-26T09:50:19.485Z",
   "raid_tier": {
     "wcl_zone_id": 51,
     "name": "Sporefall (PTR)",
@@ -589,6 +589,140 @@
           }
         ],
         "Feral": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
+      "display_name": "Starfoullah",
+      "team_designation": "alt",
+      "active_character": "Starfoullah",
+      "realm": "Draenor",
+      "class": "Druid",
+      "spec": "Restoration",
+      "role": "healer",
+      "raid_parses": [
+        {
+          "boss_id": 53159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "offspec_parses": {
+        "Feral": [
+          {
+            "boss_id": 53159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
+      "display_name": "Quillet",
+      "team_designation": "main",
+      "active_character": "Quillet",
+      "realm": "Tarren Mill",
+      "class": "Shaman",
+      "spec": "Elemental",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 53159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "offspec_parses": {
+        "Restoration": [
           {
             "boss_id": 53159,
             "boss_name": "Rotmire",

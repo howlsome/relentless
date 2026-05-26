@@ -42,6 +42,8 @@ export interface BossParseDifficulty {
 	detected_session?: string | null;
 	wcl_report_code?: string | null;
 	wcl_fight_id?: number | null;
+	/** Best parse for this raider before their tracking_start_date (pre-guild history). */
+	historical_best_parse?: number | null;
 }
 
 export interface LockoutWarning {
