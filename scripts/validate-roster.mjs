@@ -70,9 +70,7 @@ function validateCharacter(char, raiderName) {
 		} else if (role) {
 			const canonical = canonicalRole(char.class, spec);
 			if (canonical && canonical !== role) {
-				warnings.push(
-					`${label}: spec "${spec}" is a ${canonical} spec but role is "${role}"`,
-				);
+				warnings.push(`${label}: spec "${spec}" is a ${canonical} spec but role is "${role}"`);
 			}
 		}
 	}
