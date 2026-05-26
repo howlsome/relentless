@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-26T06:26:42.648Z",
+  "last_updated": "2026-05-26T09:50:19.485Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -373,6 +373,66 @@
           "spec": "Guardian",
           "character": "Gaymeron",
           "from": "2026-05-20",
+          "to": null
+        }
+      ]
+    },
+    "80dc248a-fb7b-4eef-8faa-5c274f415963": {
+      "display_name": "Starfoullah",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-25",
+          "note": "Fearless main"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Starfoullah",
+          "realm": "Draenor",
+          "class": "Druid",
+          "active": true,
+          "first_seen": "2026-05-25"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Druid",
+          "spec": "Restoration",
+          "character": "Starfoullah",
+          "from": "2026-05-25",
+          "to": null
+        }
+      ]
+    },
+    "dcd66ae4-99d3-4970-a071-e0af1d9d479c": {
+      "display_name": "Quillet",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-05-25",
+          "note": ""
+        }
+      ],
+      "characters": [
+        {
+          "name": "Quillet",
+          "realm": "Tarren Mill",
+          "class": "Shaman",
+          "active": true,
+          "first_seen": "2026-05-25"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Shaman",
+          "spec": "Elemental",
+          "character": "Quillet",
+          "from": "2026-05-25",
           "to": null
         }
       ]

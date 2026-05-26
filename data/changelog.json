@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-26T06:26:42.648Z",
-  "roster_hash": "500700381fa47d97c1ac5aca0d251b897453b5bf6dfdf55208f2b1777e35dc53",
+  "last_updated": "2026-05-26T09:50:19.485Z",
+  "roster_hash": "4f76da144a1e8a6c1d6c40d6d4dfd577f21cd1cac9382d7904abfbe4935efa2a",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -530,60 +530,128 @@
             "to": null
           }
         ]
+      },
+      {
+        "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
+        "display_name": "Starfoullah",
+        "status": "active",
+        "tracking_start_date": "2026-05-25",
+        "team_designation": "alt",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-05-25",
+            "note": "Fearless main"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Starfoullah",
+            "realm": "Draenor",
+            "class": "Druid",
+            "specs": [
+              {
+                "spec": "Restoration",
+                "role": "healer",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Feral",
+                "role": "dps",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "healer",
+            "class": "Druid",
+            "spec": "Restoration",
+            "character": "Starfoullah",
+            "from": "2026-05-25",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
+        "display_name": "Quillet",
+        "status": "active",
+        "tracking_start_date": "2026-05-25",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-05-25",
+            "note": ""
+          }
+        ],
+        "characters": [
+          {
+            "name": "Quillet",
+            "realm": "Tarren Mill",
+            "class": "Shaman",
+            "specs": [
+              {
+                "spec": "Elemental",
+                "role": "dps",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Restoration",
+                "role": "healer",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Shaman",
+            "spec": "Elemental",
+            "character": "Quillet",
+            "from": "2026-05-25",
+            "to": null
+          }
+        ]
       }
     ]
   },
   "entries": [
     {
-      "id": "a6dfd2c0-7339-4d6e-85dc-4961dae555ca",
-      "timestamp": "2026-05-21T11:05:17.804Z",
-      "week": "2026-21",
-      "team": "main",
-      "event": "role_changed",
-      "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
-      "display_name": "Howl",
-      "character": "Hxwl",
-      "from_spec": "Elemental",
-      "from_role": "dps",
-      "note": ""
-    },
-    {
-      "id": "31c9309d-7510-4243-ac5b-fd299b7f2e18",
-      "timestamp": "2026-05-21T11:05:17.804Z",
-      "week": "2026-21",
-      "team": "main",
-      "event": "role_changed",
-      "raider_id": "07726c95-9cec-4f33-ae20-1b4e73d1365a",
-      "display_name": "Fluke",
-      "character": "Flukey",
-      "from_spec": "Retribution",
-      "from_role": "dps",
-      "note": ""
-    },
-    {
-      "id": "8d5197b1-fbf0-4ca9-a5b2-f71dc75bc8b5",
-      "timestamp": "2026-05-21T11:05:17.804Z",
-      "week": "2026-21",
-      "team": "main",
-      "event": "role_changed",
-      "raider_id": "56a6cc30-3287-47ca-bfae-bb3d9afca3c0",
-      "display_name": "Osena",
-      "character": "Eyeballshurt",
-      "from_spec": "Havoc",
-      "from_role": "dps",
-      "note": ""
-    },
-    {
-      "id": "35c7dd12-339b-4e4f-b8ed-5ca667bb0a0f",
-      "timestamp": "2026-05-21T11:05:17.804Z",
+      "id": "0c35f97b-d915-4ba0-a69e-7869607da701",
+      "timestamp": "2026-05-26T09:50:19.485Z",
       "week": "2026-21",
       "team": "alt",
-      "event": "role_changed",
-      "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
-      "display_name": "Gary",
-      "character": "Gaymeron",
-      "from_spec": "Guardian",
-      "from_role": "tank",
+      "event": "joined",
+      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
+      "display_name": "Starfoullah",
+      "character": "Starfoullah",
+      "class": "Druid",
+      "spec": "",
+      "role": "",
+      "note": "Fearless main"
+    },
+    {
+      "id": "99bc0628-3f2e-4331-8675-a2527506bba8",
+      "timestamp": "2026-05-26T09:50:19.485Z",
+      "week": "2026-21",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
+      "display_name": "Quillet",
+      "character": "Quillet",
+      "class": "Shaman",
+      "spec": "",
+      "role": "",
       "note": ""
     }
   ]

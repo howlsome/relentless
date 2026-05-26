@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-26T06:26:42.648Z",
+  "fetched_at": "2026-05-26T09:50:19.485Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -692,6 +692,64 @@
       "mplus_total_dungeons_this_week": 10,
       "mplus_highest_key_this_week": 20,
       "mplus_requirement_met": true
+    },
+    {
+      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
+      "display_name": "Starfoullah",
+      "team_designation": "alt",
+      "active_character": "Starfoullah",
+      "realm": "Draenor",
+      "class": "Druid",
+      "spec": "",
+      "role": "",
+      "rio_score": 2794,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-25T18:10:08.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
+      "mplus_requirement_met": false
+    },
+    {
+      "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
+      "display_name": "Quillet",
+      "team_designation": "main",
+      "active_character": "Quillet",
+      "realm": "Tarren Mill",
+      "class": "Shaman",
+      "spec": "",
+      "role": "",
+      "rio_score": 3051.7,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-05-22T19:16:49.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-22T19:51:54.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-22T18:32:12.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 14,
+      "mplus_requirement_met": false
     }
   ]
 }
