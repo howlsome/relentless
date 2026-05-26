@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-21",
-  "fetched_at": "2026-05-26T09:50:19.485Z",
+  "fetched_at": "2026-05-26T13:22:58.153Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -119,10 +119,16 @@
           "level": 12,
           "timed": true,
           "completed_at": "2026-05-21T15:17:50.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-26T13:11:38.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": false
     },
