@@ -757,6 +757,10 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 				const raiderMap = historical.get(raiderEntry.raider_id);
 				const playerStartMs = playerTrackingStarts.get(raiderEntry.raider_id) ?? rosterTrackingStartMs;
 				const primarySpecName = raiderEntry.spec || null;
+				const player = roster.players.find((p) => p.raider_id === raiderEntry.raider_id);
+				const playerExemptions = player?.exemptions ?? [];
+				const raidSchedule = roster.raid_schedule;
+				const hasSchedule = raidSchedule?.sessions?.length > 0;
 
 				// ── Patch primary spec parses ───────────────────────────────────────
 				for (const bp of raiderEntry.raid_parses) {
@@ -769,8 +773,22 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 							(k) => k.startTime >= playerStartMs && (!primarySpecName || k.spec === primarySpecName),
 						);
 
-						if (allKills.length > 0) {
-							const bestKill = allKills.reduce((best, k) =>
+						// Only in-raid kills count for parse percentile and kill status.
+						// When no raid schedule is configured, treat every kill as in-raid.
+						const inRaidKills = hasSchedule
+							? allKills.filter(
+									(k) =>
+										classifyKill(
+											new Date(k.startTime).toISOString(),
+											raidSchedule,
+											playerExemptions,
+											diffKey,
+										) === 'in_raid',
+								)
+							: allKills;
+
+						if (inRaidKills.length > 0) {
+							const bestKill = inRaidKills.reduce((best, k) =>
 								(k.rankPercent ?? 0) > (best.rankPercent ?? 0) ? k : best,
 							);
 							diff.kill = true;
@@ -778,18 +796,32 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 								bestKill.rankPercent != null ? Math.round(bestKill.rankPercent * 10) / 10 : null;
 							diff.spec = bestKill.spec || diff.spec;
 							diff.dps = bestKill.amount || diff.dps;
+							diff.kill_category = 'in_raid';
 						} else {
 							diff.kill = false;
 							diff.parse_percentile = null;
 						}
 
-						const weekKills = allKills
+						const weekKills = inRaidKills
 							.filter((k) => k.startTime >= weekStartMs && k.startTime < weekEndMs)
 							.sort((a, b) => (b.rankPercent ?? 0) - (a.rankPercent ?? 0));
 						if (weekKills.length > 0) {
 							diff.wcl_report_code = weekKills[0].reportCode ?? null;
 							diff.wcl_fight_id = weekKills[0].fightId ?? null;
 							diff.kill_time = new Date(weekKills[0].startTime).toISOString();
+						}
+
+						// Historical best: best parse before this raider's tracking_start_date
+						// (includes pugs, any location — pre-guild history)
+						const preTrackingKills = (raiderMap?.[bp.boss_id]?.[diffKey] ?? []).filter(
+							(k) => k.startTime < playerStartMs && (!primarySpecName || k.spec === primarySpecName),
+						);
+						if (preTrackingKills.length > 0) {
+							const best = preTrackingKills.reduce((b, k) =>
+								(k.rankPercent ?? 0) > (b.rankPercent ?? 0) ? k : b,
+							);
+							diff.historical_best_parse =
+								best.rankPercent != null ? Math.round(best.rankPercent * 10) / 10 : null;
 						}
 					}
 				}
@@ -805,8 +837,20 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 								(k) => k.startTime >= playerStartMs && k.spec === specName,
 							);
 
-							if (allKills.length > 0) {
-								const bestKill = allKills.reduce((best, k) =>
+							const inRaidKills = hasSchedule
+								? allKills.filter(
+										(k) =>
+											classifyKill(
+												new Date(k.startTime).toISOString(),
+												raidSchedule,
+												playerExemptions,
+												diffKey,
+											) === 'in_raid',
+									)
+								: allKills;
+
+							if (inRaidKills.length > 0) {
+								const bestKill = inRaidKills.reduce((best, k) =>
 									(k.rankPercent ?? 0) > (best.rankPercent ?? 0) ? k : best,
 								);
 								diff.kill = true;
@@ -814,12 +858,13 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 									bestKill.rankPercent != null ? Math.round(bestKill.rankPercent * 10) / 10 : null;
 								diff.spec = specName;
 								diff.dps = bestKill.amount || diff.dps;
+								diff.kill_category = 'in_raid';
 							} else {
 								diff.kill = false;
 								diff.parse_percentile = null;
 							}
 
-							const weekKills = allKills
+							const weekKills = inRaidKills
 								.filter((k) => k.startTime >= weekStartMs && k.startTime < weekEndMs)
 								.sort((a, b) => (b.rankPercent ?? 0) - (a.rankPercent ?? 0));
 							if (weekKills.length > 0) {
