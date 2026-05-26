@@ -1,8 +1,20 @@
 <script lang="ts">
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
-	import { deltaClass, fmtKey, fmtWeekLabel } from '$lib/utils/format.js';
+	import { deltaClass, fmtKey, getSeasonWeek } from '$lib/utils/format.js';
 
-	let { compliance }: { compliance: RaiderCompliance | null | undefined } = $props();
+	let {
+		compliance,
+		seasonStartDate = null,
+	}: {
+		compliance: RaiderCompliance | null | undefined;
+		seasonStartDate?: string | null;
+	} = $props();
+
+	function weekLabel(isoWeek: string | null | undefined): string {
+		if (!isoWeek) return '—';
+		const sw = seasonStartDate ? getSeasonWeek(isoWeek, seasonStartDate) : null;
+		return sw != null ? `Week ${sw}` : isoWeek;
+	}
 
 	// weeks are stored latest-first
 	const current = $derived(compliance?.weeks[0] ?? null);
@@ -55,7 +67,7 @@
 				<span class="vol-card__label">🏆 Record</span>
 				<span class="vol-card__value">{recordDungeons?.count ?? '—'}</span>
 				{#if recordDungeons}
-					<span class="vol-card__sub">{fmtWeekLabel(recordDungeons.week)}</span>
+					<span class="vol-card__sub">{weekLabel(recordDungeons.week)}</span>
 				{/if}
 			</div>
 		</div>
@@ -87,7 +99,7 @@
 				<span class="vol-card__label">🏆 Record</span>
 				<span class="vol-card__value">{fmtKey(recordKey?.level ?? null)}</span>
 				{#if recordKey}
-					<span class="vol-card__sub">{fmtWeekLabel(recordKey.week)}</span>
+					<span class="vol-card__sub">{weekLabel(recordKey.week)}</span>
 				{/if}
 			</div>
 		</div>

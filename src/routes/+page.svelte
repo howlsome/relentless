@@ -261,7 +261,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 3rem;
+		font-size: clamp(1.5rem, 4vw, 2.25rem);
 		font-weight: 900;
 		line-height: 1;
 	}

@@ -314,7 +314,10 @@
 				<section class="panel zone-panel" aria-label="Mythic+">
 					<MilestoneBanner {milestones} />
 					<StreakHero compliance={raiderCompliance} {weeklyMinimum} />
-					<DungeonVolume compliance={raiderCompliance} />
+					<DungeonVolume
+						compliance={raiderCompliance}
+						seasonStartDate={activeSeason?.start_date ?? null}
+					/>
 					{#if mplusSnapshot?.mplus_runs_this_week?.length}
 						<div class="this-week-runs">
 							<h3>This week's runs</h3>

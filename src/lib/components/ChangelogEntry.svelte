@@ -82,9 +82,9 @@
 				{entry.display_name}
 			</a>
 			{#if character}
-				<span class="muted changelog-entry__char"
-					>— {character}{charClass ? ` (${charClass}` : ''}{charSpec ? `/${charSpec})` : ''}</span
-				>
+				<span class="muted changelog-entry__char">
+					— {character}{charClass ? (charSpec ? ` (${charClass}/${charSpec})` : ` (${charClass})`) : ''}
+				</span>
 			{/if}
 			<TeamDesignationBadge designation={entry.team} />
 		</div>

@@ -162,6 +162,19 @@ small {
 	color: var(--pico-secondary-inverse);
 }
 
+.badge-short {
+	display: none;
+}
+
+@media (max-width: 639px) {
+	.badge-full {
+		display: none;
+	}
+	.badge-short {
+		display: inline;
+	}
+}
+
 /* ── M+ status table — mobile: card layout ──────────────────────────────── */
 /*
  * Below the tablet breakpoint, the M+ status table collapses to

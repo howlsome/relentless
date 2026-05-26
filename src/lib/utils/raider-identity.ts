@@ -1,4 +1,5 @@
 import type { Character, Player, Roster } from '$lib/types/roster.js';
+import { getPrimarySpec } from './roster.js';
 
 // ── ISO week / WoW reset helpers ──────────────────────────────────────────────
 
@@ -166,6 +167,7 @@ export function generateChangelogEntries(
 
 		if (!prev && current.status === 'active') {
 			const char = getActiveCharacters(current)[0];
+			const primarySpec = char ? getPrimarySpec(char) : null;
 			entries.push({
 				id: crypto.randomUUID(),
 				timestamp: fetchedAt,
@@ -176,8 +178,8 @@ export function generateChangelogEntries(
 				display_name: current.display_name,
 				character: char?.name ?? '',
 				class: char?.class ?? '',
-				spec: char?.spec ?? '',
-				role: char?.role ?? '',
+				spec: char?.spec ?? primarySpec?.spec ?? '',
+				role: char?.role ?? primarySpec?.role ?? '',
 				note: latestMembershipNote(current, 'joined'),
 			});
 			continue;
@@ -187,6 +189,7 @@ export function generateChangelogEntries(
 
 		if (prev.status === 'active' && current.status === 'inactive') {
 			const char = getActiveCharacters(prev)[0] ?? prev.characters?.[0];
+			const primarySpec = char ? getPrimarySpec(char) : null;
 			entries.push({
 				id: crypto.randomUUID(),
 				timestamp: fetchedAt,
@@ -197,14 +200,15 @@ export function generateChangelogEntries(
 				display_name: current.display_name,
 				character: char?.name ?? '',
 				class: char?.class ?? '',
-				spec: char?.spec ?? '',
-				role: char?.role ?? '',
+				spec: char?.spec ?? primarySpec?.spec ?? '',
+				role: char?.role ?? primarySpec?.role ?? '',
 				note: latestMembershipNote(current, 'left') ?? '',
 			});
 		}
 
 		if (prev.status === 'inactive' && current.status === 'active') {
 			const char = getActiveCharacters(current)[0];
+			const primarySpec = char ? getPrimarySpec(char) : null;
 			entries.push({
 				id: crypto.randomUUID(),
 				timestamp: fetchedAt,
@@ -215,8 +219,8 @@ export function generateChangelogEntries(
 				display_name: current.display_name,
 				character: char?.name ?? '',
 				class: char?.class ?? '',
-				spec: char?.spec ?? '',
-				role: char?.role ?? '',
+				spec: char?.spec ?? primarySpec?.spec ?? '',
+				role: char?.role ?? primarySpec?.role ?? '',
 				note: latestMembershipNote(current, 'joined') ?? '',
 			});
 		}
