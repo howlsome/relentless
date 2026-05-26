@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-21",
-  "fetched_at": "2026-05-25T17:36:51.164Z",
+  "fetched_at": "2026-05-26T06:26:42.648Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -204,10 +204,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 53.6,
+              "spec": "Elemental",
+              "dps": 72299.150428787,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -655,10 +655,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 37.6,
               "spec": "Shadow",
-              "dps": 85202.675528046,
+              "dps": 14779.644967257,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -1337,10 +1337,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 30,
               "spec": "Havoc",
-              "dps": 41.966033741441,
+              "dps": 59691.680337161,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -1788,10 +1788,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 18.8,
+              "spec": "Survival",
+              "dps": 70837.474492858,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -2019,10 +2019,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 30.6,
+              "spec": "Blood",
+              "dps": 35307.479427573,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -2250,10 +2250,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 63.6,
+              "spec": "Mistweaver",
+              "dps": 13291.241547633,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -2481,10 +2481,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 43.8,
+              "spec": "Restoration",
+              "dps": 1312.3074460849,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -2712,10 +2712,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 70.7,
+              "spec": "Balance",
+              "dps": 83936.969017992,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -3405,10 +3405,10 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 98.6,
+              "spec": "Guardian",
+              "dps": 76823.650622174,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
