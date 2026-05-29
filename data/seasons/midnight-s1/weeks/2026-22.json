@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-28T18:05:37.470Z",
+  "fetched_at": "2026-05-29T06:29:21.768Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -126,10 +126,17 @@
       "spec": "Blood",
       "role": "tank",
       "rio_score": 3175.8,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-28T19:38:15.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -309,11 +316,18 @@
       "class": "Shaman",
       "spec": "",
       "role": "",
-      "rio_score": 3051.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3092.8,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-28T19:22:55.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": false
     }
   ]
