@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-29T06:29:21.768Z",
+  "fetched_at": "2026-05-29T18:06:24.427Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -74,10 +74,16 @@
           "level": 14,
           "timed": true,
           "completed_at": "2026-05-27T08:26:17.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-05-29T14:51:49.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
@@ -90,8 +96,14 @@
       "class": "Hunter",
       "spec": "Survival",
       "role": "dps",
-      "rio_score": 3268.5,
+      "rio_score": 3289.8,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-05-29T10:10:43.000Z"
+        },
         {
           "dungeon": "Skyreach",
           "level": 15,
@@ -111,10 +123,10 @@
           "completed_at": "2026-05-27T11:44:12.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
-      "mplus_highest_key_this_week": 15,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 16,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "0bede844-3d15-48b3-ad62-471ea652a874",
@@ -180,8 +192,26 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3664.6,
+      "rio_score": 3677.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-29T14:21:53.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 19,
+          "timed": false,
+          "completed_at": "2026-05-29T15:44:16.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-05-29T13:33:16.000Z"
+        },
         {
           "dungeon": "Magisters' Terrace",
           "level": 12,
@@ -225,9 +255,9 @@
           "completed_at": "2026-05-27T13:11:59.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 7,
-      "mplus_total_dungeons_this_week": 7,
-      "mplus_highest_key_this_week": 12,
+      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_total_dungeons_this_week": 10,
+      "mplus_highest_key_this_week": 19,
       "mplus_requirement_met": true
     },
     {
@@ -239,8 +269,14 @@
       "class": "Warrior",
       "spec": "Fury",
       "role": "dps",
-      "rio_score": 3317.9,
+      "rio_score": 3349.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-05-29T09:30:24.000Z"
+        },
         {
           "dungeon": "Magisters' Terrace",
           "level": 12,
@@ -254,9 +290,9 @@
           "completed_at": "2026-05-27T14:03:29.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 12,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": false
     },
     {
@@ -284,11 +320,30 @@
       "class": "Druid",
       "spec": "",
       "role": "",
-      "rio_score": 3845.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3872.1,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-29T16:23:46.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-29T15:24:04.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-29T17:08:31.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 20,
       "mplus_requirement_met": false
     },
     {
