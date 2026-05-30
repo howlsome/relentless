@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-29T18:06:24.427Z",
+  "fetched_at": "2026-05-30T06:10:03.874Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -105,6 +105,12 @@
           "completed_at": "2026-05-29T10:10:43.000Z"
         },
         {
+          "dungeon": "Magisters' Terrace",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-05-29T10:55:31.000Z"
+        },
+        {
           "dungeon": "Skyreach",
           "level": 15,
           "timed": true,
@@ -123,8 +129,8 @@
           "completed_at": "2026-05-27T11:44:12.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
@@ -207,6 +213,12 @@
           "completed_at": "2026-05-29T15:44:16.000Z"
         },
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-05-29T18:36:27.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 18,
           "timed": true,
@@ -247,12 +259,6 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-05-27T13:38:04.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-05-27T13:11:59.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
@@ -323,6 +329,12 @@
       "rio_score": 3872.1,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Magisters' Terrace",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-30T00:27:09.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 20,
           "timed": true,
@@ -339,12 +351,18 @@
           "level": 20,
           "timed": true,
           "completed_at": "2026-05-29T17:08:31.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-29T23:08:18.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 20,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
