@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-30T10:14:53.312Z",
+  "fetched_at": "2026-05-30T17:27:55.739Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -273,8 +273,20 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3677.3,
+      "rio_score": 3693.1,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-30T15:03:53.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-30T16:06:40.000Z"
+        },
         {
           "dungeon": "Nexus-Point Xenas",
           "level": 19,
@@ -322,18 +334,6 @@
           "level": 12,
           "timed": true,
           "completed_at": "2026-05-27T14:32:45.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 11,
-          "timed": true,
-          "completed_at": "2026-05-27T14:03:29.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-05-27T13:38:04.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
@@ -359,6 +359,12 @@
           "completed_at": "2026-05-29T09:30:24.000Z"
         },
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-05-30T13:18:30.000Z"
+        },
+        {
           "dungeon": "Magisters' Terrace",
           "level": 12,
           "timed": true,
@@ -369,12 +375,18 @@
           "level": 11,
           "timed": true,
           "completed_at": "2026-05-27T14:03:29.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-30T13:44:44.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 17,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "185f2e13-823b-42bb-9387-fb439efc132e",
@@ -401,8 +413,20 @@
       "class": "Druid",
       "spec": "",
       "role": "",
-      "rio_score": 3872.1,
+      "rio_score": 3900.6,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-30T10:56:48.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-30T11:56:16.000Z"
+        },
         {
           "dungeon": "Magisters' Terrace",
           "level": 20,
@@ -434,8 +458,8 @@
           "completed_at": "2026-05-29T23:08:18.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 5,
-      "mplus_total_dungeons_this_week": 5,
+      "mplus_weekly_count_at_or_above_minimum": 7,
+      "mplus_total_dungeons_this_week": 7,
       "mplus_highest_key_this_week": 20,
       "mplus_requirement_met": true
     },
