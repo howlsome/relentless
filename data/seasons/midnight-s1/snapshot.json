@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-30T06:10:03.874Z",
+  "fetched_at": "2026-05-30T10:14:53.312Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -15,16 +15,34 @@
       "rio_score": 3321.9,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:42:23.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:08:37.000Z"
+        },
+        {
           "dungeon": "Magisters' Terrace",
           "level": 12,
           "timed": true,
           "completed_at": "2026-05-28T17:56:33.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-30T08:11:33.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
@@ -36,10 +54,17 @@
       "spec": "Shadow",
       "role": "dps",
       "rio_score": 3641.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:42:23.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": false
     },
     {
@@ -143,8 +168,32 @@
       "class": "DeathKnight",
       "spec": "Blood",
       "role": "tank",
-      "rio_score": 3175.8,
+      "rio_score": 3234.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:42:23.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:08:37.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-05-29T20:25:15.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-05-29T19:47:50.000Z"
+        },
         {
           "dungeon": "Magisters' Terrace",
           "level": 10,
@@ -152,10 +201,10 @@
           "completed_at": "2026-05-28T19:38:15.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 10,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "7b772b7b-9e9b-4ac3-b68b-cedf0fc36dff",
@@ -167,10 +216,17 @@
       "spec": "Mistweaver",
       "role": "healer",
       "rio_score": 3876.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-05-29T19:47:50.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {
@@ -182,11 +238,30 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 2666.5,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 2897.6,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:42:23.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-05-29T21:08:37.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-05-29T20:25:15.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": false
     },
     {
