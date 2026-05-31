@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-30T17:27:55.739Z",
+  "fetched_at": "2026-05-31T06:31:39.753Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -313,6 +313,18 @@
         },
         {
           "dungeon": "Magisters' Terrace",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-05-30T14:27:52.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-05-30T19:44:40.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
           "level": 12,
           "timed": true,
           "completed_at": "2026-05-27T12:44:40.000Z"
@@ -322,18 +334,6 @@
           "level": 12,
           "timed": true,
           "completed_at": "2026-05-27T12:10:36.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 12,
-          "timed": true,
-          "completed_at": "2026-05-27T11:43:31.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 12,
-          "timed": true,
-          "completed_at": "2026-05-27T14:32:45.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
@@ -416,6 +416,18 @@
       "rio_score": 3900.6,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Pit of Saron",
+          "level": 21,
+          "timed": false,
+          "completed_at": "2026-05-31T00:16:33.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-31T00:56:34.000Z"
+        },
+        {
           "dungeon": "Nexus-Point Xenas",
           "level": 20,
           "timed": true,
@@ -440,6 +452,12 @@
           "completed_at": "2026-05-29T16:23:46.000Z"
         },
         {
+          "dungeon": "Windrunner Spire",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-30T23:32:30.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 20,
           "timed": true,
@@ -458,9 +476,9 @@
           "completed_at": "2026-05-29T23:08:18.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 7,
-      "mplus_total_dungeons_this_week": 7,
-      "mplus_highest_key_this_week": 20,
+      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_total_dungeons_this_week": 10,
+      "mplus_highest_key_this_week": 21,
       "mplus_requirement_met": true
     },
     {
