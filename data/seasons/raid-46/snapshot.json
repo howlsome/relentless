@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-22",
-  "fetched_at": "2026-05-31T06:31:39.753Z",
+  "fetched_at": "2026-05-31T17:28:15.561Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -1280,7 +1280,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 70.3,
+              "parse_percentile": 70.6,
               "spec": "Havoc",
               "dps": 102793.81993363,
               "kill_time": "2026-05-27T19:59:01.544Z",
@@ -1334,7 +1334,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 63,
+              "parse_percentile": 63.3,
               "spec": "Havoc",
               "dps": 116794.05701044,
               "kill_time": "2026-05-27T20:19:22.039Z",
@@ -1906,7 +1906,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 34.2,
+              "parse_percentile": 34.5,
               "spec": "Survival",
               "dps": 75265.709605935,
               "kill_time": "2026-05-27T19:04:01.522Z",
@@ -2052,7 +2052,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 78.1,
+              "parse_percentile": 77.7,
               "spec": "Blood",
               "dps": 85172.353512464,
               "kill_time": "2026-05-27T20:19:22.039Z",
@@ -2508,7 +2508,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 37.2,
+              "parse_percentile": 37.1,
               "spec": "Restoration",
               "dps": 2877.9427224364,
               "kill_time": "2026-05-27T19:40:23.449Z",
@@ -2632,7 +2632,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 45,
+              "parse_percentile": 44.7,
               "spec": "Restoration",
               "dps": 3155.7536050358,
               "kill_time": "2026-05-27T19:04:01.522Z",
