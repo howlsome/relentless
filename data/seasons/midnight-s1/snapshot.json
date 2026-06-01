@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-06-01T06:40:21.503Z",
+  "fetched_at": "2026-06-01T14:03:37.794Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -27,6 +27,12 @@
           "completed_at": "2026-05-29T21:08:37.000Z"
         },
         {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-01T11:06:50.000Z"
+        },
+        {
           "dungeon": "Magisters' Terrace",
           "level": 12,
           "timed": true,
@@ -39,8 +45,8 @@
           "completed_at": "2026-05-30T08:11:33.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     },
@@ -76,11 +82,18 @@
       "class": "Paladin",
       "spec": "Retribution",
       "role": "dps",
-      "rio_score": 3229.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3236,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-01T11:06:50.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {
@@ -116,7 +129,7 @@
       "raider_id": "77d3af03-b9b3-4097-b5ad-4c8d5a536966",
       "display_name": "Zya",
       "team_designation": "main",
-      "active_character": "Zy\u00e1layna",
+      "active_character": "Zyálayna",
       "realm": "Draenor",
       "class": "Hunter",
       "spec": "Survival",
@@ -299,10 +312,16 @@
           "level": 11,
           "timed": true,
           "completed_at": "2026-05-31T08:36:56.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-31T07:42:26.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     },
@@ -376,10 +395,16 @@
           "level": 18,
           "timed": true,
           "completed_at": "2026-05-30T14:27:52.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-05-30T19:44:40.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 19,
       "mplus_requirement_met": true
     },
@@ -387,7 +412,7 @@
       "raider_id": "3752b0c0-364e-440f-a08b-78330ed4239c",
       "display_name": "Thomas",
       "team_designation": "alt",
-      "active_character": "Th\u00f4m\u00e2tsch\u00f4",
+      "active_character": "Thômâtschô",
       "realm": "Antonidas",
       "class": "Warrior",
       "spec": "Fury",
@@ -547,10 +572,22 @@
           "level": 20,
           "timed": true,
           "completed_at": "2026-05-29T15:24:04.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-31T09:07:29.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-30T22:09:55.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 12,
+      "mplus_total_dungeons_this_week": 12,
       "mplus_highest_key_this_week": 21,
       "mplus_requirement_met": true
     },

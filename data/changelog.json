@@ -1,12 +1,13 @@
 {
-  "last_updated": "2026-06-01T06:40:21.503Z",
-  "roster_hash": "4f76da144a1e8a6c1d6c40d6d4dfd577f21cd1cac9382d7904abfbe4935efa2a",
+  "last_updated": "2026-06-01T14:03:37.794Z",
+  "roster_hash": "36766864befe66009994687f5a3fada04daa364e9ad0ad991df70e247a3d480b",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
     "region": "eu",
     "mplus_weekly_minimum": 4,
     "mplus_minimum_key_level": 10,
+    "primary_raid_difficulty": "heroic",
     "tracking_start_date": "2026-05-20",
     "mplus_seasons": [
       {
