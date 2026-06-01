@@ -10,8 +10,8 @@
       "active_character": "Hxwl",
       "realm": "Draenor",
       "class": "Shaman",
-      "spec": "",
-      "role": "",
+      "spec": "Elemental",
+      "role": "dps",
       "rio_score": 3321.9,
       "mplus_runs_this_week": [
         {
@@ -74,8 +74,8 @@
       "active_character": "Flukey",
       "realm": "Draenor",
       "class": "Paladin",
-      "spec": "",
-      "role": "",
+      "spec": "Retribution",
+      "role": "dps",
       "rio_score": 3229.4,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
@@ -90,8 +90,8 @@
       "active_character": "Eyeballshurt",
       "realm": "Draenor",
       "class": "DemonHunter",
-      "spec": "",
-      "role": "",
+      "spec": "Havoc",
+      "role": "dps",
       "rio_score": 3091.5,
       "mplus_runs_this_week": [
         {
@@ -116,7 +116,7 @@
       "raider_id": "77d3af03-b9b3-4097-b5ad-4c8d5a536966",
       "display_name": "Zya",
       "team_designation": "main",
-      "active_character": "Zyálayna",
+      "active_character": "Zy\u00e1layna",
       "realm": "Draenor",
       "class": "Hunter",
       "spec": "Survival",
@@ -387,7 +387,7 @@
       "raider_id": "3752b0c0-364e-440f-a08b-78330ed4239c",
       "display_name": "Thomas",
       "team_designation": "alt",
-      "active_character": "Thômâtschô",
+      "active_character": "Th\u00f4m\u00e2tsch\u00f4",
       "realm": "Antonidas",
       "class": "Warrior",
       "spec": "Fury",
@@ -484,8 +484,8 @@
       "active_character": "Gaymeron",
       "realm": "Draenor",
       "class": "Druid",
-      "spec": "",
-      "role": "",
+      "spec": "Guardian",
+      "role": "tank",
       "rio_score": 3900.6,
       "mplus_runs_this_week": [
         {
@@ -561,8 +561,8 @@
       "active_character": "Starfoullah",
       "realm": "Draenor",
       "class": "Druid",
-      "spec": "",
-      "role": "",
+      "spec": "Restoration",
+      "role": "healer",
       "rio_score": 2794,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
@@ -577,8 +577,8 @@
       "active_character": "Quillet",
       "realm": "Tarren Mill",
       "class": "Shaman",
-      "spec": "",
-      "role": "",
+      "spec": "Elemental",
+      "role": "dps",
       "rio_score": 3092.8,
       "mplus_runs_this_week": [
         {
