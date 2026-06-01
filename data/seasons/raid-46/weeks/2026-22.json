@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-22",
-  "fetched_at": "2026-06-01T18:58:09.169Z",
+  "fetched_at": "2026-06-01T21:20:57.454Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -211,9 +211,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 53.6,
+              "parse_percentile": 76.7,
               "spec": "Elemental",
-              "dps": 72299.150428787,
+              "dps": 87024.547779843,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null
@@ -234,12 +234,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 37.6,
+              "spec": "Elemental",
+              "dps": 78723.721088866,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -671,9 +671,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 37.8,
+              "parse_percentile": 93.2,
               "spec": "Shadow",
-              "dps": 14779.644967257,
+              "dps": 30172.036876875,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
@@ -695,12 +695,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 66.7,
               "spec": "Shadow",
-              "dps": 83572.611960297,
+              "dps": 18059.996534377,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null,
               "historical_best_parse": 69.8
             },
@@ -1239,7 +1239,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 43,
+              "parse_percentile": 43.1,
               "spec": "Havoc",
               "dps": 66940.759982069,
               "kill_time": null,
@@ -1314,7 +1314,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 63.3,
+              "parse_percentile": 63,
               "spec": "Havoc",
               "dps": 116794.05701044,
               "kill_time": null,
@@ -1388,12 +1388,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 25.4,
               "spec": "Havoc",
-              "dps": 11.391780360834,
+              "dps": 66637.358315157,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null,
               "historical_best_parse": 6
             },
@@ -1585,12 +1585,12 @@
             "boss_name": "Belo'ren, Child of Al'ar",
             "difficulties": {
               "heroic": {
-                "kill": false,
-                "parse_percentile": null,
-                "spec": null,
-                "dps": null,
+                "kill": true,
+                "parse_percentile": 9.7,
+                "spec": "Vengeance",
+                "dps": 30127.615332242,
                 "kill_time": null,
-                "kill_category": null,
+                "kill_category": "in_raid",
                 "detected_session": null
               },
               "mythic": {
@@ -1749,7 +1749,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 44.7,
+              "parse_percentile": 45,
               "spec": "Survival",
               "dps": 89162.634194514,
               "kill_time": null,
@@ -1774,7 +1774,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 41.2,
+              "parse_percentile": 41,
               "spec": "Survival",
               "dps": 137446.72948152,
               "kill_time": null,
@@ -1824,9 +1824,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 18.8,
+              "parse_percentile": 76.2,
               "spec": "Survival",
-              "dps": 70837.474492858,
+              "dps": 100487.07285207,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null
@@ -1847,12 +1847,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 60.2,
+              "spec": "Survival",
+              "dps": 102499.45402686,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -2008,7 +2008,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 78.1,
+              "parse_percentile": 77.7,
               "spec": "Blood",
               "dps": 85172.353512464,
               "kill_time": null,
@@ -2056,9 +2056,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 30.7,
+              "parse_percentile": 89.6,
               "spec": "Blood",
-              "dps": 35307.479427573,
+              "dps": 54751.200706623,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null
@@ -2079,12 +2079,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 63.8,
+              "spec": "Blood",
+              "dps": 46642.862054454,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -2549,12 +2549,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 29.4,
+              "spec": "Restoration",
+              "dps": 737.29477873648,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -2738,7 +2738,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 87,
+              "parse_percentile": 86.9,
               "spec": "Balance",
               "dps": 115845.37357966,
               "kill_time": null,
@@ -2763,9 +2763,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 70.6,
+              "parse_percentile": 72,
               "spec": "Balance",
-              "dps": 83936.969017992,
+              "dps": 85221.325653718,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null
@@ -2786,12 +2786,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 85,
+              "spec": "Balance",
+              "dps": 93177.368381967,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -3000,12 +3000,12 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 68.4,
               "spec": "Fury",
-              "dps": 62658.908494871,
+              "dps": 80796.514730508,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null,
               "historical_best_parse": 36.1
             },
@@ -3025,12 +3025,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 34.4,
+              "spec": "Fury",
+              "dps": 76405.678670741,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -3115,9 +3115,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 33.3,
+              "parse_percentile": 63.5,
               "spec": "Frost",
-              "dps": 69848.48419925,
+              "dps": 86972.514611784,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
@@ -3239,12 +3239,12 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 44.3,
+              "spec": "Frost",
+              "dps": 82640.910512854,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -3263,12 +3263,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 7.6,
+              "spec": "Frost",
+              "dps": 30743.068066485,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -3501,12 +3501,12 @@
           "boss_name": "Midnight Falls",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "kill": true,
+              "parse_percentile": 77.4,
+              "spec": "Guardian",
+              "dps": 59354.249926424,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null
             },
             "mythic": {
@@ -4028,7 +4028,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 14.7,
+              "parse_percentile": 14.8,
               "spec": "Restoration",
               "dps": 1194.7143863469,
               "kill_time": null,
