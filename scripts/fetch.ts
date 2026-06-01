@@ -32,11 +32,10 @@ import {
 } from '../src/lib/utils/raider-identity.js';
 import {
 	countQualifyingRuns,
-	countTotalDungeonsThisWeek,
 	extractRioScore,
-	extractWeeklyHighestRuns,
 	fetchRioBatch,
 	highestKeyThisWeek,
+	mergeWeeklyRuns,
 } from '../src/lib/utils/rio.js';
 import {
 	DIFFICULTY_IDS,
@@ -260,18 +259,18 @@ async function processMplusSeason({
 			const score = extractRioScore(profile);
 			if (score != null && (rio_score == null || score > rio_score)) rio_score = score;
 
-			const weeklyRuns = extractWeeklyHighestRuns(profile);
+			const weeklyRuns = mergeWeeklyRuns(profile, resetStart);
 			mplus_runs_this_week = [
 				...mplus_runs_this_week,
 				...weeklyRuns.map((r) => ({
 					dungeon: r.dungeon,
 					level: r.mythic_level,
-					timed: r.timed ?? r.num_keystone_upgrades > 0,
+					timed: r.num_keystone_upgrades > 0,
 					completed_at: r.completed_at,
 				})),
 			];
 			mplus_weekly_count += countQualifyingRuns(weeklyRuns, roster.mplus_minimum_key_level);
-			mplus_total_dungeons += countTotalDungeonsThisWeek(profile, resetStart);
+			mplus_total_dungeons += weeklyRuns.length;
 			const highest = highestKeyThisWeek(weeklyRuns);
 			if (highest != null && (mplus_highest_key == null || highest > mplus_highest_key)) {
 				mplus_highest_key = highest;

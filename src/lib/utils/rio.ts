@@ -112,6 +112,14 @@ async function fetchRioForChar(
 
 type RioProfile = Record<string, unknown>;
 
+export interface MplusRun {
+	dungeon: string;
+	mythic_level: number;
+	num_keystone_upgrades: number;
+	completed_at: string;
+	keystone_run_id: number | null;
+}
+
 export function extractRioScore(profile: RioProfile | null): number | null {
 	if (!profile) return null;
 	const season = ((profile.mythic_plus_scores_by_season as Array<{ scores: { all: number } }>) ??
@@ -119,13 +127,34 @@ export function extractRioScore(profile: RioProfile | null): number | null {
 	return season?.scores?.all ?? null;
 }
 
-export function extractWeeklyHighestRuns(profile: RioProfile | null): object[] {
-	return (profile?.mythic_plus_weekly_highest_level_runs as object[]) ?? [];
-}
+/**
+ * Merges mythic_plus_weekly_highest_level_runs (top 10 by level) and
+ * mythic_plus_recent_runs (most recent 10 globally), deduplicates by
+ * keystone_run_id, and filters to the current WoW reset window.
+ *
+ * Raider.io caps each field at 10 entries. Merging both fields gives up to
+ * ~20 unique runs, improving accuracy for raiders who complete more than 10
+ * keys per week.
+ */
+export function mergeWeeklyRuns(profile: RioProfile | null, resetStart: Date): MplusRun[] {
+	if (!profile) return [];
+	const weekly = (profile.mythic_plus_weekly_highest_level_runs as MplusRun[]) ?? [];
+	const recent = (profile.mythic_plus_recent_runs as MplusRun[]) ?? [];
 
-export function countTotalDungeonsThisWeek(profile: RioProfile | null, resetStart: Date): number {
-	const runs = (profile?.mythic_plus_recent_runs as Array<{ completed_at: string }>) ?? [];
-	return runs.filter((r) => new Date(r.completed_at) >= resetStart).length;
+	const seen = new Set<number>();
+	const merged: MplusRun[] = [];
+
+	for (const run of [...weekly, ...recent]) {
+		if (new Date(run.completed_at) < resetStart) continue;
+		const id = run.keystone_run_id;
+		if (id != null) {
+			if (seen.has(id)) continue;
+			seen.add(id);
+		}
+		merged.push(run);
+	}
+
+	return merged;
 }
 
 export function countQualifyingRuns(
