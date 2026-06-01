@@ -145,11 +145,14 @@
 	<header class="raider-header">
 		<div class="raider-header__top">
 			<h1 class="raider-header__name">
-				{#if activeChar}<RoleIcon
-						role={activeChar.role ?? 'dps'}
-						spec={activeChar.spec}
+				{#if activeChar}
+					{@const _ps = getPrimarySpec(activeChar)}
+					<RoleIcon
+						role={_ps?.role ?? activeChar.role ?? 'dps'}
+						spec={_ps?.spec ?? activeChar.spec}
 						charClass={activeChar.class}
-					/>{/if}
+					/>
+				{/if}
 				{raider.display_name}
 			</h1>
 			<TeamDesignationBadge designation={raider.team_designation} />
@@ -230,7 +233,7 @@
 	{#if activeChar}
 		<details class="char-wrapper" open>
 			<summary class="char-wrapper__summary">
-				<RoleIcon role={activeChar.role ?? 'dps'} />
+				<RoleIcon role={getPrimarySpec(activeChar)?.role ?? activeChar.role ?? 'dps'} />
 				<span class="char-wrapper__name">{activeChar.name}</span>
 				<span class="char-wrapper__detail">
 					{activeChar.specs?.length
@@ -355,7 +358,11 @@
 	{#each inactiveChars as char}
 		<details class="char-wrapper">
 			<summary class="char-wrapper__summary">
-				<RoleIcon role={char.role ?? 'dps'} spec={char.spec} charClass={char.class} />
+				<RoleIcon
+					role={getPrimarySpec(char)?.role ?? char.role ?? 'dps'}
+					spec={getPrimarySpec(char)?.spec ?? char.spec}
+					charClass={char.class}
+				/>
 				<span class="char-wrapper__name">{char.name}</span>
 				<span class="char-wrapper__detail">
 					{char.spec}

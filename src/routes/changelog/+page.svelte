@@ -71,7 +71,11 @@
 					bucket.others.push(entry);
 				}
 			}
-			return new Map([...map.entries()].sort((a, b) => b[0].localeCompare(a[0])));
+			const sorted = new Map([...map.entries()].sort((a, b) => b[0].localeCompare(a[0])));
+			for (const bucket of sorted.values()) {
+				bucket.others.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+			}
+			return sorted;
 		},
 	);
 </script>
