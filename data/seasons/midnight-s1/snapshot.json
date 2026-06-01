@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-05-31T17:28:15.561Z",
+  "fetched_at": "2026-06-01T06:40:21.503Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -238,7 +238,7 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 2945.7,
+      "rio_score": 3016.1,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
@@ -271,6 +271,24 @@
           "completed_at": "2026-05-31T09:05:26.000Z"
         },
         {
+          "dungeon": "Skyreach",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-31T18:15:09.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-31T19:37:15.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-05-31T18:59:17.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 11,
           "timed": true,
@@ -281,16 +299,10 @@
           "level": 11,
           "timed": true,
           "completed_at": "2026-05-31T08:36:56.000Z"
-        },
-        {
-          "dungeon": "Skyreach",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-05-31T07:42:26.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 8,
-      "mplus_total_dungeons_this_week": 8,
+      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_total_dungeons_this_week": 10,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     },
@@ -303,7 +315,7 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3693.1,
+      "rio_score": 3721,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
@@ -322,6 +334,18 @@
           "level": 19,
           "timed": true,
           "completed_at": "2026-05-29T14:21:53.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-31T20:29:26.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-05-31T13:22:55.000Z"
         },
         {
           "dungeon": "Seat of the Triumvirate",
@@ -352,18 +376,6 @@
           "level": 18,
           "timed": true,
           "completed_at": "2026-05-30T14:27:52.000Z"
-        },
-        {
-          "dungeon": "Algeth'ar Academy",
-          "level": 17,
-          "timed": true,
-          "completed_at": "2026-05-30T19:44:40.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 12,
-          "timed": true,
-          "completed_at": "2026-05-27T12:44:40.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
@@ -380,13 +392,25 @@
       "class": "Warrior",
       "spec": "Fury",
       "role": "dps",
-      "rio_score": 3349.3,
+      "rio_score": 3366.2,
       "mplus_runs_this_week": [
         {
           "dungeon": "Windrunner Spire",
           "level": 17,
           "timed": true,
           "completed_at": "2026-05-29T09:30:24.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 17,
+          "timed": false,
+          "completed_at": "2026-05-31T18:36:56.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-05-31T20:05:11.000Z"
         },
         {
           "dungeon": "Magisters' Terrace",
@@ -419,8 +443,8 @@
           "completed_at": "2026-05-30T13:44:44.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 6,
-      "mplus_total_dungeons_this_week": 6,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
       "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": true
     },
@@ -434,10 +458,23 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3123.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-31T21:26:55.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-05-31T21:52:25.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -470,6 +507,12 @@
           "completed_at": "2026-05-30T10:56:48.000Z"
         },
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-31T18:48:07.000Z"
+        },
+        {
           "dungeon": "Algeth'ar Academy",
           "level": 20,
           "timed": true,
@@ -488,6 +531,12 @@
           "completed_at": "2026-05-29T16:23:46.000Z"
         },
         {
+          "dungeon": "Algeth'ar Academy",
+          "level": 20,
+          "timed": true,
+          "completed_at": "2026-05-31T19:58:58.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 20,
           "timed": true,
@@ -498,18 +547,6 @@
           "level": 20,
           "timed": true,
           "completed_at": "2026-05-29T15:24:04.000Z"
-        },
-        {
-          "dungeon": "Maisara Caverns",
-          "level": 20,
-          "timed": true,
-          "completed_at": "2026-05-29T17:08:31.000Z"
-        },
-        {
-          "dungeon": "Skyreach",
-          "level": 19,
-          "timed": true,
-          "completed_at": "2026-05-29T23:08:18.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 10,
