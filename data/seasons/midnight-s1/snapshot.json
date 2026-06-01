@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-06-01T14:03:37.794Z",
+  "fetched_at": "2026-06-01T18:58:09.169Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -19,6 +19,12 @@
           "level": 15,
           "timed": true,
           "completed_at": "2026-05-29T21:42:23.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-01T13:55:12.000Z"
         },
         {
           "dungeon": "Magisters' Terrace",
@@ -45,8 +51,8 @@
           "completed_at": "2026-05-30T08:11:33.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 5,
-      "mplus_total_dungeons_this_week": 5,
+      "mplus_weekly_count_at_or_above_minimum": 6,
+      "mplus_total_dungeons_this_week": 6,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     },
@@ -82,8 +88,14 @@
       "class": "Paladin",
       "spec": "Retribution",
       "role": "dps",
-      "rio_score": 3236,
+      "rio_score": 3253.5,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-01T13:55:12.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 14,
@@ -91,9 +103,9 @@
           "completed_at": "2026-06-01T11:06:50.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 14,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": false
     },
     {
@@ -105,7 +117,7 @@
       "class": "DemonHunter",
       "spec": "Havoc",
       "role": "dps",
-      "rio_score": 3091.5,
+      "rio_score": 3117.2,
       "mplus_runs_this_week": [
         {
           "dungeon": "Seat of the Triumvirate",
@@ -118,10 +130,16 @@
           "level": 14,
           "timed": true,
           "completed_at": "2026-05-29T14:51:49.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-01T16:31:36.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
       "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
@@ -417,8 +435,14 @@
       "class": "Warrior",
       "spec": "Fury",
       "role": "dps",
-      "rio_score": 3366.2,
+      "rio_score": 3397,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-06-01T18:06:43.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 17,
@@ -468,8 +492,8 @@
           "completed_at": "2026-05-30T13:44:44.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 8,
-      "mplus_total_dungeons_this_week": 8,
+      "mplus_weekly_count_at_or_above_minimum": 9,
+      "mplus_total_dungeons_this_week": 9,
       "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": true
     },
@@ -495,10 +519,16 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-05-31T21:52:25.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-01T18:19:12.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
       "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },

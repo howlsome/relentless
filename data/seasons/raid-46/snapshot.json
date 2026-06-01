@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-22",
-  "fetched_at": "2026-06-01T14:03:37.794Z",
+  "fetched_at": "2026-06-01T18:58:09.169Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -161,7 +161,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 76.9,
+              "parse_percentile": 76.8,
               "spec": "Elemental",
               "dps": 118145.78044334,
               "kill_time": null,
@@ -186,9 +186,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 58.3,
+              "parse_percentile": 69.2,
               "spec": "Elemental",
-              "dps": 94942.070558334,
+              "dps": 101745.45775903,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
@@ -646,9 +646,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 63.8,
+              "parse_percentile": 77.8,
               "spec": "Shadow",
-              "dps": 17059.127803188,
+              "dps": 18823.947151959,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
@@ -1561,12 +1561,12 @@
             "boss_name": "Crown of the Cosmos",
             "difficulties": {
               "heroic": {
-                "kill": false,
-                "parse_percentile": null,
-                "spec": null,
-                "dps": null,
+                "kill": true,
+                "parse_percentile": 37.7,
+                "spec": "Vengeance",
+                "dps": 38406.799056951,
                 "kill_time": null,
-                "kill_category": null,
+                "kill_category": "in_raid",
                 "detected_session": null
               },
               "mythic": {
@@ -1774,7 +1774,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 41,
+              "parse_percentile": 41.2,
               "spec": "Survival",
               "dps": 137446.72948152,
               "kill_time": null,
@@ -1798,12 +1798,12 @@
           "boss_name": "Crown of the Cosmos",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 35.2,
               "spec": "Survival",
-              "dps": 97062.852743134,
+              "dps": 90483.67189817,
               "kill_time": null,
-              "kill_category": null,
+              "kill_category": "in_raid",
               "detected_session": null,
               "historical_best_parse": 53.2
             },
@@ -2738,9 +2738,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 82.3,
+              "parse_percentile": 87,
               "spec": "Balance",
-              "dps": 110546.85740952,
+              "dps": 115845.37357966,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
@@ -2976,9 +2976,9 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 16.5,
+              "parse_percentile": 61.9,
               "spec": "Fury",
-              "dps": 54078.01175357,
+              "dps": 88221.409719871,
               "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
@@ -4558,7 +4558,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 31,
+              "parse_percentile": 30.9,
               "spec": "Elemental",
               "dps": 85225.155475286,
               "kill_time": null,
