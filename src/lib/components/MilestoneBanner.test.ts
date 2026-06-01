@@ -1,5 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import type { ComplianceWeek } from '$lib/types/compliance.js';
 import { computeBossMilestones, computeMplusMilestones } from '$lib/utils/milestones.js';
 import MilestoneBanner from './MilestoneBanner.svelte';
 
@@ -62,7 +63,7 @@ describe('computeBossMilestones', () => {
 
 describe('computeMplusMilestones', () => {
 	function compliance(
-		weeks: any[],
+		weeks: ComplianceWeek[],
 		record = { count: 14, week: '2026-17' },
 		recordKey = { level: 18, week: '2026-15' },
 	) {

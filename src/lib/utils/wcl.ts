@@ -256,7 +256,7 @@ export async function fetchHistoricalEncounterRankings(
 	items: Array<{ player: PlayerLike; char: CharLike }>,
 	bossIds: number[],
 	diffPairs: Array<[string, number]>,
-	startTimeMs?: number,
+	_startTimeMs?: number,
 ): Promise<HistoricalRankings> {
 	const results: HistoricalRankings = new Map();
 
@@ -301,7 +301,7 @@ export async function fetchHistoricalEncounterRankings(
 			const { player, char } = chunk[j];
 			const rid = player.raider_id;
 			if (!results.has(rid)) results.set(rid, {});
-			const raiderMap = results.get(rid)!;
+			const raiderMap = results.get(rid) as Record<number, Record<string, EncounterKill[]>>;
 
 			const charData = dataObj?.[`p${j}`]?.character;
 			if (!charData) {

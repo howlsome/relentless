@@ -60,7 +60,7 @@
 		);
 	}
 
-	function buildExemptionSnippet(warning: LockoutWarning): string {
+	function buildExemptionSnippet(_warning: LockoutWarning): string {
 		return JSON.stringify(
 			{
 				week: '« fill in ISO week »',

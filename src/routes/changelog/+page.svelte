@@ -62,7 +62,10 @@
 			for (const entry of filteredEntries()) {
 				const week = entry.week;
 				if (!map.has(week)) map.set(week, { others: [], blockingGroups: new Map() });
-				const bucket = map.get(week)!;
+				const bucket = map.get(week) as {
+					others: ChangelogEntry[];
+					blockingGroups: Map<string, BlockingPugEntry[]>;
+				};
 				if (entry.event === 'blocking_pug') {
 					const key = entry.raider_id;
 					if (!bucket.blockingGroups.has(key)) bucket.blockingGroups.set(key, []);

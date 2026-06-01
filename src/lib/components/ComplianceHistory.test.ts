@@ -1,8 +1,9 @@
 import { render } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import type { ComplianceWeek } from '$lib/types/compliance.js';
 import ComplianceHistory from './ComplianceHistory.svelte';
 
-function compliance(weeks: any[]) {
+function compliance(weeks: ComplianceWeek[]) {
 	return {
 		current_streak: 2,
 		longest_streak: 5,

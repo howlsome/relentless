@@ -138,7 +138,7 @@
 					</div>
 					{#if browser}
 						<div class="prog-diff-toggle" role="group" aria-label="Progression difficulty">
-							{#each (primaryRaidDifficulty === 'mythic' ? [['mythic', 'M'], ['heroic', 'H']] : [['heroic', 'H'], ['mythic', 'M']]) as [val, short]}
+							{#each primaryRaidDifficulty === 'mythic' ? [['mythic', 'M'], ['heroic', 'H']] : [['heroic', 'H'], ['mythic', 'M']] as [val, short]}
 								<button
 									type="button"
 									class="prog-diff-btn {progDifficulty === val ? 'prog-diff-btn--active' : ''}"

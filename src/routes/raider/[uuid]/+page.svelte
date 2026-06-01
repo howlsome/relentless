@@ -120,7 +120,7 @@
 		return fmtDate(entry?.from ?? null);
 	}
 
-	function bestParseForChar(charName: string): string | null {
+	function bestParseForChar(_charName: string): string | null {
 		if (!raiderRaidData) return null;
 		const parses = raiderRaidData.raid_parses.flatMap((bp) => {
 			const h = bp.difficulties.heroic?.parse_percentile;
@@ -251,7 +251,7 @@
 					<summary class="zone-wrapper__summary">Raid — {raidZone.meta.name}</summary>
 					<section class="panel zone-panel" aria-label="Raid — {raidZone.meta.name}">
 						<div class="difficulty-toggle" role="group" aria-label="Select difficulty">
-							{#each (primaryRaidDifficulty === 'mythic' ? [['mythic', 'Mythic'], ['heroic', 'Heroic']] : [['heroic', 'Heroic'], ['mythic', 'Mythic']]) as [val, label]}
+							{#each primaryRaidDifficulty === 'mythic' ? [['mythic', 'Mythic'], ['heroic', 'Heroic']] : [['heroic', 'Heroic'], ['mythic', 'Mythic']] as [val, label]}
 								<button
 									type="button"
 									class="filter-btn {difficulty === val ? 'filter-btn--active' : ''}"

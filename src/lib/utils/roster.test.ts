@@ -94,7 +94,7 @@ describe('getEffectiveStartDate', () => {
 
 	it('falls back to roster top-level date when player has none', () => {
 		const player = makePlayer();
-		delete (player as any).tracking_start_date;
+		delete (player as unknown as Record<string, unknown>).tracking_start_date;
 		const roster = makeRoster([], { tracking_start_date: '2026-02-01' });
 		expect(getEffectiveStartDate(player, roster)).toBe('2026-02-01');
 	});
@@ -102,9 +102,9 @@ describe('getEffectiveStartDate', () => {
 	it('returns current date and logs warning when neither is set', () => {
 		const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 		const player = makePlayer();
-		delete (player as any).tracking_start_date;
+		delete (player as unknown as Record<string, unknown>).tracking_start_date;
 		const roster = makeRoster();
-		delete (roster as any).tracking_start_date;
+		delete (roster as unknown as Record<string, unknown>).tracking_start_date;
 		const result = getEffectiveStartDate(player, roster);
 		expect(result).toMatch(/^\d{4}-\d{2}-\d{2}$/);
 		expect(spy).toHaveBeenCalled();

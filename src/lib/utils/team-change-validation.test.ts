@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import type { Roster } from '$lib/types/roster.js';
+import type { Player, Roster } from '$lib/types/roster.js';
 import { checkDesignationParity, validateTeamChange } from './team-change-validation.js';
 
-function makeRoster(players: any[] = []): Roster {
+function makeRoster(players: Player[] = []): Roster {
 	return {
 		app_name: 'Test',
 		realm: 'D',

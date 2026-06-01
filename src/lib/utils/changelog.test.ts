@@ -3,6 +3,7 @@
  * Tests generateChangelogEntries from raider-identity.mjs.
  */
 import { describe, expect, it } from 'vitest';
+import type { Roster } from '$lib/types/roster.js';
 import { generateChangelogEntries } from './raider-identity.js';
 
 const TS = '2026-05-13T06:01:00Z';
@@ -31,19 +32,19 @@ function player(id: string, overrides: Record<string, unknown> = {}) {
 }
 
 function roster(players: unknown[]) {
-	return { players, tracking_start_date: '2026-01-01' };
+	return { players, tracking_start_date: '2026-01-01' } as unknown as Roster;
 }
 
 describe('generateChangelogEntries', () => {
 	it('identical rosters → zero entries', () => {
 		const r = roster([player('A')]);
-		expect(generateChangelogEntries(r as any, r as any, TS, WEEK)).toHaveLength(0);
+		expect(generateChangelogEntries(r, r, TS, WEEK)).toHaveLength(0);
 	});
 
 	it('adding a new raider → joined entry', () => {
 		const prev = roster([]);
 		const cur = roster([player('A')]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		expect(entries).toHaveLength(1);
 		expect(entries[0].event).toBe('joined');
 		expect(entries[0].raider_id).toBe('A');
@@ -60,7 +61,7 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		expect(entries.some((e) => e.event === 'left')).toBe(true);
 	});
 
@@ -75,12 +76,13 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		const tc = entries.find((e) => e.event === 'team_changed');
 		expect(tc).toBeTruthy();
-		expect((tc as any).reason).toBe('Strong perf');
-		expect((tc as any).from).toBe('alt');
-		expect((tc as any).to).toBe('main');
+		const tcE = tc as Record<string, unknown>;
+		expect(tcE.reason).toBe('Strong perf');
+		expect(tcE.from).toBe('alt');
+		expect(tcE.to).toBe('main');
 	});
 
 	it('team_changed with blank reason → "(no reason given)" recorded', () => {
@@ -94,9 +96,9 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		const tc = entries.find((e) => e.event === 'team_changed');
-		expect((tc as any)?.reason).toBe('(no reason given)');
+		expect((tc as Record<string, unknown>)?.reason).toBe('(no reason given)');
 	});
 
 	it('swapping active character → rerolled entry', () => {
@@ -115,11 +117,12 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		const r = entries.find((e) => e.event === 'rerolled');
 		expect(r).toBeTruthy();
-		expect((r as any).from_character).toBe('OldChar');
-		expect((r as any).to_character).toBe('NewChar');
+		const rE = r as Record<string, unknown>;
+		expect(rE.from_character).toBe('OldChar');
+		expect(rE.to_character).toBe('NewChar');
 	});
 
 	it('spec change with same role → spec_changed entry', () => {
@@ -137,7 +140,7 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		expect(entries.some((e) => e.event === 'spec_changed')).toBe(true);
 	});
 
@@ -156,14 +159,14 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		expect(entries.some((e) => e.event === 'role_changed')).toBe(true);
 	});
 
 	it('each generated entry has a unique id', () => {
 		const prev = roster([]);
 		const cur = roster([player('A'), player('B')]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		const ids = new Set(entries.map((e) => e.id));
 		expect(ids.size).toBe(entries.length);
 	});
@@ -177,19 +180,19 @@ describe('generateChangelogEntries', () => {
 				],
 			}),
 		]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
-		expect((entries[0] as any)?.note).toBe('Returning after Season 1 break');
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
+		expect((entries[0] as Record<string, unknown>)?.note).toBe('Returning after Season 1 break');
 	});
 
 	it('multiple changes → multiple independent entries', () => {
 		const prev = roster([]);
 		const cur = roster([player('X'), player('Y')]);
-		const entries = generateChangelogEntries(cur as any, prev as any, TS, WEEK);
+		const entries = generateChangelogEntries(cur, prev, TS, WEEK);
 		expect(entries.length).toBeGreaterThanOrEqual(2);
 	});
 
 	it('null prevRoster (first run) → no entries generated', () => {
 		const cur = roster([player('A')]);
-		expect(generateChangelogEntries(cur as any, null as any, TS, WEEK)).toHaveLength(0);
+		expect(generateChangelogEntries(cur, null, TS, WEEK)).toHaveLength(0);
 	});
 });

@@ -18,6 +18,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import type { Character, Player } from '../src/lib/types/roster.js';
 import { getActiveCharacters } from '../src/lib/utils/raider-identity.js';
 import {
 	DIFFICULTY_IDS,
@@ -86,7 +87,7 @@ async function main() {
 		(z: { name: string }) => !z.name.toLowerCase().includes('mythic+'),
 	);
 
-	const activeItems: Array<{ player: object; char: object }> = [];
+	const activeItems: Array<{ player: Player; char: Character }> = [];
 	for (const player of roster.players) {
 		if (player.status !== 'active') continue;
 		for (const char of getActiveCharacters(player)) {
@@ -94,7 +95,7 @@ async function main() {
 		}
 	}
 	console.log(
-		`[backfill] ${activeItems.length} character(s) across ${new Set(activeItems.map((i: any) => i.player.raider_id)).size} raider(s).`,
+		`[backfill] ${activeItems.length} character(s) across ${new Set(activeItems.map(({ player }) => player.raider_id)).size} raider(s).`,
 	);
 
 	const difficulties: string[] = roster.raid_difficulties ?? ['heroic', 'mythic'];
@@ -183,11 +184,11 @@ async function main() {
 				raider_id: player.raider_id,
 				display_name: player.display_name,
 				team_designation: player.team_designation,
-				active_character: (activeChar as any)?.name ?? '',
-				realm: (activeChar as any)?.realm ?? '',
-				class: (activeChar as any)?.class ?? '',
-				spec: (activeChar as any)?.spec ?? '',
-				role: (activeChar as any)?.role ?? '',
+				active_character: activeChar?.name ?? '',
+				realm: activeChar?.realm ?? '',
+				class: activeChar?.class ?? '',
+				spec: activeChar?.spec ?? '',
+				role: activeChar?.role ?? '',
 				raid_parses,
 				lockout_warnings: [],
 				safe_pug_kills: [],
