@@ -17,6 +17,7 @@
 			seasonsIndex: SeasonsIndex;
 			mplusSnapshot: MplusWeeklyFile | null;
 			mplusCompliance: ComplianceFile | null;
+			primaryRaidDifficulty: 'heroic' | 'mythic';
 			raidZones: Array<{
 				meta: object;
 				snapshot: RaidWeeklyFile | null;
@@ -26,7 +27,8 @@
 		};
 	} = $props();
 
-	const { roster, seasonsIndex, mplusSnapshot, mplusCompliance, raidZones } = $derived(data);
+	const { roster, seasonsIndex, mplusSnapshot, mplusCompliance, raidZones, primaryRaidDifficulty } =
+		$derived(data);
 
 	// Pick the live non-beta, non-composite zone with the most individual bosses (raid-46).
 	type MetaShape = { name?: string; bosses?: Array<{ id: number; name: string }> };
@@ -89,11 +91,11 @@
 
 	const raidRaiders = $derived(primaryRaidZone?.snapshot?.raiders ?? []);
 
-	// Progression card difficulty — persisted in localStorage so officers can switch
-	let progDifficulty = $state<'heroic' | 'mythic'>('heroic');
+	// Progression card difficulty — defaults to roster config, persisted in localStorage
+	let progDifficulty = $state<'heroic' | 'mythic'>(primaryRaidDifficulty);
 	if (browser) {
 		const stored = localStorage.getItem('prog-difficulty');
-		if (stored === 'mythic') progDifficulty = 'mythic';
+		if (stored === 'heroic' || stored === 'mythic') progDifficulty = stored;
 	}
 	function setProgDifficulty(d: 'heroic' | 'mythic') {
 		progDifficulty = d;
@@ -136,7 +138,7 @@
 					</div>
 					{#if browser}
 						<div class="prog-diff-toggle" role="group" aria-label="Progression difficulty">
-							{#each [['heroic', 'H'], ['mythic', 'M']] as [val, short]}
+							{#each (primaryRaidDifficulty === 'mythic' ? [['mythic', 'M'], ['heroic', 'H']] : [['heroic', 'H'], ['mythic', 'M']]) as [val, short]}
 								<button
 									type="button"
 									class="prog-diff-btn {progDifficulty === val ? 'prog-diff-btn--active' : ''}"

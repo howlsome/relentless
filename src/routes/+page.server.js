@@ -38,5 +38,11 @@ export function load() {
 		if (meta) raidZones.push({ meta, snapshot, season_id: zone.season_id, label: zone.label });
 	}
 
-	return { roster, mplusSnapshot, mplusCompliance, raidZones };
+	return {
+		roster,
+		mplusSnapshot,
+		mplusCompliance,
+		raidZones,
+		primaryRaidDifficulty: roster.primary_raid_difficulty ?? 'heroic',
+	};
 }

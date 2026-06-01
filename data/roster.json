@@ -4,6 +4,7 @@
   "region": "eu",
   "mplus_weekly_minimum": 4,
   "mplus_minimum_key_level": 10,
+  "primary_raid_difficulty": "heroic",
   "tracking_start_date": "2026-05-20",
   "mplus_seasons": [
     {

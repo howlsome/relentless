@@ -42,6 +42,7 @@
 				dungeon_count: number;
 			} | null;
 			weeklyMinimum: number;
+			primaryRaidDifficulty: 'heroic' | 'mythic';
 			weeklyHistoryByDiff: Record<string, Record<number, (number | null)[]>>;
 			wowanalyzerByDiff: Record<string, Record<number, (string | null)[]>>;
 			offspecWeeklyHistoryByDiff: Record<string, Record<string, Record<number, (number | null)[]>>>;
@@ -56,14 +57,15 @@
 		primaryRaidZone,
 		activeSeason,
 		weeklyMinimum,
+		primaryRaidDifficulty,
 		weeklyHistoryByDiff,
 		wowanalyzerByDiff,
 		offspecWeeklyHistoryByDiff,
 		offspecWowanalyzerByDiff,
 	} = $derived(data);
 
-	// Difficulty toggle — persisted in localStorage
-	let difficulty = $state<'heroic' | 'mythic'>('mythic');
+	// Difficulty toggle — defaults to roster config, persisted in localStorage
+	let difficulty = $state<'heroic' | 'mythic'>(primaryRaidDifficulty);
 
 	const weeklyHistory = $derived(weeklyHistoryByDiff?.[difficulty] ?? {});
 	const wowanalyzerUrls = $derived(wowanalyzerByDiff?.[difficulty] ?? {});
@@ -249,7 +251,7 @@
 					<summary class="zone-wrapper__summary">Raid — {raidZone.meta.name}</summary>
 					<section class="panel zone-panel" aria-label="Raid — {raidZone.meta.name}">
 						<div class="difficulty-toggle" role="group" aria-label="Select difficulty">
-							{#each [['heroic', 'Heroic'], ['mythic', 'Mythic']] as [val, label]}
+							{#each (primaryRaidDifficulty === 'mythic' ? [['mythic', 'Mythic'], ['heroic', 'Heroic']] : [['heroic', 'Heroic'], ['mythic', 'Mythic']]) as [val, label]}
 								<button
 									type="button"
 									class="filter-btn {difficulty === val ? 'filter-btn--active' : ''}"

@@ -122,6 +122,7 @@ export interface Roster {
 	region: string;
 	mplus_weekly_minimum: number;
 	mplus_minimum_key_level: number;
+	primary_raid_difficulty?: 'heroic' | 'mythic';
 	tracking_start_date: string;
 	mplus_seasons: MplusSeason[];
 	raid_difficulties: string[];

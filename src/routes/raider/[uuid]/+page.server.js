@@ -198,6 +198,7 @@ export function load({ params }) {
 		raiderHistory,
 		activeSeason,
 		weeklyMinimum: roster.mplus_weekly_minimum ?? 4,
+		primaryRaidDifficulty: roster.primary_raid_difficulty ?? 'heroic',
 		weeklyHistoryByDiff,
 		wowanalyzerByDiff,
 		offspecWeeklyHistoryByDiff,
