@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-22",
-  "fetched_at": "2026-06-02T06:35:06.971Z",
+  "fetched_at": "2026-06-02T12:25:25.750Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -12,8 +12,20 @@
       "class": "Shaman",
       "spec": "Elemental",
       "role": "dps",
-      "rio_score": 3321.9,
+      "rio_score": 3339,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-02T11:36:59.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-01T21:09:55.000Z"
+        },
         {
           "dungeon": "Skyreach",
           "level": 15,
@@ -51,9 +63,9 @@
           "completed_at": "2026-05-30T08:11:33.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 6,
-      "mplus_total_dungeons_this_week": 6,
-      "mplus_highest_key_this_week": 15,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
     {
@@ -68,15 +80,21 @@
       "rio_score": 3641.3,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-01T21:09:55.000Z"
+        },
+        {
           "dungeon": "Skyreach",
           "level": 15,
           "timed": true,
           "completed_at": "2026-05-29T21:42:23.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 15,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": false
     },
     {
@@ -152,8 +170,14 @@
       "class": "Hunter",
       "spec": "Survival",
       "role": "dps",
-      "rio_score": 3303.4,
+      "rio_score": 3351.4,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-02T11:36:59.000Z"
+        },
         {
           "dungeon": "Maisara Caverns",
           "level": 16,
@@ -171,6 +195,12 @@
           "level": 15,
           "timed": true,
           "completed_at": "2026-05-28T09:35:49.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-02T10:42:50.000Z"
         },
         {
           "dungeon": "Seat of the Triumvirate",
@@ -191,8 +221,8 @@
           "completed_at": "2026-05-27T11:44:12.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 6,
-      "mplus_total_dungeons_this_week": 6,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
       "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
@@ -207,6 +237,12 @@
       "role": "tank",
       "rio_score": 3234.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-01T21:09:55.000Z"
+        },
         {
           "dungeon": "Skyreach",
           "level": 15,
@@ -238,9 +274,9 @@
           "completed_at": "2026-05-28T19:38:15.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 5,
-      "mplus_total_dungeons_this_week": 5,
-      "mplus_highest_key_this_week": 15,
+      "mplus_weekly_count_at_or_above_minimum": 6,
+      "mplus_total_dungeons_this_week": 6,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
     {
