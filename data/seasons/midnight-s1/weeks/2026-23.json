@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-03T09:47:43.286Z",
+  "fetched_at": "2026-06-03T18:30:27.583Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -173,10 +173,17 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3177.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-03T16:40:11.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -189,10 +196,17 @@
       "spec": "Guardian",
       "role": "tank",
       "rio_score": 3900.6,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-03T15:59:05.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
