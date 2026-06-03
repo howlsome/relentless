@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-22",
-  "fetched_at": "2026-06-02T18:20:05.791Z",
+  "fetched_at": "2026-06-03T06:38:33.748Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -3565,7 +3565,7 @@
                 "kill": false,
                 "parse_percentile": null,
                 "spec": "Restoration",
-                "dps": 81301.377742392,
+                "dps": 106436.12762459,
                 "kill_time": null,
                 "kill_category": null,
                 "detected_session": null
