@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-03T18:30:27.583Z",
+  "fetched_at": "2026-06-04T06:35:04.333Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -198,15 +198,27 @@
       "rio_score": 3900.6,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Maisara Caverns",
+          "level": 20,
+          "timed": false,
+          "completed_at": "2026-06-03T21:06:05.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-03T15:59:05.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-03T16:40:56.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 12,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 20,
       "mplus_requirement_met": false
     },
     {
