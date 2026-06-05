@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-04T17:55:44.574Z",
+  "fetched_at": "2026-06-05T06:33:33.772Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -214,6 +214,24 @@
       "rio_score": 3177.1,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Pit of Saron",
+          "level": 15,
+          "timed": false,
+          "completed_at": "2026-06-04T20:57:15.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-04T19:42:47.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-04T18:57:20.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 13,
           "timed": true,
@@ -224,12 +242,18 @@
           "level": 13,
           "timed": true,
           "completed_at": "2026-06-03T16:40:11.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-04T18:14:43.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 13,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 6,
+      "mplus_total_dungeons_this_week": 6,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "9b9364da-6525-4693-80f2-e6a28e995b4f",
