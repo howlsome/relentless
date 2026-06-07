@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-06T17:31:24.439Z",
+  "fetched_at": "2026-06-07T06:32:34.754Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -243,13 +243,43 @@
       "class": "Mage",
       "spec": "Frost",
       "role": "dps",
-      "rio_score": 3177.1,
+      "rio_score": 3200.9,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-06T23:10:45.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-06T21:44:12.000Z"
+        },
         {
           "dungeon": "Pit of Saron",
           "level": 15,
           "timed": false,
           "completed_at": "2026-06-04T20:57:15.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 15,
+          "timed": false,
+          "completed_at": "2026-06-06T20:33:22.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-06T22:29:18.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-06T19:39:07.000Z"
         },
         {
           "dungeon": "Magisters' Terrace",
@@ -264,6 +294,12 @@
           "completed_at": "2026-06-04T18:57:20.000Z"
         },
         {
+          "dungeon": "Skyreach",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-06T18:59:22.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 13,
           "timed": true,
@@ -273,18 +309,12 @@
           "dungeon": "Magisters' Terrace",
           "level": 13,
           "timed": true,
-          "completed_at": "2026-06-03T16:40:11.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 13,
-          "timed": true,
           "completed_at": "2026-06-04T18:14:43.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 6,
-      "mplus_total_dungeons_this_week": 6,
-      "mplus_highest_key_this_week": 15,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
     {
