@@ -3,8 +3,7 @@
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
 	import type { MplusRaiderEntry, MplusWeeklyFile } from '$lib/types/weekly.js';
 	import { fmtKey, fmtWeekLabel, getSeasonWeek, getWowClassColor } from '$lib/utils/format.js';
-	import { getKeyLevelStyle } from '$lib/utils/parse-colours.js';
-	import RioScoreBadge from './RioScoreBadge.svelte';
+	import { getKeyLevelStyle, getRioScoreStyle } from '$lib/utils/parse-colours.js';
 	import RoleIcon from './RoleIcon.svelte';
 	import TeamDesignationBadge from './TeamDesignationBadge.svelte';
 
@@ -81,6 +80,7 @@
 						{@const minimum = roster.mplus_weekly_minimum ?? 4}
 						{@const ks = getKeyLevelStyle(raider.mplus_highest_key_this_week)}
 						{@const status = reqStatus(keyCount, minimum)}
+						{@const rioStyle = getRioScoreStyle(raider.rio_score)}
 						<tr>
 							<td data-label="Raider" class="raider-col">
 								<div class="raider-cell">
@@ -100,20 +100,39 @@
 									>
 								</div>
 							</td>
-							<td data-label="4× +10 or higher" class="status-col">
-								<span
-									class="req-emoji"
-									aria-label={status.label}
-									title={status.label}
-									style="background:{status.bg};color:{status.fg}">{status.emoji}</span
-								>
+							<td
+								data-label="4× +10 or higher"
+								class="status-col"
+								style="background:{status.bg};color:{status.fg}"
+								aria-label={status.label}
+								title={status.label}
+							>
+								<span class="cell-emoji">{status.emoji}</span>
 							</td>
-							<td data-label="Highest key" class="centered-col">
-								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}"
-									>{fmtKey(raider.mplus_highest_key_this_week)}</span
-								>
+							<td
+								data-label="Highest key"
+								class="centered-col"
+								style="background:{ks.bgHex};color:{ks.textHex}"
+							>
+								{fmtKey(raider.mplus_highest_key_this_week)}
 							</td>
-							<td data-label="RIO" class="centered-col"><RioScoreBadge score={raider.rio_score} /></td>
+							<td
+								data-label="RIO"
+								class="centered-col"
+								style={raider.rio_score != null
+									? `background:${rioStyle.bgHex};color:${rioStyle.textHex}`
+									: ''}
+								aria-label="Raider.io score: {raider.rio_score ?? 'unavailable'}"
+								title={raider.rio_score != null
+									? `Raider.io score — ${rioStyle.label}`
+									: 'Raider.io score unavailable'}
+							>
+								{#if raider.rio_score != null}
+									{raider.rio_score.toLocaleString()}
+								{:else}
+									<span class="cell-empty">—</span>
+								{/if}
+							</td>
 						</tr>
 					{:else}
 						<tr>
@@ -208,28 +227,16 @@
 		width: 8rem;
 		min-width: 8rem;
 		white-space: nowrap;
+		font-weight: 700;
 	}
 
-	.req-emoji {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
+	.cell-emoji {
 		font-size: 1.25rem;
 		line-height: 1;
-		padding: 0.2em 0.5em;
-		border-radius: 0.3em;
 	}
 
-	.count-badge {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.2em 0.55em;
-		border-radius: 0.3em;
-		font-weight: 700;
-		font-size: 1rem;
-		min-width: 2rem;
-		line-height: 1.2;
+	.cell-empty {
+		opacity: 0.5;
 	}
 
 	.status-badge--inactive {
