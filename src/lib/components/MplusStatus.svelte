@@ -70,8 +70,8 @@
 					<tr>
 						<th scope="col" class="raider-col">Raider</th>
 						<th scope="col" class="status-col">4× +10 or higher</th>
-						<th scope="col">Highest key</th>
-						<th scope="col">RIO</th>
+						<th scope="col" class="centered-col">Highest key</th>
+						<th scope="col" class="centered-col">RIO</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -108,12 +108,12 @@
 									style="background:{status.bg};color:{status.fg}">{status.emoji}</span
 								>
 							</td>
-							<td data-label="Highest key">
+							<td data-label="Highest key" class="centered-col">
 								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}"
 									>{fmtKey(raider.mplus_highest_key_this_week)}</span
 								>
 							</td>
-							<td data-label="RIO"><RioScoreBadge score={raider.rio_score} /></td>
+							<td data-label="RIO" class="centered-col"><RioScoreBadge score={raider.rio_score} /></td>
 						</tr>
 					{:else}
 						<tr>
@@ -196,6 +196,10 @@
 		text-align: center;
 		width: 10rem;
 		white-space: nowrap;
+	}
+
+	.centered-col {
+		text-align: center;
 	}
 
 	.req-emoji {
