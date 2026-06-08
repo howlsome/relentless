@@ -184,7 +184,8 @@
 
 	.status-col {
 		text-align: center;
-		width: 3rem;
+		width: 10rem;
+		white-space: nowrap;
 	}
 
 	.req-emoji {
