@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-07T17:34:05.932Z",
+  "fetched_at": "2026-06-08T06:34:49.429Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -216,12 +216,18 @@
           "level": 19,
           "timed": true,
           "completed_at": "2026-06-07T09:00:52.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-07T20:48:17.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 20,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "7ad5ac04-e4cb-4ebd-bee2-240b4a9275c9",

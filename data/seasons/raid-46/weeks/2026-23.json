@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-23",
-  "fetched_at": "2026-06-07T17:34:05.932Z",
+  "fetched_at": "2026-06-08T06:34:49.429Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -214,11 +214,9 @@
               "parse_percentile": 76,
               "spec": "Elemental",
               "dps": 87024.547779843,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -240,11 +238,9 @@
               "parse_percentile": 43.3,
               "spec": "Elemental",
               "dps": 81427.147917898,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -266,11 +262,9 @@
               "parse_percentile": 56.4,
               "spec": "Elemental",
               "dps": 72414.102638859,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 68.4
             },
             "mythic": {
@@ -680,11 +674,9 @@
               "parse_percentile": 93,
               "spec": "Shadow",
               "dps": 30172.036876875,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5,
               "historical_best_parse": 97.8
             },
             "mythic": {
@@ -707,11 +699,9 @@
               "parse_percentile": 69.2,
               "spec": "Shadow",
               "dps": 18327.846159394,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18,
               "historical_best_parse": 69.8
             },
             "mythic": {
@@ -734,11 +724,9 @@
               "parse_percentile": 90.4,
               "spec": "Shadow",
               "dps": 21675.672348669,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 97.9
             },
             "mythic": {
@@ -921,11 +909,9 @@
               "parse_percentile": 87,
               "spec": "Retribution",
               "dps": 101546.67814693,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -947,11 +933,9 @@
               "parse_percentile": 66.9,
               "spec": "Retribution",
               "dps": 99191.698776898,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -973,11 +957,9 @@
               "parse_percentile": 83.3,
               "spec": "Retribution",
               "dps": 87452.69640631,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 78.2
             },
             "mythic": {
@@ -1385,11 +1367,9 @@
               "parse_percentile": 50.3,
               "spec": "Havoc",
               "dps": 70606.365606722,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5,
               "historical_best_parse": 1
             },
             "mythic": {
@@ -1412,11 +1392,9 @@
               "parse_percentile": 25.6,
               "spec": "Havoc",
               "dps": 66637.358315157,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18,
               "historical_best_parse": 6
             },
             "mythic": {
@@ -1439,11 +1417,9 @@
               "parse_percentile": 62.1,
               "spec": "Havoc",
               "dps": 73036.044580474,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 41.8
             },
             "mythic": {
@@ -1851,11 +1827,9 @@
               "parse_percentile": 84.1,
               "spec": "Survival",
               "dps": 105962.76832636,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -1877,11 +1851,9 @@
               "parse_percentile": 60,
               "spec": "Survival",
               "dps": 102499.45402686,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -1903,11 +1875,9 @@
               "parse_percentile": 70.4,
               "spec": "Survival",
               "dps": 90552.675284012,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 46
             },
             "mythic": {
@@ -2089,11 +2059,9 @@
               "parse_percentile": 89.4,
               "spec": "Blood",
               "dps": 54751.200706623,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -2115,11 +2083,9 @@
               "parse_percentile": 78.2,
               "spec": "Blood",
               "dps": 50337.244817284,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -2141,11 +2107,9 @@
               "parse_percentile": 95.6,
               "spec": "Blood",
               "dps": 54268.000546695,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -2565,11 +2529,9 @@
               "parse_percentile": 43.8,
               "spec": "Restoration",
               "dps": 1312.3074460849,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -2591,11 +2553,9 @@
               "parse_percentile": 29.2,
               "spec": "Restoration",
               "dps": 737.29477873648,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -2617,11 +2577,9 @@
               "parse_percentile": 46.5,
               "spec": "Restoration",
               "dps": 3518.908598432,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -3046,11 +3004,9 @@
               "parse_percentile": 80.5,
               "spec": "Fury",
               "dps": 87684.164167731,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5,
               "historical_best_parse": 36.1
             },
             "mythic": {
@@ -3073,11 +3029,9 @@
               "parse_percentile": 38.8,
               "spec": "Fury",
               "dps": 78569.944823109,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -3099,11 +3053,9 @@
               "parse_percentile": 67.8,
               "spec": "Fury",
               "dps": 74915.239687198,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 26.2
             },
             "mythic": {
@@ -3291,11 +3243,9 @@
               "parse_percentile": 63.8,
               "spec": "Frost",
               "dps": 93633.255148798,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -3317,11 +3267,9 @@
               "parse_percentile": 60.8,
               "spec": "Frost",
               "dps": 89349.778210538,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -3343,11 +3291,9 @@
               "parse_percentile": 80.6,
               "spec": "Frost",
               "dps": 92851.207905538,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 72.6
             },
             "mythic": {
@@ -3535,11 +3481,9 @@
               "parse_percentile": 99.8,
               "spec": "Guardian",
               "dps": 93337.489979514,
-              "kill_time": "2026-06-03T18:51:39.174Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 5
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -3561,11 +3505,9 @@
               "parse_percentile": 98.9,
               "spec": "Guardian",
               "dps": 81042.133062581,
-              "kill_time": "2026-06-03T19:30:44.825Z",
+              "kill_time": null,
               "kill_category": "in_raid",
-              "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 18
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
@@ -3587,11 +3529,9 @@
               "parse_percentile": 99.5,
               "spec": "Guardian",
               "dps": 77796.062140973,
-              "kill_time": "2026-06-03T18:34:15.488Z",
+              "kill_time": null,
               "kill_category": "in_raid",
               "detected_session": null,
-              "wcl_report_code": "LrWGc7AYwkJpDRfF",
-              "wcl_fight_id": 2,
               "historical_best_parse": 74
             },
             "mythic": {
