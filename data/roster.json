@@ -63,7 +63,7 @@
     "raid-46": {
       "heroic": "progression",
       "mythic": "progression",
-      "mythic_start_date": null
+      "mythic_start_date": "2026-06-08"
     }
   },
   "players": [
@@ -623,7 +623,7 @@
     },
     {
       "raider_id": "f479633a-cbd8-4a19-9e73-7bb92bdb03fa",
-      "display_name": "Apocalypseki",
+      "display_name": "Apo",
       "status": "active",
       "tracking_start_date": "2026-06-05",
       "team_designation": "main",
@@ -703,7 +703,7 @@
     },
     {
       "raider_id": "f551f254-b145-4991-8cf1-970db0cab24e",
-      "display_name": "Lucífron",
+      "display_name": "Lucifron",
       "status": "active",
       "tracking_start_date": "2026-06-05",
       "team_designation": "main",

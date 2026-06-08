@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-23",
-  "fetched_at": "2026-06-08T06:34:49.429Z",
+  "fetched_at": "2026-06-08T11:44:57.456Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -623,6 +623,128 @@
           }
         ]
       },
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "f479633a-cbd8-4a19-9e73-7bb92bdb03fa",
+      "display_name": "Apo",
+      "team_designation": "main",
+      "active_character": "Apocalypseki",
+      "realm": "Draenor",
+      "class": "DeathKnight",
+      "spec": "Frost",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
+      "offspec_parses": {
+        "Unholy": [
+          {
+            "boss_id": 3159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ]
+      },
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "47dab7cd-7045-46a0-a845-776217d26d5b",
+      "display_name": "Kazashi",
+      "team_designation": "alt",
+      "active_character": "Kazashi",
+      "realm": "SteamwheedleCartel",
+      "class": "Rogue",
+      "spec": "Assassination",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": [],
+      "error": "wcl_not_found"
+    },
+    {
+      "raider_id": "f551f254-b145-4991-8cf1-970db0cab24e",
+      "display_name": "Lucifron",
+      "team_designation": "main",
+      "active_character": "Lucífron",
+      "realm": "Draenor",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []

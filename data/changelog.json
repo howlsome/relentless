@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-08T06:34:49.429Z",
-  "roster_hash": "36766864befe66009994687f5a3fada04daa364e9ad0ad991df70e247a3d480b",
+  "last_updated": "2026-06-08T11:44:57.456Z",
+  "roster_hash": "592f4520dc55f6b3248a54612007677d5a7fa95560c18b76345120ccc7ada701",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -66,7 +66,7 @@
       "raid-46": {
         "heroic": "progression",
         "mythic": "progression",
-        "mythic_start_date": null
+        "mythic_start_date": "2026-06-08"
       }
     },
     "players": [
@@ -623,6 +623,120 @@
             "to": null
           }
         ]
+      },
+      {
+        "raider_id": "f479633a-cbd8-4a19-9e73-7bb92bdb03fa",
+        "display_name": "Apo",
+        "status": "active",
+        "tracking_start_date": "2026-06-05",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-05",
+            "note": "Applied on 5th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Apocalypseki",
+            "realm": "Draenor",
+            "class": "DeathKnight",
+            "specs": [
+              {
+                "spec": "Frost",
+                "role": "dps",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Unholy",
+                "role": "dps",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "DeathKnight",
+            "spec": "Frost",
+            "character": "Apocalypseki",
+            "from": "2026-06-05",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "47dab7cd-7045-46a0-a845-776217d26d5b",
+        "display_name": "Kazashi",
+        "status": "active",
+        "tracking_start_date": "2026-06-05",
+        "team_designation": "alt",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-05",
+            "note": "Applied on 5th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Kazashi",
+            "realm": "SteamwheedleCartel",
+            "class": "Rogue",
+            "spec": "Assassination",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Rogue",
+            "spec": "Assassination",
+            "character": "Kazashi",
+            "from": "2026-06-05",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "f551f254-b145-4991-8cf1-970db0cab24e",
+        "display_name": "Lucifron",
+        "status": "active",
+        "tracking_start_date": "2026-06-05",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-05",
+            "note": "Applied on 5th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Lucífron",
+            "realm": "Draenor",
+            "class": "Warlock",
+            "spec": "Demonology",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Warlock",
+            "spec": "Demonology",
+            "character": "Lucífron",
+            "from": "2026-06-05",
+            "to": null
+          }
+        ]
       }
     ]
   },
@@ -822,6 +936,48 @@
       "spec": "Elemental",
       "role": "dps",
       "note": ""
+    },
+    {
+      "id": "dc990df0-fce3-4e25-b88a-35645e66f208",
+      "timestamp": "2026-06-08T11:44:57.456Z",
+      "week": "2026-23",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "f479633a-cbd8-4a19-9e73-7bb92bdb03fa",
+      "display_name": "Apo",
+      "character": "Apocalypseki",
+      "class": "DeathKnight",
+      "spec": "Frost",
+      "role": "dps",
+      "note": "Applied on 5th June 2026"
+    },
+    {
+      "id": "fb21682c-7ce7-40fd-8451-baa35fe07091",
+      "timestamp": "2026-06-08T11:44:57.456Z",
+      "week": "2026-23",
+      "team": "alt",
+      "event": "joined",
+      "raider_id": "47dab7cd-7045-46a0-a845-776217d26d5b",
+      "display_name": "Kazashi",
+      "character": "Kazashi",
+      "class": "Rogue",
+      "spec": "Assassination",
+      "role": "dps",
+      "note": "Applied on 5th June 2026"
+    },
+    {
+      "id": "5e3ecb6b-42c3-4b7d-a065-3d9f765e4401",
+      "timestamp": "2026-06-08T11:44:57.456Z",
+      "week": "2026-23",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "f551f254-b145-4991-8cf1-970db0cab24e",
+      "display_name": "Lucifron",
+      "character": "Lucífron",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "note": "Applied on 5th June 2026"
     }
   ]
 }
