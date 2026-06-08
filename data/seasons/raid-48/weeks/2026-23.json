@@ -1,7 +1,7 @@
 {
   "season_id": "raid-48",
   "week": "2026-23",
-  "fetched_at": "2026-06-08T11:44:57.456Z",
+  "fetched_at": "2026-06-08T11:47:33.567Z",
   "raid_tier": {
     "wcl_zone_id": 48,
     "name": "VS / DR / MQD (Beta)",
@@ -5273,7 +5273,7 @@
       "display_name": "Kazashi",
       "team_designation": "alt",
       "active_character": "Kazashi",
-      "realm": "SteamwheedleCartel",
+      "realm": "Draenor",
       "class": "Rogue",
       "spec": "Assassination",
       "role": "dps",
@@ -5286,13 +5286,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5304,13 +5310,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5322,13 +5334,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5340,13 +5358,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5358,13 +5382,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5376,13 +5406,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5394,13 +5430,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5412,13 +5454,19 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         },
@@ -5430,21 +5478,26 @@
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
               "spec": null,
-              "dps": null
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
             }
           }
         }
       ],
       "lockout_warnings": [],
       "safe_pug_kills": [],
-      "exempt_pug_kills": [],
-      "error": "wcl_not_found"
+      "exempt_pug_kills": []
     },
     {
       "raider_id": "f551f254-b145-4991-8cf1-970db0cab24e",
@@ -5454,6 +5507,237 @@
       "realm": "Draenor",
       "class": "Warlock",
       "spec": "Demonology",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 53176,
+          "boss_name": "Imperator Averzian",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53177,
+          "boss_name": "Vorasius",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53178,
+          "boss_name": "Vaelgor & Ezzorak",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53179,
+          "boss_name": "Fallen-King Salhadaar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53180,
+          "boss_name": "Lightblinded Vanguard",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53181,
+          "boss_name": "Crown of the Cosmos",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53182,
+          "boss_name": "Belo'ren, Child of Al'ar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53183,
+          "boss_name": "Midnight Falls",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 53306,
+          "boss_name": "Chimaerus, the Undreamt God",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
+      "display_name": "Barvoid",
+      "team_designation": "main",
+      "active_character": "Barvoid",
+      "realm": "Draenor",
+      "class": "Priest",
+      "spec": "Shadow",
       "role": "dps",
       "raid_parses": [
         {

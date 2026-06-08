@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-08T11:44:57.456Z",
+  "last_updated": "2026-06-08T11:47:33.567Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -480,7 +480,7 @@
       "characters": [
         {
           "name": "Kazashi",
-          "realm": "SteamwheedleCartel",
+          "realm": "Draenor",
           "class": "Rogue",
           "spec": "Assassination",
           "role": "dps",
@@ -526,6 +526,38 @@
           "class": "Warlock",
           "spec": "Demonology",
           "character": "Lucífron",
+          "from": "2026-06-05",
+          "to": null
+        }
+      ]
+    },
+    "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a": {
+      "display_name": "Barvoid",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-05",
+          "note": "Applied on 5th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Barvoid",
+          "realm": "Draenor",
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-06-05"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Priest",
+          "spec": "Shadow",
+          "character": "Barvoid",
           "from": "2026-06-05",
           "to": null
         }

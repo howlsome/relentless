@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-08T11:44:57.456Z",
+  "fetched_at": "2026-06-08T11:47:33.567Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -88,13 +88,25 @@
       "class": "Paladin",
       "spec": "Retribution",
       "role": "dps",
-      "rio_score": null,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false,
-      "error": "rio_error"
+      "rio_score": 3253.5,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-03T20:38:05.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-04T09:53:57.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": false
     },
     {
       "raider_id": "56a6cc30-3287-47ca-bfae-bb3d9afca3c0",
@@ -429,13 +441,12 @@
       "class": "Druid",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": null,
+      "rio_score": 2794,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
       "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false,
-      "error": "rio_error"
+      "mplus_requirement_met": false
     },
     {
       "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
@@ -523,17 +534,16 @@
       "display_name": "Kazashi",
       "team_designation": "alt",
       "active_character": "Kazashi",
-      "realm": "SteamwheedleCartel",
+      "realm": "Draenor",
       "class": "Rogue",
       "spec": "Assassination",
       "role": "dps",
-      "rio_score": null,
+      "rio_score": 332,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
       "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false,
-      "error": "rio_error"
+      "mplus_requirement_met": false
     },
     {
       "raider_id": "f551f254-b145-4991-8cf1-970db0cab24e",
@@ -628,6 +638,113 @@
       "mplus_weekly_count_at_or_above_minimum": 13,
       "mplus_total_dungeons_this_week": 13,
       "mplus_highest_key_this_week": 16,
+      "mplus_requirement_met": true
+    },
+    {
+      "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
+      "display_name": "Barvoid",
+      "team_designation": "main",
+      "active_character": "Barvoid",
+      "realm": "Draenor",
+      "class": "Priest",
+      "spec": "Shadow",
+      "role": "dps",
+      "rio_score": 3137,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 15,
+          "timed": false,
+          "completed_at": "2026-06-03T17:29:39.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-07T06:17:36.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": false,
+          "completed_at": "2026-06-06T18:26:58.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 14,
+          "timed": false,
+          "completed_at": "2026-06-03T20:54:37.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-06T07:54:17.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-06T18:59:22.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 13,
+          "timed": false,
+          "completed_at": "2026-06-06T16:41:40.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-06T17:11:33.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-07T09:29:36.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-05T21:46:58.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-07T14:45:17.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-07T14:08:59.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-07T13:35:03.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-07T12:59:19.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-07T07:17:36.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 15,
+      "mplus_total_dungeons_this_week": 15,
+      "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     }
   ]
