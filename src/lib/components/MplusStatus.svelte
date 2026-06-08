@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { ComplianceFile } from '$lib/types/compliance.js';
 	import type { Roster } from '$lib/types/roster.js';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
 	import type { MplusRaiderEntry, MplusWeeklyFile } from '$lib/types/weekly.js';
@@ -13,18 +12,16 @@
 		roster,
 		seasonsIndex,
 		snapshot = null,
-		compliance = null,
 	}: {
 		roster: Roster;
 		seasonsIndex: SeasonsIndex;
 		snapshot?: MplusWeeklyFile | null;
-		compliance?: ComplianceFile | null;
 	} = $props();
 
-	function getRecordWeek(raiderId: string): number | null {
-		const weeks = compliance?.raiders?.[raiderId]?.weeks ?? [];
-		if (!weeks.length) return null;
-		return Math.max(...weeks.map((w) => w.total_dungeons ?? 0));
+	function reqStatus(keyCount: number, minimum: number): { emoji: string; label: string } {
+		if (keyCount >= minimum) return { emoji: '👍', label: 'Requirement met' };
+		if (keyCount >= Math.ceil(minimum / 2)) return { emoji: '🫤', label: 'Halfway there' };
+		return { emoji: '👎', label: 'Requirement not met' };
 	}
 
 	const activeSeason = $derived(
@@ -68,22 +65,17 @@
 					<tr>
 						<th scope="col" class="raider-col">Raider</th>
 						<th scope="col">RIO</th>
-						<th scope="col">4× +10 or higher</th>
 						<th scope="col">Highest key</th>
-						<th scope="col">Record week</th>
+						<th scope="col" class="status-col">Req.</th>
 					</tr>
 				</thead>
 				<tbody>
 					{#each raiderEntries() as raider}
 						{@const player = roster.players.find((p) => p.raider_id === raider.raider_id)}
 						{@const keyCount = raider.mplus_weekly_count_at_or_above_minimum}
-						{@const countBg = keyCount >= 4 ? '#14ac00' : keyCount === 3 ? '#ff8000' : '#c41e3a'}
-						{@const countFg = keyCount < 3 ? '#ffffff' : '#000000'}
+						{@const minimum = roster.mplus_weekly_minimum ?? 4}
 						{@const ks = getKeyLevelStyle(raider.mplus_highest_key_this_week)}
-						{@const record = getRecordWeek(raider.raider_id)}
-						{@const recBg =
-							record != null ? (record >= 4 ? '#14ac00' : record === 3 ? '#ff8000' : '#c41e3a') : null}
-						{@const recFg = record != null ? (record < 3 ? '#ffffff' : '#000000') : null}
+						{@const status = reqStatus(keyCount, minimum)}
 						<tr>
 							<td data-label="Raider" class="raider-col">
 								<div class="raider-cell">
@@ -104,25 +96,18 @@
 								</div>
 							</td>
 							<td data-label="RIO"><RioScoreBadge score={raider.rio_score} /></td>
-							<td data-label="4× +10 or higher">
-								<span class="count-badge" style="background:{countBg};color:{countFg}">{keyCount}</span>
-							</td>
 							<td data-label="Highest key">
 								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}"
 									>{fmtKey(raider.mplus_highest_key_this_week)}</span
 								>
 							</td>
-							<td data-label="Record week">
-								{#if record != null && recBg && recFg}
-									<span class="count-badge" style="background:{recBg};color:{recFg}">{record}</span>
-								{:else}
-									<span class="muted">—</span>
-								{/if}
+							<td data-label="Req." class="status-col">
+								<span class="req-emoji" aria-label={status.label} title={status.label}>{status.emoji}</span>
 							</td>
 						</tr>
 					{:else}
 						<tr>
-							<td colspan="5" class="muted">No raiders match the current filters.</td>
+							<td colspan="4" class="muted">No raiders match the current filters.</td>
 						</tr>
 					{/each}
 				</tbody>
@@ -195,6 +180,16 @@
 
 	.char-subtitle {
 		font-size: 0.8rem;
+	}
+
+	.status-col {
+		text-align: center;
+		width: 3rem;
+	}
+
+	.req-emoji {
+		font-size: 1.35rem;
+		line-height: 1;
 	}
 
 	.count-badge {

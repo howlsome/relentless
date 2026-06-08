@@ -212,7 +212,7 @@
 	</section>
 {/if}
 
-<MplusStatus {roster} {seasonsIndex} snapshot={mplusSnapshot} compliance={mplusCompliance} />
+<MplusStatus {roster} {seasonsIndex} snapshot={mplusSnapshot} />
 
 <style>
 	.summary-row {
