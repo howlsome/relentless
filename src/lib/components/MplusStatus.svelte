@@ -66,7 +66,7 @@
 						<th scope="col" class="raider-col">Raider</th>
 						<th scope="col">RIO</th>
 						<th scope="col">Highest key</th>
-						<th scope="col" class="status-col">Req.</th>
+						<th scope="col" class="status-col">4× +10 or higher</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -101,7 +101,7 @@
 									>{fmtKey(raider.mplus_highest_key_this_week)}</span
 								>
 							</td>
-							<td data-label="Req." class="status-col">
+							<td data-label="4× +10 or higher" class="status-col">
 								<span class="req-emoji" aria-label={status.label} title={status.label}>{status.emoji}</span>
 							</td>
 						</tr>
