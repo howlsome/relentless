@@ -152,6 +152,16 @@
 		margin-block-end: 2rem;
 	}
 
+	.parse-table-wrapper {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.mplus-table {
+		width: auto;
+		border-collapse: collapse;
+	}
+
 	.raider-col {
 		width: 300px;
 		max-width: 300px;
@@ -192,14 +202,12 @@
 		font-size: 0.8rem;
 	}
 
-	.status-col {
-		text-align: center;
-		width: 10rem;
-		white-space: nowrap;
-	}
-
+	.status-col,
 	.centered-col {
 		text-align: center;
+		width: 8rem;
+		min-width: 8rem;
+		white-space: nowrap;
 	}
 
 	.req-emoji {
