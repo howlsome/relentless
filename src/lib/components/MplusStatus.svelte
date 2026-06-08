@@ -20,12 +20,11 @@
 	function reqStatus(
 		keyCount: number,
 		minimum: number,
-	): { emoji: string; label: string; bg: string; fg: string } {
-		if (keyCount >= minimum)
-			return { emoji: '👍', label: 'Requirement met', bg: '#14ac00', fg: '#000' };
+	): { emoji: string; label: string; key: 'met' | 'partial' | 'unmet' } {
+		if (keyCount >= minimum) return { emoji: '👍', label: 'Requirement met', key: 'met' };
 		if (keyCount >= Math.ceil(minimum / 2))
-			return { emoji: '🫤', label: 'Halfway there', bg: '#ff8000', fg: '#000' };
-		return { emoji: '👎', label: 'Requirement not met', bg: '#c41e3a', fg: '#fff' };
+			return { emoji: '🫤', label: 'Halfway there', key: 'partial' };
+		return { emoji: '👎', label: 'Requirement not met', key: 'unmet' };
 	}
 
 	const activeSeason = $derived(
@@ -103,8 +102,7 @@
 								</td>
 								<td
 									data-label="4× +10 or higher"
-									class="status-col"
-									style="background:{status.bg};color:{status.fg}"
+									class="status-col status-{status.key}"
 									aria-label={status.label}
 									title={status.label}
 								>
@@ -288,6 +286,21 @@
 		min-width: 8rem;
 		white-space: nowrap;
 		font-weight: 700;
+	}
+
+	.status-met {
+		background: color-mix(in srgb, #14ac00 30%, var(--pico-card-background-color));
+		color: color-mix(in srgb, #14ac00 60%, var(--pico-color));
+	}
+
+	.status-partial {
+		background: color-mix(in srgb, #ff8000 30%, var(--pico-card-background-color));
+		color: color-mix(in srgb, #ff8000 70%, var(--pico-color));
+	}
+
+	.status-unmet {
+		background: color-mix(in srgb, #c41e3a 30%, var(--pico-card-background-color));
+		color: color-mix(in srgb, #c41e3a 60%, var(--pico-color));
 	}
 
 	.cell-emoji {
