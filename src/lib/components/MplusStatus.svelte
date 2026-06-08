@@ -18,10 +18,15 @@
 		snapshot?: MplusWeeklyFile | null;
 	} = $props();
 
-	function reqStatus(keyCount: number, minimum: number): { emoji: string; label: string } {
-		if (keyCount >= minimum) return { emoji: '👍', label: 'Requirement met' };
-		if (keyCount >= Math.ceil(minimum / 2)) return { emoji: '🫤', label: 'Halfway there' };
-		return { emoji: '👎', label: 'Requirement not met' };
+	function reqStatus(
+		keyCount: number,
+		minimum: number,
+	): { emoji: string; label: string; bg: string; fg: string } {
+		if (keyCount >= minimum)
+			return { emoji: '👍', label: 'Requirement met', bg: '#14ac00', fg: '#000' };
+		if (keyCount >= Math.ceil(minimum / 2))
+			return { emoji: '🫤', label: 'Halfway there', bg: '#ff8000', fg: '#000' };
+		return { emoji: '👎', label: 'Requirement not met', bg: '#c41e3a', fg: '#fff' };
 	}
 
 	const activeSeason = $derived(
@@ -102,7 +107,13 @@
 								>
 							</td>
 							<td data-label="4× +10 or higher" class="status-col">
-								<span class="req-emoji" aria-label={status.label} title={status.label}>{status.emoji}</span>
+								<span
+									class="req-emoji"
+									aria-label={status.label}
+									title={status.label}
+									style="background:{status.bg};color:{status.fg}"
+									>{status.emoji}</span
+								>
 							</td>
 						</tr>
 					{:else}
@@ -189,8 +200,13 @@
 	}
 
 	.req-emoji {
-		font-size: 1.35rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.25rem;
 		line-height: 1;
+		padding: 0.2em 0.5em;
+		border-radius: 0.3em;
 	}
 
 	.count-badge {
