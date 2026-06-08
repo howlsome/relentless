@@ -186,27 +186,25 @@
 	}
 
 	.mplus-body {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+		display: grid;
+		grid-template-columns: 1fr;
 		gap: 1rem;
+		align-items: start;
 	}
 
 	@media (min-width: 1024px) {
 		.mplus-body {
-			flex-direction: row;
-			align-items: flex-start;
+			grid-template-columns: max-content 16rem;
 		}
 	}
 
 	.parse-table-wrapper {
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
-		flex-shrink: 0;
+		min-width: 0;
 	}
 
 	.mplus-info {
-		flex-shrink: 0;
 		width: 16rem;
 		padding: 0.75rem 1rem;
 		border: 1px solid var(--pico-muted-border-color);
