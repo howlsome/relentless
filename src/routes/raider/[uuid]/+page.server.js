@@ -219,6 +219,16 @@ export function load({ params }) {
 		}
 	}
 
+	// Derive default difficulty from mythic_start_date of the primary raid zone.
+	const mythicStartDate = primaryRaidZone
+		? (roster.raid_difficulty_status?.[primaryRaidZone.season_id]?.mythic_start_date ?? null)
+		: null;
+	const today = new Date().toISOString().slice(0, 10);
+	const primaryRaidDifficulty =
+		mythicStartDate && today >= mythicStartDate
+			? /** @type {'mythic'} */ ('mythic')
+			: /** @type {'heroic'} */ (roster.primary_raid_difficulty ?? 'heroic');
+
 	return {
 		raider,
 		raiderCompliance,
@@ -227,7 +237,7 @@ export function load({ params }) {
 		raiderHistory,
 		activeSeason,
 		weeklyMinimum: roster.mplus_weekly_minimum ?? 4,
-		primaryRaidDifficulty: roster.primary_raid_difficulty ?? 'heroic',
+		primaryRaidDifficulty,
 		weeklyHistoryByDiff,
 		wowanalyzerByDiff,
 		offspecWeeklyHistoryByDiff,

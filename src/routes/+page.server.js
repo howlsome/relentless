@@ -38,11 +38,33 @@ export function load() {
 		if (meta) raidZones.push({ meta, snapshot, season_id: zone.season_id, label: zone.label });
 	}
 
+	// Derive default difficulty from mythic_start_date of the primary raid zone.
+	// Primary zone = live (non-beta, non-composite) zone with the most bosses.
+	const primaryZone = (() => {
+		const live = raidZones.filter((z) => {
+			const l = z.label.toLowerCase();
+			return !l.includes('beta') && !l.includes('complete');
+		});
+		const pool = live.length ? live : raidZones;
+		return (
+			[...pool].sort((a, b) => (b.meta?.bosses?.length ?? 0) - (a.meta?.bosses?.length ?? 0))[0] ??
+			null
+		);
+	})();
+	const mythicStartDate = primaryZone
+		? (roster.raid_difficulty_status?.[primaryZone.season_id]?.mythic_start_date ?? null)
+		: null;
+	const today = new Date().toISOString().slice(0, 10);
+	const primaryRaidDifficulty =
+		mythicStartDate && today >= mythicStartDate
+			? /** @type {'mythic'} */ ('mythic')
+			: /** @type {'heroic'} */ (roster.primary_raid_difficulty ?? 'heroic');
+
 	return {
 		roster,
 		mplusSnapshot,
 		mplusCompliance,
 		raidZones,
-		primaryRaidDifficulty: roster.primary_raid_difficulty ?? 'heroic',
+		primaryRaidDifficulty,
 	};
 }
