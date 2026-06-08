@@ -69,9 +69,9 @@
 				<thead>
 					<tr>
 						<th scope="col" class="raider-col">Raider</th>
-						<th scope="col">RIO</th>
-						<th scope="col">Highest key</th>
 						<th scope="col" class="status-col">4× +10 or higher</th>
+						<th scope="col">Highest key</th>
+						<th scope="col">RIO</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -100,21 +100,20 @@
 									>
 								</div>
 							</td>
-							<td data-label="RIO"><RioScoreBadge score={raider.rio_score} /></td>
-							<td data-label="Highest key">
-								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}"
-									>{fmtKey(raider.mplus_highest_key_this_week)}</span
-								>
-							</td>
 							<td data-label="4× +10 or higher" class="status-col">
 								<span
 									class="req-emoji"
 									aria-label={status.label}
 									title={status.label}
-									style="background:{status.bg};color:{status.fg}"
-									>{status.emoji}</span
+									style="background:{status.bg};color:{status.fg}">{status.emoji}</span
 								>
 							</td>
+							<td data-label="Highest key">
+								<span class="count-badge" style="background:{ks.bgHex};color:{ks.textHex}"
+									>{fmtKey(raider.mplus_highest_key_this_week)}</span
+								>
+							</td>
+							<td data-label="RIO"><RioScoreBadge score={raider.rio_score} /></td>
 						</tr>
 					{:else}
 						<tr>
