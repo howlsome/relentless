@@ -113,6 +113,29 @@ export function load({ params }) {
 
 	// ── Weekly parse history for boss charts ──────────────────────────────────
 	// weeklyHistoryByDiff[difficulty][bossId] = [pct|null, ...] oldest→newest
+
+	/** Convert a YYYY-MM-DD date string to a WoW week key (YYYY-WW, EU Wednesday 07:00 UTC reset). */
+	function dateToWowWeek(dateStr) {
+		const d = new Date(`${dateStr}T12:00:00Z`);
+		const dayOfWeek = d.getUTCDay() || 7;
+		let daysSinceWed = (dayOfWeek - 3 + 7) % 7;
+		if (daysSinceWed === 0 && d.getUTCHours() < 7) daysSinceWed = 7;
+		const reset = new Date(
+			Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - daysSinceWed, 7, 0, 0, 0),
+		);
+		const thursday = new Date(
+			Date.UTC(reset.getUTCFullYear(), reset.getUTCMonth(), reset.getUTCDate()),
+		);
+		const dayNum = thursday.getUTCDay() || 7;
+		thursday.setUTCDate(thursday.getUTCDate() + 4 - dayNum);
+		const yearStart = new Date(Date.UTC(thursday.getUTCFullYear(), 0, 1));
+		const week = Math.ceil(((thursday.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7);
+		return `${thursday.getUTCFullYear()}-${String(week).padStart(2, '0')}`;
+	}
+
+	const raiderTrackingStart = raider?.tracking_start_date ?? roster.tracking_start_date;
+	const raiderTrackingWeek = dateToWowWeek(raiderTrackingStart);
+
 	/** @type {Record<string, Record<number,(number|null)[]>>} */
 	const weeklyHistoryByDiff = { heroic: {}, mythic: {} };
 	/** @type {Record<string, Record<number,(string|null)[]>>} wowanalyzer URLs per diff/boss/week */
@@ -135,11 +158,17 @@ export function load({ params }) {
 				);
 				if (!raiderData) continue;
 
+				// Skip weeks that predate this raider's tracking start
+				if (weekData.week && weekData.week < raiderTrackingWeek) continue;
+
 				// Primary spec weekly history
 				for (const diff of ['heroic', 'mythic']) {
+					// Use kill_time (set only for current-week kills) to determine attendance.
+					// Using `kill` would miscount weeks where the raider has historical kills
+					// carried over in snapshot data but wasn't present in the raid that week.
 					const attended = (raiderData.raid_parses ?? []).some((/** @type {any} */ bp) => {
 						const d = bp.difficulties?.[diff];
-						return d?.kill && (d.kill_category == null || d.kill_category === 'in_raid');
+						return d?.kill_time != null && (d.kill_category == null || d.kill_category === 'in_raid');
 					});
 					if (!attended) continue;
 					for (const bp of raiderData.raid_parses ?? []) {
@@ -147,7 +176,7 @@ export function load({ params }) {
 						if (!wowanalyzerByDiff[diff][bp.boss_id]) wowanalyzerByDiff[diff][bp.boss_id] = [];
 						const d = bp.difficulties?.[diff];
 						const isRelentlessKill =
-							d?.kill && (d.kill_category == null || d.kill_category === 'in_raid');
+							d?.kill_time != null && (d.kill_category == null || d.kill_category === 'in_raid');
 						weeklyHistoryByDiff[diff][bp.boss_id].push(
 							isRelentlessKill ? (d.parse_percentile ?? null) : null,
 						);
@@ -168,7 +197,7 @@ export function load({ params }) {
 					for (const diff of ['heroic', 'mythic']) {
 						const attended = /** @type {any[]} */ (bossParsesForSpec).some((/** @type {any} */ bp) => {
 							const d = bp.difficulties?.[diff];
-							return d?.kill;
+							return d?.kill_time != null;
 						});
 						if (!attended) continue;
 						for (const bp of /** @type {any[]} */ (bossParsesForSpec)) {
