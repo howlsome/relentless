@@ -63,84 +63,98 @@
 	{#if !snapshot}
 		<p class="muted">M+ data will appear here after the first cron run.</p>
 	{:else}
-		<div class="parse-table-wrapper">
-			<table class="mplus-table" aria-label="M+ weekly status per raider">
-				<thead>
-					<tr>
-						<th scope="col" class="raider-col">Raider</th>
-						<th scope="col" class="status-col">4× +10 or higher</th>
-						<th scope="col" class="centered-col">Highest key</th>
-						<th scope="col" class="centered-col">RIO</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each raiderEntries() as raider}
-						{@const player = roster.players.find((p) => p.raider_id === raider.raider_id)}
-						{@const keyCount = raider.mplus_weekly_count_at_or_above_minimum}
-						{@const minimum = roster.mplus_weekly_minimum ?? 4}
-						{@const ks = getKeyLevelStyle(raider.mplus_highest_key_this_week)}
-						{@const status = reqStatus(keyCount, minimum)}
-						{@const rioStyle = getRioScoreStyle(raider.rio_score)}
+		<div class="mplus-body">
+			<div class="parse-table-wrapper">
+				<table class="mplus-table" aria-label="M+ weekly status per raider">
+					<thead>
 						<tr>
-							<td data-label="Raider" class="raider-col">
-								<div class="raider-cell">
-									<RoleIcon role={raider.role} spec={raider.spec} charClass={raider.class} />
-									<div>
-										<a
-											href="/raider/{raider.raider_id}"
-											class="raider-name"
-											style="--class-color:{getWowClassColor(raider.class)}"
+							<th scope="col" class="raider-col">Raider</th>
+							<th scope="col" class="status-col">4× +10 or higher</th>
+							<th scope="col" class="centered-col">Highest key</th>
+							<th scope="col" class="centered-col">RIO</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each raiderEntries() as raider}
+							{@const player = roster.players.find((p) => p.raider_id === raider.raider_id)}
+							{@const keyCount = raider.mplus_weekly_count_at_or_above_minimum}
+							{@const minimum = roster.mplus_weekly_minimum ?? 4}
+							{@const ks = getKeyLevelStyle(raider.mplus_highest_key_this_week)}
+							{@const status = reqStatus(keyCount, minimum)}
+							{@const rioStyle = getRioScoreStyle(raider.rio_score)}
+							<tr>
+								<td data-label="Raider" class="raider-col">
+									<div class="raider-cell">
+										<RoleIcon role={raider.role} spec={raider.spec} charClass={raider.class} />
+										<div>
+											<a
+												href="/raider/{raider.raider_id}"
+												class="raider-name"
+												style="--class-color:{getWowClassColor(raider.class)}"
+											>
+												{player?.display_name ?? raider.display_name}
+											</a>
+											<div class="char-subtitle muted">{raider.active_character}</div>
+										</div>
+										<span class="badge-right"
+											><TeamDesignationBadge designation={raider.team_designation} /></span
 										>
-											{player?.display_name ?? raider.display_name}
-										</a>
-										<div class="char-subtitle muted">{raider.active_character}</div>
 									</div>
-									<span class="badge-right"
-										><TeamDesignationBadge designation={raider.team_designation} /></span
-									>
-								</div>
-							</td>
-							<td
-								data-label="4× +10 or higher"
-								class="status-col"
-								style="background:{status.bg};color:{status.fg}"
-								aria-label={status.label}
-								title={status.label}
-							>
-								<span class="cell-emoji">{status.emoji}</span>
-							</td>
-							<td
-								data-label="Highest key"
-								class="centered-col"
-								style="background:{ks.bgHex};color:{ks.textHex}"
-							>
-								{fmtKey(raider.mplus_highest_key_this_week)}
-							</td>
-							<td
-								data-label="RIO"
-								class="centered-col"
-								style={raider.rio_score != null
-									? `background:${rioStyle.bgHex};color:${rioStyle.textHex}`
-									: ''}
-								aria-label="Raider.io score: {raider.rio_score ?? 'unavailable'}"
-								title={raider.rio_score != null
-									? `Raider.io score — ${rioStyle.label}`
-									: 'Raider.io score unavailable'}
-							>
-								{#if raider.rio_score != null}
-									{raider.rio_score.toLocaleString()}
-								{:else}
-									<span class="cell-empty">—</span>
-								{/if}
-							</td>
-						</tr>
-					{:else}
-						<tr>
-							<td colspan="4" class="muted">No raiders match the current filters.</td>
-						</tr>
-					{/each}
-				</tbody>
-			</table>
+								</td>
+								<td
+									data-label="4× +10 or higher"
+									class="status-col"
+									style="background:{status.bg};color:{status.fg}"
+									aria-label={status.label}
+									title={status.label}
+								>
+									<span class="cell-emoji">{status.emoji}</span>
+								</td>
+								<td
+									data-label="Highest key"
+									class="centered-col"
+									style="background:{ks.bgHex};color:{ks.textHex}"
+								>
+									{fmtKey(raider.mplus_highest_key_this_week)}
+								</td>
+								<td
+									data-label="RIO"
+									class="centered-col"
+									style={raider.rio_score != null
+										? `background:${rioStyle.bgHex};color:${rioStyle.textHex}`
+										: ''}
+									aria-label="Raider.io score: {raider.rio_score ?? 'unavailable'}"
+									title={raider.rio_score != null
+										? `Raider.io score — ${rioStyle.label}`
+										: 'Raider.io score unavailable'}
+								>
+									{#if raider.rio_score != null}
+										{raider.rio_score.toLocaleString()}
+									{:else}
+										<span class="cell-empty">—</span>
+									{/if}
+								</td>
+							</tr>
+						{:else}
+							<tr>
+								<td colspan="4" class="muted">No raiders match the current filters.</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+
+			<aside class="mplus-info">
+				<p class="mplus-info__title">Weekly requirement</p>
+				<p>
+					As a <strong>Relentless Raider</strong> you are expected to complete at least
+					<strong>4 Mythic+ keys at +10 or higher</strong> each week.
+				</p>
+				<p class="mplus-info__reason">
+					This unlocks your full vault options and keeps the team competitive heading into progression
+					night.
+				</p>
+			</aside>
 		</div>
 	{/if}
 
@@ -171,9 +185,57 @@
 		margin-block-end: 2rem;
 	}
 
+	.mplus-body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	@media (min-width: 1024px) {
+		.mplus-body {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+	}
+
 	.parse-table-wrapper {
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
+		flex-shrink: 0;
+	}
+
+	.mplus-info {
+		flex-shrink: 0;
+		width: 16rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--pico-muted-border-color);
+		border-radius: var(--pico-border-radius);
+		background: var(--pico-card-background-color);
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+
+	.mplus-info__title {
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 700;
+		color: var(--pico-muted-color);
+		margin-block-end: 0.5rem;
+	}
+
+	.mplus-info p {
+		margin-block-end: 0.5rem;
+	}
+
+	.mplus-info p:last-child {
+		margin-block-end: 0;
+	}
+
+	.mplus-info__reason {
+		color: var(--pico-muted-color);
+		font-size: 0.8rem;
 	}
 
 	.mplus-table {
