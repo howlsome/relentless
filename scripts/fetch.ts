@@ -772,19 +772,21 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 							(k) => k.startTime >= playerStartMs && (!primarySpecName || k.spec === primarySpecName),
 						);
 
-						// Only in-raid kills count for parse percentile and kill status.
-						// When no raid schedule is configured, treat every kill as in-raid.
-						const inRaidKills = hasSchedule
-							? allKills.filter(
-									(k) =>
-										classifyKill(
-											new Date(k.startTime).toISOString(),
-											raidSchedule,
-											playerExemptions,
-											diffKey,
-										) === 'in_raid',
-								)
-							: allKills;
+						// Raid-session filtering only applies to mythic (where lockout matters).
+						// For heroic and below, all kills within the tracking window count — heroic
+						// has no lockout and can be cleared on any night without consequence.
+						const inRaidKills =
+							hasSchedule && diffKey === 'mythic'
+								? allKills.filter(
+										(k) =>
+											classifyKill(
+												new Date(k.startTime).toISOString(),
+												raidSchedule,
+												playerExemptions,
+												diffKey,
+											) === 'in_raid',
+									)
+								: allKills;
 
 						if (inRaidKills.length > 0) {
 							const bestKill = inRaidKills.reduce((best, k) =>
@@ -836,17 +838,18 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 								(k) => k.startTime >= playerStartMs && k.spec === specName,
 							);
 
-							const inRaidKills = hasSchedule
-								? allKills.filter(
-										(k) =>
-											classifyKill(
-												new Date(k.startTime).toISOString(),
-												raidSchedule,
-												playerExemptions,
-												diffKey,
-											) === 'in_raid',
-									)
-								: allKills;
+							const inRaidKills =
+								hasSchedule && diffKey === 'mythic'
+									? allKills.filter(
+											(k) =>
+												classifyKill(
+													new Date(k.startTime).toISOString(),
+													raidSchedule,
+													playerExemptions,
+													diffKey,
+												) === 'in_raid',
+										)
+									: allKills;
 
 							if (inRaidKills.length > 0) {
 								const bestKill = inRaidKills.reduce((best, k) =>
