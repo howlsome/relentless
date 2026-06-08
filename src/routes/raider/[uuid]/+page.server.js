@@ -114,7 +114,7 @@ export function load({ params }) {
 	// ── Weekly parse history for boss charts ──────────────────────────────────
 	// weeklyHistoryByDiff[difficulty][bossId] = [pct|null, ...] oldest→newest
 
-	/** Convert a YYYY-MM-DD date string to a WoW week key (YYYY-WW, EU Wednesday 07:00 UTC reset). */
+	/** @param {string} dateStr */
 	function dateToWowWeek(dateStr) {
 		const d = new Date(`${dateStr}T12:00:00Z`);
 		const dayOfWeek = d.getUTCDay() || 7;
