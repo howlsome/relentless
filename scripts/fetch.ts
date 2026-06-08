@@ -891,6 +891,45 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 		raiders,
 	};
 
+	// Preserve kill_time / wcl_report_code / wcl_fight_id captured in an earlier
+	// fetch of this same week. WCL's encounterRankings may later settle on a
+	// pre-week best-parse, setting kill_time back to null even though the raider
+	// did kill the boss this week. Once a this-week kill is confirmed, keep it.
+	const existingWeek = loadJsonOr(`${prefix}/weeks/${currentWeek}.json`, null);
+	if (existingWeek) {
+		const existingByRaider = new Map(
+			(existingWeek.raiders ?? []).map((r: { raider_id: string }) => [r.raider_id, r]),
+		);
+		for (const raider of weeklyData.raiders) {
+			const prev = existingByRaider.get(raider.raider_id) as
+				| {
+						raid_parses?: Array<{
+							boss_id: number;
+							difficulties: Record<
+								string,
+								{ kill_time?: string | null; wcl_report_code?: string | null; wcl_fight_id?: number | null }
+							>;
+						}>;
+				  }
+				| undefined;
+			if (!prev) continue;
+			const prevByBoss = new Map((prev.raid_parses ?? []).map((bp) => [bp.boss_id, bp]));
+			for (const bp of raider.raid_parses ?? []) {
+				const prevBp = prevByBoss.get(bp.boss_id);
+				if (!prevBp) continue;
+				for (const diff of Object.keys(bp.difficulties ?? {})) {
+					const d = bp.difficulties[diff];
+					const prevD = prevBp.difficulties?.[diff];
+					if (d && prevD && d.kill_time == null && prevD.kill_time != null) {
+						d.kill_time = prevD.kill_time;
+						d.wcl_report_code = prevD.wcl_report_code ?? d.wcl_report_code;
+						d.wcl_fight_id = prevD.wcl_fight_id ?? d.wcl_fight_id;
+					}
+				}
+			}
+		}
+	}
+
 	writeJson(`${prefix}/weeks/${currentWeek}.json`, weeklyData);
 	writeJson(`${prefix}/snapshot.json`, weeklyData);
 
