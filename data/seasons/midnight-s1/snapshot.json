@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-23",
-  "fetched_at": "2026-06-08T23:52:47.168Z",
+  "fetched_at": "2026-06-09T08:39:29.745Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -594,6 +594,12 @@
           "completed_at": "2026-06-05T18:02:41.000Z"
         },
         {
+          "dungeon": "Windrunner Spire",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-09T07:26:56.000Z"
+        },
+        {
           "dungeon": "Magisters' Terrace",
           "level": 15,
           "timed": true,
@@ -630,12 +636,6 @@
           "completed_at": "2026-06-06T19:39:07.000Z"
         },
         {
-          "dungeon": "Skyreach",
-          "level": 14,
-          "timed": true,
-          "completed_at": "2026-06-04T10:16:18.000Z"
-        },
-        {
           "dungeon": "Windrunner Spire",
           "level": 14,
           "timed": true,
@@ -646,16 +646,10 @@
           "level": 14,
           "timed": false,
           "completed_at": "2026-06-05T19:40:40.000Z"
-        },
-        {
-          "dungeon": "Windrunner Spire",
-          "level": 14,
-          "timed": true,
-          "completed_at": "2026-06-04T18:57:20.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 13,
-      "mplus_total_dungeons_this_week": 13,
+      "mplus_weekly_count_at_or_above_minimum": 12,
+      "mplus_total_dungeons_this_week": 12,
       "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": true
     },
