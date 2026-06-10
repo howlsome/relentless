@@ -1,7 +1,7 @@
 {
   "season_id": "raid-51",
   "week": "2026-24",
-  "fetched_at": "2026-06-10T11:53:41.860Z",
+  "fetched_at": "2026-06-10T21:48:56.581Z",
   "raid_tier": {
     "wcl_zone_id": 51,
     "name": "Sporefall (PTR)",
@@ -906,6 +906,84 @@
       "realm": "Draenor",
       "class": "Priest",
       "spec": "Shadow",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 53159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
+      "display_name": "Vumera",
+      "team_designation": "alt",
+      "active_character": "Vumera",
+      "realm": "Draenor",
+      "class": "Shaman",
+      "spec": "Restoration",
+      "role": "healer",
+      "raid_parses": [
+        {
+          "boss_id": 53159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "5f6b9abe-1dd7-45e5-9fac-56b893f8ffd5",
+      "display_name": "Imû",
+      "team_designation": "main",
+      "active_character": "Imû",
+      "realm": "Draenor",
+      "class": "Mage",
+      "spec": "Frost",
       "role": "dps",
       "raid_parses": [
         {

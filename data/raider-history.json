@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-10T11:53:41.860Z",
+  "last_updated": "2026-06-10T21:48:56.581Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -559,6 +559,70 @@
           "spec": "Shadow",
           "character": "Barvoid",
           "from": "2026-06-05",
+          "to": null
+        }
+      ]
+    },
+    "82bdcf06-92f4-490d-bee7-02e7d74fdc0d": {
+      "display_name": "Vumera",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-10",
+          "note": "Joined 10th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Vumera",
+          "realm": "Draenor",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer",
+          "active": true,
+          "first_seen": "2026-06-10"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "character": "Vumera",
+          "from": "2026-06-10",
+          "to": null
+        }
+      ]
+    },
+    "5f6b9abe-1dd7-45e5-9fac-56b893f8ffd5": {
+      "display_name": "Imû",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-10",
+          "note": "Joined 10th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Imû",
+          "realm": "Draenor",
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-06-10"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Mage",
+          "spec": "Frost",
+          "character": "Imû",
+          "from": "2026-06-10",
           "to": null
         }
       ]

@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-24",
-  "fetched_at": "2026-06-10T11:53:41.860Z",
+  "fetched_at": "2026-06-10T21:48:56.581Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -12,8 +12,14 @@
       "class": "Shaman",
       "spec": "Elemental",
       "role": "dps",
-      "rio_score": 3339,
+      "rio_score": 3353.7,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-10T16:29:44.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 15,
@@ -21,9 +27,9 @@
           "completed_at": "2026-06-10T07:34:48.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 15,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": false
     },
     {
@@ -276,10 +282,17 @@
       "spec": "Demonology",
       "role": "dps",
       "rio_score": 3369.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-10T17:55:19.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": false
     },
     {
@@ -292,6 +305,38 @@
       "spec": "Shadow",
       "role": "dps",
       "rio_score": 3137,
+      "mplus_runs_this_week": [],
+      "mplus_weekly_count_at_or_above_minimum": 0,
+      "mplus_total_dungeons_this_week": 0,
+      "mplus_highest_key_this_week": null,
+      "mplus_requirement_met": false
+    },
+    {
+      "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
+      "display_name": "Vumera",
+      "team_designation": "alt",
+      "active_character": "Vumera",
+      "realm": "Draenor",
+      "class": "Shaman",
+      "spec": "Restoration",
+      "role": "healer",
+      "rio_score": 2327.2,
+      "mplus_runs_this_week": [],
+      "mplus_weekly_count_at_or_above_minimum": 0,
+      "mplus_total_dungeons_this_week": 0,
+      "mplus_highest_key_this_week": null,
+      "mplus_requirement_met": false
+    },
+    {
+      "raider_id": "5f6b9abe-1dd7-45e5-9fac-56b893f8ffd5",
+      "display_name": "Imû",
+      "team_designation": "main",
+      "active_character": "Imû",
+      "realm": "Draenor",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "rio_score": 3342.5,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
