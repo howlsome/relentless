@@ -768,6 +768,74 @@
           "to": null
         }
       ]
+    },
+    {
+      "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
+      "display_name": "Vumera",
+      "status": "active",
+      "tracking_start_date": "2026-06-10",
+      "team_designation": "alt",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-10",
+          "note": "Joined 10th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Vumera",
+          "realm": "Draenor",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "healer",
+          "class": "Shaman",
+          "spec": "Restoration",
+          "character": "Vumera",
+          "from": "2026-06-10",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "5f6b9abe-1dd7-45e5-9fac-56b893f8ffd5",
+      "display_name": "Imû",
+      "status": "active",
+      "tracking_start_date": "2026-06-10",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-10",
+          "note": "Joined 10th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Imû",
+          "realm": "Draenor",
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Mage",
+          "spec": "Frost",
+          "character": "Imû",
+          "from": "2026-06-10",
+          "to": null
+        }
+      ]
     }
   ]
 }
