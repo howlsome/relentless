@@ -91,15 +91,18 @@
 
 	const raidRaiders = $derived(primaryRaidZone?.snapshot?.raiders ?? []);
 
-	// Progression card difficulty — defaults to roster config, persisted in localStorage
+	// Shared difficulty — drives both the progression card and the raid parses table.
+	// Defaults to roster config, persisted in localStorage.
 	let progDifficulty = $state<'heroic' | 'mythic'>(primaryRaidDifficulty);
 	if (browser) {
 		const stored = localStorage.getItem('prog-difficulty');
 		if (stored === 'heroic' || stored === 'mythic') progDifficulty = stored;
 	}
+	$effect(() => {
+		if (browser) localStorage.setItem('prog-difficulty', progDifficulty);
+	});
 	function setProgDifficulty(d: 'heroic' | 'mythic') {
 		progDifficulty = d;
-		if (browser) localStorage.setItem('prog-difficulty', d);
 	}
 
 	const bossProg = $derived(
@@ -204,7 +207,7 @@
 {/if}
 
 {#if primaryRaidZone?.snapshot}
-	<RosterTable {roster} raidSnapshot={primaryRaidZone.snapshot} />
+	<RosterTable {roster} raidSnapshot={primaryRaidZone.snapshot} bind:difficulty={progDifficulty} />
 {:else}
 	<section>
 		<h2>Raid Parses</h2>

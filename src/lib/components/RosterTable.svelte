@@ -10,12 +10,12 @@
 	let {
 		roster,
 		raidSnapshot = null,
+		difficulty = $bindable<'heroic' | 'mythic'>('heroic'),
 	}: {
 		roster: Roster;
 		raidSnapshot?: RaidWeeklyFile | null;
+		difficulty?: 'heroic' | 'mythic';
 	} = $props();
-
-	let difficulty = $state<'heroic' | 'mythic'>('heroic');
 
 	const activePlayers = $derived(
 		roster.players
