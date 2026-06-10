@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-06-09T23:56:53.962Z",
+  "last_updated": "2026-06-10T07:48:49.227Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
-      "current_streak": 3,
+      "current_streak": 0,
       "longest_streak": 3,
       "total_weeks_met": 3,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 9,
         "week": "2026-21"
@@ -15,6 +15,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 1,
+          "total_dungeons": 1,
+          "highest_key_level": 15,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -45,7 +53,7 @@
       "current_streak": 0,
       "longest_streak": 0,
       "total_weeks_met": 0,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 2,
         "week": "2026-23"
@@ -55,6 +63,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -85,7 +101,7 @@
       "current_streak": 0,
       "longest_streak": 1,
       "total_weeks_met": 1,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 4,
         "week": "2026-21"
@@ -95,6 +111,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -125,7 +149,7 @@
       "current_streak": 0,
       "longest_streak": 1,
       "total_weeks_met": 1,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 4,
         "week": "2026-21"
@@ -135,6 +159,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -162,10 +194,10 @@
       ]
     },
     "77d3af03-b9b3-4097-b5ad-4c8d5a536966": {
-      "current_streak": 3,
+      "current_streak": 0,
       "longest_streak": 3,
       "total_weeks_met": 3,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 10,
         "week": "2026-21"
@@ -175,6 +207,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -205,7 +245,7 @@
       "current_streak": 0,
       "longest_streak": 2,
       "total_weeks_met": 2,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 6,
         "week": "2026-22"
@@ -215,6 +255,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -242,10 +290,10 @@
       ]
     },
     "7b772b7b-9e9b-4ac3-b68b-cedf0fc36dff": {
-      "current_streak": 1,
+      "current_streak": 0,
       "longest_streak": 1,
       "total_weeks_met": 2,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 6,
         "week": "2026-21"
@@ -255,6 +303,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -282,10 +338,10 @@
       ]
     },
     "7ad5ac04-e4cb-4ebd-bee2-240b4a9275c9": {
-      "current_streak": 3,
+      "current_streak": 0,
       "longest_streak": 3,
       "total_weeks_met": 3,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 10,
         "week": "2026-22"
@@ -295,6 +351,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -325,7 +389,7 @@
       "current_streak": 0,
       "longest_streak": 2,
       "total_weeks_met": 2,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 10,
         "week": "2026-22"
@@ -335,6 +399,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -365,7 +437,7 @@
       "current_streak": 0,
       "longest_streak": 2,
       "total_weeks_met": 2,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 10,
         "week": "2026-22"
@@ -375,6 +447,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -402,10 +482,10 @@
       ]
     },
     "185f2e13-823b-42bb-9387-fb439efc132e": {
-      "current_streak": 3,
+      "current_streak": 0,
       "longest_streak": 3,
       "total_weeks_met": 3,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 10,
         "week": "2026-23"
@@ -415,6 +495,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -442,10 +530,10 @@
       ]
     },
     "9b9364da-6525-4693-80f2-e6a28e995b4f": {
-      "current_streak": 3,
+      "current_streak": 0,
       "longest_streak": 3,
       "total_weeks_met": 3,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 10,
         "week": "2026-22"
@@ -455,6 +543,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -485,13 +581,21 @@
       "current_streak": 0,
       "longest_streak": 0,
       "total_weeks_met": 0,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 1,
         "week": "2026-21"
       },
       "record_highest_key": null,
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -522,7 +626,7 @@
       "current_streak": 0,
       "longest_streak": 0,
       "total_weeks_met": 0,
-      "total_weeks_tracked": 3,
+      "total_weeks_tracked": 4,
       "record_dungeons_week": {
         "count": 3,
         "week": "2026-21"
@@ -532,6 +636,14 @@
         "week": "2026-22"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -559,10 +671,10 @@
       ]
     },
     "f479633a-cbd8-4a19-9e73-7bb92bdb03fa": {
-      "current_streak": 1,
+      "current_streak": 0,
       "longest_streak": 1,
       "total_weeks_met": 1,
-      "total_weeks_tracked": 1,
+      "total_weeks_tracked": 2,
       "record_dungeons_week": {
         "count": 11,
         "week": "2026-23"
@@ -572,6 +684,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -583,10 +703,10 @@
       ]
     },
     "f551f254-b145-4991-8cf1-970db0cab24e": {
-      "current_streak": 1,
+      "current_streak": 0,
       "longest_streak": 1,
       "total_weeks_met": 1,
-      "total_weeks_tracked": 1,
+      "total_weeks_tracked": 2,
       "record_dungeons_week": {
         "count": 13,
         "week": "2026-23"
@@ -596,6 +716,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -610,13 +738,21 @@
       "current_streak": 0,
       "longest_streak": 0,
       "total_weeks_met": 0,
-      "total_weeks_tracked": 1,
+      "total_weeks_tracked": 2,
       "record_dungeons_week": {
         "count": 0,
-        "week": "2026-23"
+        "week": "2026-24"
       },
       "record_highest_key": null,
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
@@ -628,10 +764,10 @@
       ]
     },
     "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a": {
-      "current_streak": 1,
+      "current_streak": 0,
       "longest_streak": 1,
       "total_weeks_met": 1,
-      "total_weeks_tracked": 1,
+      "total_weeks_tracked": 2,
       "record_dungeons_week": {
         "count": 15,
         "week": "2026-23"
@@ -641,6 +777,14 @@
         "week": "2026-23"
       },
       "weeks": [
+        {
+          "week": "2026-24",
+          "reset_start": "2026-06-10T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        },
         {
           "week": "2026-23",
           "reset_start": "2026-06-03T07:00:00.000Z",
