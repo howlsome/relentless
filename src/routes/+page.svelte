@@ -139,21 +139,17 @@
 							? 'Raid tier'
 							: ((primaryRaidZone?.meta as MetaShape)?.name ?? primaryRaidZone?.label ?? 'Raid')}
 					</div>
-					{#if browser}
-						<div class="prog-diff-toggle" role="group" aria-label="Progression difficulty">
-							{#each [['heroic', 'H'], ['mythic', 'M']] as [val, short]}
-								<button
-									type="button"
-									class="prog-diff-btn {progDifficulty === val ? 'prog-diff-btn--active' : ''}"
-									onclick={() => setProgDifficulty(val as 'heroic' | 'mythic')}
-									aria-pressed={progDifficulty === val}
-									title={val.charAt(0).toUpperCase() + val.slice(1)}>{short}</button
-								>
-							{/each}
-						</div>
-					{:else}
-						<span class="prog-diff-label">{progDifficulty === 'mythic' ? 'M' : 'H'}</span>
-					{/if}
+					<div class="prog-diff-toggle" role="group" aria-label="Progression difficulty">
+						{#each [['heroic', 'H'], ['mythic', 'M']] as [val, short]}
+							<button
+								type="button"
+								class="prog-diff-btn {progDifficulty === val ? 'prog-diff-btn--active' : ''}"
+								onclick={() => setProgDifficulty(val as 'heroic' | 'mythic')}
+								aria-pressed={progDifficulty === val}
+								title={val.charAt(0).toUpperCase() + val.slice(1)}>{short}</button
+							>
+						{/each}
+					</div>
 				</div>
 				<div class="progression-header">
 					<span class="progression-count">
