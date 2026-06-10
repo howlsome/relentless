@@ -171,6 +171,7 @@ async function main() {
 			currentWeek,
 			fetchedAt,
 			roster,
+			resetStart,
 		});
 	}
 
@@ -419,7 +420,15 @@ function describeMatchingSession(killTimeUtc, schedule) {
 
 // ── Raid zone ──────────────────────────────────────────────────────────────────
 
-async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetchedAt, roster }) {
+async function processRaidZone({
+	zone,
+	wclToken,
+	activeItems,
+	currentWeek,
+	fetchedAt,
+	roster,
+	resetStart,
+}) {
 	const zoneId = zone.id;
 	const prefix = `seasons/raid-${zoneId}`;
 
@@ -712,17 +721,7 @@ async function processRaidZone({ zone, wclToken, activeItems, currentWeek, fetch
 	// zoneRankings returns all-time bests with no date filter. We override kill
 	// status, parse percentile, and report codes using encounterRankings filtered
 	// to each raider's tracking_start_date so pre-tracking kills are excluded.
-	const weekStartMs = roster.raid_schedule
-		? (() => {
-				// Use the resetStart already calculated for the current week
-				const d = new Date(fetchedAt);
-				// Find Wednesday 07:00 UTC of this ISO week
-				const dayOfWeek = d.getUTCDay() || 7;
-				const wednesday = new Date(d.getTime() - (dayOfWeek - 3) * 86_400_000);
-				wednesday.setUTCHours(7, 0, 0, 0);
-				return wednesday.getTime();
-			})()
-		: 0;
+	const weekStartMs = roster.raid_schedule ? resetStart.getTime() : 0;
 	const weekEndMs = weekStartMs + 7 * 86_400_000;
 
 	const diffPairs = difficulties
