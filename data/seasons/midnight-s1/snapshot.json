@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-24",
-  "fetched_at": "2026-06-10T23:04:36.010Z",
+  "fetched_at": "2026-06-11T08:59:36.759Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -250,10 +250,17 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3098.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-10T21:00:32.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -288,10 +295,16 @@
           "level": 16,
           "timed": false,
           "completed_at": "2026-06-10T17:55:19.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-10T21:00:32.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": false
     },
@@ -305,10 +318,17 @@
       "spec": "Shadow",
       "role": "dps",
       "rio_score": 3137,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-10T21:00:32.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
