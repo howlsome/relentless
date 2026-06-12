@@ -155,14 +155,16 @@
 
 		<!-- Row 3: Historical best (pre-tracking) -->
 		{#if diffData?.historical_best_parse != null}
-			<div
-				class="boss-card__row boss-card__row--historical"
-				style="background:{getBadgeBgColour(diffData.historical_best_parse)};color:{getBadgeTextColour(
-					diffData.historical_best_parse,
-				)}"
-			>
-				<span class="historical-label">Historical:</span>
-				<strong class="historical-value">{diffData.historical_best_parse.toFixed(0)}%</strong>
+			<div class="boss-card__row boss-card__row--wowa">
+				<div
+					class="card-btn historical-btn"
+					style="background:{getBadgeBgColour(diffData.historical_best_parse)};color:{getBadgeTextColour(
+						diffData.historical_best_parse,
+					)}"
+				>
+					<span>Historical</span>
+					<strong>{diffData.historical_best_parse.toFixed(0)}%</strong>
+				</div>
 			</div>
 		{/if}
 
@@ -173,7 +175,7 @@
 					href={latestWowAnalyzerUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="wowa-link"
+					class="card-btn"
 					title="Opens your most recent log for this boss in WoWAnalyzer">WoWAnalyzer</a
 				>
 			</div>
@@ -186,7 +188,7 @@
 					href={latestWipefestUrl()}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="wowa-link wipefest-link"
+					class="card-btn"
 					title="Same report as WoWAnalyzer — only your latest kill is linked">Wipefest</a
 				>
 			</div>
@@ -199,7 +201,7 @@
 					href={lorrgsUrl()}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="wowa-link lorrgs-link"
+					class="card-btn"
 					title="View top parses for your spec on this boss in Lorrgs">Lorrgs</a
 				>
 			</div>
@@ -280,33 +282,16 @@
 		font-weight: 700;
 	}
 
-	/* Row 3: Historical best */
-	.boss-card__row--historical {
-		justify-content: space-between;
-		align-items: center;
-		font-size: 0.72rem;
-		border-radius: 999px;
-		padding: 0.2em 0.65em;
-		border: 2px solid currentColor;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	.historical-label {
-		opacity: 0.85;
-	}
-
-	.historical-value {
-		font-weight: 700;
-	}
-
-	/* Row 4: WoWAnalyzer */
+	/* Rows 3–6: shared button style for historical, WoWAnalyzer, Wipefest, Lorrgs */
 	.boss-card__row--wowa {
 		justify-content: stretch;
 	}
 
-	.wowa-link {
-		display: block;
+	.card-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 0.4em;
 		width: 100%;
 		text-align: center;
 		font-size: 0.7rem;
@@ -317,18 +302,15 @@
 		border-radius: 4px;
 		padding: 0.25em 0.5em;
 		opacity: 0.65;
+		box-sizing: border-box;
 	}
 
-	.wowa-link:hover {
+	a.card-btn:hover {
 		opacity: 1;
 	}
 
-	.wipefest-link {
-		border-style: dashed;
-	}
-
-	.lorrgs-link {
-		border-style: dotted;
+	.historical-btn {
+		opacity: 1;
 	}
 
 	.no-kill {
