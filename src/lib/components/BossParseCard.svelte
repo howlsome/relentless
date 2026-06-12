@@ -153,20 +153,21 @@
 			<span class="stat">Avg <strong>{avgPct != null ? avgPct + '%' : '—'}</strong></span>
 		</div>
 
-		<!-- Row 3: Historical best (pre-tracking) -->
-		{#if diffData?.historical_best_parse != null}
-			<div class="boss-card__row boss-card__row--wowa">
-				<div
-					class="card-btn historical-btn"
-					style="background:{getBadgeBgColour(diffData.historical_best_parse)};color:{getBadgeTextColour(
-						diffData.historical_best_parse,
-					)}"
-				>
-					<span>Historical</span>
-					<strong>{diffData.historical_best_parse.toFixed(0)}%</strong>
-				</div>
+		<!-- Row 3: Historical best (pre-tracking) — always rendered to keep buttons anchored -->
+		<div
+			class="boss-card__row boss-card__row--wowa"
+			style={diffData?.historical_best_parse == null ? 'visibility:hidden' : ''}
+		>
+			<div
+				class="card-btn historical-btn"
+				style="background:{getBadgeBgColour(
+					diffData?.historical_best_parse ?? 0,
+				)};color:{getBadgeTextColour(diffData?.historical_best_parse ?? 0)}"
+			>
+				<span>Historical</span>
+				<strong>{(diffData?.historical_best_parse ?? 0).toFixed(0)}%</strong>
 			</div>
-		{/if}
+		</div>
 
 		<!-- Row 4: WoWAnalyzer link -->
 		{#if latestWowAnalyzerUrl}
