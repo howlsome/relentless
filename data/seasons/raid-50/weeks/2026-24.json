@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-24",
-  "fetched_at": "2026-06-12T11:44:02.593Z",
+  "fetched_at": "2026-06-12T13:31:18.109Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -97,6 +97,28 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Discipline": [
+          {
+            "boss_id": 3159,
+            "boss_name": "Rotmire",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []

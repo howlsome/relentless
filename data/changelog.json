@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-12T11:44:02.593Z",
-  "roster_hash": "6b8ee56c95733069ce802389ec93cc1990d221800b39f81be688a4271949a8d5",
+  "last_updated": "2026-06-12T13:31:18.109Z",
+  "roster_hash": "a31f929915fbbc078cf86ab5abb6467ab62fff6f4bba007dafd3b1f5a10abc7a",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -33,6 +33,19 @@
       "mythic"
     ],
     "wcl_expansion_id": 7,
+    "wcl_zone_ids": [
+      46,
+      47,
+      50
+    ],
+    "zone_combination": {
+      "base_id": 46,
+      "extra_ids": [
+        50
+      ],
+      "start_date": "2026-06-17",
+      "label": "VS / DR / MQD / SF"
+    },
     "raid_schedule": {
       "timezone": "Europe/Paris",
       "sessions": [
@@ -134,8 +147,20 @@
             "name": "Raem",
             "realm": "Doomhammer",
             "class": "Priest",
-            "spec": "Shadow",
-            "role": "dps",
+            "specs": [
+              {
+                "spec": "Shadow",
+                "role": "dps",
+                "primary": true,
+                "wcl_active": true
+              },
+              {
+                "spec": "Discipline",
+                "role": "healer",
+                "primary": false,
+                "wcl_active": true
+              }
+            ],
             "active": true
           }
         ],
@@ -1122,6 +1147,19 @@
       "spec": "Frost",
       "role": "dps",
       "note": "Joined 10th June 2026"
+    },
+    {
+      "id": "bd505937-9f44-4b5e-bcd9-24bfb6264ec7",
+      "timestamp": "2026-06-12T13:31:18.109Z",
+      "week": "2026-24",
+      "team": "main",
+      "event": "role_changed",
+      "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
+      "display_name": "Raem",
+      "character": "Raem",
+      "from_spec": "Shadow",
+      "from_role": "dps",
+      "note": ""
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "active_mplus_season": "midnight-s1",
   "active_raid_zones": [
+    "raid-47",
     "raid-50",
     "raid-46"
   ],
@@ -13,6 +14,13 @@
     }
   ],
   "all_raid_zones": [
+    {
+      "season_id": "raid-47",
+      "label": "Mythic+ Season 1",
+      "wcl_zone_id": 47,
+      "start_date": "2026-06-12",
+      "end_date": null
+    },
     {
       "season_id": "raid-50",
       "label": "Sporefall",

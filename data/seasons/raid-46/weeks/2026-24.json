@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-24",
-  "fetched_at": "2026-06-12T11:44:02.593Z",
+  "fetched_at": "2026-06-12T13:31:18.109Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -535,7 +535,7 @@
               "kill": false,
               "parse_percentile": null,
               "spec": "Shadow",
-              "dps": 96658.961652135,
+              "dps": 28410.868824532,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null,
@@ -561,7 +561,7 @@
               "kill": false,
               "parse_percentile": null,
               "spec": "Shadow",
-              "dps": 66312.26652907,
+              "dps": 15683.807128153,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null,
@@ -739,7 +739,7 @@
               "kill": false,
               "parse_percentile": null,
               "spec": "Shadow",
-              "dps": 99017.594650999,
+              "dps": 22863.721265649,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null,
@@ -748,6 +748,234 @@
           }
         }
       ],
+      "offspec_parses": {
+        "Discipline": [
+          {
+            "boss_id": 3176,
+            "boss_name": "Imperator Averzian",
+            "difficulties": {
+              "heroic": {
+                "kill": true,
+                "parse_percentile": 71.2,
+                "spec": "Discipline",
+                "dps": 114062.15228411,
+                "kill_time": "2026-06-10T19:00:39.478Z",
+                "kill_category": "in_raid",
+                "detected_session": null,
+                "wcl_report_code": "4wGmfLVCRvd6DZtr",
+                "wcl_fight_id": 9
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3177,
+            "boss_name": "Vorasius",
+            "difficulties": {
+              "heroic": {
+                "kill": true,
+                "parse_percentile": 86.3,
+                "spec": "Discipline",
+                "dps": 130220.60853038,
+                "kill_time": "2026-06-10T19:21:53.471Z",
+                "kill_category": "in_raid",
+                "detected_session": null,
+                "wcl_report_code": "4wGmfLVCRvd6DZtr",
+                "wcl_fight_id": 15
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3178,
+            "boss_name": "Vaelgor & Ezzorak",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3179,
+            "boss_name": "Fallen-King Salhadaar",
+            "difficulties": {
+              "heroic": {
+                "kill": true,
+                "parse_percentile": 75.7,
+                "spec": "Discipline",
+                "dps": 128676.56781693,
+                "kill_time": "2026-06-10T19:33:23.792Z",
+                "kill_category": "in_raid",
+                "detected_session": null,
+                "wcl_report_code": "4wGmfLVCRvd6DZtr",
+                "wcl_fight_id": 18
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3180,
+            "boss_name": "Lightblinded Vanguard",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3181,
+            "boss_name": "Crown of the Cosmos",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3182,
+            "boss_name": "Belo'ren, Child of Al'ar",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3183,
+            "boss_name": "Midnight Falls",
+            "difficulties": {
+              "heroic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          },
+          {
+            "boss_id": 3306,
+            "boss_name": "Chimaerus, the Undreamt God",
+            "difficulties": {
+              "heroic": {
+                "kill": true,
+                "parse_percentile": 65.1,
+                "spec": "Discipline",
+                "dps": 104967.80974493,
+                "kill_time": "2026-06-10T18:46:29.310Z",
+                "kill_category": "in_raid",
+                "detected_session": null,
+                "wcl_report_code": "4wGmfLVCRvd6DZtr",
+                "wcl_fight_id": 3
+              },
+              "mythic": {
+                "kill": false,
+                "parse_percentile": null,
+                "spec": null,
+                "dps": null,
+                "kill_time": null,
+                "kill_category": null,
+                "detected_session": null
+              }
+            }
+          }
+        ]
+      },
       "lockout_warnings": [],
       "safe_pug_kills": [],
       "exempt_pug_kills": []

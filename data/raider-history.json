@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12T11:44:02.593Z",
+  "last_updated": "2026-06-12T13:31:18.109Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -46,8 +46,6 @@
           "name": "Raem",
           "realm": "Doomhammer",
           "class": "Priest",
-          "spec": "Shadow",
-          "role": "dps",
           "active": true,
           "first_seen": "2026-05-20"
         }
