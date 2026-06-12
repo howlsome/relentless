@@ -55,8 +55,14 @@ export function load() {
 		? (roster.raid_difficulty_status?.[primaryZone.season_id]?.mythic_start_date ?? null)
 		: null;
 	const today = new Date().toISOString().slice(0, 10);
+	// Only default to mythic once the date has passed AND kills exist — avoids
+	// showing blank parses when mythic_start_date is set for lockout-detection
+	// purposes before the guild has any actual mythic kills recorded.
+	const hasMythicKills = primaryZone?.snapshot?.raiders?.some((r) =>
+		r.raid_parses?.some((bp) => bp.difficulties?.mythic?.kill),
+	);
 	const primaryRaidDifficulty =
-		mythicStartDate && today >= mythicStartDate
+		mythicStartDate && today >= mythicStartDate && hasMythicKills
 			? /** @type {'mythic'} */ ('mythic')
 			: /** @type {'heroic'} */ (roster.primary_raid_difficulty ?? 'heroic');
 
