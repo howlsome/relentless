@@ -27,6 +27,15 @@
 		[...wowanalyzerUrls].reverse().find((u) => u != null) ?? null,
 	);
 
+	const latestWipefestUrl = $derived(() => {
+		if (!latestWowAnalyzerUrl) return null;
+		// WoWAnalyzer: https://www.wowanalyzer.com/report/CODE/FIGHTID
+		// Wipefest:    https://www.wipefest.gg/report/CODE/fight/FIGHTID
+		const match = latestWowAnalyzerUrl.match(/\/report\/([^/]+)\/(\d+)$/);
+		if (!match) return null;
+		return `https://www.wipefest.gg/report/${match[1]}/fight/${match[2]}`;
+	});
+
 	const DIFF_IDS: Record<string, number> = { heroic: 4, mythic: 5 };
 
 	function wclUrl(diff: string): string | null {
@@ -140,6 +149,19 @@
 					rel="noopener noreferrer"
 					class="wowa-link"
 					title="Opens your most recent log for this boss in WoWAnalyzer">Open in WoWAnalyzer</a
+				>
+			</div>
+		{/if}
+
+		<!-- Row 5: Wipefest link -->
+		{#if latestWipefestUrl()}
+			<div class="boss-card__row boss-card__row--wowa">
+				<a
+					href={latestWipefestUrl()}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="wowa-link wipefest-link"
+					title="Opens your most recent log for this boss in Wipefest">Open in Wipefest</a
 				>
 			</div>
 		{/if}
@@ -260,6 +282,10 @@
 
 	.wowa-link:hover {
 		opacity: 1;
+	}
+
+	.wipefest-link {
+		border-style: dashed;
 	}
 
 	.no-kill {
