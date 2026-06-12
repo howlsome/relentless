@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-24",
-  "fetched_at": "2026-06-11T08:59:36.759Z",
+  "fetched_at": "2026-06-12T08:49:14.805Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -186,10 +186,17 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3200.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-11T21:11:15.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -252,15 +259,27 @@
       "rio_score": 3098.4,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Skyreach",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-11T17:51:34.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 11,
+          "timed": false,
+          "completed_at": "2026-06-11T18:41:55.000Z"
+        },
+        {
           "dungeon": "Algeth'ar Academy",
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-10T21:00:32.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -288,7 +307,7 @@
       "class": "Warlock",
       "spec": "Demonology",
       "role": "dps",
-      "rio_score": 3369.3,
+      "rio_score": 3382.6,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
@@ -297,16 +316,34 @@
           "completed_at": "2026-06-10T17:55:19.000Z"
         },
         {
+          "dungeon": "Maisara Caverns",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-11T19:58:40.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-11T18:30:25.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 15,
+          "timed": false,
+          "completed_at": "2026-06-11T19:11:14.000Z"
+        },
+        {
           "dungeon": "Algeth'ar Academy",
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-10T21:00:32.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 16,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
