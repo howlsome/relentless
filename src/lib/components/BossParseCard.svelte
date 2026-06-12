@@ -30,10 +30,10 @@
 	const latestWipefestUrl = $derived(() => {
 		if (!latestWowAnalyzerUrl) return null;
 		// WoWAnalyzer: https://www.wowanalyzer.com/report/CODE/FIGHTID
-		// Wipefest:    https://www.wipefest.gg/report/CODE/fight/FIGHTID
-		const match = latestWowAnalyzerUrl.match(/\/report\/([^/]+)\/(\d+)$/);
+		// Wipefest:    https://www.wipefest.gg/report/CODE?gameVersion=warcraft-live
+		const match = latestWowAnalyzerUrl.match(/\/report\/([^/]+)\//);
 		if (!match) return null;
-		return `https://www.wipefest.gg/report/${match[1]}/fight/${match[2]}`;
+		return `https://www.wipefest.gg/report/${match[1]}?gameVersion=warcraft-live`;
 	});
 
 	const DIFF_IDS: Record<string, number> = { heroic: 4, mythic: 5 };
