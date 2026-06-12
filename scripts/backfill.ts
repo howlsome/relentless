@@ -20,7 +20,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Character, Player } from '../src/lib/types/roster.js';
 import { getActiveCharacters } from '../src/lib/utils/raider-identity.js';
-import { getPrimarySpec } from '../src/lib/utils/roster.js';
+import { getPrimarySpec, getActiveSpecs } from '../src/lib/utils/roster.js';
 import {
 	DIFFICULTY_IDS,
 	fetchActiveRaidZones,
@@ -203,6 +203,61 @@ async function main() {
 				return entry;
 			});
 
+			// Build offspec_parses from the same raiderMap — no extra API calls needed,
+			// just filter the already-fetched historical kills by offspec name.
+			const offspecEntries = activeChar ? getActiveSpecs(activeChar).filter((s) => !s.primary) : [];
+			const offspec_parses: Record<string, unknown[]> = {};
+
+			for (const offspec of offspecEntries) {
+				const specName = offspec.spec;
+				offspec_parses[specName] = bossIds.map((bossId) => {
+					const bossName = bossNames.get(bossId) ?? `Boss ${bossId}`;
+					const entry: Record<string, unknown> = {
+						boss_id: bossId,
+						boss_name: bossName,
+						difficulties: {},
+					};
+
+					for (const [diffKey] of diffPairs) {
+						const kills = raiderMap?.[bossId]?.[diffKey] ?? [];
+						const weekKills = kills.filter(
+							(k) =>
+								k.startTime >= weekStart &&
+								k.startTime < weekEnd &&
+								k.startTime >= trackingStartMs &&
+								k.spec === specName,
+						);
+
+						if (weekKills.length === 0) {
+							(entry.difficulties as Record<string, unknown>)[diffKey] = {
+								kill: false,
+								parse_percentile: null,
+								spec: null,
+								dps: null,
+							};
+						} else {
+							const best = weekKills.reduce((a, b) =>
+								(b.rankPercent ?? -1) > (a.rankPercent ?? -1) ? b : a,
+							);
+							(entry.difficulties as Record<string, unknown>)[diffKey] = {
+								kill: true,
+								parse_percentile:
+									best.rankPercent != null ? Math.round(best.rankPercent * 10) / 10 : null,
+								spec: best.spec || null,
+								dps: best.amount || null,
+								kill_time: new Date(best.startTime).toISOString(),
+								kill_category: null,
+								detected_session: null,
+								wcl_report_code: best.reportCode ?? null,
+								wcl_fight_id: best.fightId ?? null,
+							};
+						}
+					}
+
+					return entry;
+				});
+			}
+
 			raiders.push({
 				raider_id: player.raider_id,
 				display_name: player.display_name,
@@ -213,6 +268,7 @@ async function main() {
 				spec: primarySpecName ?? '',
 				role: activeChar ? (getPrimarySpec(activeChar)?.role ?? activeChar.role ?? '') : '',
 				raid_parses,
+				...(Object.keys(offspec_parses).length > 0 ? { offspec_parses } : {}),
 				lockout_warnings: [],
 				safe_pug_kills: [],
 				exempt_pug_kills: [],
