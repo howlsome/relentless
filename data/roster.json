@@ -138,8 +138,20 @@
           "name": "Raem",
           "realm": "Doomhammer",
           "class": "Priest",
-          "spec": "Shadow",
-          "role": "dps",
+          "specs": [
+            {
+              "spec": "Shadow",
+              "role": "dps",
+              "primary": true,
+              "wcl_active": true
+            },
+            {
+              "spec": "Discipline",
+              "role": "healer",
+              "primary": false,
+              "wcl_active": true
+            }
+          ],
           "active": true
         }
       ],
