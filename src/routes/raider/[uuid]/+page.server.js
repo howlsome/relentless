@@ -145,6 +145,15 @@ export function load({ params }) {
 	/** @type {Record<string, Record<string, Record<number,(string|null)[]>>>} specName → diff → bossId → urls */
 	const offspecWowanalyzerByDiff = {};
 
+	// Tracks the best parse seen so far per diff/boss, used to detect new kills in
+	// older weekly files where kill_time wasn't recorded (e.g. WCL data not yet
+	// available when the fetch ran). An increase in best parse can only mean a new
+	// kill happened that week.
+	/** @type {Record<string, Record<number, number|null>>} diff → bossId → prevBestParse */
+	const prevParseByDiff = { heroic: {}, mythic: {} };
+	/** @type {Record<string, Record<string, Record<number, number|null>>>} specName → diff → bossId */
+	const offspecPrevParseByDiff = {};
+
 	if (primaryRaidZone) {
 		const weeksDir = join(dataDir, 'seasons', primaryRaidZone.season_id, 'weeks');
 		if (existsSync(weeksDir)) {
@@ -161,47 +170,69 @@ export function load({ params }) {
 				// Skip weeks that predate this raider's tracking start
 				if (weekData.week && weekData.week < raiderTrackingWeek) continue;
 
-				// Primary spec weekly history — one entry per boss per week the raider
-				// actually killed that boss in Relentless. Weeks where the boss was not
-				// killed (missed, not yet reached, or pug kill) are omitted entirely so
-				// the chart reflects the raider's personal kill count, not the team's.
+				// Primary spec weekly history.
+				// A kill entry is included when:
+				//   (a) kill_time is set — confirmed kill within that reset window, or
+				//   (b) parse_percentile improved vs the previous week — since parse is a
+				//       best-ever figure, any increase proves a new kill happened even if
+				//       kill_time is missing (e.g. WCL data delay when the fetch ran).
 				for (const diff of ['heroic', 'mythic']) {
 					for (const bp of raiderData.raid_parses ?? []) {
 						const d = bp.difficulties?.[diff];
-						const isRelentlessKill =
+						const bossId = bp.boss_id;
+						const hasKillTime =
 							d?.kill_time != null && (d.kill_category == null || d.kill_category === 'in_raid');
-						if (!isRelentlessKill) continue;
-						if (!weeklyHistoryByDiff[diff][bp.boss_id]) weeklyHistoryByDiff[diff][bp.boss_id] = [];
-						if (!wowanalyzerByDiff[diff][bp.boss_id]) wowanalyzerByDiff[diff][bp.boss_id] = [];
-						weeklyHistoryByDiff[diff][bp.boss_id].push(d.parse_percentile ?? null);
-						const url =
-							d?.wcl_report_code && d?.wcl_fight_id
-								? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
-								: null;
-						wowanalyzerByDiff[diff][bp.boss_id].push(url);
+						const currentParse = d?.kill ? (d.parse_percentile ?? null) : null;
+						const prevParse = prevParseByDiff[diff][bossId] ?? null;
+						const parseImproved =
+							currentParse != null && (prevParse === null || currentParse > prevParse);
+
+						if (hasKillTime || parseImproved) {
+							if (!weeklyHistoryByDiff[diff][bossId]) weeklyHistoryByDiff[diff][bossId] = [];
+							if (!wowanalyzerByDiff[diff][bossId]) wowanalyzerByDiff[diff][bossId] = [];
+							weeklyHistoryByDiff[diff][bossId].push(currentParse);
+							const url =
+								hasKillTime && d?.wcl_report_code && d?.wcl_fight_id
+									? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
+									: null;
+							wowanalyzerByDiff[diff][bossId].push(url);
+						}
+
+						if (currentParse != null) prevParseByDiff[diff][bossId] = currentParse;
 					}
 				}
 
-				// Offspec weekly history — same approach: only include weeks with a kill.
+				// Offspec weekly history — same dual-signal approach.
 				for (const [specName, bossParsesForSpec] of Object.entries(raiderData.offspec_parses ?? {})) {
 					if (!offspecWeeklyHistoryByDiff[specName]) {
 						offspecWeeklyHistoryByDiff[specName] = { heroic: {}, mythic: {} };
 						offspecWowanalyzerByDiff[specName] = { heroic: {}, mythic: {} };
+						offspecPrevParseByDiff[specName] = { heroic: {}, mythic: {} };
 					}
 					for (const diff of ['heroic', 'mythic']) {
 						for (const bp of /** @type {any[]} */ (bossParsesForSpec)) {
 							const d = bp.difficulties?.[diff];
-							if (!d?.kill) continue;
-							const hist = offspecWeeklyHistoryByDiff[specName][diff];
-							const urls = offspecWowanalyzerByDiff[specName][diff];
-							if (!hist[bp.boss_id]) hist[bp.boss_id] = [];
-							if (!urls[bp.boss_id]) urls[bp.boss_id] = [];
-							hist[bp.boss_id].push(d.parse_percentile ?? null);
-							const url =
-								d?.wcl_report_code && d?.wcl_fight_id
-									? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
-									: null;
-							urls[bp.boss_id].push(url);
+							const bossId = bp.boss_id;
+							const hasKillTime = d?.kill_time != null;
+							const currentParse = d?.kill ? (d.parse_percentile ?? null) : null;
+							const prevParse = offspecPrevParseByDiff[specName][diff][bossId] ?? null;
+							const parseImproved =
+								currentParse != null && (prevParse === null || currentParse > prevParse);
+
+							if (hasKillTime || parseImproved) {
+								const hist = offspecWeeklyHistoryByDiff[specName][diff];
+								const urls = offspecWowanalyzerByDiff[specName][diff];
+								if (!hist[bossId]) hist[bossId] = [];
+								if (!urls[bossId]) urls[bossId] = [];
+								hist[bossId].push(currentParse);
+								const url =
+									hasKillTime && d?.wcl_report_code && d?.wcl_fight_id
+										? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
+										: null;
+								urls[bossId].push(url);
+							}
+
+							if (currentParse != null) offspecPrevParseByDiff[specName][diff][bossId] = currentParse;
 						}
 					}
 				}
