@@ -56,7 +56,7 @@
 				{/each}
 			</div>
 			{#if Object.values(wowanalyzerUrls).some((arr) => arr.some((u) => u != null))}
-				<p class="wowa-footer-note">WoWAnalyzer links open the most recent report only.</p>
+				<p class="wowa-footer-note">Wipefest and WoW Analyzer links are for the latest report only.</p>
 			{/if}
 		{/if}
 	</div>
