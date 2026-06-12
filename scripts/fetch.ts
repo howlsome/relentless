@@ -112,9 +112,12 @@ async function main() {
 	// ── 3. Active zones from WCL ──────────────────────────────────────────────
 	console.log('[fetch] Fetching active raid zones…');
 	const allZones = await fetchActiveRaidZones(wclToken, roster.wcl_expansion_id);
-	const raidZones = allZones.filter((z) => !z.name.toLowerCase().includes('mythic+'));
+	const allowedZoneIds: Set<number> = new Set(roster.wcl_zone_ids ?? []);
+	const raidZones = allZones.filter((z) =>
+		allowedZoneIds.size > 0 ? allowedZoneIds.has(z.id) : !z.name.toLowerCase().includes('mythic+'),
+	);
 	console.log(
-		`[fetch] Found ${raidZones.length} raid zone(s) (filtered ${allZones.length - raidZones.length} M+ zone(s)) for expansion ${roster.wcl_expansion_id}.`,
+		`[fetch] Found ${raidZones.length} raid zone(s) (filtered to IDs: ${[...allowedZoneIds].join(', ')}) for expansion ${roster.wcl_expansion_id}.`,
 	);
 
 	// ── 4. Build active {player, char} list ──────────────────────────────────

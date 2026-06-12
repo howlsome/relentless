@@ -30,6 +30,7 @@
     "mythic"
   ],
   "wcl_expansion_id": 7,
+  "wcl_zone_ids": [46, 47, 50],
   "raid_schedule": {
     "timezone": "Europe/Paris",
     "sessions": [
