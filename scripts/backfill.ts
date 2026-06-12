@@ -20,6 +20,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Character, Player } from '../src/lib/types/roster.js';
 import { getActiveCharacters } from '../src/lib/utils/raider-identity.js';
+import { getPrimarySpec } from '../src/lib/utils/roster.js';
 import {
 	DIFFICULTY_IDS,
 	fetchActiveRaidZones,
@@ -137,6 +138,22 @@ async function main() {
 			if (player.status !== 'active') continue;
 			const raiderMap = historical.get(player.raider_id);
 
+			// Only include kills on or after the player's tracking start date.
+			const trackingStartMs = new Date(
+				player.tracking_start_date ?? roster.tracking_start_date,
+			).getTime();
+
+			// Skip the whole player if this week predates their tracking start.
+			if (weekEnd <= trackingStartMs) {
+				console.log(
+					`[backfill] ${player.display_name}: tracking starts after this week — skipping.`,
+				);
+				continue;
+			}
+
+			const activeChar = getActiveCharacters(player)[0];
+			const primarySpecName = activeChar ? (getPrimarySpec(activeChar)?.spec ?? activeChar.spec ?? null) : null;
+
 			const raid_parses = bossIds.map((bossId) => {
 				const bossName = bossNames.get(bossId) ?? `Boss ${bossId}`;
 				const entry: Record<string, unknown> = {
@@ -147,8 +164,15 @@ async function main() {
 
 				for (const [diffKey] of diffPairs) {
 					const kills = raiderMap?.[bossId]?.[diffKey] ?? [];
-					// Filter to kills that occurred within this WoW week
-					const weekKills = kills.filter((k) => k.startTime >= weekStart && k.startTime < weekEnd);
+					// Filter to kills within this WoW week AND on/after the player's tracking start,
+					// and restrict to the player's primary spec so pug kills on alts are excluded.
+					const weekKills = kills.filter(
+						(k) =>
+							k.startTime >= weekStart &&
+							k.startTime < weekEnd &&
+							k.startTime >= trackingStartMs &&
+							(!primarySpecName || k.spec === primarySpecName),
+					);
 
 					if (weekKills.length === 0) {
 						(entry.difficulties as Record<string, unknown>)[diffKey] = {
@@ -167,7 +191,7 @@ async function main() {
 							parse_percentile: best.rankPercent != null ? Math.round(best.rankPercent * 10) / 10 : null,
 							spec: best.spec || null,
 							dps: best.amount || null,
-							kill_time: null,
+							kill_time: new Date(best.startTime).toISOString(),
 							kill_category: null,
 							detected_session: null,
 							wcl_report_code: best.reportCode ?? null,
@@ -179,7 +203,6 @@ async function main() {
 				return entry;
 			});
 
-			const activeChar = getActiveCharacters(player)[0];
 			raiders.push({
 				raider_id: player.raider_id,
 				display_name: player.display_name,
@@ -187,8 +210,8 @@ async function main() {
 				active_character: activeChar?.name ?? '',
 				realm: activeChar?.realm ?? '',
 				class: activeChar?.class ?? '',
-				spec: activeChar?.spec ?? '',
-				role: activeChar?.role ?? '',
+				spec: primarySpecName ?? '',
+				role: activeChar ? (getPrimarySpec(activeChar)?.role ?? activeChar.role ?? '') : '',
 				raid_parses,
 				lockout_warnings: [],
 				safe_pug_kills: [],
