@@ -281,7 +281,7 @@
 								const d = bp.difficulties?.[difficulty];
 								return d?.kill;
 							})}
-							<details class="offspec-wrapper" open={offspecHasKills || undefined}>
+							<details class="offspec-wrapper">
 								<summary class="offspec-summary">
 									<RoleIcon
 										spec={specName}
