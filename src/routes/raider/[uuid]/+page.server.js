@@ -48,6 +48,8 @@ export function load({ params }) {
 	const mplusSnapshot =
 		mplusSnapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
 
+	const today = new Date().toISOString().slice(0, 10);
+
 	const allRaidSnapshots = [];
 	for (const zone of seasonsIndex.all_raid_zones ?? []) {
 		const meta = safeJson(join(dataDir, 'seasons', zone.season_id, 'meta.json'));
@@ -55,6 +57,41 @@ export function load({ params }) {
 		const raiderData =
 			snapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
 		if (meta) allRaidSnapshots.push({ meta, raiderData, season_id: zone.season_id });
+	}
+
+	// Merge extra raid zones into the base zone once their start_date is reached.
+	const zoneCombination = roster.zone_combination;
+	if (zoneCombination && today >= zoneCombination.start_date) {
+		const baseIdx = allRaidSnapshots.findIndex(
+			(z) => z.season_id === `raid-${zoneCombination.base_id}`,
+		);
+		if (baseIdx >= 0) {
+			const base = allRaidSnapshots[baseIdx];
+			const extraSeasonIds = new Set((zoneCombination.extra_ids ?? []).map((id) => `raid-${id}`));
+			const extras = allRaidSnapshots.filter((z) => extraSeasonIds.has(z.season_id));
+			for (const extra of extras) {
+				base.meta = {
+					...base.meta,
+					name: zoneCombination.label,
+					bosses: [...(base.meta?.bosses ?? []), ...(extra.meta?.bosses ?? [])],
+				};
+				base.raiderData = base.raiderData
+					? {
+							...base.raiderData,
+							raid_parses: [
+								...(base.raiderData.raid_parses ?? []),
+								...(extra.raiderData?.raid_parses ?? []),
+							],
+						}
+					: extra.raiderData;
+			}
+			// Remove absorbed zones
+			allRaidSnapshots.splice(
+				0,
+				allRaidSnapshots.length,
+				...allRaidSnapshots.filter((z) => !extraSeasonIds.has(z.season_id)),
+			);
+		}
 	}
 
 	// Pick the single live zone: exclude beta/composite, then take the one with the most bosses.
@@ -155,85 +192,99 @@ export function load({ params }) {
 	const offspecPrevParseByDiff = {};
 
 	if (primaryRaidZone) {
-		const weeksDir = join(dataDir, 'seasons', primaryRaidZone.season_id, 'weeks');
-		if (existsSync(weeksDir)) {
-			const weekFiles = readdirSync(weeksDir)
-				.filter((f) => f.endsWith('.json'))
-				.sort();
-			for (const file of weekFiles) {
+		// Collect all season IDs to scan: base zone + any extra zones that have been
+		// merged (so Rotmire week files are included once zone 50 goes live).
+		const weekSeasonIds = [primaryRaidZone.season_id];
+		if (zoneCombination && today >= zoneCombination.start_date) {
+			for (const id of zoneCombination.extra_ids ?? []) {
+				weekSeasonIds.push(`raid-${id}`);
+			}
+		}
+
+		// Merge and sort week files across all relevant seasons so history is in order.
+		/** @type {Array<{weekData: any, raiderData: any}>} */
+		const allWeekEntries = [];
+		for (const seasonId of weekSeasonIds) {
+			const weeksDir = join(dataDir, 'seasons', seasonId, 'weeks');
+			if (!existsSync(weeksDir)) continue;
+			for (const file of readdirSync(weeksDir).filter((f) => f.endsWith('.json')).sort()) {
 				const weekData = safeJson(join(weeksDir, file));
 				const raiderData = weekData?.raiders?.find(
 					(/** @type {any} */ r) => r.raider_id === params.uuid,
 				);
-				if (!raiderData) continue;
+				if (raiderData) allWeekEntries.push({ weekData, raiderData });
+			}
+		}
+		// Sort by week key so parse-improvement detection runs in chronological order.
+		allWeekEntries.sort((a, b) => (a.weekData?.week ?? '').localeCompare(b.weekData?.week ?? ''));
 
-				// Skip weeks that predate this raider's tracking start
-				if (weekData.week && weekData.week < raiderTrackingWeek) continue;
+		for (const { weekData, raiderData } of allWeekEntries) {
+			// Skip weeks that predate this raider's tracking start
+			if (weekData.week && weekData.week < raiderTrackingWeek) continue;
 
-				// Primary spec weekly history.
-				// A kill entry is included when:
-				//   (a) kill_time is set — confirmed kill within that reset window, or
-				//   (b) parse_percentile improved vs the previous week — since parse is a
-				//       best-ever figure, any increase proves a new kill happened even if
-				//       kill_time is missing (e.g. WCL data delay when the fetch ran).
+			// Primary spec weekly history.
+			// A kill entry is included when:
+			//   (a) kill_time is set — confirmed kill within that reset window, or
+			//   (b) parse_percentile improved vs the previous week — since parse is a
+			//       best-ever figure, any increase proves a new kill happened even if
+			//       kill_time is missing (e.g. WCL data delay when the fetch ran).
+			for (const diff of ['heroic', 'mythic']) {
+				for (const bp of raiderData.raid_parses ?? []) {
+					const d = bp.difficulties?.[diff];
+					const bossId = bp.boss_id;
+					const hasKillTime =
+						d?.kill_time != null && (d.kill_category == null || d.kill_category === 'in_raid');
+					const currentParse = d?.kill ? (d.parse_percentile ?? null) : null;
+					const prevParse = prevParseByDiff[diff][bossId] ?? null;
+					const parseImproved =
+						currentParse != null && (prevParse === null || currentParse > prevParse);
+
+					if (hasKillTime || parseImproved) {
+						if (!weeklyHistoryByDiff[diff][bossId]) weeklyHistoryByDiff[diff][bossId] = [];
+						if (!wowanalyzerByDiff[diff][bossId]) wowanalyzerByDiff[diff][bossId] = [];
+						weeklyHistoryByDiff[diff][bossId].push(currentParse);
+						const url =
+							hasKillTime && d?.wcl_report_code && d?.wcl_fight_id
+								? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
+								: null;
+						wowanalyzerByDiff[diff][bossId].push(url);
+					}
+
+					if (currentParse != null) prevParseByDiff[diff][bossId] = currentParse;
+				}
+			}
+
+			// Offspec weekly history — same dual-signal approach.
+			for (const [specName, bossParsesForSpec] of Object.entries(raiderData.offspec_parses ?? {})) {
+				if (!offspecWeeklyHistoryByDiff[specName]) {
+					offspecWeeklyHistoryByDiff[specName] = { heroic: {}, mythic: {} };
+					offspecWowanalyzerByDiff[specName] = { heroic: {}, mythic: {} };
+					offspecPrevParseByDiff[specName] = { heroic: {}, mythic: {} };
+				}
 				for (const diff of ['heroic', 'mythic']) {
-					for (const bp of raiderData.raid_parses ?? []) {
+					for (const bp of /** @type {any[]} */ (bossParsesForSpec)) {
 						const d = bp.difficulties?.[diff];
 						const bossId = bp.boss_id;
-						const hasKillTime =
-							d?.kill_time != null && (d.kill_category == null || d.kill_category === 'in_raid');
+						const hasKillTime = d?.kill_time != null;
 						const currentParse = d?.kill ? (d.parse_percentile ?? null) : null;
-						const prevParse = prevParseByDiff[diff][bossId] ?? null;
+						const prevParse = offspecPrevParseByDiff[specName][diff][bossId] ?? null;
 						const parseImproved =
 							currentParse != null && (prevParse === null || currentParse > prevParse);
 
 						if (hasKillTime || parseImproved) {
-							if (!weeklyHistoryByDiff[diff][bossId]) weeklyHistoryByDiff[diff][bossId] = [];
-							if (!wowanalyzerByDiff[diff][bossId]) wowanalyzerByDiff[diff][bossId] = [];
-							weeklyHistoryByDiff[diff][bossId].push(currentParse);
+							const hist = offspecWeeklyHistoryByDiff[specName][diff];
+							const urls = offspecWowanalyzerByDiff[specName][diff];
+							if (!hist[bossId]) hist[bossId] = [];
+							if (!urls[bossId]) urls[bossId] = [];
+							hist[bossId].push(currentParse);
 							const url =
 								hasKillTime && d?.wcl_report_code && d?.wcl_fight_id
 									? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
 									: null;
-							wowanalyzerByDiff[diff][bossId].push(url);
+							urls[bossId].push(url);
 						}
 
-						if (currentParse != null) prevParseByDiff[diff][bossId] = currentParse;
-					}
-				}
-
-				// Offspec weekly history — same dual-signal approach.
-				for (const [specName, bossParsesForSpec] of Object.entries(raiderData.offspec_parses ?? {})) {
-					if (!offspecWeeklyHistoryByDiff[specName]) {
-						offspecWeeklyHistoryByDiff[specName] = { heroic: {}, mythic: {} };
-						offspecWowanalyzerByDiff[specName] = { heroic: {}, mythic: {} };
-						offspecPrevParseByDiff[specName] = { heroic: {}, mythic: {} };
-					}
-					for (const diff of ['heroic', 'mythic']) {
-						for (const bp of /** @type {any[]} */ (bossParsesForSpec)) {
-							const d = bp.difficulties?.[diff];
-							const bossId = bp.boss_id;
-							const hasKillTime = d?.kill_time != null;
-							const currentParse = d?.kill ? (d.parse_percentile ?? null) : null;
-							const prevParse = offspecPrevParseByDiff[specName][diff][bossId] ?? null;
-							const parseImproved =
-								currentParse != null && (prevParse === null || currentParse > prevParse);
-
-							if (hasKillTime || parseImproved) {
-								const hist = offspecWeeklyHistoryByDiff[specName][diff];
-								const urls = offspecWowanalyzerByDiff[specName][diff];
-								if (!hist[bossId]) hist[bossId] = [];
-								if (!urls[bossId]) urls[bossId] = [];
-								hist[bossId].push(currentParse);
-								const url =
-									hasKillTime && d?.wcl_report_code && d?.wcl_fight_id
-										? `https://www.wowanalyzer.com/report/${d.wcl_report_code}/${d.wcl_fight_id}`
-										: null;
-								urls[bossId].push(url);
-							}
-
-							if (currentParse != null) offspecPrevParseByDiff[specName][diff][bossId] = currentParse;
-						}
+						if (currentParse != null) offspecPrevParseByDiff[specName][diff][bossId] = currentParse;
 					}
 				}
 			}
@@ -244,7 +295,6 @@ export function load({ params }) {
 	const mythicStartDate = primaryRaidZone
 		? (roster.raid_difficulty_status?.[primaryRaidZone.season_id]?.mythic_start_date ?? null)
 		: null;
-	const today = new Date().toISOString().slice(0, 10);
 	const hasMythicKills = primaryRaidZone?.raiderData?.raid_parses?.some(
 		(bp) => bp.difficulties?.mythic?.kill,
 	);

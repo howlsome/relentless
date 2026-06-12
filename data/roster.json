@@ -31,6 +31,12 @@
   ],
   "wcl_expansion_id": 7,
   "wcl_zone_ids": [46, 47, 50],
+  "zone_combination": {
+    "base_id": 46,
+    "extra_ids": [50],
+    "start_date": "2026-06-27",
+    "label": "VS / DR / MQD / SF"
+  },
   "raid_schedule": {
     "timezone": "Europe/Paris",
     "sessions": [

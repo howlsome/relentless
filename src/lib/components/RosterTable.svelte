@@ -64,6 +64,7 @@
 		'Chimaerus, the Undreamt God': 'Chim',
 		"Belo'ren, Child of Al'ar": 'Belo',
 		'Midnight Falls': "L'ura",
+		Rotmire: 'Rot',
 	};
 
 	function abbrevBoss(name: string): string {

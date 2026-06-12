@@ -31,11 +31,54 @@ export function load() {
 		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'compliance.json'))
 		: null;
 
+	const today = new Date().toISOString().slice(0, 10);
+
 	const raidZones = [];
 	for (const zone of seasonsIndex.all_raid_zones ?? []) {
 		const meta = safeJson(join(dataDir, 'seasons', zone.season_id, 'meta.json'));
 		const snapshot = safeJson(join(dataDir, 'seasons', zone.season_id, 'snapshot.json'));
 		if (meta) raidZones.push({ meta, snapshot, season_id: zone.season_id, label: zone.label });
+	}
+
+	// Merge extra raid zones into the base zone once their start_date is reached.
+	// This combines boss columns and raider parse data into a single unified view.
+	const zoneCombination = roster.zone_combination;
+	if (zoneCombination && today >= zoneCombination.start_date) {
+		const baseIdx = raidZones.findIndex((z) => z.season_id === `raid-${zoneCombination.base_id}`);
+		if (baseIdx >= 0) {
+			const base = raidZones[baseIdx];
+			const extraSeasonIds = new Set((zoneCombination.extra_ids ?? []).map((id) => `raid-${id}`));
+			const extras = raidZones.filter((z) => extraSeasonIds.has(z.season_id));
+			for (const extra of extras) {
+				base.meta = {
+					...base.meta,
+					name: zoneCombination.label,
+					bosses: [...(base.meta?.bosses ?? []), ...(extra.meta?.bosses ?? [])],
+				};
+				if (base.snapshot) {
+					const extraRaiders = new Map(
+						(extra.snapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
+					);
+					base.snapshot = {
+						...base.snapshot,
+						raid_tier: {
+							...base.snapshot.raid_tier,
+							name: zoneCombination.label,
+							bosses: base.meta.bosses,
+						},
+						raiders: (base.snapshot.raiders ?? []).map((r) => ({
+							...r,
+							raid_parses: [
+								...(r.raid_parses ?? []),
+								...(extraRaiders.get(r.raider_id)?.raid_parses ?? []),
+							],
+						})),
+					};
+				}
+			}
+			// Remove extra zones — absorbed into base
+			raidZones.splice(0, raidZones.length, ...raidZones.filter((z) => !extraSeasonIds.has(z.season_id)));
+		}
 	}
 
 	// Derive default difficulty from mythic_start_date of the primary raid zone.
@@ -54,7 +97,6 @@ export function load() {
 	const mythicStartDate = primaryZone
 		? (roster.raid_difficulty_status?.[primaryZone.season_id]?.mythic_start_date ?? null)
 		: null;
-	const today = new Date().toISOString().slice(0, 10);
 	// Only default to mythic once the date has passed AND kills exist — avoids
 	// showing blank parses when mythic_start_date is set for lockout-detection
 	// purposes before the guild has any actual mythic kills recorded.
