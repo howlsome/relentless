@@ -161,7 +161,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="wowa-link wipefest-link"
-					title="Opens your most recent log for this boss in Wipefest">Open in Wipefest</a
+					title="Same report as WoWAnalyzer — only your latest kill is linked">Open in Wipefest</a
 				>
 			</div>
 		{/if}
