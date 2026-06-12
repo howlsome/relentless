@@ -56,9 +56,7 @@ export function load() {
 					bosses: [...(base.meta?.bosses ?? []), ...(extra.meta?.bosses ?? [])],
 				};
 				if (base.snapshot) {
-					const extraRaiders = new Map(
-						(extra.snapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
-					);
+					const extraRaiders = new Map((extra.snapshot?.raiders ?? []).map((r) => [r.raider_id, r]));
 					base.snapshot = {
 						...base.snapshot,
 						raid_tier: {
@@ -77,7 +75,11 @@ export function load() {
 				}
 			}
 			// Remove extra zones — absorbed into base
-			raidZones.splice(0, raidZones.length, ...raidZones.filter((z) => !extraSeasonIds.has(z.season_id)));
+			raidZones.splice(
+				0,
+				raidZones.length,
+				...raidZones.filter((z) => !extraSeasonIds.has(z.season_id)),
+			);
 		}
 	}
 

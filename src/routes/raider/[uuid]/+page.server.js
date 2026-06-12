@@ -207,7 +207,9 @@ export function load({ params }) {
 		for (const seasonId of weekSeasonIds) {
 			const weeksDir = join(dataDir, 'seasons', seasonId, 'weeks');
 			if (!existsSync(weeksDir)) continue;
-			for (const file of readdirSync(weeksDir).filter((f) => f.endsWith('.json')).sort()) {
+			for (const file of readdirSync(weeksDir)
+				.filter((f) => f.endsWith('.json'))
+				.sort()) {
 				const weekData = safeJson(join(weeksDir, file));
 				const raiderData = weekData?.raiders?.find(
 					(/** @type {any} */ r) => r.raider_id === params.uuid,
@@ -236,8 +238,7 @@ export function load({ params }) {
 						d?.kill_time != null && (d.kill_category == null || d.kill_category === 'in_raid');
 					const currentParse = d?.kill ? (d.parse_percentile ?? null) : null;
 					const prevParse = prevParseByDiff[diff][bossId] ?? null;
-					const parseImproved =
-						currentParse != null && (prevParse === null || currentParse > prevParse);
+					const parseImproved = currentParse != null && (prevParse === null || currentParse > prevParse);
 
 					if (hasKillTime || parseImproved) {
 						if (!weeklyHistoryByDiff[diff][bossId]) weeklyHistoryByDiff[diff][bossId] = [];

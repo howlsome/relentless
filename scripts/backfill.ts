@@ -20,7 +20,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Character, Player } from '../src/lib/types/roster.js';
 import { getActiveCharacters } from '../src/lib/utils/raider-identity.js';
-import { getPrimarySpec, getActiveSpecs } from '../src/lib/utils/roster.js';
+import { getActiveSpecs, getPrimarySpec } from '../src/lib/utils/roster.js';
 import {
 	DIFFICULTY_IDS,
 	fetchActiveRaidZones,
@@ -145,14 +145,14 @@ async function main() {
 
 			// Skip the whole player if this week predates their tracking start.
 			if (weekEnd <= trackingStartMs) {
-				console.log(
-					`[backfill] ${player.display_name}: tracking starts after this week — skipping.`,
-				);
+				console.log(`[backfill] ${player.display_name}: tracking starts after this week — skipping.`);
 				continue;
 			}
 
 			const activeChar = getActiveCharacters(player)[0];
-			const primarySpecName = activeChar ? (getPrimarySpec(activeChar)?.spec ?? activeChar.spec ?? null) : null;
+			const primarySpecName = activeChar
+				? (getPrimarySpec(activeChar)?.spec ?? activeChar.spec ?? null)
+				: null;
 
 			const raid_parses = bossIds.map((bossId) => {
 				const bossName = bossNames.get(bossId) ?? `Boss ${bossId}`;
@@ -241,8 +241,7 @@ async function main() {
 							);
 							(entry.difficulties as Record<string, unknown>)[diffKey] = {
 								kill: true,
-								parse_percentile:
-									best.rankPercent != null ? Math.round(best.rankPercent * 10) / 10 : null,
+								parse_percentile: best.rankPercent != null ? Math.round(best.rankPercent * 10) / 10 : null,
 								spec: best.spec || null,
 								dps: best.amount || null,
 								kill_time: new Date(best.startTime).toISOString(),
