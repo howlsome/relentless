@@ -8,6 +8,7 @@
 		difficulty,
 		characterName = '',
 		rosterSpec = '',
+		charClass = '',
 		history = [],
 		wclCharUrl = null,
 		wclZoneId = null,
@@ -17,6 +18,7 @@
 		difficulty: 'heroic' | 'mythic';
 		characterName?: string;
 		rosterSpec?: string;
+		charClass?: string;
 		history?: (number | null)[];
 		wclCharUrl?: string | null;
 		wclZoneId?: number | null;
@@ -34,6 +36,30 @@
 		const match = latestWowAnalyzerUrl.match(/\/report\/([^/]+)\//);
 		if (!match) return null;
 		return `https://www.wipefest.gg/report/${match[1]}?gameVersion=warcraft-live`;
+	});
+
+	function toLorrgsClassSlug(cls: string): string {
+		// Insert hyphen before an uppercase letter that follows a lowercase letter (e.g. DeathKnight → death-knight)
+		return cls.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+	}
+
+	function toLorrgsBossSlug(name: string): string {
+		return name
+			.toLowerCase()
+			.replace(/'/g, '')
+			.replace(/,/g, '')
+			.replace(/&/g, '')
+			.replace(/\s+/g, '-')
+			.replace(/-+/g, '-')
+			.replace(/^-|-$/g, '');
+	}
+
+	const lorrgsUrl = $derived(() => {
+		const spec = diffData?.spec || rosterSpec;
+		if (!spec || !charClass) return null;
+		const specSlug = `${toLorrgsClassSlug(charClass)}-${spec.toLowerCase()}`;
+		const bossSlug = toLorrgsBossSlug(parse.boss_name);
+		return `https://lorrgs.io/spec_ranking/${specSlug}/${bossSlug}`;
 	});
 
 	const DIFF_IDS: Record<string, number> = { heroic: 4, mythic: 5 };
@@ -140,7 +166,7 @@
 			</div>
 		{/if}
 
-		<!-- Row 4: WoWAnalyzer link on its own -->
+		<!-- Row 4: WoWAnalyzer link -->
 		{#if latestWowAnalyzerUrl}
 			<div class="boss-card__row boss-card__row--wowa">
 				<a
@@ -148,7 +174,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="wowa-link"
-					title="Opens your most recent log for this boss in WoWAnalyzer">Open in WoWAnalyzer</a
+					title="Opens your most recent log for this boss in WoWAnalyzer">WoWAnalyzer</a
 				>
 			</div>
 		{/if}
@@ -161,7 +187,20 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="wowa-link wipefest-link"
-					title="Same report as WoWAnalyzer — only your latest kill is linked">Open in Wipefest</a
+					title="Same report as WoWAnalyzer — only your latest kill is linked">Wipefest</a
+				>
+			</div>
+		{/if}
+
+		<!-- Row 6: Lorrgs link — spec-specific top parse comparison -->
+		{#if lorrgsUrl()}
+			<div class="boss-card__row boss-card__row--wowa">
+				<a
+					href={lorrgsUrl()}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="wowa-link lorrgs-link"
+					title="View top parses for your spec on this boss in Lorrgs">Lorrgs</a
 				>
 			</div>
 		{/if}
@@ -286,6 +325,10 @@
 
 	.wipefest-link {
 		border-style: dashed;
+	}
+
+	.lorrgs-link {
+		border-style: dotted;
 	}
 
 	.no-kill {

@@ -31,6 +31,8 @@
 		/** WoWAnalyzer URLs per boss — parallel to weeklyHistory array */
 		wowanalyzerUrls?: Record<number, (string | null)[]>;
 	} = $props();
+
+	const charClass = $derived(character.class ?? '');
 </script>
 
 {#snippet cards()}
@@ -49,6 +51,7 @@
 						wowanalyzerUrls={wowanalyzerUrls?.[bossparse.boss_id] ?? []}
 						{wclCharUrl}
 						{wclZoneId}
+						{charClass}
 					/>
 				{/each}
 			</div>
