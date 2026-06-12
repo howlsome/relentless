@@ -56,7 +56,9 @@ export function load() {
 					bosses: [...(base.meta?.bosses ?? []), ...(extra.meta?.bosses ?? [])],
 				};
 				if (base.snapshot) {
-					const extraRaiders = new Map((extra.snapshot?.raiders ?? []).map((r) => [r.raider_id, r]));
+					const extraRaiders = new Map(
+						(extra.snapshot?.raiders ?? []).map((/** @type {any} */ r) => [r.raider_id, r]),
+					);
 					base.snapshot = {
 						...base.snapshot,
 						raid_tier: {
@@ -64,7 +66,7 @@ export function load() {
 							name: zoneCombination.label,
 							bosses: base.meta.bosses,
 						},
-						raiders: (base.snapshot.raiders ?? []).map((r) => ({
+						raiders: (base.snapshot.raiders ?? []).map((/** @type {any} */ r) => ({
 							...r,
 							raid_parses: [
 								...(r.raid_parses ?? []),
@@ -102,8 +104,8 @@ export function load() {
 	// Only default to mythic once the date has passed AND kills exist — avoids
 	// showing blank parses when mythic_start_date is set for lockout-detection
 	// purposes before the guild has any actual mythic kills recorded.
-	const hasMythicKills = primaryZone?.snapshot?.raiders?.some((r) =>
-		r.raid_parses?.some((bp) => bp.difficulties?.mythic?.kill),
+	const hasMythicKills = primaryZone?.snapshot?.raiders?.some((/** @type {any} */ r) =>
+		r.raid_parses?.some((/** @type {any} */ bp) => bp.difficulties?.mythic?.kill),
 	);
 	const primaryRaidDifficulty =
 		mythicStartDate && today >= mythicStartDate && hasMythicKills

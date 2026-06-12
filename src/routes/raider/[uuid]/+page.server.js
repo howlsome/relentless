@@ -297,7 +297,7 @@ export function load({ params }) {
 		? (roster.raid_difficulty_status?.[primaryRaidZone.season_id]?.mythic_start_date ?? null)
 		: null;
 	const hasMythicKills = primaryRaidZone?.raiderData?.raid_parses?.some(
-		(bp) => bp.difficulties?.mythic?.kill,
+		(/** @type {any} */ bp) => bp.difficulties?.mythic?.kill,
 	);
 	const primaryRaidDifficulty =
 		mythicStartDate && today >= mythicStartDate && hasMythicKills

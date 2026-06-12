@@ -116,6 +116,13 @@ export interface RaidDifficultyStatus {
 	mythic_start_date?: string | null;
 }
 
+export interface ZoneCombination {
+	base_id: number;
+	extra_ids: number[];
+	start_date: string;
+	label: string;
+}
+
 export interface Roster {
 	app_name: string;
 	realm: string;
@@ -127,6 +134,8 @@ export interface Roster {
 	mplus_seasons: MplusSeason[];
 	raid_difficulties: string[];
 	wcl_expansion_id: number;
+	wcl_zone_ids?: number[];
+	zone_combination?: ZoneCombination;
 	players: Player[];
 	raid_schedule?: RaidSchedule;
 	raid_difficulty_status?: Record<string, RaidDifficultyStatus>;
