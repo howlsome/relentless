@@ -1,10 +1,7 @@
 {
   "active_mplus_season": "midnight-s1",
   "active_raid_zones": [
-    "raid-509",
-    "raid-51",
     "raid-50",
-    "raid-48",
     "raid-46"
   ],
   "all_mplus_seasons": [
@@ -17,30 +14,9 @@
   ],
   "all_raid_zones": [
     {
-      "season_id": "raid-509",
-      "label": "Complete Raids (VS / DR / MQD)",
-      "wcl_zone_id": 509,
-      "start_date": "2026-06-12",
-      "end_date": null
-    },
-    {
-      "season_id": "raid-51",
-      "label": "Sporefall (PTR)",
-      "wcl_zone_id": 51,
-      "start_date": "2026-06-12",
-      "end_date": null
-    },
-    {
       "season_id": "raid-50",
       "label": "Sporefall",
       "wcl_zone_id": 50,
-      "start_date": "2026-06-12",
-      "end_date": null
-    },
-    {
-      "season_id": "raid-48",
-      "label": "VS / DR / MQD (Beta)",
-      "wcl_zone_id": 48,
       "start_date": "2026-06-12",
       "end_date": null
     },
