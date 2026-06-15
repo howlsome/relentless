@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-24",
-  "fetched_at": "2026-06-15T09:36:14.942Z",
+  "fetched_at": "2026-06-15T23:09:58.337Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -220,11 +220,24 @@
       "class": "Warrior",
       "spec": "Fury",
       "role": "dps",
-      "rio_score": 3397,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3438.8,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-06-15T18:31:26.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-15T17:47:29.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": false
     },
     {
@@ -243,10 +256,16 @@
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-11T21:11:15.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-15T21:08:29.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
@@ -382,10 +401,16 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-10T21:00:32.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-15T21:08:29.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": true
     },
@@ -527,13 +552,19 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 2794.8,
+      "rio_score": 2849.5,
       "mplus_runs_this_week": [
         {
           "dungeon": "Algeth'ar Academy",
           "level": 13,
           "timed": false,
           "completed_at": "2026-06-12T21:33:01.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-15T21:55:13.000Z"
         },
         {
           "dungeon": "Algeth'ar Academy",
@@ -552,6 +583,12 @@
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-14T16:31:14.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-15T21:29:05.000Z"
         },
         {
           "dungeon": "Skyreach",
@@ -578,20 +615,20 @@
           "completed_at": "2026-06-14T14:02:41.000Z"
         },
         {
-          "dungeon": "Seat of the Triumvirate",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-06-14T14:39:48.000Z"
-        },
-        {
           "dungeon": "Windrunner Spire",
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-14T21:36:36.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-14T14:39:48.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 12,
+      "mplus_total_dungeons_this_week": 12,
       "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": true
     },
