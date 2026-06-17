@@ -103,7 +103,7 @@
               "spec": "Restoration",
               "role": "healer",
               "primary": false,
-              "wcl_active": true
+              "wcl_active": false
             }
           ],
           "active": true
@@ -525,13 +525,13 @@
               "spec": "Restoration",
               "role": "healer",
               "primary": false,
-              "wcl_active": true
+              "wcl_active": false
             },
             {
               "spec": "Feral",
               "role": "dps",
               "primary": false,
-              "wcl_active": true
+              "wcl_active": false
             }
           ],
           "active": true
@@ -577,7 +577,7 @@
               "spec": "Feral",
               "role": "dps",
               "primary": false,
-              "wcl_active": true
+              "wcl_active": false
             }
           ],
           "active": true
@@ -623,7 +623,7 @@
               "spec": "Restoration",
               "role": "healer",
               "primary": false,
-              "wcl_active": true
+              "wcl_active": false
             }
           ],
           "active": true
@@ -669,7 +669,7 @@
               "spec": "Unholy",
               "role": "dps",
               "primary": false,
-              "wcl_active": true
+              "wcl_active": false
             }
           ],
           "active": true
