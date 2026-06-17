@@ -141,6 +141,16 @@ export function mergeWeeklyRuns(profile: RioProfile | null, resetStart: Date): M
 	const weekly = (profile.mythic_plus_weekly_highest_level_runs as MplusRun[]) ?? [];
 	const recent = (profile.mythic_plus_recent_runs as MplusRun[]) ?? [];
 
+	console.log(
+		`[rio] Raw weekly runs: ${weekly.length}, recent runs: ${recent.length}, resetStart: ${resetStart.toISOString()}`,
+	);
+	for (const r of [...weekly, ...recent]) {
+		const afterReset = new Date(r.completed_at) >= resetStart;
+		console.log(
+			`[rio]   ${r.dungeon} +${r.mythic_level} at ${r.completed_at} (id=${r.keystone_run_id}, afterReset=${afterReset})`,
+		);
+	}
+
 	const seen = new Set<number>();
 	const merged: MplusRun[] = [];
 
@@ -154,6 +164,7 @@ export function mergeWeeklyRuns(profile: RioProfile | null, resetStart: Date): M
 		merged.push(run);
 	}
 
+	console.log(`[rio] Merged result: ${merged.length} runs after dedup + reset filter`);
 	return merged;
 }
 
