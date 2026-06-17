@@ -774,6 +774,14 @@
           "class": "Priest",
           "spec": "Shadow",
           "role": "dps",
+          "active": false
+        },
+        {
+          "name": "Barhumevo",
+          "realm": "Draenor",
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "dps",
           "active": true
         }
       ],
@@ -784,6 +792,14 @@
           "spec": "Shadow",
           "character": "Barvoid",
           "from": "2026-06-05",
+          "to": "2026-06-17"
+        },
+        {
+          "role": "dps",
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "character": "Barhumevo",
+          "from": "2026-06-17",
           "to": null
         }
       ]
