@@ -57,7 +57,10 @@ export async function wclQuery(
 		throw err;
 	}
 	if (!resp.ok) {
-		throw new Error(`WCL query failed (${resp.status})`);
+		const body = await resp.text().catch(() => '(unreadable)');
+		console.error(`[wcl] Query failed (${resp.status}): ${body}`);
+		const err = Object.assign(new Error(`WCL query failed (${resp.status})`), { status: resp.status });
+		throw err;
 	}
 	return resp.json();
 }
@@ -155,18 +158,21 @@ async function fetchParseBatchWithRetry(
 	zoneId: number,
 	diffPairs: Array<[string, number]>,
 ): Promise<ParseResult[]> {
-	for (let attempt = 0; attempt < 2; attempt++) {
-		if (attempt === 1) {
-			console.warn(`[wcl] 429 received — waiting ${RETRY_DELAY_MS / 1000}s then retrying batch`);
-			await sleep(RETRY_DELAY_MS);
+	const MAX_ATTEMPTS = 4;
+	for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+		if (attempt > 0) {
+			const backoffMs = RETRY_DELAY_MS * Math.pow(2, attempt - 1);
+			console.warn(`[wcl] Retryable error — waiting ${backoffMs / 1000}s then retrying batch (attempt ${attempt + 1}/${MAX_ATTEMPTS})`);
+			await sleep(backoffMs);
 		}
 		try {
 			return await executeParseBatch(token, items, zoneId, diffPairs);
 		} catch (err) {
 			const e = err as { status?: number };
-			if (e.status === 429 && attempt === 0) continue;
+			const retryable = e.status === 429 || (e.status !== undefined && e.status >= 500);
+			if (retryable && attempt < MAX_ATTEMPTS - 1) continue;
 			if (e.status === 429) {
-				console.warn('[wcl] Second 429 in batch — marking players as rate-limited and continuing');
+				console.warn('[wcl] Persistent 429 in batch — marking players as rate-limited and continuing');
 				return items.map(({ player, char }) => ({
 					player,
 					char,
