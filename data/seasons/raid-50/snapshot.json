@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T22:53:37.627Z",
+  "fetched_at": "2026-06-17T23:01:35.840Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -784,42 +784,7 @@
       ],
       "lockout_warnings": [],
       "safe_pug_kills": [],
-      "exempt_pug_kills": [],
-      "previous_characters": [
-        {
-          "name": "Barvoid",
-          "realm": "Draenor",
-          "class": "Priest",
-          "spec": "Shadow",
-          "role": "dps",
-          "raid_parses": [
-            {
-              "boss_id": 3159,
-              "boss_name": "Rotmire",
-              "difficulties": {
-                "heroic": {
-                  "kill": false,
-                  "parse_percentile": null,
-                  "spec": null,
-                  "dps": null,
-                  "kill_time": null,
-                  "kill_category": null,
-                  "detected_session": null
-                },
-                "mythic": {
-                  "kill": false,
-                  "parse_percentile": null,
-                  "spec": null,
-                  "dps": null,
-                  "kill_time": null,
-                  "kill_category": null,
-                  "detected_session": null
-                }
-              }
-            }
-          ]
-        }
-      ]
+      "exempt_pug_kills": []
     },
     {
       "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
