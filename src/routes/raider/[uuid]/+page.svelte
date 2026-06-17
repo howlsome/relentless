@@ -389,16 +389,13 @@
 					<RioScoreBadge score={prevMplus.rio_score} characterName={char.name} />
 				{/if}
 			</summary>
-			<section class="panel">
-				<CharacterParseSection
-					character={char}
-					parses={parsesForChar(char.name)}
-					{difficulty}
-					isActive={false}
-					dateRange={charDateRange(char)}
-					bestParseSummary={bestParseForChar(char.name)}
-				/>
-			</section>
+			<CharacterParseSection
+				character={char}
+				parses={parsesForChar(char.name)}
+				{difficulty}
+				isActive={false}
+				bare={true}
+			/>
 		</details>
 	{/each}
 
