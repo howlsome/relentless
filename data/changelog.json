@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-17T22:05:36.553Z",
-  "roster_hash": "45babfe89e7c823e215ddfd98cfc124b4d0436ff276c184010b9b094ad1970c6",
+  "last_updated": "2026-06-17T22:53:37.627Z",
+  "roster_hash": "ea698a2677a18790dbd13b07b0ca63bd023efb3c561b531f230c0511f6f370d9",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -559,8 +559,8 @@
       },
       {
         "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
-        "display_name": "Starfoullah",
-        "status": "active",
+        "display_name": "Buzz",
+        "status": "inactive",
         "tracking_start_date": "2026-05-25",
         "team_designation": "alt",
         "membership_history": [
@@ -568,6 +568,10 @@
             "event": "joined",
             "date": "2026-05-25",
             "note": "Fearless main"
+          },
+          {
+            "event": "left",
+            "date": "2026-06-17"
           }
         ],
         "characters": [
@@ -599,7 +603,7 @@
             "spec": "Restoration",
             "character": "Starfoullah",
             "from": "2026-05-25",
-            "to": null
+            "to": "2026-06-17"
           }
         ]
       },
@@ -783,6 +787,14 @@
             "class": "Priest",
             "spec": "Shadow",
             "role": "dps",
+            "active": false
+          },
+          {
+            "name": "Barhumevo",
+            "realm": "Draenor",
+            "class": "Evoker",
+            "spec": "Augmentation",
+            "role": "dps",
             "active": true
           }
         ],
@@ -793,6 +805,14 @@
             "spec": "Shadow",
             "character": "Barvoid",
             "from": "2026-06-05",
+            "to": "2026-06-17"
+          },
+          {
+            "role": "dps",
+            "class": "Evoker",
+            "spec": "Augmentation",
+            "character": "Barhumevo",
+            "from": "2026-06-17",
             "to": null
           }
         ]
@@ -996,6 +1016,40 @@
             "class": "Druid",
             "spec": "Balance",
             "character": "Mydrui",
+            "from": "2026-06-17",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "6b3ea430-aa85-41a8-b4df-2f83c6f7bc35",
+        "display_name": "Xelorith",
+        "status": "active",
+        "tracking_start_date": "2026-06-17",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-17",
+            "note": "Joined 17th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Xelorith",
+            "realm": "Draenor",
+            "class": "Warlock",
+            "spec": "Demonology",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Warlock",
+            "spec": "Demonology",
+            "character": "Xelorith",
             "from": "2026-06-17",
             "to": null
           }
@@ -1339,6 +1393,51 @@
       "spec": "Balance",
       "role": "dps",
       "note": "Transferred from Fearless on 17th June 2026"
+    },
+    {
+      "id": "7d78d87c-58b0-4996-b57f-fcd338ed3135",
+      "timestamp": "2026-06-17T22:53:37.627Z",
+      "week": "2026-25",
+      "team": "alt",
+      "event": "left",
+      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
+      "display_name": "Buzz",
+      "character": "Starfoullah",
+      "class": "Druid",
+      "spec": "Restoration",
+      "role": "healer",
+      "note": ""
+    },
+    {
+      "id": "d95c4928-cc01-4c21-bfb3-cae030d1a3bf",
+      "timestamp": "2026-06-17T22:53:37.627Z",
+      "week": "2026-25",
+      "team": "main",
+      "event": "rerolled",
+      "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
+      "display_name": "Barvoid",
+      "from_character": "Barvoid",
+      "from_class": "Priest",
+      "from_spec": "Shadow",
+      "to_character": "Barhumevo",
+      "to_class": "Evoker",
+      "to_spec": "Augmentation",
+      "role": "dps",
+      "note": ""
+    },
+    {
+      "id": "f9573da3-ec23-482b-8a8b-b571917d0a1e",
+      "timestamp": "2026-06-17T22:53:37.627Z",
+      "week": "2026-25",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "6b3ea430-aa85-41a8-b4df-2f83c6f7bc35",
+      "display_name": "Xelorith",
+      "character": "Xelorith",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "note": "Joined 17th June 2026"
     }
   ]
 }

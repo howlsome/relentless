@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T22:05:36.553Z",
+  "fetched_at": "2026-06-17T22:53:37.627Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -586,45 +586,6 @@
       "exempt_pug_kills": []
     },
     {
-      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
-      "display_name": "Starfoullah",
-      "team_designation": "alt",
-      "active_character": "Starfoullah",
-      "realm": "Draenor",
-      "class": "Druid",
-      "spec": "Restoration",
-      "role": "healer",
-      "raid_parses": [
-        {
-          "boss_id": 3159,
-          "boss_name": "Rotmire",
-          "difficulties": {
-            "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
-            },
-            "mythic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
-            }
-          }
-        }
-      ],
-      "lockout_warnings": [],
-      "safe_pug_kills": [],
-      "exempt_pug_kills": []
-    },
-    {
       "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
       "display_name": "Quillet",
       "team_designation": "main",
@@ -788,10 +749,10 @@
       "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
       "display_name": "Barvoid",
       "team_designation": "main",
-      "active_character": "Barvoid",
+      "active_character": "Barhumevo",
       "realm": "Draenor",
-      "class": "Priest",
-      "spec": "Shadow",
+      "class": "Evoker",
+      "spec": "Augmentation",
       "role": "dps",
       "raid_parses": [
         {
@@ -799,13 +760,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 34.5,
+              "spec": "Augmentation",
+              "dps": 91691.522524927,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -821,7 +784,42 @@
       ],
       "lockout_warnings": [],
       "safe_pug_kills": [],
-      "exempt_pug_kills": []
+      "exempt_pug_kills": [],
+      "previous_characters": [
+        {
+          "name": "Barvoid",
+          "realm": "Draenor",
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps",
+          "raid_parses": [
+            {
+              "boss_id": 3159,
+              "boss_name": "Rotmire",
+              "difficulties": {
+                "heroic": {
+                  "kill": false,
+                  "parse_percentile": null,
+                  "spec": null,
+                  "dps": null,
+                  "kill_time": null,
+                  "kill_category": null,
+                  "detected_session": null
+                },
+                "mythic": {
+                  "kill": false,
+                  "parse_percentile": null,
+                  "spec": null,
+                  "dps": null,
+                  "kill_time": null,
+                  "kill_category": null,
+                  "detected_session": null
+                }
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
@@ -1045,6 +1043,47 @@
               "parse_percentile": 94.8,
               "spec": "Balance",
               "dps": 133339.17481381,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "6b3ea430-aa85-41a8-b4df-2f83c6f7bc35",
+      "display_name": "Xelorith",
+      "team_designation": "main",
+      "active_character": "Xelorith",
+      "realm": "Draenor",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 74.5,
+              "spec": "Demonology",
+              "dps": 133542.72397564,
               "kill_time": "2026-06-17T18:36:55.928Z",
               "kill_category": "in_raid",
               "detected_session": null,

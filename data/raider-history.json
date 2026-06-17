@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17T22:05:36.553Z",
+  "last_updated": "2026-06-17T22:53:37.627Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -376,13 +376,17 @@
       ]
     },
     "80dc248a-fb7b-4eef-8faa-5c274f415963": {
-      "display_name": "Starfoullah",
+      "display_name": "Buzz",
       "team_designation": "alt",
       "membership_history": [
         {
           "event": "joined",
           "date": "2026-05-25",
           "note": "Fearless main"
+        },
+        {
+          "event": "left",
+          "date": "2026-06-17"
         }
       ],
       "characters": [
@@ -401,7 +405,7 @@
           "spec": "Restoration",
           "character": "Starfoullah",
           "from": "2026-05-25",
-          "to": null
+          "to": "2026-06-17"
         }
       ]
     },
@@ -546,8 +550,18 @@
           "class": "Priest",
           "spec": "Shadow",
           "role": "dps",
+          "active": false,
+          "first_seen": "2026-06-05",
+          "last_seen": "2026-06-17"
+        },
+        {
+          "name": "Barhumevo",
+          "realm": "Draenor",
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "dps",
           "active": true,
-          "first_seen": "2026-06-05"
+          "first_seen": "2026-06-17"
         }
       ],
       "role_history": [
@@ -557,6 +571,14 @@
           "spec": "Shadow",
           "character": "Barvoid",
           "from": "2026-06-05",
+          "to": "2026-06-17"
+        },
+        {
+          "role": "dps",
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "character": "Barhumevo",
+          "from": "2026-06-17",
           "to": null
         }
       ]
@@ -748,6 +770,38 @@
           "class": "Druid",
           "spec": "Balance",
           "character": "Mydrui",
+          "from": "2026-06-17",
+          "to": null
+        }
+      ]
+    },
+    "6b3ea430-aa85-41a8-b4df-2f83c6f7bc35": {
+      "display_name": "Xelorith",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-17",
+          "note": "Joined 17th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Xelorith",
+          "realm": "Draenor",
+          "class": "Warlock",
+          "spec": "Demonology",
+          "role": "dps",
+          "active": true,
+          "first_seen": "2026-06-17"
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Warlock",
+          "spec": "Demonology",
+          "character": "Xelorith",
           "from": "2026-06-17",
           "to": null
         }

@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T22:05:36.553Z",
+  "fetched_at": "2026-06-17T22:53:37.627Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -108,13 +108,12 @@
       "class": "Monk",
       "spec": "Mistweaver",
       "role": "healer",
-      "rio_score": null,
+      "rio_score": 3902.3,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
       "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false,
-      "error": "rio_error"
+      "mplus_requirement_met": false
     },
     {
       "raider_id": "7ad5ac04-e4cb-4ebd-bee2-240b4a9275c9",
@@ -211,22 +210,6 @@
       "mplus_requirement_met": false
     },
     {
-      "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
-      "display_name": "Starfoullah",
-      "team_designation": "alt",
-      "active_character": "Starfoullah",
-      "realm": "Draenor",
-      "class": "Druid",
-      "spec": "Restoration",
-      "role": "healer",
-      "rio_score": 2794,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
-    },
-    {
       "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
       "display_name": "Quillet",
       "team_designation": "main",
@@ -307,17 +290,27 @@
       "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
       "display_name": "Barvoid",
       "team_designation": "main",
-      "active_character": "Barvoid",
+      "active_character": "Barhumevo",
       "realm": "Draenor",
-      "class": "Priest",
-      "spec": "Shadow",
+      "class": "Evoker",
+      "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 3137,
+      "rio_score": 2235.5,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
       "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": false,
+      "previous_characters": [
+        {
+          "name": "Barvoid",
+          "realm": "Draenor",
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps",
+          "rio_score": 3137
+        }
+      ]
     },
     {
       "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
@@ -328,11 +321,18 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 2940.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 2946.9,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-17T22:26:55.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -393,10 +393,17 @@
       "spec": "Unholy",
       "role": "dps",
       "rio_score": 2508.2,
-      "mplus_runs_this_week": [],
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 7,
+          "timed": true,
+          "completed_at": "2026-06-17T17:47:41.000Z"
+        }
+      ],
       "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 7,
       "mplus_requirement_met": false
     },
     {
@@ -409,6 +416,29 @@
       "spec": "Balance",
       "role": "dps",
       "rio_score": 3454.6,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-17T22:26:55.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
+      "mplus_requirement_met": false
+    },
+    {
+      "raider_id": "6b3ea430-aa85-41a8-b4df-2f83c6f7bc35",
+      "display_name": "Xelorith",
+      "team_designation": "main",
+      "active_character": "Xelorith",
+      "realm": "Draenor",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "rio_score": 3435,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
