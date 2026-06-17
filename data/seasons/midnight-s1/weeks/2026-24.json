@@ -13,7 +13,7 @@
       "spec": "Elemental",
       "role": "dps",
       "rio_score": 3363.2,
-      "mplus_runs_this_week": [
+            "mplus_runs_this_week": [
         {
           "dungeon": "Pit of Saron",
           "level": 16,
@@ -27,16 +27,22 @@
           "completed_at": "2026-06-12T19:19:11.000Z"
         },
         {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-15T21:15:39.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 15,
           "timed": true,
           "completed_at": "2026-06-10T07:34:48.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 16,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
