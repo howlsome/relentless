@@ -22,6 +22,7 @@ export interface MplusRaiderEntry {
 	mplus_total_dungeons_this_week: number;
 	mplus_highest_key_this_week: number | null;
 	mplus_requirement_met: boolean;
+	previous_characters?: PreviousCharacterEntry[];
 	error?: string;
 }
 
@@ -85,6 +86,17 @@ export interface BossParse {
 	};
 }
 
+export interface PreviousCharacterEntry {
+	name: string;
+	realm: string;
+	class: string;
+	spec: string;
+	role: Role;
+	rio_score?: number | null;
+	raid_parses?: BossParse[];
+	offspec_parses?: Record<string, BossParse[]>;
+}
+
 export interface RaidRaiderEntry {
 	raider_id: string;
 	display_name: string;
@@ -99,6 +111,7 @@ export interface RaidRaiderEntry {
 	lockout_warnings: LockoutWarning[];
 	safe_pug_kills: SafePugKill[];
 	exempt_pug_kills: ExemptPugKill[];
+	previous_characters?: PreviousCharacterEntry[];
 	error?: string;
 }
 

@@ -25,10 +25,12 @@
 
 	const bosses = $derived(raidSnapshot?.raid_tier?.bosses ?? []);
 
-	function getRaiderParse(raiderId: string, bossId: number) {
+	function getRaiderParse(raiderId: string, bossId: number, activeCharName: string) {
 		if (!raidSnapshot) return null;
 		const r = raidSnapshot.raiders.find((r) => r.raider_id === raiderId);
 		if (!r) return null;
+		// Don't surface stale data from a previous character after a reroll
+		if (r.active_character !== activeCharName) return null;
 		const bp = r.raid_parses.find((p) => p.boss_id === bossId);
 		if (!bp) return null;
 		const d = bp.difficulties[difficulty] ?? null;
@@ -138,7 +140,7 @@
 								</div>
 							</td>
 							{#each bosses as boss}
-								{@const pd = getRaiderParse(player.raider_id, boss.id)}
+								{@const pd = getRaiderParse(player.raider_id, boss.id, char?.name ?? '')}
 								{@const bg = pd?.kill ? getBadgeBgColour(pd.parse_percentile) : null}
 								{@const fg = pd?.kill ? getBadgeTextColour(pd.parse_percentile) : null}
 								{@const offspecs = getOffspecParses(player.raider_id, boss.id)}

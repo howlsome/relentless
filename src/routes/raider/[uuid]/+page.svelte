@@ -12,7 +12,7 @@
 	import TeamDesignationBadge from '$lib/components/TeamDesignationBadge.svelte';
 	import type { RaiderCompliance } from '$lib/types/compliance.js';
 	import type { Player } from '$lib/types/roster.js';
-	import type { MplusRaiderEntry, RaidRaiderEntry } from '$lib/types/weekly.js';
+	import type { BossParse, MplusRaiderEntry, RaidRaiderEntry } from '$lib/types/weekly.js';
 	import { fmtDate, fmtKey } from '$lib/utils/format.js';
 	import { computeMplusMilestones } from '$lib/utils/milestones.js';
 	import { getPrimarySpec } from '$lib/utils/roster.js';
@@ -120,11 +120,22 @@
 		return fmtDate(entry?.from ?? null);
 	}
 
-	function bestParseForChar(_charName: string): string | null {
-		if (!raiderRaidData) return null;
-		const parses = raiderRaidData.raid_parses.flatMap((bp) => {
-			const h = bp.difficulties.heroic?.parse_percentile;
-			const m = bp.difficulties.mythic?.parse_percentile;
+	function parsesForChar(charName: string): BossParse[] {
+		if (!raiderRaidData) return [];
+		// After fetch runs with the fix: look in previous_characters
+		const prevChar = raiderRaidData.previous_characters?.find((pc) => pc.name === charName);
+		if (prevChar?.raid_parses) return prevChar.raid_parses;
+		// Transitional state (roster changed but fetch hasn't run yet): snapshot still has
+		// the old character as active_character — route that data to the correct character
+		if (raiderRaidData.active_character === charName) return raiderRaidData.raid_parses ?? [];
+		return [];
+	}
+
+	function bestParseForChar(charName: string): string | null {
+		const sourceParsesForChar = parsesForChar(charName);
+		const parses = sourceParsesForChar.flatMap((bp) => {
+			const h = bp.difficulties?.heroic?.parse_percentile;
+			const m = bp.difficulties?.mythic?.parse_percentile;
 			return [h, m].filter((p): p is number => p != null);
 		});
 		if (!parses.length) return null;
@@ -266,7 +277,9 @@
 								first_seen:
 									raider.role_history?.find((r) => r.character === activeChar.name)?.from ?? undefined,
 							}}
-							parses={raiderRaidData?.raid_parses ?? []}
+							parses={raiderRaidData?.active_character === activeChar.name
+								? (raiderRaidData?.raid_parses ?? [])
+								: []}
 							{difficulty}
 							isActive={true}
 							bare={true}
@@ -358,6 +371,7 @@
 
 	<!-- Inactive characters — collapsed, raid history only -->
 	{#each inactiveChars as char}
+		{@const prevMplus = mplusSnapshot?.previous_characters?.find((pc) => pc.name === char.name)}
 		<details class="char-wrapper">
 			<summary class="char-wrapper__summary">
 				<RoleIcon
@@ -371,11 +385,14 @@
 					{char.class} · {char.realm}
 				</span>
 				<span class="char-wrapper__date">{charDateRange(char)}</span>
+				{#if prevMplus?.rio_score != null}
+					<RioScoreBadge score={prevMplus.rio_score} characterName={char.name} />
+				{/if}
 			</summary>
 			<section class="panel">
 				<CharacterParseSection
 					character={char}
-					parses={[]}
+					parses={parsesForChar(char.name)}
 					{difficulty}
 					isActive={false}
 					dateRange={charDateRange(char)}

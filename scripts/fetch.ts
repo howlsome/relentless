@@ -241,6 +241,11 @@ async function processMplusSeason({
 	const { season_id } = season;
 	const prefix = `seasons/${season_id}`;
 
+	const existingMplusSnapshot = loadJsonOr(`${prefix}/snapshot.json`, null);
+	const prevMplusSnapByRaider = new Map(
+		(existingMplusSnapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
+	);
+
 	const raiders = [];
 
 	for (const [raiderId, charResults] of rioResults) {
@@ -303,6 +308,22 @@ async function processMplusSeason({
 		};
 		if (hasError && !charResults.some((r) => !r.error)) {
 			entry.error = hasError;
+		}
+
+		// Carry forward previous-character M+ data (RaiderIO score) on character switch
+		const prevMplus = prevMplusSnapByRaider.get(raiderId);
+		if (prevMplus && prevMplus.active_character !== entry.active_character) {
+			entry.previous_characters = [
+				{
+					name: prevMplus.active_character,
+					realm: prevMplus.realm,
+					class: prevMplus.class,
+					spec: prevMplus.spec,
+					role: prevMplus.role,
+					rio_score: prevMplus.rio_score ?? null,
+				},
+				...(prevMplus.previous_characters ?? []),
+			];
 		}
 
 		raiders.push(entry);
@@ -446,6 +467,12 @@ async function processRaidZone({
 
 	const bossNames = new Map((zone.encounters ?? []).map((e) => [e.id, e.name]));
 	const difficulties = roster.raid_difficulties ?? ['heroic', 'mythic'];
+
+	// Read existing snapshot to detect character switches on this run
+	const existingRaidSnapshot = loadJsonOr(`${prefix}/snapshot.json`, null);
+	const prevRaidSnapByRaider = new Map(
+		(existingRaidSnapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
+	);
 
 	console.log(
 		`[fetch] Raid zone ${zone.name} (${zoneId}): fetching parses for ${difficulties.join(', ')}…`,
@@ -883,6 +910,27 @@ async function processRaidZone({
 		} catch (err) {
 			console.warn(`[fetch] Could not fetch encounter data for ${zone.name}:`, err);
 		}
+	}
+
+	// ── Carry forward previous-character data when active character switches ────
+	for (const raiderEntry of raiders) {
+		const prev = prevRaidSnapByRaider.get(raiderEntry.raider_id);
+		if (!prev || prev.active_character === raiderEntry.active_character) continue;
+		raiderEntry.previous_characters = [
+			{
+				name: prev.active_character,
+				realm: prev.realm,
+				class: prev.class,
+				spec: prev.spec,
+				role: prev.role,
+				raid_parses: prev.raid_parses ?? [],
+				...(prev.offspec_parses ? { offspec_parses: prev.offspec_parses } : {}),
+			},
+			...(prev.previous_characters ?? []),
+		];
+		console.log(
+			`[fetch] ${raiderEntry.display_name}: character switched ${prev.active_character} → ${raiderEntry.active_character}, carrying forward historical parse data.`,
+		);
 	}
 
 	const weeklyData = {
