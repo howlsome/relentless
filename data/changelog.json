@@ -1147,19 +1147,6 @@
       "spec": "Frost",
       "role": "dps",
       "note": "Joined 10th June 2026"
-    },
-    {
-      "id": "bd505937-9f44-4b5e-bcd9-24bfb6264ec7",
-      "timestamp": "2026-06-12T13:31:18.109Z",
-      "week": "2026-24",
-      "team": "main",
-      "event": "role_changed",
-      "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
-      "display_name": "Raem",
-      "character": "Raem",
-      "from_spec": "Shadow",
-      "from_role": "dps",
-      "note": ""
     }
   ]
 }
