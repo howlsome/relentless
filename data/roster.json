@@ -550,7 +550,7 @@
     },
     {
       "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
-      "display_name": "Starfoullah",
+      "display_name": "Buzz",
       "status": "active",
       "tracking_start_date": "2026-05-25",
       "team_designation": "alt",
@@ -1003,6 +1003,40 @@
           "class": "Druid",
           "spec": "Balance",
           "character": "Mydrui",
+          "from": "2026-06-17",
+          "to": null
+        }
+      ]
+    },
+    {
+      "raider_id": "6b3ea430-aa85-41a8-b4df-2f83c6f7bc35",
+      "display_name": "Xelorith",
+      "status": "active",
+      "tracking_start_date": "2026-06-17",
+      "team_designation": "main",
+      "membership_history": [
+        {
+          "event": "joined",
+          "date": "2026-06-17",
+          "note": "Joined 17th June 2026"
+        }
+      ],
+      "characters": [
+        {
+          "name": "Xelorith",
+          "realm": "Draenor",
+          "class": "Warlock",
+          "spec": "Demonology",
+          "role": "dps",
+          "active": true
+        }
+      ],
+      "role_history": [
+        {
+          "role": "dps",
+          "class": "Warlock",
+          "spec": "Demonology",
+          "character": "Xelorith",
           "from": "2026-06-17",
           "to": null
         }
