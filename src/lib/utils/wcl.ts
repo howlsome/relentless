@@ -59,7 +59,9 @@ export async function wclQuery(
 	if (!resp.ok) {
 		const body = await resp.text().catch(() => '(unreadable)');
 		console.error(`[wcl] Query failed (${resp.status}): ${body}`);
-		const err = Object.assign(new Error(`WCL query failed (${resp.status})`), { status: resp.status });
+		const err = Object.assign(new Error(`WCL query failed (${resp.status})`), {
+			status: resp.status,
+		});
 		throw err;
 	}
 	return resp.json();
@@ -161,8 +163,10 @@ async function fetchParseBatchWithRetry(
 	const MAX_ATTEMPTS = 4;
 	for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
 		if (attempt > 0) {
-			const backoffMs = RETRY_DELAY_MS * Math.pow(2, attempt - 1);
-			console.warn(`[wcl] Retryable error — waiting ${backoffMs / 1000}s then retrying batch (attempt ${attempt + 1}/${MAX_ATTEMPTS})`);
+			const backoffMs = RETRY_DELAY_MS * 2 ** (attempt - 1);
+			console.warn(
+				`[wcl] Retryable error — waiting ${backoffMs / 1000}s then retrying batch (attempt ${attempt + 1}/${MAX_ATTEMPTS})`,
+			);
 			await sleep(backoffMs);
 		}
 		try {
