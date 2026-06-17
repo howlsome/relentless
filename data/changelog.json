@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-16T09:16:23.262Z",
-  "roster_hash": "a31f929915fbbc078cf86ab5abb6467ab62fff6f4bba007dafd3b1f5a10abc7a",
+  "last_updated": "2026-06-17T10:58:52.968Z",
+  "roster_hash": "e03699c0f09e52b8574d539f1210e5192e8a5848569102ed9fb33ea5d74619a8",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -112,7 +112,7 @@
                 "spec": "Restoration",
                 "role": "healer",
                 "primary": false,
-                "wcl_active": true
+                "wcl_active": false
               }
             ],
             "active": true
@@ -534,13 +534,13 @@
                 "spec": "Restoration",
                 "role": "healer",
                 "primary": false,
-                "wcl_active": true
+                "wcl_active": false
               },
               {
                 "spec": "Feral",
                 "role": "dps",
                 "primary": false,
-                "wcl_active": true
+                "wcl_active": false
               }
             ],
             "active": true
@@ -586,7 +586,7 @@
                 "spec": "Feral",
                 "role": "dps",
                 "primary": false,
-                "wcl_active": true
+                "wcl_active": false
               }
             ],
             "active": true
@@ -632,7 +632,7 @@
                 "spec": "Restoration",
                 "role": "healer",
                 "primary": false,
-                "wcl_active": true
+                "wcl_active": false
               }
             ],
             "active": true
@@ -678,7 +678,7 @@
                 "spec": "Unholy",
                 "role": "dps",
                 "primary": false,
-                "wcl_active": true
+                "wcl_active": false
               }
             ],
             "active": true
