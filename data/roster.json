@@ -551,7 +551,7 @@
     {
       "raider_id": "80dc248a-fb7b-4eef-8faa-5c274f415963",
       "display_name": "Buzz",
-      "status": "active",
+      "status": "inactive",
       "tracking_start_date": "2026-05-25",
       "team_designation": "alt",
       "membership_history": [
@@ -559,6 +559,10 @@
           "event": "joined",
           "date": "2026-05-25",
           "note": "Fearless main"
+        },
+        {
+          "event": "left",
+          "date": "2026-06-17"
         }
       ],
       "characters": [
@@ -590,7 +594,7 @@
           "spec": "Restoration",
           "character": "Starfoullah",
           "from": "2026-05-25",
-          "to": null
+          "to": "2026-06-17"
         }
       ]
     },
