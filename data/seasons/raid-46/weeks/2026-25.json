@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T21:11:49.795Z",
+  "fetched_at": "2026-06-17T22:05:36.553Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -5430,6 +5430,963 @@
               "kill_category": null,
               "detected_session": null,
               "historical_best_parse": 4.8
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "02a5f0e3-4d74-443f-9be6-a83af426174b",
+      "display_name": "Lilputz",
+      "team_designation": "main",
+      "active_character": "Lilputz",
+      "realm": "ChamberOfAspects",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3176,
+          "boss_name": "Imperator Averzian",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Frost",
+              "dps": 57180.43187376,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 6.8
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3177,
+          "boss_name": "Vorasius",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Frost",
+              "dps": 35623.547257112,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 6.4
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3178,
+          "boss_name": "Vaelgor & Ezzorak",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Frost",
+              "dps": 52045.849756256,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 9.1
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3179,
+          "boss_name": "Fallen-King Salhadaar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Frost",
+              "dps": 52606.71071827,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 9.5
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3180,
+          "boss_name": "Lightblinded Vanguard",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Frost",
+              "dps": 73804.121089792,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 6.2
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3181,
+          "boss_name": "Crown of the Cosmos",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Frost",
+              "dps": 52013.260262614,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 6.8
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3182,
+          "boss_name": "Belo'ren, Child of Al'ar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3183,
+          "boss_name": "Midnight Falls",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3306,
+          "boss_name": "Chimaerus, the Undreamt God",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "87752f7d-2d52-4797-83ef-dc0a34827d0a",
+      "display_name": "Stormlòck",
+      "team_designation": "main",
+      "active_character": "Stormlòck",
+      "realm": "ChamberOfAspects",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3176,
+          "boss_name": "Imperator Averzian",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Demonology",
+              "dps": 61681.229905839,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 11.6
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3177,
+          "boss_name": "Vorasius",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Demonology",
+              "dps": 45747.015834688,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 17.1
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3178,
+          "boss_name": "Vaelgor & Ezzorak",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Demonology",
+              "dps": 68959.96104153,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 30.6
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3179,
+          "boss_name": "Fallen-King Salhadaar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Demonology",
+              "dps": 57642.346113384,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 18.8
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3180,
+          "boss_name": "Lightblinded Vanguard",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Demonology",
+              "dps": 95289.159690243,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 18.8
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3181,
+          "boss_name": "Crown of the Cosmos",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Demonology",
+              "dps": 61582.292010805,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 13.7
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3182,
+          "boss_name": "Belo'ren, Child of Al'ar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3183,
+          "boss_name": "Midnight Falls",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3306,
+          "boss_name": "Chimaerus, the Undreamt God",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "ce94fbb6-cf99-46be-bc77-3abd7b2df01b",
+      "display_name": "Hydradead",
+      "team_designation": "main",
+      "active_character": "Hydradead",
+      "realm": "ChamberOfAspects",
+      "class": "DeathKnight",
+      "spec": "Unholy",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3176,
+          "boss_name": "Imperator Averzian",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 48.2,
+              "spec": "Unholy",
+              "dps": 94465.830138955,
+              "kill_time": null,
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "historical_best_parse": 38.6
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3177,
+          "boss_name": "Vorasius",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 29.7,
+              "spec": "Unholy",
+              "dps": 76439.350718299,
+              "kill_time": null,
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "historical_best_parse": 25
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3178,
+          "boss_name": "Vaelgor & Ezzorak",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Unholy",
+              "dps": 35322.190992776,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 6.5
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3179,
+          "boss_name": "Fallen-King Salhadaar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Unholy",
+              "dps": 67045.677105224,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 22.2
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3180,
+          "boss_name": "Lightblinded Vanguard",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Unholy",
+              "dps": 110642.19109889,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 35.4
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3181,
+          "boss_name": "Crown of the Cosmos",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Unholy",
+              "dps": 63813.785012699,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 10.9
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3182,
+          "boss_name": "Belo'ren, Child of Al'ar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3183,
+          "boss_name": "Midnight Falls",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3306,
+          "boss_name": "Chimaerus, the Undreamt God",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Unholy",
+              "dps": 67252.076022059,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 44.6
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "f6ec9fd2-163f-490b-ad10-eaf274ef73cd",
+      "display_name": "Mydrui",
+      "team_designation": "main",
+      "active_character": "Mydrui",
+      "realm": "Draenor",
+      "class": "Druid",
+      "spec": "Balance",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3176,
+          "boss_name": "Imperator Averzian",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 154617.7720962,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 99.3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 135759.10496635,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 95.3
+            }
+          }
+        },
+        {
+          "boss_id": 3177,
+          "boss_name": "Vorasius",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 136361.83830365,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 99.6
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 100802.71161527,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 70.8
+            }
+          }
+        },
+        {
+          "boss_id": 3178,
+          "boss_name": "Vaelgor & Ezzorak",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 120239.14829604,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 78.3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 147304.23169964,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 29.6
+            }
+          }
+        },
+        {
+          "boss_id": 3179,
+          "boss_name": "Fallen-King Salhadaar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 103020.67902116,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 90.2
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 123281.31463328,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 80.9
+            }
+          }
+        },
+        {
+          "boss_id": 3180,
+          "boss_name": "Lightblinded Vanguard",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 181453.56134376,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 97.3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3181,
+          "boss_name": "Crown of the Cosmos",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 133727.73666227,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 97
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3182,
+          "boss_name": "Belo'ren, Child of Al'ar",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 106379.67199268,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 94.4
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3183,
+          "boss_name": "Midnight Falls",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 80065.427362869,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 54.2
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        },
+        {
+          "boss_id": 3306,
+          "boss_name": "Chimaerus, the Undreamt God",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 95205.958333481,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 92.1
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": "Balance",
+              "dps": 112988.80354735,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null,
+              "historical_best_parse": 81.8
             }
           }
         }

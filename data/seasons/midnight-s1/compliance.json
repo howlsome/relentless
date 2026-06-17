@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17T21:11:49.795Z",
+  "last_updated": "2026-06-17T22:05:36.553Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "current_streak": 0,
@@ -1003,6 +1003,90 @@
           "total_dungeons": 4,
           "highest_key_level": 17,
           "met": true
+        }
+      ]
+    },
+    "02a5f0e3-4d74-443f-9be6-a83af426174b": {
+      "current_streak": 0,
+      "longest_streak": 0,
+      "total_weeks_met": 0,
+      "total_weeks_tracked": 1,
+      "record_dungeons_week": {
+        "count": 0,
+        "week": "2026-25"
+      },
+      "record_highest_key": null,
+      "weeks": [
+        {
+          "week": "2026-25",
+          "reset_start": "2026-06-17T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        }
+      ]
+    },
+    "87752f7d-2d52-4797-83ef-dc0a34827d0a": {
+      "current_streak": 0,
+      "longest_streak": 0,
+      "total_weeks_met": 0,
+      "total_weeks_tracked": 1,
+      "record_dungeons_week": {
+        "count": 0,
+        "week": "2026-25"
+      },
+      "record_highest_key": null,
+      "weeks": [
+        {
+          "week": "2026-25",
+          "reset_start": "2026-06-17T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        }
+      ]
+    },
+    "ce94fbb6-cf99-46be-bc77-3abd7b2df01b": {
+      "current_streak": 0,
+      "longest_streak": 0,
+      "total_weeks_met": 0,
+      "total_weeks_tracked": 1,
+      "record_dungeons_week": {
+        "count": 0,
+        "week": "2026-25"
+      },
+      "record_highest_key": null,
+      "weeks": [
+        {
+          "week": "2026-25",
+          "reset_start": "2026-06-17T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
+        }
+      ]
+    },
+    "f6ec9fd2-163f-490b-ad10-eaf274ef73cd": {
+      "current_streak": 0,
+      "longest_streak": 0,
+      "total_weeks_met": 0,
+      "total_weeks_tracked": 1,
+      "record_dungeons_week": {
+        "count": 0,
+        "week": "2026-25"
+      },
+      "record_highest_key": null,
+      "weeks": [
+        {
+          "week": "2026-25",
+          "reset_start": "2026-06-17T07:00:00.000Z",
+          "count": 0,
+          "total_dungeons": 0,
+          "highest_key_level": null,
+          "met": false
         }
       ]
     }

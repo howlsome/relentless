@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-17T21:11:49.795Z",
-  "roster_hash": "e03699c0f09e52b8574d539f1210e5192e8a5848569102ed9fb33ea5d74619a8",
+  "last_updated": "2026-06-17T22:05:36.553Z",
+  "roster_hash": "45babfe89e7c823e215ddfd98cfc124b4d0436ff276c184010b9b094ad1970c6",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -864,6 +864,142 @@
             "to": null
           }
         ]
+      },
+      {
+        "raider_id": "02a5f0e3-4d74-443f-9be6-a83af426174b",
+        "display_name": "Lilputz",
+        "status": "active",
+        "tracking_start_date": "2026-06-16",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-16",
+            "note": "Applied on 16th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Lilputz",
+            "realm": "ChamberOfAspects",
+            "class": "Mage",
+            "spec": "Frost",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Mage",
+            "spec": "Frost",
+            "character": "Lilputz",
+            "from": "2026-06-16",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "87752f7d-2d52-4797-83ef-dc0a34827d0a",
+        "display_name": "Stormlòck",
+        "status": "active",
+        "tracking_start_date": "2026-06-16",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-16",
+            "note": "Applied on 16th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Stormlòck",
+            "realm": "ChamberOfAspects",
+            "class": "Warlock",
+            "spec": "Demonology",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Warlock",
+            "spec": "Demonology",
+            "character": "Stormlòck",
+            "from": "2026-06-16",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "ce94fbb6-cf99-46be-bc77-3abd7b2df01b",
+        "display_name": "Hydradead",
+        "status": "active",
+        "tracking_start_date": "2026-06-16",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-16",
+            "note": "Applied on 16th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Hydradead",
+            "realm": "ChamberOfAspects",
+            "class": "DeathKnight",
+            "spec": "Unholy",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "DeathKnight",
+            "spec": "Unholy",
+            "character": "Hydradead",
+            "from": "2026-06-16",
+            "to": null
+          }
+        ]
+      },
+      {
+        "raider_id": "f6ec9fd2-163f-490b-ad10-eaf274ef73cd",
+        "display_name": "Mydrui",
+        "status": "active",
+        "tracking_start_date": "2026-06-17",
+        "team_designation": "main",
+        "membership_history": [
+          {
+            "event": "joined",
+            "date": "2026-06-17",
+            "note": "Transferred from Fearless on 17th June 2026"
+          }
+        ],
+        "characters": [
+          {
+            "name": "Mydrui",
+            "realm": "Draenor",
+            "class": "Druid",
+            "spec": "Balance",
+            "role": "dps",
+            "active": true
+          }
+        ],
+        "role_history": [
+          {
+            "role": "dps",
+            "class": "Druid",
+            "spec": "Balance",
+            "character": "Mydrui",
+            "from": "2026-06-17",
+            "to": null
+          }
+        ]
       }
     ]
   },
@@ -1147,6 +1283,62 @@
       "spec": "Frost",
       "role": "dps",
       "note": "Joined 10th June 2026"
+    },
+    {
+      "id": "467a3b65-c220-4a6e-9585-ccae264f46b5",
+      "timestamp": "2026-06-17T22:05:36.553Z",
+      "week": "2026-25",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "02a5f0e3-4d74-443f-9be6-a83af426174b",
+      "display_name": "Lilputz",
+      "character": "Lilputz",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "note": "Applied on 16th June 2026"
+    },
+    {
+      "id": "f673a532-50c0-4a29-b991-28165f7ac6dd",
+      "timestamp": "2026-06-17T22:05:36.553Z",
+      "week": "2026-25",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "87752f7d-2d52-4797-83ef-dc0a34827d0a",
+      "display_name": "Stormlòck",
+      "character": "Stormlòck",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "note": "Applied on 16th June 2026"
+    },
+    {
+      "id": "79785b0d-6312-4190-8d5a-3d1e5739f9b2",
+      "timestamp": "2026-06-17T22:05:36.553Z",
+      "week": "2026-25",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "ce94fbb6-cf99-46be-bc77-3abd7b2df01b",
+      "display_name": "Hydradead",
+      "character": "Hydradead",
+      "class": "DeathKnight",
+      "spec": "Unholy",
+      "role": "dps",
+      "note": "Applied on 16th June 2026"
+    },
+    {
+      "id": "085ef446-b782-4421-9bf2-544b5dd8ffd8",
+      "timestamp": "2026-06-17T22:05:36.553Z",
+      "week": "2026-25",
+      "team": "main",
+      "event": "joined",
+      "raider_id": "f6ec9fd2-163f-490b-ad10-eaf274ef73cd",
+      "display_name": "Mydrui",
+      "character": "Mydrui",
+      "class": "Druid",
+      "spec": "Balance",
+      "role": "dps",
+      "note": "Transferred from Fearless on 17th June 2026"
     }
   ]
 }

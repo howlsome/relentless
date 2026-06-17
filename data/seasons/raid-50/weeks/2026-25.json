@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T21:11:49.795Z",
+  "fetched_at": "2026-06-17T22:05:36.553Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -886,6 +886,170 @@
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "02a5f0e3-4d74-443f-9be6-a83af426174b",
+      "display_name": "Lilputz",
+      "team_designation": "main",
+      "active_character": "Lilputz",
+      "realm": "ChamberOfAspects",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 9.1,
+              "spec": "Frost",
+              "dps": 69311.582688436,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "87752f7d-2d52-4797-83ef-dc0a34827d0a",
+      "display_name": "Stormlòck",
+      "team_designation": "main",
+      "active_character": "Stormlòck",
+      "realm": "ChamberOfAspects",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 16.2,
+              "spec": "Demonology",
+              "dps": 84624.915091822,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "ce94fbb6-cf99-46be-bc77-3abd7b2df01b",
+      "display_name": "Hydradead",
+      "team_designation": "main",
+      "active_character": "Hydradead",
+      "realm": "ChamberOfAspects",
+      "class": "DeathKnight",
+      "spec": "Unholy",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 34.4,
+              "spec": "Unholy",
+              "dps": 106823.72152544,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null,
+              "kill_time": null,
+              "kill_category": null,
+              "detected_session": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "f6ec9fd2-163f-490b-ad10-eaf274ef73cd",
+      "display_name": "Mydrui",
+      "team_designation": "main",
+      "active_character": "Mydrui",
+      "realm": "Draenor",
+      "class": "Druid",
+      "spec": "Balance",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 3159,
+          "boss_name": "Rotmire",
+          "difficulties": {
+            "heroic": {
+              "kill": true,
+              "parse_percentile": 94.8,
+              "spec": "Balance",
+              "dps": 133339.17481381,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,

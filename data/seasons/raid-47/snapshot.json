@@ -1,7 +1,7 @@
 {
   "season_id": "raid-47",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T21:11:49.795Z",
+  "fetched_at": "2026-06-17T22:05:36.553Z",
   "raid_tier": {
     "wcl_zone_id": 47,
     "name": "Mythic+ Season 1",
@@ -3514,6 +3514,642 @@
       "realm": "Draenor",
       "class": "Mage",
       "spec": "Frost",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 10658,
+          "boss_name": "Pit of Saron",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12805,
+          "boss_name": "Windrunner Spire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12811,
+          "boss_name": "Magisters' Terrace",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12874,
+          "boss_name": "Maisara Caverns",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12915,
+          "boss_name": "Nexus-Point Xenas",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 61209,
+          "boss_name": "Skyreach",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 112526,
+          "boss_name": "Algeth'ar Academy",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 361753,
+          "boss_name": "Seat of the Triumvirate",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "02a5f0e3-4d74-443f-9be6-a83af426174b",
+      "display_name": "Lilputz",
+      "team_designation": "main",
+      "active_character": "Lilputz",
+      "realm": "ChamberOfAspects",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 10658,
+          "boss_name": "Pit of Saron",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12805,
+          "boss_name": "Windrunner Spire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12811,
+          "boss_name": "Magisters' Terrace",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12874,
+          "boss_name": "Maisara Caverns",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12915,
+          "boss_name": "Nexus-Point Xenas",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 61209,
+          "boss_name": "Skyreach",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 112526,
+          "boss_name": "Algeth'ar Academy",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 361753,
+          "boss_name": "Seat of the Triumvirate",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "87752f7d-2d52-4797-83ef-dc0a34827d0a",
+      "display_name": "Stormlòck",
+      "team_designation": "main",
+      "active_character": "Stormlòck",
+      "realm": "ChamberOfAspects",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 10658,
+          "boss_name": "Pit of Saron",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12805,
+          "boss_name": "Windrunner Spire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12811,
+          "boss_name": "Magisters' Terrace",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12874,
+          "boss_name": "Maisara Caverns",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12915,
+          "boss_name": "Nexus-Point Xenas",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 61209,
+          "boss_name": "Skyreach",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 112526,
+          "boss_name": "Algeth'ar Academy",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 361753,
+          "boss_name": "Seat of the Triumvirate",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "ce94fbb6-cf99-46be-bc77-3abd7b2df01b",
+      "display_name": "Hydradead",
+      "team_designation": "main",
+      "active_character": "Hydradead",
+      "realm": "ChamberOfAspects",
+      "class": "DeathKnight",
+      "spec": "Unholy",
+      "role": "dps",
+      "raid_parses": [
+        {
+          "boss_id": 10658,
+          "boss_name": "Pit of Saron",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12805,
+          "boss_name": "Windrunner Spire",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12811,
+          "boss_name": "Magisters' Terrace",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12874,
+          "boss_name": "Maisara Caverns",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 12915,
+          "boss_name": "Nexus-Point Xenas",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 61209,
+          "boss_name": "Skyreach",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 112526,
+          "boss_name": "Algeth'ar Academy",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        },
+        {
+          "boss_id": 361753,
+          "boss_name": "Seat of the Triumvirate",
+          "difficulties": {
+            "heroic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            },
+            "mythic": {
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
+            }
+          }
+        }
+      ],
+      "lockout_warnings": [],
+      "safe_pug_kills": [],
+      "exempt_pug_kills": []
+    },
+    {
+      "raider_id": "f6ec9fd2-163f-490b-ad10-eaf274ef73cd",
+      "display_name": "Mydrui",
+      "team_designation": "main",
+      "active_character": "Mydrui",
+      "realm": "Draenor",
+      "class": "Druid",
+      "spec": "Balance",
       "role": "dps",
       "raid_parses": [
         {
