@@ -13,6 +13,7 @@
 		wclCharUrl = null,
 		wclZoneId = null,
 		wowanalyzerUrls = [],
+		isActive = true,
 	}: {
 		parse: BossParse;
 		difficulty: 'heroic' | 'mythic';
@@ -23,6 +24,7 @@
 		wclCharUrl?: string | null;
 		wclZoneId?: number | null;
 		wowanalyzerUrls?: (string | null)[];
+		isActive?: boolean;
 	} = $props();
 
 	const latestWowAnalyzerUrl = $derived(
@@ -169,8 +171,8 @@
 			</div>
 		</div>
 
-		<!-- Row 4: WoWAnalyzer link -->
-		{#if latestWowAnalyzerUrl}
+		<!-- Row 4: WoWAnalyzer link — active characters only -->
+		{#if isActive && latestWowAnalyzerUrl}
 			<div class="boss-card__row boss-card__row--wowa">
 				<a
 					href={latestWowAnalyzerUrl}
@@ -182,8 +184,8 @@
 			</div>
 		{/if}
 
-		<!-- Row 5: Wipefest link -->
-		{#if latestWipefestUrl()}
+		<!-- Row 5: Wipefest link — active characters only -->
+		{#if isActive && latestWipefestUrl()}
 			<div class="boss-card__row boss-card__row--wowa">
 				<a
 					href={latestWipefestUrl()}
@@ -195,8 +197,8 @@
 			</div>
 		{/if}
 
-		<!-- Row 6: Lorrgs link — spec-specific top parse comparison -->
-		{#if lorrgsUrl()}
+		<!-- Row 6: Lorrgs link — active characters only -->
+		{#if isActive && lorrgsUrl()}
 			<div class="boss-card__row boss-card__row--wowa">
 				<a
 					href={lorrgsUrl()}
