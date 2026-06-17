@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T11:12:49.722Z",
+  "fetched_at": "2026-06-17T21:11:49.795Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -28,13 +28,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 67.9,
+              "spec": "Elemental",
+              "dps": 108937.51364596,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -69,8 +71,8 @@
             "heroic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Discipline",
+              "dps": 121787.43844157,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -94,13 +96,15 @@
             "boss_name": "Rotmire",
             "difficulties": {
               "heroic": {
-                "kill": false,
-                "parse_percentile": null,
-                "spec": null,
-                "dps": null,
-                "kill_time": null,
-                "kill_category": null,
-                "detected_session": null
+                "kill": true,
+                "parse_percentile": 65.4,
+                "spec": "Discipline",
+                "dps": 121787.43844157,
+                "kill_time": "2026-06-17T18:36:55.928Z",
+                "kill_category": "in_raid",
+                "detected_session": null,
+                "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+                "wcl_fight_id": 3
               },
               "mythic": {
                 "kill": false,
@@ -134,13 +138,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 63,
+              "spec": "Retribution",
+              "dps": 116620.53019092,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -201,13 +207,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 18.1,
+              "spec": "Havoc",
+              "dps": 81643.707091046,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -307,13 +315,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 60.6,
+              "spec": "Blood",
+              "dps": 60520.705465661,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -346,13 +356,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 52.7,
+              "spec": "Mistweaver",
+              "dps": 16973.514713374,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -385,13 +397,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 24.3,
+              "spec": "Restoration",
+              "dps": 1083.4071225831,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -424,13 +438,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 99.4,
+              "spec": "Balance",
+              "dps": 155696.66250212,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -502,13 +518,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 95.1,
+              "spec": "Frost",
+              "dps": 143232.76363989,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -541,13 +559,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 99.4,
+              "spec": "Guardian",
+              "dps": 91958.898377041,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -619,13 +639,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 57.6,
+              "spec": "Elemental",
+              "dps": 102482.0085636,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -658,13 +680,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 44.2,
+              "spec": "Frost",
+              "dps": 97257.938914631,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
@@ -814,13 +838,15 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 72.5,
+              "spec": "Restoration",
+              "dps": 9337.958807404,
+              "kill_time": "2026-06-17T18:36:55.928Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "8Da7Jnh9GQYXqV2W",
+              "wcl_fight_id": 3
             },
             "mythic": {
               "kill": false,
