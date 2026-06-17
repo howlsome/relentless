@@ -171,9 +171,11 @@ export function load({ params }) {
 	}
 
 	// Use the active character's start date so a reroll resets the tracking window
-	const _activeCharForTracking = (raider?.characters ?? []).find((c) => c.active);
+	const _activeCharForTracking = (raider?.characters ?? []).find((/** @type {any} */ c) => c.active);
 	const _activeCharRoleEntry = _activeCharForTracking
-		? (raider?.role_history ?? []).find((r) => r.character === _activeCharForTracking.name)
+		? (raider?.role_history ?? []).find(
+				(/** @type {any} */ r) => r.character === _activeCharForTracking.name,
+			)
 		: null;
 	const raiderTrackingStart =
 		_activeCharRoleEntry?.from ?? raider?.tracking_start_date ?? roster.tracking_start_date;
@@ -182,7 +184,9 @@ export function load({ params }) {
 	// Filter compliance to weeks since the current character became active and recompute stats
 	const raiderComplianceForChar = (() => {
 		if (!raiderCompliance?.weeks?.length) return raiderCompliance;
-		const filteredWeeks = raiderCompliance.weeks.filter((w) => w.week >= raiderTrackingWeek);
+		const filteredWeeks = raiderCompliance.weeks.filter(
+			(/** @type {any} */ w) => w.week >= raiderTrackingWeek,
+		);
 		if (filteredWeeks.length === raiderCompliance.weeks.length) return raiderCompliance;
 		const sortedDesc = [...filteredWeeks].sort((a, b) => b.week.localeCompare(a.week));
 		const sortedAsc = [...filteredWeeks].sort((a, b) => a.week.localeCompare(b.week));
@@ -213,7 +217,7 @@ export function load({ params }) {
 		return {
 			current_streak,
 			longest_streak,
-			total_weeks_met: filteredWeeks.filter((w) => w.met).length,
+			total_weeks_met: filteredWeeks.filter((/** @type {any} */ w) => w.met).length,
 			total_weeks_tracked: filteredWeeks.length,
 			record_dungeons_week: byDungeons[0]
 				? { count: byDungeons[0].total_dungeons, week: byDungeons[0].week }
