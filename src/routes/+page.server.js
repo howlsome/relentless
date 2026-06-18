@@ -1,7 +1,17 @@
 export const prerender = true;
 
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+
+/** @param {string} weeksDir */
+function latestWeekSnapshot(weeksDir) {
+	if (!existsSync(weeksDir)) return null;
+	const files = readdirSync(weeksDir)
+		.filter((f) => f.endsWith('.json'))
+		.sort();
+	if (!files.length) return null;
+	return safeJson(join(weeksDir, files[files.length - 1]));
+}
 
 /** @param {string} path */
 function safeJson(path) {
@@ -25,7 +35,7 @@ export function load() {
 
 	const activeMplusSeasonId = seasonsIndex.active_mplus_season ?? '';
 	const mplusSnapshot = activeMplusSeasonId
-		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'snapshot.json'))
+		? latestWeekSnapshot(join(dataDir, 'seasons', activeMplusSeasonId, 'weeks'))
 		: null;
 	const mplusCompliance = activeMplusSeasonId
 		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'compliance.json'))
@@ -36,7 +46,7 @@ export function load() {
 	const raidZones = [];
 	for (const zone of seasonsIndex.all_raid_zones ?? []) {
 		const meta = safeJson(join(dataDir, 'seasons', zone.season_id, 'meta.json'));
-		const snapshot = safeJson(join(dataDir, 'seasons', zone.season_id, 'snapshot.json'));
+		const snapshot = latestWeekSnapshot(join(dataDir, 'seasons', zone.season_id, 'weeks'));
 		if (meta) raidZones.push({ meta, snapshot, season_id: zone.season_id, label: zone.label });
 	}
 

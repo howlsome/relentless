@@ -1,7 +1,17 @@
 export const prerender = true;
 
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+
+/** @param {string} weeksDir */
+function latestWeekSnapshot(weeksDir) {
+	if (!existsSync(weeksDir)) return null;
+	const files = readdirSync(weeksDir)
+		.filter((f) => f.endsWith('.json'))
+		.sort();
+	if (!files.length) return null;
+	return safeJson(join(weeksDir, files[files.length - 1]));
+}
 
 /** @param {string} path */
 function safeJson(path) {
@@ -29,7 +39,7 @@ export function load({ params }) {
 		null;
 
 	const sid = params.season_id ?? '';
-	const snapshot = safeJson(join(dataDir, 'seasons', sid, 'snapshot.json'));
+	const snapshot = latestWeekSnapshot(join(dataDir, 'seasons', sid, 'weeks'));
 	const compliance = safeJson(join(dataDir, 'seasons', sid, 'compliance.json'));
 	const meta = safeJson(join(dataDir, 'seasons', sid, 'meta.json'));
 
