@@ -13,6 +13,16 @@ export function entries() {
 	return E2E_FIXTURES.map((/** @type {any} */ f) => ({ uuid: f.raider_id }));
 }
 
+/** @param {string} weeksDir */
+function latestWeekSnapshot(weeksDir) {
+	if (!existsSync(weeksDir)) return null;
+	const files = readdirSync(weeksDir)
+		.filter((f) => f.endsWith('.json'))
+		.sort();
+	if (!files.length) return null;
+	return safeJson(join(weeksDir, files[files.length - 1]));
+}
+
 /** @param {string} path */
 function safeJson(path) {
 	try {
@@ -43,7 +53,7 @@ export function load({ params }) {
 	const raiderCompliance = complianceFile?.raiders?.[/** @type {string} */ (params.uuid)] ?? null;
 
 	const mplusSnapshotFile = activeMplusSeasonId
-		? safeJson(join(dataDir, 'seasons', activeMplusSeasonId, 'snapshot.json'))
+		? latestWeekSnapshot(join(dataDir, 'seasons', activeMplusSeasonId, 'weeks'))
 		: null;
 	const mplusSnapshot =
 		mplusSnapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
@@ -53,7 +63,7 @@ export function load({ params }) {
 	const allRaidSnapshots = [];
 	for (const zone of seasonsIndex.all_raid_zones ?? []) {
 		const meta = safeJson(join(dataDir, 'seasons', zone.season_id, 'meta.json'));
-		const snapshotFile = safeJson(join(dataDir, 'seasons', zone.season_id, 'snapshot.json'));
+		const snapshotFile = latestWeekSnapshot(join(dataDir, 'seasons', zone.season_id, 'weeks'));
 		const raiderData =
 			snapshotFile?.raiders?.find((/** @type {any} */ r) => r.raider_id === params.uuid) ?? null;
 		if (meta) allRaidSnapshots.push({ meta, raiderData, season_id: zone.season_id });

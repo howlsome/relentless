@@ -16,7 +16,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifyKill, formatLocalTime, getIsoWeekForTimestamp } from '../src/lib/utils/lockout.js';
@@ -71,6 +71,17 @@ function loadJsonOr(relPath, fallback) {
 	const full = join(dataDir, relPath);
 	if (!existsSync(full)) return fallback;
 	return JSON.parse(readFileSync(full, 'utf-8'));
+}
+
+/** Load the most-recent weeks/*.json for a season, or null if none exist. */
+function loadLatestWeek(seasonRelPath) {
+	const weeksDir = join(dataDir, seasonRelPath, 'weeks');
+	if (!existsSync(weeksDir)) return null;
+	const files = readdirSync(weeksDir)
+		.filter((f) => f.endsWith('.json'))
+		.sort();
+	if (!files.length) return null;
+	return loadJsonOr(`${seasonRelPath}/weeks/${files[files.length - 1]}`, null);
 }
 
 /** SHA-256 hash of an object (deterministic JSON). */
@@ -241,7 +252,7 @@ async function processMplusSeason({
 	const { season_id } = season;
 	const prefix = `seasons/${season_id}`;
 
-	const existingMplusSnapshot = loadJsonOr(`${prefix}/snapshot.json`, null);
+	const existingMplusSnapshot = loadLatestWeek(prefix);
 	const prevMplusSnapByRaider = new Map(
 		(existingMplusSnapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
 	);
@@ -348,7 +359,6 @@ async function processMplusSeason({
 
 	const weeklyData = { season_id, week: currentWeek, fetched_at: fetchedAt, raiders };
 	writeJson(`${prefix}/weeks/${currentWeek}.json`, weeklyData);
-	writeJson(`${prefix}/snapshot.json`, weeklyData);
 
 	console.log(`[fetch] M+ season ${season_id}: wrote ${raiders.length} raider(s).`);
 }
@@ -468,8 +478,8 @@ async function processRaidZone({
 	const bossNames = new Map((zone.encounters ?? []).map((e) => [e.id, e.name]));
 	const difficulties = roster.raid_difficulties ?? ['heroic', 'mythic'];
 
-	// Read existing snapshot to detect character switches on this run
-	const existingRaidSnapshot = loadJsonOr(`${prefix}/snapshot.json`, null);
+	// Read existing latest week to detect character switches on this run
+	const existingRaidSnapshot = loadLatestWeek(prefix);
 	const prevRaidSnapByRaider = new Map(
 		(existingRaidSnapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
 	);
@@ -981,7 +991,6 @@ async function processRaidZone({
 	}
 
 	writeJson(`${prefix}/weeks/${currentWeek}.json`, weeklyData);
-	writeJson(`${prefix}/snapshot.json`, weeklyData);
 
 	console.log(`[fetch] Raid zone ${zone.name}: wrote ${raiders.length} raider(s).`);
 }
