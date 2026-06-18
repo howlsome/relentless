@@ -15,8 +15,9 @@
  * 11. Generate changelog entries by diffing current vs. previous roster.
  */
 
+import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifyKill, formatLocalTime, getIsoWeekForTimestamp } from '../src/lib/utils/lockout.js';
@@ -73,9 +74,30 @@ function loadJsonOr(relPath, fallback) {
 	return JSON.parse(readFileSync(full, 'utf-8'));
 }
 
+/** Load the most-recent weeks/*.json for a season, or null if none exist. */
+function loadLatestWeek(seasonRelPath) {
+	const weeksDir = join(dataDir, seasonRelPath, 'weeks');
+	if (!existsSync(weeksDir)) return null;
+	const files = readdirSync(weeksDir)
+		.filter((f) => f.endsWith('.json'))
+		.sort();
+	if (!files.length) return null;
+	return loadJsonOr(`${seasonRelPath}/weeks/${files[files.length - 1]}`, null);
+}
+
 /** SHA-256 hash of an object (deterministic JSON). */
 function hashRoster(roster) {
 	return createHash('sha256').update(JSON.stringify(roster)).digest('hex');
+}
+
+/** Load roster.json from the previous git commit, or null if unavailable. */
+function loadPrevRosterFromGit() {
+	try {
+		const raw = execSync('git show HEAD:data/roster.json', { encoding: 'utf-8' });
+		return JSON.parse(raw);
+	} catch {
+		return null;
+	}
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -95,7 +117,6 @@ async function main() {
 	const changelogFile = loadJsonOr('changelog.json', {
 		last_updated: null,
 		roster_hash: null,
-		prev_roster_snapshot: null,
 		entries: [],
 	});
 
@@ -206,23 +227,22 @@ async function main() {
 	// ── 10. Changelog ─────────────────────────────────────────────────────────
 	const currentHash = hashRoster(roster);
 	const prevHash = changelogFile.roster_hash;
-	const prevRoster = changelogFile.prev_roster_snapshot ?? null;
 
 	if (currentHash !== prevHash) {
 		console.log('[fetch] Roster changed — generating changelog entries…');
+		const prevRoster = loadPrevRosterFromGit();
 		const newEntries = generateChangelogEntries(roster, prevRoster, fetchedAt, currentWeek);
 		console.log(`[fetch] Generated ${newEntries.length} changelog entry/entries.`);
 
 		const updatedChangelog = {
 			last_updated: fetchedAt,
 			roster_hash: currentHash,
-			prev_roster_snapshot: roster,
 			entries: [...changelogFile.entries, ...newEntries],
 		};
 		writeJson('changelog.json', updatedChangelog);
 	} else {
-		changelogFile.last_updated = fetchedAt;
-		writeJson('changelog.json', changelogFile);
+		const { prev_roster_snapshot: _, ...rest } = changelogFile;
+		writeJson('changelog.json', { ...rest, last_updated: fetchedAt });
 	}
 
 	console.log(`[fetch] Run complete. Week: ${currentWeek}`);
@@ -241,7 +261,7 @@ async function processMplusSeason({
 	const { season_id } = season;
 	const prefix = `seasons/${season_id}`;
 
-	const existingMplusSnapshot = loadJsonOr(`${prefix}/snapshot.json`, null);
+	const existingMplusSnapshot = loadLatestWeek(prefix);
 	const prevMplusSnapByRaider = new Map(
 		(existingMplusSnapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
 	);
@@ -348,7 +368,6 @@ async function processMplusSeason({
 
 	const weeklyData = { season_id, week: currentWeek, fetched_at: fetchedAt, raiders };
 	writeJson(`${prefix}/weeks/${currentWeek}.json`, weeklyData);
-	writeJson(`${prefix}/snapshot.json`, weeklyData);
 
 	console.log(`[fetch] M+ season ${season_id}: wrote ${raiders.length} raider(s).`);
 }
@@ -356,24 +375,17 @@ async function processMplusSeason({
 // ── Spec helpers ──────────────────────────────────────────────────────────────
 
 function getPrimarySpecName(char) {
-	if (char.specs?.length) {
-		return (char.specs.find((s) => s.primary) ?? char.specs[0]).spec;
-	}
-	return char.spec ?? null;
+	if (!char.specs?.length) return null;
+	return (char.specs.find((s) => s.primary) ?? char.specs[0]).spec;
 }
 
 function getPrimarySpecRole(char) {
-	if (char.specs?.length) {
-		return (char.specs.find((s) => s.primary) ?? char.specs[0]).role;
-	}
-	return char.role ?? 'dps';
+	if (!char.specs?.length) return 'dps';
+	return (char.specs.find((s) => s.primary) ?? char.specs[0]).role;
 }
 
 function getCharOffspecs(char) {
-	if (char.specs?.length) {
-		return char.specs.filter((s) => !s.primary && s.wcl_active);
-	}
-	return [];
+	return (char.specs ?? []).filter((s) => !s.primary && s.wcl_active);
 }
 
 // ── Lockout helpers ────────────────────────────────────────────────────────────
@@ -468,8 +480,8 @@ async function processRaidZone({
 	const bossNames = new Map((zone.encounters ?? []).map((e) => [e.id, e.name]));
 	const difficulties = roster.raid_difficulties ?? ['heroic', 'mythic'];
 
-	// Read existing snapshot to detect character switches on this run
-	const existingRaidSnapshot = loadJsonOr(`${prefix}/snapshot.json`, null);
+	// Read existing latest week to detect character switches on this run
+	const existingRaidSnapshot = loadLatestWeek(prefix);
 	const prevRaidSnapByRaider = new Map(
 		(existingRaidSnapshot?.raiders ?? []).map((r) => [r.raider_id, r]),
 	);
@@ -981,7 +993,6 @@ async function processRaidZone({
 	}
 
 	writeJson(`${prefix}/weeks/${currentWeek}.json`, weeklyData);
-	writeJson(`${prefix}/snapshot.json`, weeklyData);
 
 	console.log(`[fetch] Raid zone ${zone.name}: wrote ${raiders.length} raider(s).`);
 }
