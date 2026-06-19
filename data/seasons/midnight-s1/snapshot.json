@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-25",
-  "fetched_at": "2026-06-17T23:01:35.840Z",
+  "fetched_at": "2026-06-19T09:10:17.204Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -12,11 +12,24 @@
       "class": "Shaman",
       "spec": "Elemental",
       "role": "dps",
-      "rio_score": 3363.2,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3396.1,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-18T18:09:15.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-18T19:31:48.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": false
     },
     {
@@ -29,10 +42,17 @@
       "spec": "Shadow",
       "role": "dps",
       "rio_score": 3659.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-17T21:45:42.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {
@@ -76,11 +96,18 @@
       "class": "Hunter",
       "spec": "Survival",
       "role": "dps",
-      "rio_score": 3357.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3379,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-06-18T10:58:05.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": false
     },
     {
@@ -92,11 +119,18 @@
       "class": "DeathKnight",
       "spec": "Blood",
       "role": "tank",
-      "rio_score": 3262.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3263.8,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-17T21:45:42.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {
@@ -141,10 +175,17 @@
       "spec": "Balance",
       "role": "dps",
       "rio_score": 3721,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-06-18T23:16:31.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 18,
       "mplus_requirement_met": false
     },
     {
@@ -202,10 +243,16 @@
           "level": 21,
           "timed": true,
           "completed_at": "2026-06-17T14:33:03.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-06-18T10:58:05.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 21,
       "mplus_requirement_met": false
     },
@@ -235,10 +282,23 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3098.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-17T21:33:43.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-06-18T20:19:06.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -266,8 +326,14 @@
       "class": "Warlock",
       "spec": "Demonology",
       "role": "dps",
-      "rio_score": 3414.7,
+      "rio_score": 3424.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-17T19:22:58.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 15,
@@ -279,12 +345,18 @@
           "level": 15,
           "timed": true,
           "completed_at": "2026-06-17T09:40:12.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-06-18T20:19:06.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 15,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 16,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
@@ -295,11 +367,24 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 2235.5,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 2458.8,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-18T18:56:24.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-18T20:01:39.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -311,8 +396,26 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 2946.9,
+      "rio_score": 3066.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-18T17:44:06.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": false,
+          "completed_at": "2026-06-18T22:00:36.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-17T23:08:35.000Z"
+        },
         {
           "dungeon": "Seat of the Triumvirate",
           "level": 12,
@@ -320,10 +423,10 @@
           "completed_at": "2026-06-17T22:26:55.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "5f6b9abe-1dd7-45e5-9fac-56b893f8ffd5",
@@ -409,14 +512,20 @@
       "mplus_runs_this_week": [
         {
           "dungeon": "Seat of the Triumvirate",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-17T23:08:35.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-17T22:26:55.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 12,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {
