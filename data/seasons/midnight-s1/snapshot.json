@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-25",
-  "fetched_at": "2026-06-19T09:10:17.204Z",
+  "fetched_at": "2026-06-20T08:30:41.538Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -12,8 +12,14 @@
       "class": "Shaman",
       "spec": "Elemental",
       "role": "dps",
-      "rio_score": 3396.1,
+      "rio_score": 3410.6,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-19T15:54:28.000Z"
+        },
         {
           "dungeon": "Seat of the Triumvirate",
           "level": 16,
@@ -25,12 +31,42 @@
           "level": 16,
           "timed": true,
           "completed_at": "2026-06-18T19:31:48.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 16,
+          "timed": false,
+          "completed_at": "2026-06-19T22:04:30.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-19T18:26:33.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-19T17:53:47.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-19T17:20:43.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-19T16:49:00.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
       "mplus_highest_key_this_week": 16,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
@@ -126,12 +162,30 @@
           "level": 14,
           "timed": true,
           "completed_at": "2026-06-17T21:45:42.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T19:40:41.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T20:16:31.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T19:05:33.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 14,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "7b772b7b-9e9b-4ac3-b68b-cedf0fc36dff",
@@ -158,11 +212,24 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 3016.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3033.4,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-19T18:26:33.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-19T17:53:47.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -180,11 +247,17 @@
           "dungeon": "Magisters' Terrace",
           "level": 18,
           "timed": true,
+          "completed_at": "2026-06-19T16:43:37.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 18,
+          "timed": true,
           "completed_at": "2026-06-18T23:16:31.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 18,
       "mplus_requirement_met": false
     },
@@ -236,7 +309,7 @@
       "class": "Druid",
       "spec": "Guardian",
       "role": "tank",
-      "rio_score": 3968,
+      "rio_score": 3996.7,
       "mplus_runs_this_week": [
         {
           "dungeon": "Skyreach",
@@ -245,16 +318,34 @@
           "completed_at": "2026-06-17T14:33:03.000Z"
         },
         {
+          "dungeon": "Algeth'ar Academy",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-19T15:51:21.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-19T12:58:19.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 20,
+          "timed": false,
+          "completed_at": "2026-06-20T00:13:32.000Z"
+        },
+        {
           "dungeon": "Maisara Caverns",
           "level": 17,
           "timed": true,
           "completed_at": "2026-06-18T10:58:05.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 21,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
@@ -351,10 +442,28 @@
           "level": 11,
           "timed": true,
           "completed_at": "2026-06-18T20:19:06.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T19:40:41.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T20:16:31.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T19:05:33.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 7,
+      "mplus_total_dungeons_this_week": 7,
       "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
@@ -367,7 +476,7 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 2458.8,
+      "rio_score": 2842.7,
       "mplus_runs_this_week": [
         {
           "dungeon": "Nexus-Point Xenas",
@@ -376,16 +485,52 @@
           "completed_at": "2026-06-18T18:56:24.000Z"
         },
         {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-19T18:57:45.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-19T19:50:24.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-19T17:42:57.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-20T07:53:24.000Z"
+        },
+        {
           "dungeon": "Skyreach",
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-18T20:01:39.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-18T19:28:27.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-19T20:16:31.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
       "mplus_highest_key_this_week": 13,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",

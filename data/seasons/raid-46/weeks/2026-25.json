@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-25",
-  "fetched_at": "2026-06-19T09:10:17.204Z",
+  "fetched_at": "2026-06-20T08:30:41.538Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -259,7 +259,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 85.1,
+              "parse_percentile": 84,
               "spec": "Elemental",
               "dps": 91342.630596115,
               "kill_time": "2026-06-18T17:29:01.939Z",
