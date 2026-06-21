@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-25",
-  "fetched_at": "2026-06-20T08:30:41.538Z",
+  "fetched_at": "2026-06-21T08:49:02.168Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -5688,9 +5688,11 @@
               "parse_percentile": 48.2,
               "spec": "Unholy",
               "dps": 94465.830138955,
-              "kill_time": null,
+              "kill_time": "2026-06-20T20:40:02.485Z",
               "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NrQD2M4tTZPaR3gK",
+              "wcl_fight_id": 4,
               "historical_best_parse": 38.6
             },
             "mythic": {
@@ -5710,12 +5712,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 29.7,
+              "parse_percentile": 51.3,
               "spec": "Unholy",
-              "dps": 76439.350718299,
-              "kill_time": null,
+              "dps": 90756.428022156,
+              "kill_time": "2026-06-20T20:48:52.439Z",
               "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NFfgJ3ZCnr8LbRzq",
+              "wcl_fight_id": 41,
               "historical_best_parse": 25
             },
             "mythic": {
@@ -5734,13 +5738,15 @@
           "boss_name": "Vaelgor & Ezzorak",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 13.7,
               "spec": "Unholy",
-              "dps": 35322.190992776,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 38388.657302986,
+              "kill_time": "2026-06-20T21:09:18.903Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NrQD2M4tTZPaR3gK",
+              "wcl_fight_id": 15,
               "historical_best_parse": 6.5
             },
             "mythic": {
@@ -5759,13 +5765,15 @@
           "boss_name": "Fallen-King Salhadaar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 40.6,
               "spec": "Unholy",
-              "dps": 67045.677105224,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 84050.398947206,
+              "kill_time": "2026-06-20T20:56:54.740Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NrQD2M4tTZPaR3gK",
+              "wcl_fight_id": 12,
               "historical_best_parse": 22.2
             },
             "mythic": {
@@ -5784,13 +5792,15 @@
           "boss_name": "Lightblinded Vanguard",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 30.7,
               "spec": "Unholy",
-              "dps": 110642.19109889,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 110429.20671931,
+              "kill_time": "2026-06-20T21:48:01.883Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "ayDJYXLKmRcgGvzP",
+              "wcl_fight_id": 19,
               "historical_best_parse": 35.4
             },
             "mythic": {
@@ -6380,7 +6390,7 @@
               "kill": false,
               "parse_percentile": null,
               "spec": "Demonology",
-              "dps": 82657.844787639,
+              "dps": 109549.52542435,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null,

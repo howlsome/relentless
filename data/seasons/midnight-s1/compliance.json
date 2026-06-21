@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T08:30:41.538Z",
+  "last_updated": "2026-06-21T08:49:02.168Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "current_streak": 5,
@@ -466,8 +466,8 @@
         {
           "week": "2026-25",
           "reset_start": "2026-06-17T07:00:00.000Z",
-          "count": 2,
-          "total_dungeons": 2,
+          "count": 3,
+          "total_dungeons": 3,
           "highest_key_level": 18,
           "met": false
         },
@@ -634,8 +634,8 @@
         {
           "week": "2026-25",
           "reset_start": "2026-06-17T07:00:00.000Z",
-          "count": 5,
-          "total_dungeons": 5,
+          "count": 7,
+          "total_dungeons": 7,
           "highest_key_level": 21,
           "met": true
         },
@@ -839,8 +839,8 @@
         {
           "week": "2026-25",
           "reset_start": "2026-06-17T07:00:00.000Z",
-          "count": 7,
-          "total_dungeons": 7,
+          "count": 8,
+          "total_dungeons": 8,
           "highest_key_level": 16,
           "met": true
         },
@@ -919,8 +919,8 @@
         {
           "week": "2026-25",
           "reset_start": "2026-06-17T07:00:00.000Z",
-          "count": 8,
-          "total_dungeons": 8,
+          "count": 10,
+          "total_dungeons": 10,
           "highest_key_level": 13,
           "met": true
         },
@@ -959,8 +959,8 @@
         {
           "week": "2026-25",
           "reset_start": "2026-06-17T07:00:00.000Z",
-          "count": 4,
-          "total_dungeons": 4,
+          "count": 5,
+          "total_dungeons": 5,
           "highest_key_level": 15,
           "met": true
         },
@@ -1054,20 +1054,20 @@
       "total_weeks_met": 0,
       "total_weeks_tracked": 1,
       "record_dungeons_week": {
-        "count": 1,
+        "count": 2,
         "week": "2026-25"
       },
       "record_highest_key": {
-        "level": 7,
+        "level": 10,
         "week": "2026-25"
       },
       "weeks": [
         {
           "week": "2026-25",
           "reset_start": "2026-06-17T07:00:00.000Z",
-          "count": 0,
-          "total_dungeons": 1,
-          "highest_key_level": 7,
+          "count": 1,
+          "total_dungeons": 2,
+          "highest_key_level": 10,
           "met": false
         }
       ]
