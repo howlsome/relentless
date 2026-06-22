@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-25",
-  "fetched_at": "2026-06-21T08:49:02.168Z",
+  "fetched_at": "2026-06-22T09:28:40.691Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -77,8 +77,14 @@
       "class": "Priest",
       "spec": "Shadow",
       "role": "dps",
-      "rio_score": 3659.9,
+      "rio_score": 3662,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-06-21T12:23:50.000Z"
+        },
         {
           "dungeon": "Nexus-Point Xenas",
           "level": 14,
@@ -86,9 +92,9 @@
           "completed_at": "2026-06-17T21:45:42.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 14,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": false
     },
     {
@@ -393,6 +399,18 @@
       "rio_score": 3098.4,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Pit of Saron",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-21T22:09:50.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-21T21:15:30.000Z"
+        },
+        {
           "dungeon": "Maisara Caverns",
           "level": 12,
           "timed": true,
@@ -405,10 +423,10 @@
           "completed_at": "2026-06-18T20:19:06.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "47dab7cd-7045-46a0-a845-776217d26d5b",
@@ -577,13 +595,25 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 3092.6,
+      "rio_score": 3263.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-21T20:20:51.000Z"
+        },
         {
           "dungeon": "Pit of Saron",
           "level": 15,
           "timed": true,
           "completed_at": "2026-06-18T17:44:06.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-21T22:11:37.000Z"
         },
         {
           "dungeon": "Magisters' Terrace",
@@ -598,21 +628,45 @@
           "completed_at": "2026-06-20T15:10:18.000Z"
         },
         {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-21T20:57:29.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-21T21:35:24.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 14,
           "timed": true,
           "completed_at": "2026-06-17T23:08:35.000Z"
         },
         {
-          "dungeon": "Seat of the Triumvirate",
-          "level": 12,
+          "dungeon": "Maisara Caverns",
+          "level": 14,
           "timed": true,
-          "completed_at": "2026-06-17T22:26:55.000Z"
+          "completed_at": "2026-06-21T15:02:38.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-06-21T18:44:22.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-21T15:28:09.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 5,
-      "mplus_total_dungeons_this_week": 5,
-      "mplus_highest_key_this_week": 15,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
+      "mplus_highest_key_this_week": 16,
       "mplus_requirement_met": true
     },
     {
