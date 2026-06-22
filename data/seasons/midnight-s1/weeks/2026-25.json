@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-25",
-  "fetched_at": "2026-06-22T09:28:40.691Z",
+  "fetched_at": "2026-06-22T23:02:24.452Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -518,8 +518,14 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 2842.7,
+      "rio_score": 2855.1,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-22T20:50:03.000Z"
+        },
         {
           "dungeon": "Nexus-Point Xenas",
           "level": 13,
@@ -581,8 +587,8 @@
           "completed_at": "2026-06-19T20:16:31.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": true
     },
@@ -679,10 +685,17 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3355.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-22T21:16:48.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": false
     },
     {
@@ -695,10 +708,17 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 2565.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-22T18:34:35.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -711,10 +731,17 @@
       "spec": "Demonology",
       "role": "dps",
       "rio_score": 2623.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-22T18:34:35.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -726,13 +753,25 @@
       "class": "DeathKnight",
       "spec": "Unholy",
       "role": "dps",
-      "rio_score": 2542.6,
+      "rio_score": 2545.9,
       "mplus_runs_this_week": [
         {
           "dungeon": "Maisara Caverns",
           "level": 10,
           "timed": true,
+          "completed_at": "2026-06-22T18:00:09.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 10,
+          "timed": true,
           "completed_at": "2026-06-20T22:43:19.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-22T17:23:45.000Z"
         },
         {
           "dungeon": "Pit of Saron",
@@ -741,8 +780,8 @@
           "completed_at": "2026-06-17T17:47:41.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
