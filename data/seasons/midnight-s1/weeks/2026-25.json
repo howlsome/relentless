@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-25",
-  "fetched_at": "2026-06-22T23:02:24.452Z",
+  "fetched_at": "2026-06-23T08:37:28.729Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -265,13 +265,19 @@
           "dungeon": "Magisters' Terrace",
           "level": 18,
           "timed": true,
+          "completed_at": "2026-06-22T14:22:34.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 18,
+          "timed": true,
           "completed_at": "2026-06-18T23:16:31.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 18,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "3752b0c0-364e-440f-a08b-78330ed4239c",
