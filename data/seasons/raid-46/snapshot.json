@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-26",
-  "fetched_at": "2026-06-24T08:35:00.178Z",
+  "fetched_at": "2026-06-24T22:53:53.301Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -5208,13 +5208,15 @@
           "boss_name": "Imperator Averzian",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 15.5,
               "spec": "Frost",
-              "dps": 57180.43187376,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 62026.443937962,
+              "kill_time": "2026-06-24T20:28:39.416Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 30,
               "historical_best_parse": 6.8
             },
             "mythic": {
@@ -5233,13 +5235,15 @@
           "boss_name": "Vorasius",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 4.8,
               "spec": "Frost",
-              "dps": 35623.547257112,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 14521.389650388,
+              "kill_time": "2026-06-24T20:36:56.155Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 34,
               "historical_best_parse": 6.4
             },
             "mythic": {
@@ -5258,13 +5262,15 @@
           "boss_name": "Vaelgor & Ezzorak",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 18.9,
               "spec": "Frost",
-              "dps": 52045.849756256,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 59512.854399183,
+              "kill_time": "2026-06-24T21:08:46.991Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 44,
               "historical_best_parse": 9.1
             },
             "mythic": {
@@ -5283,13 +5289,15 @@
           "boss_name": "Fallen-King Salhadaar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 29.8,
               "spec": "Frost",
-              "dps": 52606.71071827,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 67953.609992552,
+              "kill_time": "2026-06-24T20:52:51.650Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 39,
               "historical_best_parse": 9.5
             },
             "mythic": {
@@ -5683,12 +5691,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 48.2,
+              "parse_percentile": 52.5,
               "spec": "Unholy",
-              "dps": 94465.830138955,
-              "kill_time": null,
+              "dps": 97032.847851465,
+              "kill_time": "2026-06-24T20:28:39.416Z",
               "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 30,
               "historical_best_parse": 38.6
             },
             "mythic": {
@@ -5711,9 +5721,11 @@
               "parse_percentile": 52.1,
               "spec": "Unholy",
               "dps": 90756.428022156,
-              "kill_time": null,
+              "kill_time": "2026-06-24T20:36:56.155Z",
               "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 34,
               "historical_best_parse": 25
             },
             "mythic": {
@@ -5758,12 +5770,14 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 41.4,
+              "parse_percentile": 66.5,
               "spec": "Unholy",
-              "dps": 84050.398947206,
-              "kill_time": null,
+              "dps": 103540.2701271,
+              "kill_time": "2026-06-24T20:52:51.650Z",
               "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "NwKWkBxzy4rCbp6L",
+              "wcl_fight_id": 39,
               "historical_best_parse": 22.2
             },
             "mythic": {

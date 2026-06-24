@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-24T08:35:00.178Z",
+  "fetched_at": "2026-06-24T22:53:53.301Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -93,10 +93,17 @@
       "spec": "Blood",
       "role": "tank",
       "rio_score": 3263.8,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:51:07.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -124,11 +131,24 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 3033.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3039.4,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-24T19:09:22.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-24T18:31:27.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -141,10 +161,29 @@
       "spec": "Balance",
       "role": "dps",
       "rio_score": 3723.6,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T11:36:24.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T12:01:12.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T11:17:53.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -188,11 +227,30 @@
       "class": "Druid",
       "spec": "Guardian",
       "role": "tank",
-      "rio_score": 4014.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 4015.9,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 22,
+          "timed": false,
+          "completed_at": "2026-06-24T21:00:41.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-24T21:39:55.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-24T20:14:03.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 22,
       "mplus_requirement_met": false
     },
     {
@@ -205,10 +263,17 @@
       "spec": "Elemental",
       "role": "dps",
       "rio_score": 3166.6,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:51:07.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -220,11 +285,30 @@
       "class": "DeathKnight",
       "spec": "Frost",
       "role": "dps",
-      "rio_score": 3117.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 3119.9,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 13,
+          "timed": false,
+          "completed_at": "2026-06-24T15:35:53.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-24T15:01:05.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-24T08:19:48.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -253,10 +337,17 @@
       "spec": "Demonology",
       "role": "dps",
       "rio_score": 3424.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:51:07.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -269,10 +360,23 @@
       "spec": "Augmentation",
       "role": "dps",
       "rio_score": 2855.1,
-      "mplus_runs_this_week": [],
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 2,
+          "timed": true,
+          "completed_at": "2026-06-24T19:29:58.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 2,
+          "timed": true,
+          "completed_at": "2026-06-24T19:02:20.000Z"
+        }
+      ],
       "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 2,
       "mplus_requirement_met": false
     },
     {
@@ -284,12 +388,37 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 3290,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
+      "rio_score": 3342.2,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-24T21:24:27.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-24T18:50:26.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-24T20:49:04.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-24T19:23:18.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 16,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "5f6b9abe-1dd7-45e5-9fac-56b893f8ffd5",
@@ -316,11 +445,24 @@
       "class": "Mage",
       "spec": "Frost",
       "role": "dps",
-      "rio_score": 2565.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 2572.9,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:09:47.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:42:28.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -332,11 +474,24 @@
       "class": "Warlock",
       "spec": "Demonology",
       "role": "dps",
-      "rio_score": 2623.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 2630.3,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:09:47.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:42:28.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -349,10 +504,23 @@
       "spec": "Unholy",
       "role": "dps",
       "rio_score": 2605.7,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:09:47.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T19:42:28.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
