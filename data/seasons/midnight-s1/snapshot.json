@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-24T22:53:53.301Z",
+  "fetched_at": "2026-06-25T08:33:00.878Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -227,13 +227,19 @@
       "class": "Druid",
       "spec": "Guardian",
       "role": "tank",
-      "rio_score": 4015.9,
+      "rio_score": 4017.8,
       "mplus_runs_this_week": [
         {
           "dungeon": "Pit of Saron",
           "level": 22,
           "timed": false,
           "completed_at": "2026-06-24T21:00:41.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-25T00:22:18.000Z"
         },
         {
           "dungeon": "Magisters' Terrace",
@@ -248,10 +254,10 @@
           "completed_at": "2026-06-24T20:14:03.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 22,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
@@ -362,6 +368,12 @@
       "rio_score": 2855.1,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T21:00:52.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 2,
           "timed": true,
@@ -374,9 +386,9 @@
           "completed_at": "2026-06-24T19:02:20.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
