@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-26",
-  "fetched_at": "2026-06-25T08:33:00.878Z",
+  "fetched_at": "2026-06-26T08:35:38.563Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -1425,8 +1425,8 @@
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Havoc",
+              "dps": 81365.899341262,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -4652,13 +4652,15 @@
           "boss_name": "Belo'ren, Child of Al'ar",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
-              "spec": null,
-              "dps": null,
-              "kill_time": null,
-              "kill_category": null,
-              "detected_session": null
+              "kill": true,
+              "parse_percentile": 12,
+              "spec": "Augmentation",
+              "dps": 41475.43883771,
+              "kill_time": "2026-06-25T19:29:00.121Z",
+              "kill_category": "in_raid",
+              "detected_session": null,
+              "wcl_report_code": "Y8vZqQk3fFb7X6RP",
+              "wcl_fight_id": 2
             },
             "mythic": {
               "kill": false,
@@ -5209,7 +5211,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 15.5,
+              "parse_percentile": 15,
               "spec": "Frost",
               "dps": 62026.443937962,
               "kill_time": "2026-06-24T20:28:39.416Z",
@@ -5263,7 +5265,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 18.9,
+              "parse_percentile": 18.7,
               "spec": "Frost",
               "dps": 59512.854399183,
               "kill_time": "2026-06-24T21:08:46.991Z",
@@ -5290,7 +5292,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 29.8,
+              "parse_percentile": 29.2,
               "spec": "Frost",
               "dps": 67953.609992552,
               "kill_time": "2026-06-24T20:52:51.650Z",
@@ -5691,7 +5693,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 52.5,
+              "parse_percentile": 51.7,
               "spec": "Unholy",
               "dps": 97032.847851465,
               "kill_time": "2026-06-24T20:28:39.416Z",

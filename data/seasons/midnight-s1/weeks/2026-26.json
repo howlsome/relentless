@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-25T08:33:00.878Z",
+  "fetched_at": "2026-06-26T08:35:38.563Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -160,8 +160,38 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3723.6,
+      "rio_score": 3737.7,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-06-25T12:34:52.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 19,
+          "timed": false,
+          "completed_at": "2026-06-25T23:34:56.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-06-25T19:23:41.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-25T15:08:05.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-25T15:40:32.000Z"
+        },
         {
           "dungeon": "Skyreach",
           "level": 10,
@@ -181,10 +211,10 @@
           "completed_at": "2026-06-24T11:17:53.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
-      "mplus_highest_key_this_week": 10,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
+      "mplus_highest_key_this_week": 19,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "3752b0c0-364e-440f-a08b-78330ed4239c",
@@ -374,6 +404,18 @@
           "completed_at": "2026-06-24T21:00:52.000Z"
         },
         {
+          "dungeon": "Magisters' Terrace",
+          "level": 5,
+          "timed": true,
+          "completed_at": "2026-06-25T20:14:52.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 3,
+          "timed": true,
+          "completed_at": "2026-06-25T18:05:59.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 2,
           "timed": true,
@@ -387,7 +429,7 @@
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_total_dungeons_this_week": 5,
       "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
@@ -400,8 +442,14 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 3342.2,
+      "rio_score": 3402.5,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 17,
+          "timed": true,
+          "completed_at": "2026-06-25T21:12:09.000Z"
+        },
         {
           "dungeon": "Nexus-Point Xenas",
           "level": 16,
@@ -409,10 +457,28 @@
           "completed_at": "2026-06-24T21:24:27.000Z"
         },
         {
+          "dungeon": "Windrunner Spire",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-25T20:17:15.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-06-25T16:56:32.000Z"
+        },
+        {
           "dungeon": "Nexus-Point Xenas",
           "level": 15,
           "timed": true,
           "completed_at": "2026-06-24T18:50:26.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-06-25T17:46:05.000Z"
         },
         {
           "dungeon": "Windrunner Spire",
@@ -427,9 +493,9 @@
           "completed_at": "2026-06-24T19:23:18.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
-      "mplus_highest_key_this_week": 16,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
+      "mplus_highest_key_this_week": 17,
       "mplus_requirement_met": true
     },
     {
@@ -470,10 +536,16 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-24T19:42:28.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T18:44:21.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
       "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
@@ -499,10 +571,16 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-24T19:42:28.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T18:44:21.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
       "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
@@ -515,8 +593,14 @@
       "class": "DeathKnight",
       "spec": "Unholy",
       "role": "dps",
-      "rio_score": 2605.7,
+      "rio_score": 2608.6,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-25T18:23:18.000Z"
+        },
         {
           "dungeon": "Seat of the Triumvirate",
           "level": 10,
@@ -528,12 +612,18 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-24T19:42:28.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-06-24T18:44:21.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 10,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "f6ec9fd2-163f-490b-ad10-eaf274ef73cd",
