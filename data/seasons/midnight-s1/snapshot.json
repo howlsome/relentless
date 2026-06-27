@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-26T08:35:38.563Z",
+  "fetched_at": "2026-06-27T08:18:54.772Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -160,8 +160,14 @@
       "class": "Druid",
       "spec": "Balance",
       "role": "dps",
-      "rio_score": 3737.7,
+      "rio_score": 3750.5,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 19,
+          "timed": true,
+          "completed_at": "2026-06-26T20:25:15.000Z"
+        },
         {
           "dungeon": "Maisara Caverns",
           "level": 19,
@@ -179,6 +185,12 @@
           "level": 18,
           "timed": true,
           "completed_at": "2026-06-25T19:23:41.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-06-26T18:38:58.000Z"
         },
         {
           "dungeon": "Algeth'ar Academy",
@@ -211,8 +223,8 @@
           "completed_at": "2026-06-24T11:17:53.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 8,
-      "mplus_total_dungeons_this_week": 8,
+      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_total_dungeons_this_week": 10,
       "mplus_highest_key_this_week": 19,
       "mplus_requirement_met": true
     },
@@ -257,13 +269,19 @@
       "class": "Druid",
       "spec": "Guardian",
       "role": "tank",
-      "rio_score": 4017.8,
+      "rio_score": 4020.3,
       "mplus_runs_this_week": [
         {
           "dungeon": "Pit of Saron",
           "level": 22,
           "timed": false,
           "completed_at": "2026-06-24T21:00:41.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-26T23:29:34.000Z"
         },
         {
           "dungeon": "Maisara Caverns",
@@ -278,14 +296,20 @@
           "completed_at": "2026-06-24T21:39:55.000Z"
         },
         {
+          "dungeon": "Maisara Caverns",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-06-27T00:16:42.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 21,
           "timed": true,
           "completed_at": "2026-06-24T20:14:03.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 6,
+      "mplus_total_dungeons_this_week": 6,
       "mplus_highest_key_this_week": 22,
       "mplus_requirement_met": true
     },

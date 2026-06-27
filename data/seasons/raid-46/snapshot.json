@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-26",
-  "fetched_at": "2026-06-26T08:35:38.563Z",
+  "fetched_at": "2026-06-27T08:18:54.772Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -5896,13 +5896,15 @@
           "boss_name": "Chimaerus, the Undreamt God",
           "difficulties": {
             "heroic": {
-              "kill": false,
-              "parse_percentile": null,
+              "kill": true,
+              "parse_percentile": 64.2,
               "spec": "Unholy",
-              "dps": 67252.076022059,
-              "kill_time": null,
-              "kill_category": null,
+              "dps": 76504.170540192,
+              "kill_time": "2026-06-26T17:30:39.614Z",
+              "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "bYqP8dQJ9AnCptRf",
+              "wcl_fight_id": 1,
               "historical_best_parse": 44.6
             },
             "mythic": {
