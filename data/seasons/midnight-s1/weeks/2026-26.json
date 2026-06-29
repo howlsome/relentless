@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-29T09:06:50.712Z",
+  "fetched_at": "2026-06-29T22:48:56.717Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -297,10 +297,23 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3200.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T20:58:46.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T21:27:51.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -403,10 +416,52 @@
       "rio_score": 3119.9,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Skyreach",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T13:56:35.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T15:05:30.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T20:58:46.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T21:27:51.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 13,
           "timed": false,
           "completed_at": "2026-06-24T15:35:53.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": false,
+          "completed_at": "2026-06-29T16:33:04.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 13,
+          "timed": false,
+          "completed_at": "2026-06-29T14:39:39.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-29T15:31:28.000Z"
         },
         {
           "dungeon": "Windrunner Spire",
@@ -421,32 +476,20 @@
           "completed_at": "2026-06-24T15:01:05.000Z"
         },
         {
-          "dungeon": "Windrunner Spire",
-          "level": 12,
+          "dungeon": "Algeth'ar Academy",
+          "level": 10,
           "timed": true,
-          "completed_at": "2026-06-24T08:19:48.000Z"
+          "completed_at": "2026-06-28T21:45:03.000Z"
         },
         {
           "dungeon": "Nexus-Point Xenas",
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-28T10:53:39.000Z"
-        },
-        {
-          "dungeon": "Algeth'ar Academy",
-          "level": 12,
-          "timed": true,
-          "completed_at": "2026-06-28T10:28:45.000Z"
-        },
-        {
-          "dungeon": "Algeth'ar Academy",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-06-28T21:45:03.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 7,
-      "mplus_total_dungeons_this_week": 7,
+      "mplus_weekly_count_at_or_above_minimum": 12,
+      "mplus_total_dungeons_this_week": 12,
       "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": true
     },
@@ -540,13 +583,25 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 2902,
+      "rio_score": 2909.2,
       "mplus_runs_this_week": [
         {
           "dungeon": "Maisara Caverns",
           "level": 14,
           "timed": false,
           "completed_at": "2026-06-27T20:18:05.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T20:58:46.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-29T21:27:51.000Z"
         },
         {
           "dungeon": "Algeth'ar Academy",
@@ -595,16 +650,10 @@
           "level": 5,
           "timed": true,
           "completed_at": "2026-06-25T20:14:52.000Z"
-        },
-        {
-          "dungeon": "Pit of Saron",
-          "level": 3,
-          "timed": true,
-          "completed_at": "2026-06-25T18:05:59.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 8,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": true
     },
