@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-26",
-  "fetched_at": "2026-06-30T08:37:27.615Z",
+  "fetched_at": "2026-06-30T21:45:05.176Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -38,7 +38,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 18.1,
+              "parse_percentile": 18.2,
               "spec": "Elemental",
               "dps": 106188.92026557,
               "kill_time": "2026-06-29T19:28:09.105Z",
@@ -325,7 +325,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 66.4,
+              "parse_percentile": 66.2,
               "spec": "Blood",
               "dps": 73352.766607585,
               "kill_time": "2026-06-29T19:28:09.105Z",
@@ -366,7 +366,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 52,
+              "parse_percentile": 52.1,
               "spec": "Mistweaver",
               "dps": 15739.157297173,
               "kill_time": "2026-06-29T20:17:54.902Z",
@@ -407,7 +407,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 11.3,
+              "parse_percentile": 11.2,
               "spec": "Restoration",
               "dps": 302.81335566633,
               "kill_time": "2026-06-29T20:17:54.902Z",
@@ -530,7 +530,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 71,
+              "parse_percentile": 70.8,
               "spec": "Frost",
               "dps": 142340.30269902,
               "kill_time": "2026-06-29T20:17:54.902Z",
@@ -610,7 +610,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 46.4,
+              "parse_percentile": 46.5,
               "spec": "Elemental",
               "dps": 127543.95286059,
               "kill_time": "2026-06-29T19:28:09.105Z",
@@ -729,7 +729,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 51.9,
+              "parse_percentile": 51.8,
               "spec": "Demonology",
               "dps": 136127.54333486,
               "kill_time": "2026-06-29T19:28:09.105Z",
@@ -770,7 +770,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 8.8,
+              "parse_percentile": 8.9,
               "spec": "Augmentation",
               "dps": 90021.189986739,
               "kill_time": "2026-06-29T19:28:09.105Z",
@@ -811,7 +811,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 71.6,
+              "parse_percentile": 71.5,
               "spec": "Restoration",
               "dps": 10249.099827905,
               "kill_time": "2026-06-29T19:28:09.105Z",

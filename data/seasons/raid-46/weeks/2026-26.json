@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-26",
-  "fetched_at": "2026-06-30T08:37:27.615Z",
+  "fetched_at": "2026-06-30T21:45:05.176Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -3061,8 +3061,8 @@
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Fury",
+              "dps": 112809.9359485,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -4519,8 +4519,8 @@
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Augmentation",
+              "dps": 82177.792108764,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
@@ -4543,8 +4543,8 @@
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Augmentation",
+              "dps": 63755.879410225,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null

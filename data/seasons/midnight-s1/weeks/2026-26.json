@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-30T08:37:27.615Z",
+  "fetched_at": "2026-06-30T21:45:05.176Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -13,11 +13,36 @@
       "spec": "Elemental",
       "role": "dps",
       "rio_score": 3410.6,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Algeth'ar Academy",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-30T19:41:14.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T15:47:52.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T20:21:24.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T20:51:54.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 13,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
@@ -123,10 +148,17 @@
       "spec": "Mistweaver",
       "role": "healer",
       "rio_score": 3902.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T20:51:54.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -255,6 +287,12 @@
         },
         {
           "dungeon": "Algeth'ar Academy",
+          "level": 14,
+          "timed": false,
+          "completed_at": "2026-06-30T11:38:20.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-25T15:08:05.000Z"
@@ -266,8 +304,8 @@
           "completed_at": "2026-06-25T15:40:32.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
-      "mplus_total_dungeons_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 19,
       "mplus_requirement_met": true
     },
@@ -440,6 +478,12 @@
           "completed_at": "2026-06-29T21:27:51.000Z"
         },
         {
+          "dungeon": "Algeth'ar Academy",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-30T19:41:14.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 13,
           "timed": false,
@@ -471,25 +515,13 @@
         },
         {
           "dungeon": "Seat of the Triumvirate",
-          "level": 12,
-          "timed": true,
-          "completed_at": "2026-06-24T15:01:05.000Z"
-        },
-        {
-          "dungeon": "Seat of the Triumvirate",
           "level": 11,
           "timed": true,
           "completed_at": "2026-06-29T23:06:18.000Z"
-        },
-        {
-          "dungeon": "Algeth'ar Academy",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-06-28T21:45:03.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 12,
-      "mplus_total_dungeons_this_week": 12,
+      "mplus_weekly_count_at_or_above_minimum": 11,
+      "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": true
     },
@@ -539,6 +571,12 @@
           "completed_at": "2026-06-27T19:36:02.000Z"
         },
         {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T20:21:24.000Z"
+        },
+        {
           "dungeon": "Nexus-Point Xenas",
           "level": 12,
           "timed": true,
@@ -563,14 +601,20 @@
           "completed_at": "2026-06-28T11:24:12.000Z"
         },
         {
-          "dungeon": "Windrunner Spire",
-          "level": 10,
+          "dungeon": "Maisara Caverns",
+          "level": 12,
           "timed": true,
-          "completed_at": "2026-06-24T19:51:07.000Z"
+          "completed_at": "2026-06-30T18:31:34.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T20:51:54.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 8,
-      "mplus_total_dungeons_this_week": 8,
+      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_total_dungeons_this_week": 10,
       "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": true
     },
@@ -583,7 +627,7 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 2909.2,
+      "rio_score": 2915.9,
       "mplus_runs_this_week": [
         {
           "dungeon": "Maisara Caverns",
@@ -605,9 +649,21 @@
         },
         {
           "dungeon": "Algeth'ar Academy",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-06-30T19:41:14.000Z"
+        },
+        {
+          "dungeon": "Algeth'ar Academy",
           "level": 12,
           "timed": true,
           "completed_at": "2026-06-27T19:36:02.000Z"
+        },
+        {
+          "dungeon": "Maisara Caverns",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-06-30T18:31:34.000Z"
         },
         {
           "dungeon": "Windrunner Spire",
@@ -638,21 +694,9 @@
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-27T18:25:42.000Z"
-        },
-        {
-          "dungeon": "Windrunner Spire",
-          "level": 10,
-          "timed": true,
-          "completed_at": "2026-06-24T21:00:52.000Z"
-        },
-        {
-          "dungeon": "Magisters' Terrace",
-          "level": 5,
-          "timed": true,
-          "completed_at": "2026-06-25T20:14:52.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 10,
+      "mplus_weekly_count_at_or_above_minimum": 11,
       "mplus_total_dungeons_this_week": 11,
       "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": true

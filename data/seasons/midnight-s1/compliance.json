@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-06-30T08:37:27.615Z",
+  "last_updated": "2026-06-30T21:45:05.176Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
-      "current_streak": 0,
-      "longest_streak": 5,
-      "total_weeks_met": 5,
+      "current_streak": 6,
+      "longest_streak": 6,
+      "total_weeks_met": 6,
       "total_weeks_tracked": 6,
       "record_dungeons_week": {
         "count": 9,
@@ -18,10 +18,10 @@
         {
           "week": "2026-26",
           "reset_start": "2026-06-24T07:00:00.000Z",
-          "count": 0,
-          "total_dungeons": 0,
-          "highest_key_level": null,
-          "met": false
+          "count": 4,
+          "total_dungeons": 4,
+          "highest_key_level": 13,
+          "met": true
         },
         {
           "week": "2026-25",
@@ -402,9 +402,9 @@
         {
           "week": "2026-26",
           "reset_start": "2026-06-24T07:00:00.000Z",
-          "count": 0,
-          "total_dungeons": 0,
-          "highest_key_level": null,
+          "count": 1,
+          "total_dungeons": 1,
+          "highest_key_level": 12,
           "met": false
         },
         {
@@ -519,7 +519,7 @@
       "total_weeks_met": 4,
       "total_weeks_tracked": 6,
       "record_dungeons_week": {
-        "count": 10,
+        "count": 11,
         "week": "2026-26"
       },
       "record_highest_key": {
@@ -530,8 +530,8 @@
         {
           "week": "2026-26",
           "reset_start": "2026-06-24T07:00:00.000Z",
-          "count": 10,
-          "total_dungeons": 10,
+          "count": 11,
+          "total_dungeons": 11,
           "highest_key_level": 19,
           "met": true
         },
@@ -892,7 +892,7 @@
       "total_weeks_met": 4,
       "total_weeks_tracked": 4,
       "record_dungeons_week": {
-        "count": 12,
+        "count": 11,
         "week": "2026-26"
       },
       "record_highest_key": {
@@ -903,8 +903,8 @@
         {
           "week": "2026-26",
           "reset_start": "2026-06-24T07:00:00.000Z",
-          "count": 12,
-          "total_dungeons": 12,
+          "count": 11,
+          "total_dungeons": 11,
           "highest_key_level": 13,
           "met": true
         },
@@ -951,8 +951,8 @@
         {
           "week": "2026-26",
           "reset_start": "2026-06-24T07:00:00.000Z",
-          "count": 8,
-          "total_dungeons": 8,
+          "count": 10,
+          "total_dungeons": 10,
           "highest_key_level": 14,
           "met": true
         },
@@ -1047,7 +1047,7 @@
         {
           "week": "2026-26",
           "reset_start": "2026-06-24T07:00:00.000Z",
-          "count": 10,
+          "count": 11,
           "total_dungeons": 11,
           "highest_key_level": 14,
           "met": true
