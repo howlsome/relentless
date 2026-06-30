@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-26",
-  "fetched_at": "2026-06-29T22:48:56.717Z",
+  "fetched_at": "2026-06-30T08:37:27.615Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -476,16 +476,16 @@
           "completed_at": "2026-06-24T15:01:05.000Z"
         },
         {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-06-29T23:06:18.000Z"
+        },
+        {
           "dungeon": "Algeth'ar Academy",
           "level": 10,
           "timed": true,
           "completed_at": "2026-06-28T21:45:03.000Z"
-        },
-        {
-          "dungeon": "Nexus-Point Xenas",
-          "level": 12,
-          "timed": true,
-          "completed_at": "2026-06-28T10:53:39.000Z"
         }
       ],
       "mplus_weekly_count_at_or_above_minimum": 12,
