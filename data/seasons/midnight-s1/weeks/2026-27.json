@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-27",
-  "fetched_at": "2026-07-01T08:45:42.969Z",
+  "fetched_at": "2026-07-01T22:54:02.980Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -124,12 +124,13 @@
       "class": "Shaman",
       "spec": "Restoration",
       "role": "healer",
-      "rio_score": 3039.4,
+      "rio_score": null,
       "mplus_runs_this_week": [],
       "mplus_weekly_count_at_or_above_minimum": 0,
       "mplus_total_dungeons_this_week": 0,
       "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": false,
+      "error": "rio_error"
     },
     {
       "raider_id": "8a1c5c47-c359-49ba-ad7d-96f6707e0162",
@@ -141,10 +142,17 @@
       "spec": "Balance",
       "role": "dps",
       "rio_score": 3750.5,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-01T17:48:51.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {
@@ -221,10 +229,23 @@
       "spec": "Frost",
       "role": "dps",
       "rio_score": 3119.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-07-01T21:26:20.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-01T20:51:59.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 11,
       "mplus_requirement_met": false
     },
     {
@@ -253,10 +274,29 @@
       "spec": "Demonology",
       "role": "dps",
       "rio_score": 3424.3,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-01T09:08:07.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-01T09:44:55.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-01T20:51:59.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -316,11 +356,30 @@
       "class": "Mage",
       "spec": "Frost",
       "role": "dps",
-      "rio_score": 2572.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "rio_score": 2579.2,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-07-01T21:26:20.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-01T20:51:59.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-01T17:48:51.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 11,
       "mplus_requirement_met": false
     },
     {
@@ -349,10 +408,17 @@
       "spec": "Unholy",
       "role": "dps",
       "rio_score": 2638.1,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-01T17:48:51.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 10,
       "mplus_requirement_met": false
     },
     {

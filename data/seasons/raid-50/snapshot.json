@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-27",
-  "fetched_at": "2026-07-01T08:45:42.969Z",
+  "fetched_at": "2026-07-01T22:54:02.980Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -506,9 +506,11 @@
               "parse_percentile": 94.5,
               "spec": "Frost",
               "dps": 143232.76363989,
-              "kill_time": null,
+              "kill_time": "2026-07-01T18:00:21.243Z",
               "kill_category": "in_raid",
-              "detected_session": null
+              "detected_session": null,
+              "wcl_report_code": "P3VM6CHgQj1Jvp7Y",
+              "wcl_fight_id": 4
             },
             "mythic": {
               "kill": true,
