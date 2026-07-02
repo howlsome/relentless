@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-27",
-  "fetched_at": "2026-07-01T22:54:02.980Z",
+  "fetched_at": "2026-07-02T08:28:47.217Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -276,6 +276,12 @@
       "rio_score": 3424.3,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Algeth'ar Academy",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-07-02T06:25:30.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 12,
           "timed": true,
@@ -294,10 +300,10 @@
           "completed_at": "2026-07-01T20:51:59.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
-      "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
