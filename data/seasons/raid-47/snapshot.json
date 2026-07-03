@@ -1,7 +1,7 @@
 {
   "season_id": "raid-47",
   "week": "2026-27",
-  "fetched_at": "2026-07-02T08:28:47.217Z",
+  "fetched_at": "2026-07-03T10:12:42.776Z",
   "raid_tier": {
     "wcl_zone_id": 47,
     "name": "Mythic+ Season 1",
@@ -1755,7 +1755,8 @@
       ],
       "lockout_warnings": [],
       "safe_pug_kills": [],
-      "exempt_pug_kills": []
+      "exempt_pug_kills": [],
+      "error": "wcl_not_found"
     },
     {
       "raider_id": "8a1c5c47-c359-49ba-ad7d-96f6707e0162",

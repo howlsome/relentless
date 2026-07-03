@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-27",
-  "fetched_at": "2026-07-02T08:28:47.217Z",
+  "fetched_at": "2026-07-03T10:12:42.776Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -144,15 +144,21 @@
       "rio_score": 3750.5,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Windrunner Spire",
+          "level": 18,
+          "timed": true,
+          "completed_at": "2026-07-02T22:52:06.000Z"
+        },
+        {
           "dungeon": "Pit of Saron",
           "level": 10,
           "timed": true,
           "completed_at": "2026-07-01T17:48:51.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 10,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
+      "mplus_highest_key_this_week": 18,
       "mplus_requirement_met": false
     },
     {
@@ -315,10 +321,17 @@
       "spec": "Augmentation",
       "role": "dps",
       "rio_score": 2915.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 14,
+          "timed": false,
+          "completed_at": "2026-07-02T19:02:11.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {

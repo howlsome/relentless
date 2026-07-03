@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-27",
-  "fetched_at": "2026-07-02T08:28:47.217Z",
+  "fetched_at": "2026-07-03T10:12:42.776Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -385,29 +385,24 @@
           "boss_name": "Rotmire",
           "difficulties": {
             "heroic": {
-              "kill": true,
-              "parse_percentile": 25.5,
-              "spec": "Restoration",
-              "dps": 1083.4071225831,
-              "kill_time": null,
-              "kill_category": "in_raid",
-              "detected_session": null
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
             },
             "mythic": {
-              "kill": true,
-              "parse_percentile": 11.2,
-              "spec": "Restoration",
-              "dps": 302.81335566633,
-              "kill_time": null,
-              "kill_category": "in_raid",
-              "detected_session": null
+              "kill": false,
+              "parse_percentile": null,
+              "spec": null,
+              "dps": null
             }
           }
         }
       ],
       "lockout_warnings": [],
       "safe_pug_kills": [],
-      "exempt_pug_kills": []
+      "exempt_pug_kills": [],
+      "error": "wcl_not_found"
     },
     {
       "raider_id": "8a1c5c47-c359-49ba-ad7d-96f6707e0162",
