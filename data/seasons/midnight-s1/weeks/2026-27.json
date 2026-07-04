@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-27",
-  "fetched_at": "2026-07-03T10:12:42.776Z",
+  "fetched_at": "2026-07-04T09:33:53.182Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -203,10 +203,17 @@
       "spec": "Guardian",
       "role": "tank",
       "rio_score": 4020.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-03T12:29:51.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
     {
@@ -234,8 +241,14 @@
       "class": "DeathKnight",
       "spec": "Frost",
       "role": "dps",
-      "rio_score": 3119.9,
+      "rio_score": 3139,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-07-03T22:33:33.000Z"
+        },
         {
           "dungeon": "Seat of the Triumvirate",
           "level": 11,
@@ -249,9 +262,9 @@
           "completed_at": "2026-07-01T20:51:59.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 11,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": false
     },
     {
@@ -288,10 +301,22 @@
           "completed_at": "2026-07-02T06:25:30.000Z"
         },
         {
+          "dungeon": "Skyreach",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-03T11:35:26.000Z"
+        },
+        {
           "dungeon": "Seat of the Triumvirate",
           "level": 12,
           "timed": true,
           "completed_at": "2026-07-01T09:08:07.000Z"
+        },
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-03T10:13:00.000Z"
         },
         {
           "dungeon": "Magisters' Terrace",
@@ -303,11 +328,23 @@
           "dungeon": "Nexus-Point Xenas",
           "level": 10,
           "timed": true,
+          "completed_at": "2026-07-03T12:15:42.000Z"
+        },
+        {
+          "dungeon": "Nexus-Point Xenas",
+          "level": 10,
+          "timed": true,
           "completed_at": "2026-07-01T20:51:59.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-03T10:52:44.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 8,
+      "mplus_total_dungeons_this_week": 8,
       "mplus_highest_key_this_week": 15,
       "mplus_requirement_met": true
     },
