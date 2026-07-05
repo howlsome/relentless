@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-27",
-  "fetched_at": "2026-07-04T09:33:53.182Z",
+  "fetched_at": "2026-07-05T09:53:24.909Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -3040,16 +3040,18 @@
               "parse_percentile": 85.2,
               "spec": "Frost",
               "dps": 117567.88478223,
-              "kill_time": null,
+              "kill_time": "2026-07-04T21:58:23.273Z",
               "kill_category": "in_raid",
               "detected_session": null,
+              "wcl_report_code": "Tb3g97DM1aZfJ4kt",
+              "wcl_fight_id": 24,
               "historical_best_parse": 61.7
             },
             "mythic": {
               "kill": false,
               "parse_percentile": null,
-              "spec": null,
-              "dps": null,
+              "spec": "Frost",
+              "dps": 101425.32601062,
               "kill_time": null,
               "kill_category": null,
               "detected_session": null
