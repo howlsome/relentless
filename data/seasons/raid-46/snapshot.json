@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-27",
-  "fetched_at": "2026-07-06T22:51:14.291Z",
+  "fetched_at": "2026-07-07T09:52:20.371Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -169,7 +169,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 88.3,
+              "parse_percentile": 87.9,
               "spec": "Elemental",
               "dps": 153913.51639969,
               "kill_time": "2026-07-06T19:48:45.630Z",
@@ -269,7 +269,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 92.2,
+              "parse_percentile": 92.1,
               "spec": "Elemental",
               "dps": 105152.63358312,
               "kill_time": "2026-07-06T18:33:34.231Z",
@@ -311,7 +311,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 92.7,
+              "parse_percentile": 92.6,
               "spec": "Shadow",
               "dps": 24071.340195666,
               "kill_time": "2026-07-06T19:01:05.202Z",
@@ -339,7 +339,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 79.5,
+              "parse_percentile": 78.8,
               "spec": "Shadow",
               "dps": 16650.642640808,
               "kill_time": "2026-07-06T19:10:42.180Z",
@@ -367,7 +367,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 95.2,
+              "parse_percentile": 94.9,
               "spec": "Shadow",
               "dps": 20566.027781626,
               "kill_time": "2026-07-06T19:29:06.343Z",
@@ -2613,7 +2613,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 96.5,
+              "parse_percentile": 96.4,
               "spec": "Balance",
               "dps": 128685.15945127,
               "kill_time": "2026-07-06T19:10:42.180Z",
@@ -2694,7 +2694,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 96.6,
+              "parse_percentile": 96.7,
               "spec": "Balance",
               "dps": 193457.36395673,
               "kill_time": "2026-07-06T19:48:56.183Z",
@@ -3183,7 +3183,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 57.8,
+              "parse_percentile": 57.7,
               "spec": "Frost",
               "dps": 150225.06826954,
               "kill_time": "2026-07-06T19:48:56.183Z",
@@ -3619,7 +3619,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 76.9,
+              "parse_percentile": 76.6,
               "spec": "Elemental",
               "dps": 102177.20586285,
               "kill_time": "2026-07-06T19:29:06.343Z",
@@ -3673,7 +3673,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 72.3,
+              "parse_percentile": 72.2,
               "spec": "Elemental",
               "dps": 124594.36070726,
               "kill_time": "2026-07-06T19:48:56.183Z",
@@ -4078,7 +4078,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 62.1,
+              "parse_percentile": 61.4,
               "spec": "Assassination",
               "dps": 87268.361711333,
               "kill_time": "2026-07-06T19:10:42.180Z",
@@ -4104,7 +4104,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 38,
+              "parse_percentile": 38.3,
               "spec": "Assassination",
               "dps": 65976.24149324,
               "kill_time": "2026-07-06T19:29:06.343Z",
@@ -4130,7 +4130,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 67.2,
+              "parse_percentile": 66.2,
               "spec": "Assassination",
               "dps": 89002.77746313,
               "kill_time": "2026-07-06T19:21:03.200Z",
@@ -4156,7 +4156,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 44.2,
+              "parse_percentile": 41.8,
               "spec": "Assassination",
               "dps": 95056.179346748,
               "kill_time": "2026-07-06T19:48:56.183Z",
@@ -4254,7 +4254,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 43.1,
+              "parse_percentile": 41.7,
               "spec": "Assassination",
               "dps": 65792.029198968,
               "kill_time": "2026-07-06T18:33:34.231Z",
@@ -4556,7 +4556,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 61.4,
+              "parse_percentile": 60.7,
               "spec": "Augmentation",
               "dps": 81649.558423049,
               "kill_time": "2026-07-06T19:10:42.180Z",
@@ -4582,7 +4582,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 63.9,
+              "parse_percentile": 63.1,
               "spec": "Augmentation",
               "dps": 88337.390837899,
               "kill_time": "2026-07-06T19:29:06.343Z",
@@ -4634,7 +4634,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 32.3,
+              "parse_percentile": 33.4,
               "spec": "Augmentation",
               "dps": 121226.20100993,
               "kill_time": "2026-07-06T19:48:56.183Z",
@@ -4799,7 +4799,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 91,
+              "parse_percentile": 91.2,
               "spec": "Restoration",
               "dps": 12877.707363009,
               "kill_time": "2026-07-06T19:10:42.180Z",
@@ -4877,7 +4877,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 66.4,
+              "parse_percentile": 65.9,
               "spec": "Restoration",
               "dps": 5310.0962638637,
               "kill_time": "2026-07-06T19:48:56.183Z",

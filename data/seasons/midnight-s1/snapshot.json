@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-27",
-  "fetched_at": "2026-07-06T22:51:14.291Z",
+  "fetched_at": "2026-07-07T09:52:20.371Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -27,16 +27,22 @@
           "completed_at": "2026-07-06T12:12:35.000Z"
         },
         {
+          "dungeon": "Pit of Saron",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-07-06T21:23:25.000Z"
+        },
+        {
           "dungeon": "Windrunner Spire",
           "level": 14,
           "timed": true,
           "completed_at": "2026-07-06T11:18:36.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 16,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "6b6181f7-636d-4614-b37f-be5231d540af",
