@@ -1,7 +1,7 @@
 {
   "season_id": "raid-46",
   "week": "2026-28",
-  "fetched_at": "2026-07-08T09:42:23.377Z",
+  "fetched_at": "2026-07-08T23:36:11.504Z",
   "raid_tier": {
     "wcl_zone_id": 46,
     "name": "VS / DR / MQD",
@@ -86,7 +86,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 87.8,
+              "parse_percentile": 87.7,
               "spec": "Elemental",
               "dps": 112508.66610674,
               "kill_time": null,
@@ -299,7 +299,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 92.7,
+              "parse_percentile": 92.6,
               "spec": "Shadow",
               "dps": 24071.340195666,
               "kill_time": null,
@@ -325,7 +325,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 79.5,
+              "parse_percentile": 78.7,
               "spec": "Shadow",
               "dps": 16650.642640808,
               "kill_time": null,
@@ -351,7 +351,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 95.2,
+              "parse_percentile": 94.9,
               "spec": "Shadow",
               "dps": 20566.027781626,
               "kill_time": null,
@@ -401,7 +401,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 97.1,
+              "parse_percentile": 97,
               "spec": "Shadow",
               "dps": 24245.629223939,
               "kill_time": null,
@@ -501,7 +501,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 96.8,
+              "parse_percentile": 96.4,
               "spec": "Shadow",
               "dps": 23920.349467967,
               "kill_time": null,
@@ -2635,7 +2635,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 96.1,
+              "parse_percentile": 95.9,
               "spec": "Balance",
               "dps": 124596.8374074,
               "kill_time": null,
@@ -2660,7 +2660,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 96.7,
+              "parse_percentile": 96.2,
               "spec": "Balance",
               "dps": 193457.36395673,
               "kill_time": null,
@@ -3112,7 +3112,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 85.3,
+              "parse_percentile": 85.2,
               "spec": "Frost",
               "dps": 113098.3212886,
               "kill_time": null,
@@ -3539,7 +3539,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 89,
+              "parse_percentile": 88.9,
               "spec": "Elemental",
               "dps": 114229.25351862,
               "kill_time": null,
@@ -3990,7 +3990,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 56.4,
+              "parse_percentile": 57.1,
               "spec": "Assassination",
               "dps": 88223.070447327,
               "kill_time": null,
@@ -4038,7 +4038,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 38.3,
+              "parse_percentile": 38,
               "spec": "Assassination",
               "dps": 65976.24149324,
               "kill_time": null,
@@ -4062,7 +4062,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 66.2,
+              "parse_percentile": 67.1,
               "spec": "Assassination",
               "dps": 89002.77746313,
               "kill_time": null,
@@ -4182,7 +4182,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 41.7,
+              "parse_percentile": 43.6,
               "spec": "Assassination",
               "dps": 65792.029198968,
               "kill_time": null,
@@ -4456,7 +4456,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 75.8,
+              "parse_percentile": 76.3,
               "spec": "Augmentation",
               "dps": 107355.52706934,
               "kill_time": null,
@@ -4480,7 +4480,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 60.7,
+              "parse_percentile": 61.4,
               "spec": "Augmentation",
               "dps": 81649.558423049,
               "kill_time": null,
@@ -4528,7 +4528,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 69.5,
+              "parse_percentile": 70.3,
               "spec": "Augmentation",
               "dps": 91890.564327949,
               "kill_time": null,
@@ -4648,7 +4648,7 @@
           "difficulties": {
             "heroic": {
               "kill": true,
-              "parse_percentile": 70.5,
+              "parse_percentile": 70.6,
               "spec": "Augmentation",
               "dps": 73504.921578066,
               "kill_time": null,
