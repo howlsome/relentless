@@ -18,21 +18,21 @@
       "season_id": "raid-47",
       "label": "Mythic+ Season 1",
       "wcl_zone_id": 47,
-      "start_date": "2026-07-08",
+      "start_date": "2026-07-09",
       "end_date": null
     },
     {
       "season_id": "raid-50",
       "label": "Sporefall",
       "wcl_zone_id": 50,
-      "start_date": "2026-07-08",
+      "start_date": "2026-07-09",
       "end_date": null
     },
     {
       "season_id": "raid-46",
       "label": "VS / DR / MQD",
       "wcl_zone_id": 46,
-      "start_date": "2026-07-08",
+      "start_date": "2026-07-09",
       "end_date": null
     }
   ]

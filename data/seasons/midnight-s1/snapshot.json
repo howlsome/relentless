@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-28",
-  "fetched_at": "2026-07-08T23:36:11.504Z",
+  "fetched_at": "2026-07-09T10:34:47.159Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -267,10 +267,16 @@
           "level": 12,
           "timed": true,
           "completed_at": "2026-07-08T20:07:54.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 11,
+          "timed": true,
+          "completed_at": "2026-07-09T06:17:54.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 12,
       "mplus_requirement_met": false
     },
