@@ -1,7 +1,7 @@
 {
   "season_id": "raid-50",
   "week": "2026-28",
-  "fetched_at": "2026-07-09T10:34:47.159Z",
+  "fetched_at": "2026-07-10T10:31:26.574Z",
   "raid_tier": {
     "wcl_zone_id": 50,
     "name": "Sporefall",
@@ -702,7 +702,7 @@
             },
             "mythic": {
               "kill": true,
-              "parse_percentile": 57.3,
+              "parse_percentile": 56.8,
               "spec": "Demonology",
               "dps": 140627.45192435,
               "kill_time": "2026-07-08T19:17:13.248Z",

@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-28",
-  "fetched_at": "2026-07-09T10:34:47.159Z",
+  "fetched_at": "2026-07-10T10:31:26.574Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -197,10 +197,17 @@
       "spec": "Guardian",
       "role": "tank",
       "rio_score": 4020.9,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 22,
+          "timed": false,
+          "completed_at": "2026-07-08T21:36:41.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 22,
       "mplus_requirement_met": false
     },
     {
@@ -260,8 +267,20 @@
       "class": "Warlock",
       "spec": "Demonology",
       "role": "dps",
-      "rio_score": 3424.3,
+      "rio_score": 3427.3,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Seat of the Triumvirate",
+          "level": 15,
+          "timed": true,
+          "completed_at": "2026-07-09T09:17:23.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-09T06:45:44.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 12,
@@ -275,10 +294,10 @@
           "completed_at": "2026-07-09T06:17:54.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 15,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "ee9fde20-2aaf-49e2-8fad-e67ef3a68f8a",
