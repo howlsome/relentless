@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-28",
-  "fetched_at": "2026-07-10T10:31:26.574Z",
+  "fetched_at": "2026-07-11T09:02:26.351Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -92,12 +92,43 @@
       "class": "DeathKnight",
       "spec": "Blood",
       "role": "tank",
-      "rio_score": 3263.8,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
+      "rio_score": 3271.7,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Skyreach",
+          "level": 16,
+          "timed": true,
+          "completed_at": "2026-07-10T16:57:22.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-07-10T19:53:03.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-10T20:39:36.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-10T21:13:45.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-10T21:42:40.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 5,
+      "mplus_total_dungeons_this_week": 5,
+      "mplus_highest_key_this_week": 16,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "7b772b7b-9e9b-4ac3-b68b-cedf0fc36dff",
@@ -144,15 +175,27 @@
       "rio_score": 3750.5,
       "mplus_runs_this_week": [
         {
+          "dungeon": "Pit of Saron",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-07-10T23:21:58.000Z"
+        },
+        {
           "dungeon": "Maisara Caverns",
           "level": 12,
           "timed": true,
           "completed_at": "2026-07-08T16:36:33.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-10T22:47:36.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
-      "mplus_highest_key_this_week": 12,
+      "mplus_weekly_count_at_or_above_minimum": 3,
+      "mplus_total_dungeons_this_week": 3,
+      "mplus_highest_key_this_week": 13,
       "mplus_requirement_met": false
     },
     {
@@ -203,10 +246,16 @@
           "level": 22,
           "timed": false,
           "completed_at": "2026-07-08T21:36:41.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 21,
+          "timed": false,
+          "completed_at": "2026-07-10T23:51:41.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 1,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 2,
       "mplus_highest_key_this_week": 22,
       "mplus_requirement_met": false
     },
@@ -220,11 +269,36 @@
       "spec": "Elemental",
       "role": "dps",
       "rio_score": 3166.6,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
-      "mplus_requirement_met": false
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-07-10T19:53:03.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-10T20:39:36.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-10T21:13:45.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-10T21:42:40.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 13,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "f479633a-cbd8-4a19-9e73-7bb92bdb03fa",
@@ -308,13 +382,25 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 2949.1,
+      "rio_score": 3006.4,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 13,
+          "timed": true,
+          "completed_at": "2026-07-10T19:37:53.000Z"
+        },
         {
           "dungeon": "Windrunner Spire",
           "level": 12,
           "timed": true,
           "completed_at": "2026-07-08T19:40:25.000Z"
+        },
+        {
+          "dungeon": "Skyreach",
+          "level": 12,
+          "timed": true,
+          "completed_at": "2026-07-10T20:43:50.000Z"
         },
         {
           "dungeon": "Windrunner Spire",
@@ -323,10 +409,10 @@
           "completed_at": "2026-07-08T18:58:12.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 2,
-      "mplus_total_dungeons_this_week": 2,
-      "mplus_highest_key_this_week": 12,
-      "mplus_requirement_met": false
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
+      "mplus_highest_key_this_week": 13,
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "82bdcf06-92f4-490d-bee7-02e7d74fdc0d",
