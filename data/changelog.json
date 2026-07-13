@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-13T10:37:55.080Z",
-  "roster_hash": "ea698a2677a18790dbd13b07b0ca63bd023efb3c561b531f230c0511f6f370d9",
+  "last_updated": "2026-07-13T22:09:01.852Z",
+  "roster_hash": "678ad507221289d40c8b14f3dfb7bb5cca0303f8bfb89463622b3070a1cc9343",
   "prev_roster_snapshot": {
     "app_name": "Undaunted: Relentless",
     "realm": "EU-Draenor",
@@ -9,6 +9,11 @@
     "mplus_minimum_key_level": 10,
     "primary_raid_difficulty": "heroic",
     "tracking_start_date": "2026-05-20",
+    "raiding_break": {
+      "active": true,
+      "message": "The team is on a break — Raid and Mythic+ tracking is paused until Season 2 begins.",
+      "note": "If you want to reroll from your current main, please get in touch with Relentless Raid Leadership Team. Thanks!"
+    },
     "mplus_seasons": [
       {
         "season_id": "midnight-s1",
@@ -474,7 +479,7 @@
       {
         "raider_id": "185f2e13-823b-42bb-9387-fb439efc132e",
         "display_name": "Fanghui",
-        "status": "active",
+        "status": "inactive",
         "tracking_start_date": "2026-05-20",
         "team_designation": "main",
         "membership_history": [
@@ -482,6 +487,11 @@
             "event": "joined",
             "date": "2026-05-20",
             "note": "Applied on 13th May 2026"
+          },
+          {
+            "event": "left",
+            "date": "2026-07-13",
+            "note": "Moving to Fearless for Season 2"
           }
         ],
         "characters": [
@@ -501,7 +511,7 @@
             "spec": "Frost",
             "character": "Fanghui",
             "from": "2026-05-20",
-            "to": null
+            "to": "2026-07-13"
           }
         ]
       },
@@ -1438,6 +1448,20 @@
       "spec": "Demonology",
       "role": "dps",
       "note": "Joined 17th June 2026"
+    },
+    {
+      "id": "622dd1c9-b9da-4222-babf-abc873c8f7c1",
+      "timestamp": "2026-07-13T22:09:01.852Z",
+      "week": "2026-28",
+      "team": "main",
+      "event": "left",
+      "raider_id": "185f2e13-823b-42bb-9387-fb439efc132e",
+      "display_name": "Fanghui",
+      "character": "Fanghui",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "note": "Moving to Fearless for Season 2"
     }
   ]
 }
