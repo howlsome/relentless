@@ -470,7 +470,7 @@
     {
       "raider_id": "185f2e13-823b-42bb-9387-fb439efc132e",
       "display_name": "Fanghui",
-      "status": "active",
+      "status": "inactive",
       "tracking_start_date": "2026-05-20",
       "team_designation": "main",
       "membership_history": [
@@ -478,6 +478,11 @@
           "event": "joined",
           "date": "2026-05-20",
           "note": "Applied on 13th May 2026"
+        },
+        {
+          "event": "left",
+          "date": "2026-07-13",
+          "note": "Moving to Fearless for Season 2"
         }
       ],
       "characters": [
@@ -497,7 +502,7 @@
           "spec": "Frost",
           "character": "Fanghui",
           "from": "2026-05-20",
-          "to": null
+          "to": "2026-07-13"
         }
       ]
     },
