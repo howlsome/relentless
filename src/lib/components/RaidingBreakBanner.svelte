@@ -1,18 +1,18 @@
 <script lang="ts">
 	let {
 		message,
-		resumes,
+		note,
 	}: {
 		message: string;
-		resumes?: string | null;
+		note?: string | null;
 	} = $props();
 </script>
 
 <section data-raiding-break-banner aria-label="Raiding break notice" class="raiding-break-banner">
 	<p>
 		⏸️ {message}
-		{#if resumes}
-			<span class="raiding-break-banner__resumes">Tracking resumes when {resumes} begins.</span>
+		{#if note}
+			<span class="raiding-break-banner__note">{note}</span>
 		{/if}
 	</p>
 </section>
@@ -30,7 +30,7 @@
 		margin: 0;
 	}
 
-	.raiding-break-banner__resumes {
+	.raiding-break-banner__note {
 		display: block;
 		font-size: 0.85rem;
 		color: var(--pico-muted-color);

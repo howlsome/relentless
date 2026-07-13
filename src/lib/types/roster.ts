@@ -128,8 +128,8 @@ export interface RaidingBreak {
 	active: boolean;
 	/** Shown in the site-wide banner. */
 	message: string;
-	/** Optional label for when tracking resumes, e.g. "Season 2". Purely informational. */
-	resumes?: string | null;
+	/** Optional secondary line shown below the main message, e.g. reroll instructions. */
+	note?: string | null;
 }
 
 export interface Roster {

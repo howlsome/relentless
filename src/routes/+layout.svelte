@@ -52,7 +52,7 @@
 	{#if seasonsIndex.raiding_break?.active}
 		<RaidingBreakBanner
 			message={seasonsIndex.raiding_break.message}
-			resumes={seasonsIndex.raiding_break.resumes}
+			note={seasonsIndex.raiding_break.note}
 		/>
 	{/if}
 	{@render children()}
