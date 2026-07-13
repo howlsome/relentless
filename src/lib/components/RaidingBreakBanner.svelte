@@ -19,11 +19,11 @@
 
 <style>
 	.raiding-break-banner {
-		background: var(--pico-mark-background-color);
-		color: var(--pico-mark-color);
-		padding: var(--pico-spacing, 1rem);
-		border-radius: var(--pico-border-radius, 4px);
-		margin-block-end: var(--pico-spacing, 1rem);
+		background: color-mix(in srgb, orange 8%, var(--pico-card-background-color));
+		border: 1px solid color-mix(in srgb, orange 40%, transparent);
+		border-radius: var(--pico-border-radius);
+		padding: var(--pico-spacing);
+		margin-block-end: var(--pico-spacing);
 	}
 
 	.raiding-break-banner p {
@@ -33,6 +33,6 @@
 	.raiding-break-banner__resumes {
 		display: block;
 		font-size: 0.85rem;
-		opacity: 0.85;
+		color: var(--pico-muted-color);
 	}
 </style>
