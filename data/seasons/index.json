@@ -7,7 +7,7 @@
   ],
   "raiding_break": {
     "active": true,
-    "message": "The team is on a break — raid and Mythic+ tracking is paused until Season 2 begins.",
+    "message": "The team is on a break — Raid and Mythic+ tracking is paused until Season 2 begins.",
     "resumes": "Season 2"
   },
   "all_mplus_seasons": [
