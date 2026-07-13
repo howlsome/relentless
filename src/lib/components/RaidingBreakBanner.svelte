@@ -19,8 +19,8 @@
 
 <style>
 	.raiding-break-banner {
-		background: var(--pico-mark-background-color, #d97706);
-		color: #1a1a1a;
+		background: var(--pico-mark-background-color);
+		color: var(--pico-mark-color);
 		padding: var(--pico-spacing, 1rem);
 		border-radius: var(--pico-border-radius, 4px);
 		margin-block-end: var(--pico-spacing, 1rem);
