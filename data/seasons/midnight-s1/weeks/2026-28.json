@@ -1,7 +1,7 @@
 {
   "season_id": "midnight-s1",
   "week": "2026-28",
-  "fetched_at": "2026-07-12T09:22:52.187Z",
+  "fetched_at": "2026-07-13T10:37:55.080Z",
   "raiders": [
     {
       "raider_id": "ad297730-db58-4d5d-87d9-2774ba988f2b",
@@ -147,10 +147,17 @@
       "spec": "Mistweaver",
       "role": "healer",
       "rio_score": 3914.4,
-      "mplus_runs_this_week": [],
-      "mplus_weekly_count_at_or_above_minimum": 0,
-      "mplus_total_dungeons_this_week": 0,
-      "mplus_highest_key_this_week": null,
+      "mplus_runs_this_week": [
+        {
+          "dungeon": "Pit of Saron",
+          "level": 21,
+          "timed": false,
+          "completed_at": "2026-07-12T11:16:44.000Z"
+        }
+      ],
+      "mplus_weekly_count_at_or_above_minimum": 1,
+      "mplus_total_dungeons_this_week": 1,
+      "mplus_highest_key_this_week": 21,
       "mplus_requirement_met": false
     },
     {
@@ -189,6 +196,18 @@
         },
         {
           "dungeon": "Pit of Saron",
+          "level": 19,
+          "timed": false,
+          "completed_at": "2026-07-12T22:42:10.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-07-12T17:31:33.000Z"
+        },
+        {
+          "dungeon": "Pit of Saron",
           "level": 13,
           "timed": true,
           "completed_at": "2026-07-10T23:21:58.000Z"
@@ -206,8 +225,8 @@
           "completed_at": "2026-07-10T22:47:36.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 4,
-      "mplus_total_dungeons_this_week": 4,
+      "mplus_weekly_count_at_or_above_minimum": 6,
+      "mplus_total_dungeons_this_week": 6,
       "mplus_highest_key_this_week": 19,
       "mplus_requirement_met": true
     },
@@ -261,6 +280,12 @@
           "completed_at": "2026-07-08T21:36:41.000Z"
         },
         {
+          "dungeon": "Skyreach",
+          "level": 21,
+          "timed": true,
+          "completed_at": "2026-07-12T20:59:30.000Z"
+        },
+        {
           "dungeon": "Maisara Caverns",
           "level": 21,
           "timed": true,
@@ -273,10 +298,10 @@
           "completed_at": "2026-07-10T23:51:41.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 3,
-      "mplus_total_dungeons_this_week": 3,
+      "mplus_weekly_count_at_or_above_minimum": 4,
+      "mplus_total_dungeons_this_week": 4,
       "mplus_highest_key_this_week": 22,
-      "mplus_requirement_met": false
+      "mplus_requirement_met": true
     },
     {
       "raider_id": "dcd66ae4-99d3-4970-a071-e0af1d9d479c",
@@ -401,8 +426,14 @@
       "class": "Evoker",
       "spec": "Augmentation",
       "role": "dps",
-      "rio_score": 3047.8,
+      "rio_score": 3052.8,
       "mplus_runs_this_week": [
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 14,
+          "timed": true,
+          "completed_at": "2026-07-11T19:19:33.000Z"
+        },
         {
           "dungeon": "Pit of Saron",
           "level": 13,
@@ -431,12 +462,18 @@
           "dungeon": "Windrunner Spire",
           "level": 10,
           "timed": true,
+          "completed_at": "2026-07-12T12:30:17.000Z"
+        },
+        {
+          "dungeon": "Windrunner Spire",
+          "level": 10,
+          "timed": true,
           "completed_at": "2026-07-08T18:58:12.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 5,
-      "mplus_total_dungeons_this_week": 5,
-      "mplus_highest_key_this_week": 13,
+      "mplus_weekly_count_at_or_above_minimum": 7,
+      "mplus_total_dungeons_this_week": 7,
+      "mplus_highest_key_this_week": 14,
       "mplus_requirement_met": true
     },
     {
@@ -512,7 +549,7 @@
       "class": "DeathKnight",
       "spec": "Unholy",
       "role": "dps",
-      "rio_score": 2655,
+      "rio_score": 2685,
       "mplus_runs_this_week": [
         {
           "dungeon": "Pit of Saron",
@@ -522,13 +559,19 @@
         },
         {
           "dungeon": "Magisters' Terrace",
+          "level": 10,
+          "timed": true,
+          "completed_at": "2026-07-12T12:38:33.000Z"
+        },
+        {
+          "dungeon": "Magisters' Terrace",
           "level": 6,
           "timed": true,
           "completed_at": "2026-07-11T21:14:47.000Z"
         }
       ],
-      "mplus_weekly_count_at_or_above_minimum": 1,
-      "mplus_total_dungeons_this_week": 2,
+      "mplus_weekly_count_at_or_above_minimum": 2,
+      "mplus_total_dungeons_this_week": 3,
       "mplus_highest_key_this_week": 11,
       "mplus_requirement_met": false
     },
