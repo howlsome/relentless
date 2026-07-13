@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-13T10:37:55.080Z",
+  "last_updated": "2026-07-13T23:25:58.824Z",
   "raiders": {
     "ad297730-db58-4d5d-87d9-2774ba988f2b": {
       "display_name": "Howl",
@@ -321,6 +321,11 @@
           "event": "joined",
           "date": "2026-05-20",
           "note": "Applied on 13th May 2026"
+        },
+        {
+          "event": "left",
+          "date": "2026-07-13",
+          "note": "Moving to Fearless for Season 2"
         }
       ],
       "characters": [
@@ -341,7 +346,7 @@
           "spec": "Frost",
           "character": "Fanghui",
           "from": "2026-05-20",
-          "to": null
+          "to": "2026-07-13"
         }
       ]
     },

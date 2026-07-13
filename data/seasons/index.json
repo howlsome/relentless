@@ -1,10 +1,6 @@
 {
-  "active_mplus_season": "midnight-s1",
-  "active_raid_zones": [
-    "raid-47",
-    "raid-50",
-    "raid-46"
-  ],
+  "active_mplus_season": null,
+  "active_raid_zones": [],
   "raiding_break": {
     "active": true,
     "message": "The team is on a break — Raid and Mythic+ tracking is paused until Season 2 begins.",
@@ -18,27 +14,5 @@
       "end_date": null
     }
   ],
-  "all_raid_zones": [
-    {
-      "season_id": "raid-47",
-      "label": "Mythic+ Season 1",
-      "wcl_zone_id": 47,
-      "start_date": "2026-07-13",
-      "end_date": null
-    },
-    {
-      "season_id": "raid-50",
-      "label": "Sporefall",
-      "wcl_zone_id": 50,
-      "start_date": "2026-07-13",
-      "end_date": null
-    },
-    {
-      "season_id": "raid-46",
-      "label": "VS / DR / MQD",
-      "wcl_zone_id": 46,
-      "start_date": "2026-07-13",
-      "end_date": null
-    }
-  ]
+  "all_raid_zones": []
 }
