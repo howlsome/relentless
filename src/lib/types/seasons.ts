@@ -18,4 +18,5 @@ export interface SeasonsIndex {
 	active_raid_zones: string[];
 	all_mplus_seasons: MplusSeasonIndex[];
 	all_raid_zones: RaidZoneIndex[];
+	raiding_break?: { active: boolean; message: string; resumes?: string | null };
 }

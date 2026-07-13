@@ -123,6 +123,15 @@ export interface ZoneCombination {
 	label: string;
 }
 
+export interface RaidingBreak {
+	/** True while the team has paused raiding — fetch.ts skips raid/M+ tracking entirely. */
+	active: boolean;
+	/** Shown in the site-wide banner. */
+	message: string;
+	/** Optional label for when tracking resumes, e.g. "Season 2". Purely informational. */
+	resumes?: string | null;
+}
+
 export interface Roster {
 	app_name: string;
 	realm: string;
@@ -139,4 +148,5 @@ export interface Roster {
 	players: Player[];
 	raid_schedule?: RaidSchedule;
 	raid_difficulty_status?: Record<string, RaidDifficultyStatus>;
+	raiding_break?: RaidingBreak;
 }

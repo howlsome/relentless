@@ -109,16 +109,29 @@ async function main() {
 	const wclToken = await getWclToken(clientId, clientSecret);
 	console.log('[fetch] WCL token obtained.');
 
+	// ── 2b. Raiding break — skip raid/M+ tracking entirely while paused ──────
+	const raidingBreak = roster.raiding_break?.active === true;
+	if (raidingBreak) {
+		console.log(
+			`[fetch] Raiding break active — skipping raid and M+ tracking: ${roster.raiding_break.message}`,
+		);
+	}
+
 	// ── 3. Active zones from WCL ──────────────────────────────────────────────
-	console.log('[fetch] Fetching active raid zones…');
-	const allZones = await fetchActiveRaidZones(wclToken, roster.wcl_expansion_id);
-	const allowedZoneIds: Set<number> = new Set(roster.wcl_zone_ids ?? []);
-	const raidZones = allZones.filter((z) =>
-		allowedZoneIds.size > 0 ? allowedZoneIds.has(z.id) : !z.name.toLowerCase().includes('mythic+'),
-	);
-	console.log(
-		`[fetch] Found ${raidZones.length} raid zone(s) (filtered to IDs: ${[...allowedZoneIds].join(', ')}) for expansion ${roster.wcl_expansion_id}.`,
-	);
+	const raidZones = raidingBreak
+		? []
+		: await (async () => {
+				console.log('[fetch] Fetching active raid zones…');
+				const allZones = await fetchActiveRaidZones(wclToken, roster.wcl_expansion_id);
+				const allowedZoneIds: Set<number> = new Set(roster.wcl_zone_ids ?? []);
+				const zones = allZones.filter((z) =>
+					allowedZoneIds.size > 0 ? allowedZoneIds.has(z.id) : !z.name.toLowerCase().includes('mythic+'),
+				);
+				console.log(
+					`[fetch] Found ${zones.length} raid zone(s) (filtered to IDs: ${[...allowedZoneIds].join(', ')}) for expansion ${roster.wcl_expansion_id}.`,
+				);
+				return zones;
+			})();
 
 	// ── 4. Build active {player, char} list ──────────────────────────────────
 	/** @type {Array<{player: object, char: object}>} */
@@ -146,12 +159,17 @@ async function main() {
 	);
 
 	// ── 5. Raider.io fetch (all active chars) ─────────────────────────────────
-	console.log('[fetch] Fetching Raider.io profiles…');
-	const rioResults = await fetchRioBatch(activeItems, roster.region);
-	console.log('[fetch] Raider.io fetch complete.');
+	const rioResults = raidingBreak
+		? new Map()
+		: await (async () => {
+				console.log('[fetch] Fetching Raider.io profiles…');
+				const results = await fetchRioBatch(activeItems, roster.region);
+				console.log('[fetch] Raider.io fetch complete.');
+				return results;
+			})();
 
 	// ── 6. M+ season processing ───────────────────────────────────────────────
-	const activeMplusSeason = roster.mplus_seasons.find((s) => !s.end_date);
+	const activeMplusSeason = raidingBreak ? undefined : roster.mplus_seasons.find((s) => !s.end_date);
 	if (activeMplusSeason) {
 		await processMplusSeason({
 			season: activeMplusSeason,
@@ -161,7 +179,7 @@ async function main() {
 			resetStart,
 			roster,
 		});
-	} else {
+	} else if (!raidingBreak) {
 		console.warn('[fetch] No active M+ season found in roster.json — skipping M+ data.');
 	}
 
@@ -182,6 +200,7 @@ async function main() {
 	const seasonsIndex = {
 		active_mplus_season: activeMplusSeason?.season_id ?? null,
 		active_raid_zones: raidZones.map((z) => `raid-${z.id}`),
+		...(roster.raiding_break ? { raiding_break: roster.raiding_break } : {}),
 		all_mplus_seasons: roster.mplus_seasons.map(({ season_id, label, start_date, end_date }) => ({
 			season_id,
 			label,

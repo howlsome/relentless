@@ -6,6 +6,11 @@
   "mplus_minimum_key_level": 10,
   "primary_raid_difficulty": "heroic",
   "tracking_start_date": "2026-05-20",
+  "raiding_break": {
+    "active": true,
+    "message": "The team is on a break — raid and Mythic+ tracking is paused until Season 2 begins.",
+    "resumes": "Season 2"
+  },
   "mplus_seasons": [
     {
       "season_id": "midnight-s1",

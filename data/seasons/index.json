@@ -5,6 +5,11 @@
     "raid-50",
     "raid-46"
   ],
+  "raiding_break": {
+    "active": true,
+    "message": "The team is on a break — raid and Mythic+ tracking is paused until Season 2 begins.",
+    "resumes": "Season 2"
+  },
   "all_mplus_seasons": [
     {
       "season_id": "midnight-s1",

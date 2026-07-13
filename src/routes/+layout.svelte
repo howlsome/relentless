@@ -5,6 +5,7 @@
 	import type { Snippet } from 'svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import RaidingBreakBanner from '$lib/components/RaidingBreakBanner.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import type { SeasonsIndex } from '$lib/types/seasons.js';
 
@@ -48,6 +49,12 @@
 </header>
 
 <main class="container" id="main-content">
+	{#if seasonsIndex.raiding_break?.active}
+		<RaidingBreakBanner
+			message={seasonsIndex.raiding_break.message}
+			resumes={seasonsIndex.raiding_break.resumes}
+		/>
+	{/if}
 	{@render children()}
 </main>
 
